@@ -20,6 +20,14 @@ For a given taxonomy, renders a list of terms assigned to the page.
           <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         {{- end }}
       </div>
+    {{- else if eq $taxonomy "topics" }}
+      <hr>
+      <div>
+        {{- range $index, $term := . -}}
+          {{- if $index }} | {{ end -}}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end }}
+      </div>
     {{- else }}
       <div>{{ $label }}:</div>
       <ul>
