@@ -2,3 +2,25 @@ baseURL = 'https://example.org/'
 locale = 'es-cr'
 title = 'Lupita'
 theme = 'main'
+
+[module.hugoVersion]
+  min = '0.158.0'
+
+[taxonomies]
+  category = 'categories'
+  topic = 'topics'
+
+[[menus.main]]
+  name = 'Inicio'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Categorías'
+  pageRef = '/categories'
+  weight = 20
+
+[[menus.main]]
+  name = 'Temas'
+  pageRef = '/topics'
+  weight = 30

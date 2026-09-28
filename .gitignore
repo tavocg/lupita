@@ -1,2 +1,11 @@
-.hugo_build.lock
-public/
+# Archivos generados por Hugo
+/.hugo_build.lock
+/public/
+/resources/_gen/
+
+# Archivos temporales del sistema y del editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
