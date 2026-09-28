@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+locale = 'es-cr'
+title = 'Lupita'
+theme = 'main'
