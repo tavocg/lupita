@@ -14,10 +14,19 @@ For a given taxonomy, renders a list of terms assigned to the page.
   {{- $label := (index . 0).Parent.LinkTitle }}
   <div>
     <div>{{ $label }}:</div>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
+    {{- if eq $taxonomy "categories" }}
+      <div>
+        {{- range $index, $term := . -}}
+          {{- if $index }} / {{ end -}}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end }}
+      </div>
+    {{- else }}
+      <ul>
+        {{- range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+    {{- end }}
   </div>
 {{- end }}
