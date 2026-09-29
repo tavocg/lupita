@@ -1,0 +1,37 @@
+{{/* Generate date sections from content/YYYY/MM/DD/*.md; articles remain ordinary Markdown pages. */}}
+{{ $adapter := . }}
+{{ $sections := dict }}
+{{ range os.ReadDir "content" }}
+  {{ if and .IsDir (findRE `^\d{4}$` .Name) }}
+    {{ $year := .Name }}
+    {{ range os.ReadDir (path.Join "content" $year) }}
+      {{ if and .IsDir (findRE `^(0[1-9]|1[0-2])$` .Name) }}
+        {{ $month := .Name }}
+        {{ range os.ReadDir (path.Join "content" $year $month) }}
+          {{ if and .IsDir (findRE `^(0[1-9]|[12]\d|3[01])$` .Name) }}
+            {{ $day := .Name }}
+            {{ $dayPath := path.Join $year $month $day }}
+            {{ $hasNews := false }}
+            {{ range os.ReadDir (path.Join "content" $dayPath) }}
+              {{ if and (not .IsDir) (eq (path.Ext .Name) ".md") (not (strings.HasPrefix .Name "_")) }}
+                {{ $hasNews = true }}
+              {{ end }}
+            {{ end }}
+            {{ if $hasNews }}
+              {{ $date := time.AsTime (printf "%s-%s-%s" $year $month $day) }}
+              {{ $monthPath := path.Join $year $month }}
+              {{ $sections = merge $sections (dict
+                $year (dict "title" (printf "Noticias de %s" $year) "linkTitle" $year)
+                $monthPath (dict "title" (printf "Noticias de %s" (time.Format "January de 2006" $date)) "linkTitle" $month)
+                $dayPath (dict "title" (printf "Noticias del %s" (time.Format "2 de January de 2006" $date)) "linkTitle" $day)
+              ) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ range $path, $metadata := $sections }}
+  {{ $adapter.AddPage (merge $metadata (dict "kind" "section" "path" $path)) }}
+{{ end }}
