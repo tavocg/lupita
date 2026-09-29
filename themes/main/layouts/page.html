@@ -3,12 +3,15 @@
 
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
-  {{ partial "source.html" . }}
+  <small>
+    <div style="display:flex;width:100%;justify-content:space-between">
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      {{ partial "source.html" . }}
+    </div>
+  </small>
 
   <h1>{{ .Title }}</h1>
-  {{ partial "authors.html" . }}
+  <small>{{ partial "authors.html" . }}</small>
 
   {{ .Content }}
   {{ partial "terms.html" (dict "taxonomy" "topics" "page" .) }}
