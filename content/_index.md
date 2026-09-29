@@ -3,6 +3,6 @@ heading = 'Noticias de Costa Rica'
 eyebrow = 'Actualidad nacional'
 +++
 
-> La libertad, Sancho, es uno de los más preciosos dones que a los hombres dieron los cielos; con ella no pueden igualarse los tesoros que encierra la tierra ni el mar encubre.
+> Mi vida se hace al contarla y mi memoria se fija con la escritura; lo que no pongo en palabras sobre papel, lo borra el tiempo.
 >
-> — *Don Quijote de la Mancha*
+> — Isabel Allende

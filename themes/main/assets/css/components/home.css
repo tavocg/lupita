@@ -28,7 +28,7 @@ body.home main {
   text-transform: uppercase;
 }
 
-.home-description {
+.home-content {
   margin: 0.75rem 0 0;
   color: var(--color-text-muted);
 
@@ -67,7 +67,7 @@ body.home main {
   overflow: hidden;
 
   > small:last-of-type {
-    font-size: 1.25rem;
+    font-size: 1rem;
 
     .icon {
       justify-content: flex-end;
@@ -123,6 +123,10 @@ body.home main {
 }
 
 @media (max-width: 760px) {
+  .home-content {
+    display: none;
+  }
+
   .home-heading {
     align-items: start;
   }
