@@ -1,6 +1,49 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ range first 10 site.RegularPages.ByDate.Reverse }}
-    {{ partial "summary.html" . }}
+  {{ $news := site.RegularPages.ByDate.Reverse }}
+  <div class="home-heading">
+    <div>
+      <p class="home-eyebrow">Actualidad nacional</p>
+      <h1>Noticias de Costa Rica</h1>
+      <p class="home-description">Las historias que están marcando la conversación.</p>
+    </div>
+    <p class="home-stat"><strong>{{ len $news }}</strong><span>noticias publicadas</span></p>
+  </div>
+
+  {{ with $news }}
+    <div class="home-grid">
+      {{ $featured := index . 0 }}
+      <article class="card home-featured">
+        {{ with $featured.Params.image }}
+          <a class="home-featured-image" href="{{ $featured.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . }}" alt="" loading="lazy" decoding="async"></a>
+        {{ end }}
+        <div class="home-featured-content">
+          <small><time class="text-muted" datetime="{{ $featured.Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ $featured.Date | time.Format ":date_long" }}</time></small>
+          {{ with $featured.GetTerms "category" }}
+            <p class="home-category">{{ range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}</p>
+          {{ end }}
+          <h2><a class="card-link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h2>
+          {{ with $featured.Summary }}<p class="card-summary text-muted">{{ . | plainify | strings.Truncate 240 "..." }}</p>{{ end }}
+          {{ partial "authors.html" $featured }}
+          {{ partial "terms.html" $featured }}
+        </div>
+      </article>
+
+      {{ range first 4 (after 1 $news) }}
+        {{ partial "summary.html" . }}
+      {{ end }}
+    </div>
+
+    {{ $more := after 5 $news }}
+    {{ with $more }}
+      <section class="home-more" aria-labelledby="home-more-title">
+        <h2 id="home-more-title">Más noticias</h2>
+        <div class="home-more-grid">
+          {{ range first 6 . }}{{ partial "summary.html" . }}{{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ else }}
+    <p class="home-empty">Pronto encontrarás aquí las noticias más recientes.</p>
   {{ end }}
 {{ end }}
