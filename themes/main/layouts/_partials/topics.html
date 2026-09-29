@@ -1,0 +1,5 @@
+<ul class="topics">
+  {{ range . }}
+    <li><a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+  {{ end }}
+</ul>

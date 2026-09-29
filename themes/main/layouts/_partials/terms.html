@@ -1,20 +1,15 @@
 {{- /* Renders the terms of the given taxonomy assigned to the page. */}}
 {{- with .page.GetTerms .taxonomy }}
-  <div
-    {{ if eq $.taxonomy "categories" }}class="text-muted"{{ end }}
-    {{ if eq $.taxonomy "topics" }}style="text-align:center"{{ end }}
-  >
-    <small>
-      {{- range $index, $term := . -}}
-        {{- if $index }} • {{ end -}}
-        <a href="{{ .RelPermalink }}">
-          {{ if eq $.taxonomy "topics" }}
-            <span class="tag">{{ .LinkTitle }}</span>
-          {{ else }}
-            <span class="topic">{{ .LinkTitle }}</span>
-          {{ end }}
-        </a>
-      {{- end }}
-    </small>
-  </div>
+  {{- if eq $.taxonomy "topics" }}
+    {{ partial "topics.html" . }}
+  {{- else }}
+    <div class="text-muted">
+      <small>
+        {{- range $index, $term := . -}}
+          {{- if $index }} • {{ end -}}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end }}
+      </small>
+    </div>
+  {{- end }}
 {{- end }}

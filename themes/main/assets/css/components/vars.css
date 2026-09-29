@@ -2,6 +2,8 @@
   color-scheme: light;
   --color-background: #f5f8f5;
   --color-border: #d4ddd6;
+  --color-topic-background: #eaf2ec;
+  --color-topic-hover: #dceadf;
   --color-text: #1c3024;
   --color-text-muted: #637068;
   --color-link: #237a43;
@@ -15,6 +17,8 @@
     color-scheme: dark;
     --color-background: #171717;
     --color-border: #3a3a3a;
+    --color-topic-background: #202d24;
+    --color-topic-hover: #2b3d30;
     --color-text: #e0ece3;
     --color-text-muted: #a3afa6;
     --color-link: #86dba0;
