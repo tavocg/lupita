@@ -1,0 +1,20 @@
+.breadcrumbs {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    list-style: none;
+  }
+
+  li {
+    overflow-wrap: anywhere;
+  }
+
+  li + li:not(.breadcrumb-category)::before {
+    content: "/";
+    margin-right: 0.5rem;
+  }
+}
