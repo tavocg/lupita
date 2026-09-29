@@ -10,6 +10,9 @@ theme = 'main'
   category = 'category'
   topic = 'topics'
 
+[pagination]
+  pagerSize = 50
+
 [[menus.main]]
   name = 'Categorías'
   pageRef = '/category'
