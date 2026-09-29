@@ -1,4 +1,15 @@
 body {
-  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 1.5rem;
 }
 
+main {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  & > * {
+    margin: 1rem 0;
+  }
+}
