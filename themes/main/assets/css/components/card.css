@@ -5,6 +5,14 @@
   position: relative;
   isolation: isolate;
   border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
+  background-color: var(--color-background);
+  transition: box-shadow 150ms ease, background-color 150ms ease;
+
+  &:hover {
+    background-color: var(--color-card-hover);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+  }
 
   h2 {
     font-size: 1.375rem;
