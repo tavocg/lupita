@@ -12,10 +12,10 @@ from urllib.error import URLError
 
 from lupita.__main__ import main, run
 from lupita.config import Config, load_env
-from lupita.editor import OllamaEditor, validate
+from lupita.editor import CATEGORIES, EXCLUDED_CATEGORY, OllamaEditor, validate
 from lupita.http import RequestError
 from lupita.models import Article, Editorial, canonical_url
-from lupita.scrapers.nacion import parse_feed, plain_text
+from lupita.scrapers.nacion import MIN_TEXT_LENGTH, parse_feed, plain_text
 from lupita.storage import destination, frontmatter, known_urls, pipeline_lock, render, write_article
 
 
@@ -53,11 +53,34 @@ def generated():
     return {
         "title": "Vecindario propone mejoras en los servicios",
         "summary": "Un grupo comunal planteó cambios para atender carencias locales. La municipalidad evaluará los recursos disponibles antes de aprobar las obras.",
-        "category": "Sociedad", "topics": ["Servicios públicos", "Municipalidades"],
+        "category": "Política", "topics": ["Servicios públicos", "Municipalidades"],
     }
 
 
 class ScraperTests(unittest.TestCase):
+    def test_length_threshold_includes_boundary_and_uses_summary_without_body(self):
+        items = []
+        for index, (length, body) in enumerate((
+            (MIN_TEXT_LENGTH - 1, True), (MIN_TEXT_LENGTH, True),
+            (MIN_TEXT_LENGTH + 1, True), (MIN_TEXT_LENGTH, False),
+        )):
+            text = "x" * length
+            content = f"<content:encoded><![CDATA[<p>{text}</p>]]></content:encoded>" if body else ""
+            # La entradilla no debe inflar la longitud de un cuerpo corto.
+            items.append(f"""<item><title>Nota {index}</title>
+                <link>https://www.nacion.com/nota/{index}</link>
+                <pubDate>Mon, 28 Sep 2026 03:00:00 +0000</pubDate>
+                <description>{text}</description>{content}</item>""")
+        raw = ('<rss xmlns:content="http://purl.org/rss/1.0/modules/content/">'
+               '<channel>' + ''.join(items) + '</channel></rss>').encode()
+        result = parse_feed(raw)
+        self.assertEqual([a.title for a in result], ["Nota 1", "Nota 2", "Nota 3"])
+
+    def test_all_short_entries_are_skipped_without_invalid_feed_error(self):
+        with self.assertLogs("lupita.scrapers.nacion", level="INFO"):
+            self.assertEqual(parse_feed(RSS), [])
+
+    @patch("lupita.scrapers.nacion.MIN_TEXT_LENGTH", 0)
     def test_rss_namespaces_html_dates_authors_and_duplicates(self):
         with self.assertLogs("lupita.scrapers.nacion", level="WARNING"):
             result = parse_feed(RSS)
@@ -84,6 +107,19 @@ class ScraperTests(unittest.TestCase):
 
 
 class EditorTests(unittest.TestCase):
+    def test_allowed_categories_and_explicit_exclusion(self):
+        self.assertEqual(set(CATEGORIES), {
+            "Ambiente", "Educación", "Ciencia", "Seguridad", "Tecnología",
+            "Inteligencia Artificial", "Finanzas", "Cultura", "Política",
+        })
+        for category in CATEGORIES:
+            with self.subTest(category=category):
+                self.assertEqual(validate(generated() | {"category": category}, article()).category, category)
+        self.assertIsNone(validate(generated() | {"category": EXCLUDED_CATEGORY}, article()))
+        for category in ("Deportes", "Sociedad", "Migración", "Internacionales"):
+            with self.subTest(category=category), self.assertRaises(ValueError):
+                validate(generated() | {"category": category}, article())
+
     def test_connection_error_identifies_ollama_and_preserves_cause(self):
         with patch("lupita.http.urlopen", side_effect=URLError(ConnectionRefusedError(111, "Connection refused"))) as connect:
             with self.assertRaisesRegex(RequestError, r"Ollama.*Connection refused"):
@@ -91,7 +127,7 @@ class EditorTests(unittest.TestCase):
         connect.assert_called_once()
 
     def test_valid_response_and_invalid_variants(self):
-        self.assertEqual(validate(generated(), article()).category, "Sociedad")
+        self.assertEqual(validate(generated(), article()).category, "Política")
         for update in (
             {"category": "Inventada"}, {"topics": []}, {"topics": ["Tema", "tema"]},
             {"summary": "muy corto"}, {"title": 123}, {"extra": True},
@@ -142,6 +178,31 @@ class StorageTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.config = Config("http://localhost:11434", "test", self.root / "content", self.root / "state", 5, True)
+
+    def test_excluded_categories_never_create_files_or_previews(self):
+        for dry_run in (False, True):
+            for result in (None, Editorial("Deportes", "Resultado deportivo", "Deportes", [])):
+                with self.subTest(dry_run=dry_run, result=result):
+                    class Editor:
+                        def generate(self, item):
+                            return result
+                    with redirect_stdout(StringIO()) as output:
+                        totals = run([article()], Editor(), self.config, limit=1, dry_run=dry_run)
+                    self.assertEqual(totals["excluded"], 1)
+                    self.assertEqual(totals["failed"], 0)
+                    self.assertEqual(totals["written"] + totals["previewed"], 0)
+                    self.assertEqual(output.getvalue(), "")
+                    self.assertFalse(self.config.content_dir.exists())
+
+    def test_scraper_discards_short_notes_before_calling_editor(self):
+        with self.assertLogs("lupita.scrapers.nacion", level="INFO"):
+            articles = parse_feed(RSS)
+        class Editor:
+            def generate(self, item):
+                raise AssertionError("No debe invocarse para notas cortas")
+        totals = run(articles, Editor(), self.config, limit=10)
+        self.assertEqual(totals["failed"], 0)
+        self.assertEqual(totals["written"], 0)
 
     def test_date_timezone_toml_escape_and_safe_body(self):
         item = article()
@@ -223,6 +284,7 @@ class ConfigTests(unittest.TestCase):
         with patch.dict("os.environ", {}, clear=True), self.assertRaisesRegex(ValueError, "OLLAMA_MODEL"):
             Config.from_env()
 
+    @patch("lupita.scrapers.nacion.MIN_TEXT_LENGTH", 0)
     def test_scrape_command_needs_no_ollama(self):
         with tempfile.TemporaryDirectory() as directory, redirect_stdout(StringIO()) as output:
             path = Path(directory) / "rss.xml"

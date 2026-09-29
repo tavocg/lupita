@@ -35,6 +35,26 @@ Procesa hasta 10 noticias nuevas por ejecución. Para cambiar el máximo:
 docker compose run --rm --build ingest --limit 25
 ```
 
+Solo se importan noticias de **Ambiente, Educación, Ciencia, Seguridad,
+Tecnología, Inteligencia Artificial, Finanzas, Cultura y Política**. Ollama
+clasifica por el tema principal y puede devolver `Excluir` para los demás;
+estas noticias no generan Markdown ni vistas previas. Se cuentan como `excluded`,
+sin considerarse errores. Las exclusiones por categoría consumen el límite de
+consultas de la ejecución y pueden volver a evaluarse en futuras ejecuciones.
+
+Antes de llamar a Ollama, cada scraper aplica su propio mínimo de longitud.
+La Nación usa `MIN_TEXT_LENGTH = 2287` en `src/lupita/scrapers/nacion.py`:
+caracteres del cuerpo con HTML eliminado y espacios normalizados, o de la
+entradilla si no hay cuerpo. No se suma el título ni se duplica la entradilla.
+Las notas por debajo del mínimo se omiten tanto en `scrape` como en `ingest`;
+se informa el motivo en el registro y no consumen el límite de consultas.
+
+El umbral se fijó con las 100 notas del RSS de La Nación descargadas el
+29 de septiembre de 2026 a las 18:18 UTC: las posiciones 50 y 51 tenían
+2.232 y 2.342 caracteres, con una mediana de 2.287. El corte conservó 50 notas.
+Es una constante, no un percentil recalculado en cada ejecución, por lo que
+la proporción retenida puede cambiar con el contenido del feed.
+
 `NEWS_DRAFT=true` genera borradores para revisión. Tras revisarlos, cambia su
 `draft` a `false`; para que las futuras importaciones se publiquen directamente,
 usa `NEWS_DRAFT=false`. Los borradores también cuentan como ya importados.
@@ -116,14 +136,18 @@ Cada scraper produce registros con este contrato, definido en `models.Article`:
 `date` incluye zona horaria; `authors` puede estar vacío; se necesita `summary`
 o `body`. Los scrapers solo extraen estos datos. No clasifican, invocan IA ni
 escriben noticias. Para incorporar medios, implementa un módulo en
-`src/lupita/scrapers/` que devuelva `list[Article]` y selecciónalo en el comando.
+`src/lupita/scrapers/` que devuelva `list[Article]`, defina su propio
+`MIN_TEXT_LENGTH` calibrado con ese medio y omita las notas cortas antes de
+devolverlas. Selecciónalo en el comando. Un feed válido cuyas notas sean todas
+demasiado cortas devuelve una lista vacía, sin error.
 
 ## Redacción y clasificación
 
 Ollama recibe el registro como material de referencia y devuelve un JSON validado
 con `title`, `summary`, `category` y `topics`. El título también se redacta de nuevo.
 El catálogo de categorías está en `src/lupita/editor.py`; admite una categoría
-por noticia, conforme a la taxonomía singular `category` del sitio. Los temas son
+por noticia, conforme a la taxonomía singular `category` del sitio. `Excluir`
+es una decisión de descarte y nunca se publica como categoría. Los temas son
 de libre elección (1–5), por lo que conviene revisar posibles sinónimos.
 
 El resumen se limita a 130 palabras. Se rechazan respuestas incompletas, temas

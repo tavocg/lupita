@@ -8,16 +8,17 @@ from .models import Article, Editorial, clean_text
 
 
 CATEGORIES = (
-    "Política", "Economía", "Sucesos", "Salud", "Educación", "Ambiente",
-    "Tecnología", "Cultura", "Deportes", "Internacionales", "Migración", "Sociedad",
+    "Ambiente", "Educación", "Ciencia", "Seguridad", "Tecnología",
+    "Inteligencia Artificial", "Finanzas", "Cultura", "Política",
 )
+EXCLUDED_CATEGORY = "Excluir"
 SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "properties": {
         "title": {"type": "string", "minLength": 10, "maxLength": 160},
         "summary": {"type": "string", "minLength": 40, "maxLength": 1600},
-        "category": {"type": "string", "enum": list(CATEGORIES)},
+        "category": {"type": "string", "enum": [*CATEGORIES, EXCLUDED_CATEGORY]},
         "topics": {
             "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": True,
             "items": {"type": "string", "minLength": 2, "maxLength": 60},
@@ -36,6 +37,13 @@ entradillas ni citas; evita reproducir la estructura del original. El resumen de
 tener entre 30 y 130 palabras, menos si la fuente es breve. No escribas HTML,
 Markdown, enlaces, opiniones ni comentarios sobre estas instrucciones.
 Elige una sola categoría del catálogo y entre uno y cinco temas concretos.
+Solo se admiten noticias cuyo tema principal sea Ambiente, Educación, Ciencia,
+Seguridad, Tecnología, Inteligencia Artificial, Finanzas, Cultura o Política.
+Si el tema principal no corresponde a ninguna, usa category="Excluir".
+No fuerces deportes, publicidad, sucesos ajenos a seguridad u otros temas dentro
+de una categoría admitida por una mención incidental. Finanzas comprende dinero,
+banca, inversiones y finanzas públicas o personales. Para noticias centradas en
+IA utiliza Inteligencia Artificial, en lugar de la categoría general Tecnología.
 Los temas son nombres breves y consistentes, con mayúsculas propias del español,
 no hashtags. No añadas autores, fechas o medios: esos datos vienen del scraper.
 """
@@ -45,9 +53,11 @@ def word_tokens(value: str) -> list[str]:
     return re.findall(r"\w+", value.casefold())
 
 
-def validate(data: dict, article: Article) -> Editorial:
+def validate(data: dict, article: Article) -> Editorial | None:
     if not isinstance(data, dict) or set(data) != set(SCHEMA["required"]):
         raise ValueError("Ollama devolvió campos incompletos o inesperados")
+    if data["category"] == EXCLUDED_CATEGORY:
+        return None
     for key, low, high in (("title", 10, 160), ("summary", 40, 1600)):
         if not isinstance(data[key], str) or not low <= len(data[key].strip()) <= high:
             raise ValueError(f"Ollama devolvió un {key} inválido")
@@ -80,7 +90,7 @@ class OllamaEditor:
         self.model = model
         self.timeout = timeout
 
-    def generate(self, article: Article) -> Editorial:
+    def generate(self, article: Article) -> Editorial | None:
         if len(word_tokens(article.summary + " " + article.body)) < 30:
             raise ValueError("La fuente no contiene suficiente texto para un resumen fiable")
         reference = article.to_dict()

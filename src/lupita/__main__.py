@@ -7,7 +7,7 @@ import sys
 from xml.etree.ElementTree import ParseError
 
 from .config import Config, load_env
-from .editor import OllamaEditor
+from .editor import CATEGORIES, OllamaEditor
 from .http import RequestError
 from .models import canonical_url
 from .scrapers import nacion
@@ -18,7 +18,7 @@ LOG = logging.getLogger("lupita")
 
 
 def run(articles, editor, config, *, limit: int, dry_run: bool = False) -> dict:
-    totals = {"written": 0, "previewed": 0, "duplicates": 0, "failed": 0}
+    totals = {"written": 0, "previewed": 0, "duplicates": 0, "excluded": 0, "failed": 0}
     with nullcontext() if dry_run else pipeline_lock(config.state_dir):
         seen = known_urls(config.content_dir)
         attempted = 0
@@ -32,6 +32,11 @@ def run(articles, editor, config, *, limit: int, dry_run: bool = False) -> dict:
             attempted += 1
             try:
                 editorial = editor.generate(article)
+                if editorial is None or editorial.category not in CATEGORIES:
+                    totals["excluded"] += 1
+                    LOG.info("Noticia omitida por tema fuera del catálogo (%s)", url)
+                    seen.add(url)
+                    continue
                 path = destination(config.content_dir, article, editorial)
                 markdown = render(article, editorial, draft=config.draft)
                 if dry_run:
