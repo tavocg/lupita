@@ -1,15 +1,4 @@
-{{- /* Renders the terms of the given taxonomy assigned to the page. */}}
-{{- with .page.GetTerms .taxonomy }}
-  {{- if eq $.taxonomy "topics" }}
-    {{ partial "topics.html" . }}
-  {{- else }}
-    <div class="text-muted">
-      <small>
-        {{- range $index, $term := . -}}
-          {{- if $index }} • {{ end -}}
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-        {{- end }}
-      </small>
-    </div>
-  {{- end }}
+{{- /* Renders the topics assigned to the page. */}}
+{{- with .GetTerms "topics" }}
+  {{ partial "topics.html" . }}
 {{- end }}

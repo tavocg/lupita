@@ -1,5 +1,7 @@
 {{ define "main" }}
-  {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+  <div class="page-category">
+    {{ partial "category.html" . }}
+  </div>
 
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateHuman := .Date | time.Format ":date_long" }}
@@ -11,8 +13,10 @@
   </small>
 
   <h1>{{ .Title }}</h1>
-  <small>{{ partial "authors.html" . }}</small>
+  <div class="page-authors">
+    <small>{{ partial "authors.html" . }}</small>
+  </div>
 
   {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "topics" "page" .) }}
+  {{ partial "terms.html" . }}
 {{ end }}

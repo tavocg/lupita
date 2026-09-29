@@ -1,0 +1,12 @@
+.page-category {
+  text-align: center;
+}
+
+.page-authors {
+  text-align: left;
+
+  .icon {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,13 @@
+{{- with .Params.category }}
+  {{- if ne (printf "%T" .) "string" }}
+    {{- errorf "La categoría de %s debe ser un único texto: category = \"Migración\"." $.Path }}
+  {{- else }}
+    {{- with $.GetTerms "category" }}
+      {{- with index . 0 }}
+        <div class="text-muted">
+          <small><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></small>
+        </div>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}

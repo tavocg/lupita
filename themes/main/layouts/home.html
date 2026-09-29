@@ -3,7 +3,7 @@
   {{ range first 10 site.RegularPages.ByDate.Reverse }}
     {{ partial "summary.html" . }}
   {{ end }}
-  {{ with site.GetPage "/categories" }}
+  {{ with site.GetPage "/category" }}
     <p><a href="{{ .RelPermalink }}">Ver todas las categorías</a></p>
   {{ end }}
 {{ end }}
