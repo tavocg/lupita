@@ -11,5 +11,13 @@
   </div>
 
   {{ .Content }}
+  {{ with .Params.image }}
+    <figure>
+      <img src="{{ . }}" alt="{{ $.Params.image_alt | default "" }}" loading="lazy" decoding="async">
+      {{ with $.Params.caption }}
+        <figcaption>{{ . }}</figcaption>
+      {{ end }}
+    </figure>
+  {{ end }}
   {{ partial "terms.html" . }}
 {{ end }}
