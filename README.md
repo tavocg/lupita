@@ -27,10 +27,19 @@ docker compose run --rm --build ingest --limit 10
 docker compose run --rm --build index
 ```
 
-`index` reemplaza el índice con todas las notas del scraper
+Por defecto se consultan La Nación y Delfino.cr, ordenados por fecha. Usa
+`--source nacion` o `--source delfino` para elegir un medio; por ejemplo:
+
+```sh
+docker compose run --rm --build index --source delfino
+```
+
+`index` reemplaza el índice con todas las notas de los medios seleccionados
 (opcional: `--limit 25`). Incluye fecha, título, autores, entradilla, cuerpo y
 fuente originales; no filtra por categoría ni por noticias ya publicadas.
 El archivo queda en la raíz, excluido de Git. Este modo no requiere configurar Ollama.
+Delfino aporta títulos y, cuando existen, entradillas; su RSS no incluye
+autores ni cuerpo completo.
 
 No se descartan noticias por longitud. Se omiten duplicados y temas fuera del catálogo de
 [src/lupita/editor.py](src/lupita/editor.py). Las exclusiones por tema consumen

@@ -43,8 +43,9 @@ class Article:
     def __post_init__(self):
         if self.date.tzinfo is None or self.date.utcoffset() is None:
             raise ValueError("La fecha debe incluir zona horaria")
-        if not self.title or not self.source_name or not (self.summary or self.body):
-            raise ValueError("Faltan título, medio o texto de la noticia")
+        # Algunos RSS publican solo título y enlace; no descartar por texto ausente.
+        if not self.title or not self.source_name:
+            raise ValueError("Faltan título o medio de la noticia")
         canonical_url(self.source_url)
 
     def to_dict(self) -> dict:

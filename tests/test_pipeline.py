@@ -303,9 +303,9 @@ class NewsIndexTests(unittest.TestCase):
                  patch("lupita.__main__.load_env"), \
                  patch("lupita.__main__.Config.from_env", side_effect=AssertionError("No configurar Ollama")), \
                  patch("lupita.__main__.OllamaEditor", side_effect=AssertionError("No llamar a Ollama")):
-                self.assertEqual(main(["index", "--output", str(path)]), 0)
+                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path)]), 0)
                 self.assertEqual(len(json.loads(path.read_text())), 15)
-                self.assertEqual(main(["index", "--output", str(path), "--limit", "2"]), 0)
+                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path), "--limit", "2"]), 0)
                 self.assertEqual(json.loads(path.read_text()), [a.to_dict() for a in items[:2]])
 
     def test_feed_failure_does_not_replace_index(self):
@@ -314,7 +314,7 @@ class NewsIndexTests(unittest.TestCase):
             path.write_text("[]\n")
             with patch("lupita.__main__.nacion.fetch", side_effect=RequestError("Sin conexión")), \
                  self.assertLogs("lupita", level="ERROR"):
-                self.assertEqual(main(["index", "--output", str(path)]), 1)
+                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path)]), 1)
             self.assertEqual(path.read_text(), "[]\n")
 
 
@@ -337,7 +337,7 @@ class ConfigTests(unittest.TestCase):
             path = Path(directory) / "rss.xml"
             path.write_bytes(RSS)
             with self.assertLogs("lupita.scrapers.nacion", level="WARNING"):
-                code = main(["scrape", "--feed-file", str(path), "--limit", "1"])
+                code = main(["scrape", "--source", "nacion", "--feed-file", str(path), "--limit", "1"])
             self.assertEqual(code, 0)
             self.assertEqual(len(json.loads(output.getvalue())), 1)
 

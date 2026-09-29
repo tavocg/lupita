@@ -11,11 +11,12 @@ from .editor import CATEGORIES, OllamaEditor
 from .http import RequestError
 from .models import canonical_url
 from .news_index import write_index
-from .scrapers import nacion
+from .scrapers import delfino, nacion
 from .storage import destination, known_urls, pipeline_lock, render, write_article
 
 
 LOG = logging.getLogger("lupita")
+SCRAPERS = {"nacion": nacion, "delfino": delfino}
 
 
 def run(articles, editor, config, *, limit: int, dry_run: bool = False) -> dict:
@@ -62,6 +63,8 @@ def main(argv=None) -> int:
     parser.add_argument("--output", type=Path, help="Destino de index (por defecto .news-index.json)")
     parser.add_argument("--dry-run", action="store_true", help="Consulta Ollama y muestra el resultado sin escribir")
     parser.add_argument("--feed-file", type=Path, help="Lee un RSS local en lugar de descargarlo")
+    parser.add_argument("--source", choices=("all", *SCRAPERS), default="all",
+                        help="Medio a consultar (por defecto ambos)")
     args = parser.parse_args(argv)
     if args.limit is not None and args.limit < 1:
         parser.error("--limit debe ser mayor que cero")
@@ -69,12 +72,20 @@ def main(argv=None) -> int:
         parser.error("--dry-run corresponde a ingest")
     if args.output is not None and args.command != "index":
         parser.error("--output corresponde a index")
+    if args.feed_file and args.source == "all":
+        parser.error("--feed-file requiere --source nacion o --source delfino")
     limit = args.limit if args.limit is not None or args.command == "index" else 10
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     try:
         load_env()
         config = Config.from_env() if args.command == "ingest" else None
-        articles = nacion.parse_feed(args.feed_file.read_bytes()) if args.feed_file else nacion.fetch()
+        if args.feed_file:
+            articles = SCRAPERS[args.source].parse_feed(args.feed_file.read_bytes())
+        else:
+            scrapers = SCRAPERS.values() if args.source == "all" else [SCRAPERS[args.source]]
+            # Si falla un medio, no reemplazar el índice con una instantánea incompleta.
+            articles = [article for scraper in scrapers for article in scraper.fetch()]
+        articles.sort(key=lambda article: article.date, reverse=True)
         if args.command == "index":
             path = args.output if args.output is not None else Path(".news-index.json")
             selected = articles[:limit]

@@ -4,8 +4,12 @@
 
 - `src/lupita/scrapers/`: extracción de noticias. Devuelven `list[Article]`;
   no llaman a Ollama ni escriben noticias. Un feed vacío devuelve `[]`.
+  `rss.py` comparte el parser; `nacion.py` y `delfino.py` definen fuente y dominio.
+  No inventes autores ni cuerpos ausentes del RSS. Registra nuevos medios en
+  `SCRAPERS` de `__main__.py`; por defecto se consultan todos y se ordenan por fecha.
 - `models.py`: contrato `Article`, normalización del texto e identidad por URL.
-  Las fechas incluyen zona horaria; se requiere cuerpo o entradilla.
+  Las fechas incluyen zona horaria; se conservan también entradas con solo
+  título, fecha y enlace, sin inventar cuerpo ni entradilla.
 - `editor.py`: esquema, instrucciones y validación de Ollama. El catálogo de
   categorías vive aquí. `Excluir` devuelve `None` y nunca se publica.
 - `__main__.py`: orquestación, límite de consultas y contadores. Los duplicados
@@ -48,6 +52,7 @@ hugo --buildDrafts --destination /tmp/lupita-preview
 ```
 
 Las pruebas usan RSS ficticio, Ollama simulado con un socket local y directorios
-temporales. Para reproducir problemas de extracción usa `--feed-file archivo.xml`.
+temporales. Para reproducir problemas de extracción usa
+`--source nacion --feed-file archivo.xml` (o `--source delfino`).
 Si falla la conexión a Ollama, consulta `/api/tags` desde el contenedor y revisa
 la URL, resolución del host y dirección de escucha del servidor.
