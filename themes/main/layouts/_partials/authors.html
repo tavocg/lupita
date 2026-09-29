@@ -11,6 +11,17 @@
   {{- end }}
 {{- end }}
 
+{{- /* Algunos feeds agrupan varios autores en una sola cadena separada por comas. */}}
+{{- $normalizedNames := slice }}
+{{- range $names }}
+  {{- range split . "," }}
+    {{- with strings.TrimSpace . }}
+      {{- $normalizedNames = $normalizedNames | append . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $names = $normalizedNames | uniq }}
+
 {{- $sourceName := "" }}
 {{- with .Params.source }}
   {{- $sourceName = .name }}
