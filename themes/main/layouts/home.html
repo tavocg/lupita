@@ -11,30 +11,39 @@
   </div>
 
   {{ with $news }}
+    {{ $featured := index . 0 }}
+    {{ range . }}
+      {{ if .Params.image }}
+        {{ $featured = . }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+    {{ $otherNews := slice }}
+    {{ range . }}
+      {{ if ne .RelPermalink $featured.RelPermalink }}
+        {{ $otherNews = $otherNews | append . }}
+      {{ end }}
+    {{ end }}
+
     <div class="home-grid">
-      {{ $featured := index . 0 }}
       <article class="card home-featured">
         {{ with $featured.Params.image }}
           <a class="home-featured-image" href="{{ $featured.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . }}" alt="" loading="lazy" decoding="async"></a>
         {{ end }}
-        <div class="home-featured-content">
-          <small><time class="text-muted" datetime="{{ $featured.Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ $featured.Date | time.Format ":date_long" }}</time></small>
-          {{ with $featured.GetTerms "category" }}
-            <p class="home-category">{{ range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}</p>
-          {{ end }}
-          <h2><a class="card-link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h2>
-          {{ with $featured.Summary }}<p class="card-summary text-muted">{{ . | plainify | strings.Truncate 240 "..." }}</p>{{ end }}
-          {{ partial "authors.html" $featured }}
-          {{ partial "terms.html" $featured }}
-        </div>
+        <small><time class="text-muted" datetime="{{ $featured.Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ $featured.Date | time.Format ":date_long" }}</time></small>
+        {{ partial "category.html" $featured }}
+        <h2><a class="card-link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h2>
+        <small>{{ partial "authors.html" $featured }}</small>
+        {{ with $featured.Summary }}<p class="card-summary text-muted">{{ . | plainify | strings.Truncate 240 "..." }}</p>{{ end }}
+        {{ partial "terms.html" $featured }}
       </article>
 
-      {{ range first 4 (after 1 $news) }}
+      {{ range first 4 $otherNews }}
         {{ partial "summary.html" . }}
       {{ end }}
     </div>
 
-    {{ $more := after 5 $news }}
+    {{ $more := after 4 $otherNews }}
     {{ with $more }}
       <section class="home-more" aria-labelledby="home-more-title">
         <h2 id="home-more-title">Más noticias</h2>

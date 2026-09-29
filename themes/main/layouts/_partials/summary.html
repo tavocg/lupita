@@ -7,7 +7,6 @@
 
   {{ partial "category.html" . }}
   <h2><a class="card-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ partial "authors.html" . }}
   {{ with .Summary }}
     <p class="card-summary text-muted">{{ . | plainify | strings.Truncate 120 "..." }}</p>
   {{ end }}

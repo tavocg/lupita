@@ -60,13 +60,22 @@ body.home main {
 
 .home-featured {
   grid-row: span 4;
-  padding: 0;
   overflow: hidden;
+
+  > small:last-of-type {
+    font-size: 1.25rem;
+
+    .icon {
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
 
   .home-featured-image {
     display: block;
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    margin: -1.25rem -1.25rem 0;
 
     img {
       display: block;
@@ -74,13 +83,6 @@ body.home main {
       height: 100%;
       object-fit: cover;
     }
-  }
-
-  .home-featured-content {
-    display: grid;
-    align-content: start;
-    gap: 0.75rem;
-    padding: clamp(1.25rem, 3vw, 2rem);
   }
 
   h2 {
@@ -91,14 +93,9 @@ body.home main {
 
   .card-summary {
     margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
   }
-}
-
-.home-category {
-  margin: 0;
-  color: var(--color-link);
-  font-size: 0.8rem;
-  font-weight: 700;
 }
 
 .home-more {
