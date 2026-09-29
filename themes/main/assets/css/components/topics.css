@@ -11,7 +11,6 @@
   display: inline-block;
   padding: 0.2rem 0.65rem;
   border: 1px solid var(--color-border);
-  border-radius: 999px;
   background-color: var(--color-topic-background);
   color: var(--color-link);
   font-size: 0.8125rem;

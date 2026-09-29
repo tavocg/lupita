@@ -5,13 +5,11 @@
     <small><time class="text-muted" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></small>
   {{ end }}
 
-  <div>
-    <a class="card-link" href="{{ .RelPermalink }}" aria-label="{{ .LinkTitle }}"><b>{{ .LinkTitle | strings.Truncate 60 "..." }}</b></a>
-    <small>{{ partial "authors.html" . }}</small>
-    {{ with .Summary }}
-      <p>{{ . | plainify | strings.Truncate 120 "..." }}</p>
-    {{ end }}
-  </div>
+  <h2><a class="card-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  <small>{{ partial "authors.html" . }}</small>
+  {{ with .Summary }}
+    <p>{{ . | plainify | strings.Truncate 120 "..." }}</p>
+  {{ end }}
 
   {{ partial "terms.html" . }}
 </article>
