@@ -1,6 +1,9 @@
 +++
 date = "2026-09-29T10:41:37-06:00"
 title = "Científicos descubren nueva especie de pingüino en islas Kerguelen, primera en más de 100 años"
+image = "https://images.pexels.com/photos/20021991/pexels-photo-20021991.jpeg"
+image_alt = "Paisaje costero con montañas cubiertas de nieve y cielo nublado."
+caption = "Paisaje costero nevado. Imagen ilustrativa. Fuente: [Pexels, fotografía 20021991](https://www.pexels.com/photo/20021991/)."
 authors = ["Jailine González Gómez"]
 category = "Ambiente"
 topics = ["Análisis Genómico", "Pingüinos", "Conservación"]
