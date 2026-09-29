@@ -9,3 +9,14 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Configuración local y estado del importador
+.env
+.env.*
+!.env.example
+/.pipeline/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/

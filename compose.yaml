@@ -1,0 +1,13 @@
+services:
+  ingest:
+    build: .
+    # El Ollama del host queda accesible en localhost en Linux.
+    network_mode: host
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    env_file: .env
+    environment:
+      CONTENT_DIR: /app/content
+      STATE_DIR: /app/.pipeline
+    volumes:
+      - ./content:/app/content
+      - ./.pipeline:/app/.pipeline
