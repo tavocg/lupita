@@ -11,3 +11,12 @@ services:
     volumes:
       - ./content:/app/content
       - ./.pipeline:/app/.pipeline
+  index:
+    build: .
+    network_mode: host
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    working_dir: /data
+    entrypoint: ["python", "-m", "lupita", "index"]
+    volumes:
+      # Montar el directorio permite reemplazar el índice de forma atómica.
+      - .:/data

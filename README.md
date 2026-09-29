@@ -23,9 +23,14 @@ Compose usa la red del host; en Docker Desktop habilita
 docker compose run --rm --build ingest --dry-run --limit 1
 # Importar hasta 10 noticias nuevas
 docker compose run --rm --build ingest --limit 10
-# Ver el RSS filtrado sin llamar a Ollama
-docker compose run --rm --build ingest scrape --limit 3
+# Guardar los datos del scraper en .news-index.json, sin Ollama
+docker compose run --rm --build index
 ```
+
+`index` reemplaza el índice con todas las notas que superan el mínimo de longitud
+(opcional: `--limit 25`). Incluye fecha, título, autores, entradilla, cuerpo y
+fuente originales; no filtra por categoría ni por noticias ya publicadas.
+El archivo queda en la raíz, excluido de Git. Este modo no requiere configurar Ollama.
 
 Se omiten duplicados, notas cortas y temas fuera del catálogo de
 [src/lupita/editor.py](src/lupita/editor.py). Las exclusiones por tema consumen

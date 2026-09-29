@@ -15,6 +15,7 @@ from lupita.config import Config, load_env
 from lupita.editor import CATEGORIES, EXCLUDED_CATEGORY, OllamaEditor, validate
 from lupita.http import RequestError
 from lupita.models import Article, Editorial, canonical_url
+from lupita.news_index import write_index
 from lupita.scrapers.nacion import MIN_TEXT_LENGTH, parse_feed, plain_text
 from lupita.storage import destination, frontmatter, known_urls, pipeline_lock, render, write_article
 
@@ -268,6 +269,50 @@ class StorageTests(unittest.TestCase):
         (self.config.content_dir / "broken.md").write_text('+++\ntitle = "bad\n+++\n')
         with self.assertRaisesRegex(ValueError, "Front matter inválido"):
             known_urls(self.config.content_dir)
+
+
+class NewsIndexTests(unittest.TestCase):
+    def test_index_preserves_scraper_fields_and_replaces_snapshot(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / ".news-index.json"
+            item = article()
+            write_index(path, [item])
+            self.assertEqual(json.loads(path.read_text()), [item.to_dict()])
+            write_index(path, [])
+            self.assertEqual(json.loads(path.read_text()), [])
+            self.assertEqual(list(Path(directory).iterdir()), [path])
+
+    def test_failed_replace_preserves_previous_snapshot(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / ".news-index.json"
+            path.write_text("[]\n")
+            with patch("lupita.news_index.os.replace", side_effect=OSError("fallo")):
+                with self.assertRaises(OSError):
+                    write_index(path, [article()])
+            self.assertEqual(path.read_text(), "[]\n")
+            self.assertEqual(list(Path(directory).iterdir()), [path])
+
+    def test_index_command_needs_no_ollama_and_defaults_to_all_articles(self):
+        items = [article(f"https://www.nacion.com/nota/{i}") for i in range(15)]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / ".news-index.json"
+            with patch("lupita.__main__.nacion.fetch", return_value=items), \
+                 patch("lupita.__main__.load_env"), \
+                 patch("lupita.__main__.Config.from_env", side_effect=AssertionError("No configurar Ollama")), \
+                 patch("lupita.__main__.OllamaEditor", side_effect=AssertionError("No llamar a Ollama")):
+                self.assertEqual(main(["index", "--output", str(path)]), 0)
+                self.assertEqual(len(json.loads(path.read_text())), 15)
+                self.assertEqual(main(["index", "--output", str(path), "--limit", "2"]), 0)
+                self.assertEqual(json.loads(path.read_text()), [a.to_dict() for a in items[:2]])
+
+    def test_feed_failure_does_not_replace_index(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / ".news-index.json"
+            path.write_text("[]\n")
+            with patch("lupita.__main__.nacion.fetch", side_effect=RequestError("Sin conexión")), \
+                 self.assertLogs("lupita", level="ERROR"):
+                self.assertEqual(main(["index", "--output", str(path)]), 1)
+            self.assertEqual(path.read_text(), "[]\n")
 
 
 class ConfigTests(unittest.TestCase):

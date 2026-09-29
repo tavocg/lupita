@@ -10,6 +10,7 @@ from .config import Config, load_env
 from .editor import CATEGORIES, OllamaEditor
 from .http import RequestError
 from .models import canonical_url
+from .news_index import write_index
 from .scrapers import nacion
 from .storage import destination, known_urls, pipeline_lock, render, write_article
 
@@ -56,25 +57,35 @@ def run(articles, editor, config, *, limit: int, dry_run: bool = False) -> dict:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="RSS → Ollama → noticias Hugo")
-    parser.add_argument("command", nargs="?", choices=("ingest", "scrape"), default="ingest")
-    parser.add_argument("--limit", type=int, default=10, help="Máximo de noticias nuevas a procesar (10)")
+    parser.add_argument("command", nargs="?", choices=("ingest", "scrape", "index"), default="ingest")
+    parser.add_argument("--limit", type=int, help="Máximo de noticias (10 para ingest/scrape; todas para index)")
+    parser.add_argument("--output", type=Path, help="Destino de index (por defecto .news-index.json)")
     parser.add_argument("--dry-run", action="store_true", help="Consulta Ollama y muestra el resultado sin escribir")
     parser.add_argument("--feed-file", type=Path, help="Lee un RSS local en lugar de descargarlo")
     args = parser.parse_args(argv)
-    if args.limit < 1:
+    if args.limit is not None and args.limit < 1:
         parser.error("--limit debe ser mayor que cero")
-    if args.command == "scrape" and args.dry_run:
-        parser.error("scrape ya es de solo lectura; --dry-run corresponde a ingest")
+    if args.command != "ingest" and args.dry_run:
+        parser.error("--dry-run corresponde a ingest")
+    if args.output is not None and args.command != "index":
+        parser.error("--output corresponde a index")
+    limit = args.limit if args.limit is not None or args.command == "index" else 10
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     try:
         load_env()
         config = Config.from_env() if args.command == "ingest" else None
         articles = nacion.parse_feed(args.feed_file.read_bytes()) if args.feed_file else nacion.fetch()
+        if args.command == "index":
+            path = args.output if args.output is not None else Path(".news-index.json")
+            selected = articles[:limit]
+            write_index(path, selected)
+            LOG.info("Índice actualizado: %s (%d noticias)", path, len(selected))
+            return 0
         if args.command == "scrape":
-            print(json.dumps([article.to_dict() for article in articles[:args.limit]], ensure_ascii=False, indent=2))
+            print(json.dumps([article.to_dict() for article in articles[:limit]], ensure_ascii=False, indent=2))
             return 0
         editor = OllamaEditor(config.ollama_url, config.model, config.timeout)
-        totals = run(articles, editor, config, limit=args.limit, dry_run=args.dry_run)
+        totals = run(articles, editor, config, limit=limit, dry_run=args.dry_run)
         LOG.info("Resultado: %s", json.dumps(totals, ensure_ascii=False))
         return 1 if totals["failed"] else 0
     except (ValueError, RuntimeError, OSError, ParseError) as error:
