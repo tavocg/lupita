@@ -5,7 +5,7 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <small>
     <div style="display:flex;width:100%;justify-content:space-between">
-      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      <time class="text-muted" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
       {{ partial "source.html" . }}
     </div>
   </small>

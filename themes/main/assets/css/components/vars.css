@@ -1,5 +1,21 @@
 :root {
+  color-scheme: light;
+  --color-background: #f5f8f5;
+  --color-text: #1c3024;
+  --color-text-muted: #637068;
+  --color-link: #237a43;
+  --color-link-hover: #14532d;
   --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #171717;
+    --color-text: #e0ece3;
+    --color-text-muted: #a3afa6;
+    --color-link: #86dba0;
+    --color-link-hover: #bbf7d0;
+  }
+}

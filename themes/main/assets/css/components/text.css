@@ -15,5 +15,15 @@ h1 {
 }
 
 a {
-  color: #00e;
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+.text-muted,
+.text-muted a:not(:hover):not(:focus-visible),
+a.text-muted:not(:hover):not(:focus-visible) {
+  color: var(--color-text-muted);
 }
