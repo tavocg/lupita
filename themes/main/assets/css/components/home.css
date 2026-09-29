@@ -74,8 +74,8 @@ body.home main {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  height: 36rem;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x proximity;
   scroll-padding-inline: 0.25rem;
   padding: 0.25rem 0.25rem 1rem;
@@ -88,16 +88,11 @@ body.home main {
 }
 
 .home-featured {
-  flex: 0 0 auto;
-  width: min(21rem, 85%);
+  flex: 0 0 55%;
   min-width: 0;
   align-content: start;
   scroll-snap-align: start;
   overflow-wrap: anywhere;
-
-  &.home-featured-with-image {
-    width: min(26rem, 85%);
-  }
 
   .home-featured-image {
     height: 12rem;

@@ -16,7 +16,7 @@
     <figure>
       <img src="{{ . }}" alt="{{ $.Params.image_alt | default "" }}" loading="lazy" decoding="async">
       {{ with $.Params.caption }}
-        <figcaption>{{ . }}</figcaption>
+        <figcaption>{{ . | markdownify }}</figcaption>
       {{ end }}
     </figure>
   {{ end }}
