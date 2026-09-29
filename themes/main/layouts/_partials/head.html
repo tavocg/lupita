@@ -3,3 +3,6 @@
 <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{ partialCached "head/css.html" . }}
+{{ if .IsPage }}
+  {{ partial "article-schema.html" . }}
+{{ end }}

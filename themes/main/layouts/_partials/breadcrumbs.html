@@ -4,7 +4,15 @@
   <nav class="breadcrumbs text-muted" aria-label="Ruta de navegación">
     <ol>
       {{ range $ancestors }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{- if and $.IsPage (eq .Path (printf "/%s" ($.Date | time.Format "2006/01/02"))) -}}
+              <time datetime="{{ $.Date | time.Format "2006-01-02T15:04:05-07:00" }}" aria-label="{{ $.Date | time.Format ":date_long" }}">{{ .LinkTitle }}</time>
+            {{- else -}}
+              {{ .LinkTitle }}
+            {{- end -}}
+          </a>
+        </li>
       {{ end }}
       {{ if strings.TrimSpace $category }}
         <li class="breadcrumb-category">{{ $category }}</li>

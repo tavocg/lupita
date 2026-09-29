@@ -1,0 +1,14 @@
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "NewsArticle"
+  "headline" .Title
+  "url" .Permalink
+  "datePublished" (.Date | time.Format "2006-01-02T15:04:05-07:00")
+}}
+{{- with .Params.image }}
+  {{- $schema = merge $schema (dict "image" (slice (. | absURL))) }}
+{{- end }}
+{{- with .Params.category }}
+  {{- $schema = merge $schema (dict "articleSection" .) }}
+{{- end }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
