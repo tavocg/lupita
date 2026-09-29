@@ -8,10 +8,12 @@ import tempfile
 import threading
 import unittest
 from unittest.mock import patch
+from urllib.error import URLError
 
 from lupita.__main__ import main, run
 from lupita.config import Config, load_env
 from lupita.editor import OllamaEditor, validate
+from lupita.http import RequestError
 from lupita.models import Article, Editorial, canonical_url
 from lupita.scrapers.nacion import parse_feed, plain_text
 from lupita.storage import destination, frontmatter, known_urls, pipeline_lock, render, write_article
@@ -82,6 +84,12 @@ class ScraperTests(unittest.TestCase):
 
 
 class EditorTests(unittest.TestCase):
+    def test_connection_error_identifies_ollama_and_preserves_cause(self):
+        with patch("lupita.http.urlopen", side_effect=URLError(ConnectionRefusedError(111, "Connection refused"))) as connect:
+            with self.assertRaisesRegex(RequestError, r"Ollama.*Connection refused"):
+                OllamaEditor("http://localhost:11434", "test").generate(article())
+        connect.assert_called_once()
+
     def test_valid_response_and_invalid_variants(self):
         self.assertEqual(validate(generated(), article()).category, "Sociedad")
         for update in (

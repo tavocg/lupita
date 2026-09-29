@@ -27,6 +27,7 @@ def request(url: str, *, payload: dict | None = None, timeout: int = 30) -> byte
         except (URLError, TimeoutError, OSError) as error:
             # Un POST lento podría seguir generando: no lo repetimos automáticamente.
             if payload is not None or attempt == 2:
-                raise RequestError(f"No se pudo completar la conexión ({type(error).__name__})") from error
+                reason = error.reason if isinstance(error, URLError) else error
+                raise RequestError(f"No se pudo completar la conexión: {reason}") from error
         time.sleep(attempt + 1)
     raise RequestError("No se pudo completar la petición")

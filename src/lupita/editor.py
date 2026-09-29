@@ -3,7 +3,7 @@
 import json
 import re
 
-from .http import request
+from .http import RequestError, request
 from .models import Article, Editorial, clean_text
 
 
@@ -96,7 +96,11 @@ class OllamaEditor:
                 {"role": "user", "content": json.dumps(reference, ensure_ascii=False)},
             ],
         }
-        response = json.loads(request(self.url, payload=payload, timeout=self.timeout))
+        try:
+            raw = request(self.url, payload=payload, timeout=self.timeout)
+        except RequestError as error:
+            raise RequestError(f"Error al consultar Ollama (OLLAMA_BASE_URL): {error}") from error
+        response = json.loads(raw)
         if not isinstance(response, dict) or not response.get("done"):
             raise ValueError("Ollama no completó la generación")
         message = response.get("message")

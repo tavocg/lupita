@@ -43,6 +43,30 @@ No se inicia Ollama ni se descarga un modelo automáticamente. `OLLAMA_BASE_URL`
 puede apuntar a otra máquina. El servidor debe admitir `/api/chat` con
 [salidas estructuradas](https://docs.ollama.com/capabilities/structured-outputs/).
 
+### Si falla la conexión a Ollama
+
+Si aparecen noticias omitidas por un error de conexión, el RSS ya se leyó;
+la petición que falla es la de Ollama. Comprueba el acceso desde el contenedor:
+
+```sh
+docker compose run --rm --build --entrypoint python ingest -c 'import os; from urllib.request import urlopen; print(urlopen(os.environ["OLLAMA_BASE_URL"].rstrip("/") + "/api/tags", timeout=10).read().decode())'
+```
+
+Debe devolver JSON con los modelos instalados. `Connection refused` indica que
+se rechazó la conexión: comprueba que Ollama esté iniciado y escuche en la
+dirección y el puerto configurados. Un error de resolución de nombre indica
+que debes revisar el hostname de `OLLAMA_BASE_URL`.
+
+Si Ollama corre en la misma máquina que Docker en Linux, usa
+`OLLAMA_BASE_URL=http://localhost:11434`. Si corre en otra máquina, usa su IP
+o hostname y configura el servidor para escuchar en su dirección de red:
+Ollama escucha en `127.0.0.1` por defecto. La variable del servidor es
+`OLLAMA_HOST`; consulta la [configuración de Ollama](https://docs.ollama.com/faq#how-do-i-configure-ollama-server).
+Cambiar `OLLAMA_BASE_URL` en este proyecto solo cambia el destino del cliente.
+
+Cuando la consulta funcione, prueba `--dry-run --limit 1` antes de importar
+el lote completo.
+
 ## Inspeccionar sin escribir noticias
 
 Ver los registros JSON del scraper, sin llamar a Ollama:
