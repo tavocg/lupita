@@ -1,3 +1,6 @@
+/* Tailwind CSS v4.3.3 — https://tailwindcss.com/docs/preflight */
+@import "vendor/preflight.css" layer(base);
+
 @import "components/header.css";
 @import "components/footer.css";
 @import "components/icon.css";
@@ -8,18 +11,14 @@
 }
 
 body {
-  color: #222;
   font-family: var(--font-sans);
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
   font-family: var(--font-serif);
 }
 
 a {
   color: #00e;
-  text-decoration: none;
 }

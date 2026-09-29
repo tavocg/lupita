@@ -9,12 +9,13 @@
 
   {{ partial "source.html" . }}
 
-  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle | strings.Truncate 60 "..." }}</a></h2>
+  <a href="{{ .RelPermalink }}">
+    <b>{{ .LinkTitle | strings.Truncate 60 "..." }}</b>
+    <small>{{ partial "authors.html" . }}</small>
+    {{ with .Summary }}
+      <p>{{ . | plainify | strings.Truncate 120 "..." }}</p>
+    {{ end }}
+  </a>
 
-  <small>{{ partial "authors.html" . }}</small>
-
-  {{ with .Summary }}
-    <p>{{ . | plainify | strings.Truncate 120 "..." }}</p>
-  {{ end }}
   {{ partial "terms.html" (dict "taxonomy" "topics" "page" .) }}
 </section>
