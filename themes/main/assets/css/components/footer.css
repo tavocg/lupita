@@ -2,3 +2,22 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.footer-content {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.footer-logo {
+  display: block;
+  width: 12rem;
+  height: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer-logo {
+    filter: brightness(0) invert(1);
+  }
+}
