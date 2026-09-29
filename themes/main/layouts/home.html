@@ -1,6 +1,9 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ range site.RegularPages }}
+  {{ range first 10 site.RegularPages.ByDate.Reverse }}
     {{ partial "summary.html" . }}
+  {{ end }}
+  {{ with site.GetPage "/categories" }}
+    <p><a href="{{ .RelPermalink }}">Ver todas las categorías</a></p>
   {{ end }}
 {{ end }}
