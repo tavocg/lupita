@@ -14,39 +14,52 @@
   {{ with .Content }}<div class="home-content">{{ . }}</div>{{ end }}
 
   {{ with $news }}
-    {{ $featured := index . 0 }}
+    {{ $withImages := slice }}
+    {{ $withoutImages := slice }}
     {{ range . }}
       {{ if .Params.image }}
-        {{ $featured = . }}
-        {{ break }}
+        {{ $withImages = $withImages | append . }}
+      {{ else }}
+        {{ $withoutImages = $withoutImages | append . }}
       {{ end }}
     {{ end }}
-    {{ $otherNews := slice }}
-    {{ range . }}
-      {{ if ne .RelPermalink $featured.RelPermalink }}
-        {{ $otherNews = $otherNews | append . }}
-      {{ end }}
+    {{ $ordered := $withImages }}
+    {{ range $withoutImages }}
+      {{ $ordered = $ordered | append . }}
+    {{ end }}
+    {{ $featured := first 5 $ordered }}
+    {{ $featuredURLs := slice }}
+    {{ range $featured }}
+      {{ $featuredURLs = $featuredURLs | append .RelPermalink }}
     {{ end }}
 
-    <div class="home-grid">
-      <article class="card home-featured">
-        {{ with $featured.Params.image }}
-          <a class="home-featured-image" href="{{ $featured.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . }}" alt="" loading="lazy" decoding="async"></a>
+    <section class="home-highlights" aria-labelledby="home-highlights-title">
+      <div class="home-highlights-heading">
+        <h2 id="home-highlights-title">Destacadas</h2>
+      </div>
+      <div class="home-highlights-track" role="region" aria-labelledby="home-highlights-title" aria-describedby="home-highlights-hint" tabindex="0">
+        {{ range $featured }}
+          <article class="card home-featured{{ if .Params.image }} home-featured-with-image{{ end }}">
+            {{ with .Params.image }}
+              <div class="home-featured-image"><img src="{{ . }}" alt="" loading="lazy" decoding="async"></div>
+            {{ end }}
+            <small><time class="text-muted" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time></small>
+            {{ partial "category.html" . }}
+            <h3><a class="card-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+            <small>{{ partial "authors.html" . }}</small>
+            {{ with .Summary }}<p class="card-summary text-muted">{{ . | plainify | strings.Truncate 180 "..." }}</p>{{ end }}
+            {{ partial "terms.html" . }}
+          </article>
         {{ end }}
-        <small><time class="text-muted" datetime="{{ $featured.Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ $featured.Date | time.Format ":date_long" }}</time></small>
-        {{ partial "category.html" $featured }}
-        <h2><a class="card-link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h2>
-        <small>{{ partial "authors.html" $featured }}</small>
-        {{ with $featured.Summary }}<p class="card-summary text-muted">{{ . | plainify | strings.Truncate 240 "..." }}</p>{{ end }}
-        {{ partial "terms.html" $featured }}
-      </article>
+      </div>
+    </section>
 
-      {{ range first 4 $otherNews }}
-        {{ partial "summary.html" . }}
+    {{ $more := slice }}
+    {{ range . }}
+      {{ if not (in $featuredURLs .RelPermalink) }}
+        {{ $more = $more | append . }}
       {{ end }}
-    </div>
-
-    {{ $more := after 4 $otherNews }}
+    {{ end }}
     {{ with $more }}
       <section class="home-more" aria-labelledby="home-more-title">
         <h2 id="home-more-title">Más noticias</h2>
