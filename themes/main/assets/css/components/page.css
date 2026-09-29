@@ -1,3 +1,14 @@
+.page-title {
+  h1 {
+    display: inline;
+  }
+
+  small {
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+}
+
 .page-authors {
   text-align: left;
 

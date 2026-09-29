@@ -2,9 +2,10 @@
   {{ if ne .CurrentSection.Path (printf "/%s" (.Date | time.Format "2006/01/02")) }}
     <small><time class="text-muted" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time></small>
   {{ end }}
-  <div class="page-source"><small>{{ partial "source.html" . }}</small></div>
-
-  <h1>{{ .Title }}</h1>
+  <div class="page-title">
+    <h1>{{ .Title }}</h1>
+    <small>{{ partial "source.html" . }}</small>
+  </div>
   <div class="page-authors">
     <small>{{ partial "authors.html" . }}</small>
   </div>
