@@ -1,40 +1,12 @@
-{{- /*
-For a given taxonomy, renders a list of terms assigned to the page.
-
-@context {page} page The current page.
-@context {string} taxonomy The taxonomy.
-
-@example: {{ partial "terms.html" (dict "taxonomy" "topics" "page" .) }}
-*/}}
-
-{{- $page := .page }}
-{{- $taxonomy := .taxonomy }}
-
-{{- with $page.GetTerms $taxonomy }}
-  {{- $label := (index . 0).Parent.LinkTitle }}
+{{- /* Renders the terms of the given taxonomy assigned to the page. */}}
+{{- with .page.GetTerms .taxonomy }}
   <div>
-    {{- if eq $taxonomy "categories" }}
-      <div>
-        {{- range $index, $term := . -}}
-          {{- if $index }} / {{ end -}}
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-        {{- end }}
-      </div>
-    {{- else if eq $taxonomy "topics" }}
-      <hr>
-      <div>
-        {{- range $index, $term := . -}}
-          {{- if $index }} | {{ end -}}
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-        {{- end }}
-      </div>
-    {{- else }}
-      <div>{{ $label }}:</div>
-      <ul>
-        {{- range . }}
-          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-        {{- end }}
-      </ul>
-    {{- end }}
+    {{- if eq $.taxonomy "topics" }}<hr>{{ end }}
+    <div>
+      {{- range $index, $term := . -}}
+        {{- if $index }} | {{ end -}}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{- end }}
+    </div>
   </div>
 {{- end }}

@@ -1,7 +1,19 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  {{ range .Pages }}
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse 25 }}
+  {{ range $paginator.Pages }}
     {{ partial "summary.html" . }}
+  {{ end }}
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav aria-label="Paginación">
+      {{ with $paginator.Prev }}
+        <a href="{{ .URL }}" rel="prev">Anterior</a>
+      {{ end }}
+      <span>Página {{ $paginator.PageNumber }} de {{ $paginator.TotalPages }}</span>
+      {{ with $paginator.Next }}
+        <a href="{{ .URL }}" rel="next">Siguiente</a>
+      {{ end }}
+    </nav>
   {{ end }}
 {{ end }}
