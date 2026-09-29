@@ -2,6 +2,7 @@ baseURL = 'https://example.org/'
 locale = 'es-cr'
 title = 'Lupita'
 theme = 'main'
+removePathAccents = true
 
 [module.hugoVersion]
   min = '0.158.0'
