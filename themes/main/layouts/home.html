@@ -1,18 +1,17 @@
 {{ define "main" }}
-  {{ .Content }}
   {{ $news := site.RegularPages.ByDate.Reverse }}
-  {{ if or .Params.eyebrow .Params.heading .Params.description }}
+  {{ if or .Params.eyebrow .Params.heading }}
     <div class="home-heading">
       <div>
         {{ with .Params.eyebrow }}<p class="home-eyebrow">{{ . }}</p>{{ end }}
         {{ with .Params.heading }}<h1>{{ . }}</h1>{{ end }}
-        {{ with .Params.description }}<p class="home-description">{{ . }}</p>{{ end }}
       </div>
       <p class="home-stat"><strong>{{ len $news }}</strong><span>noticias publicadas</span></p>
     </div>
   {{ else }}
     <p class="home-stat"><strong>{{ len $news }}</strong><span>noticias publicadas</span></p>
   {{ end }}
+  {{ with .Content }}<div class="home-description">{{ . }}</div>{{ end }}
 
   {{ with $news }}
     {{ $featured := index . 0 }}

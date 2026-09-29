@@ -31,6 +31,10 @@ body.home main {
 .home-description {
   margin: 0.75rem 0 0;
   color: var(--color-text-muted);
+
+  p {
+    margin: 0;
+  }
 }
 
 .home-stat {
