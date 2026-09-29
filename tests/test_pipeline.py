@@ -1,4 +1,5 @@
 from contextlib import redirect_stdout
+from dataclasses import replace
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from io import StringIO
@@ -16,7 +17,7 @@ from lupita.editor import CATEGORIES, EXCLUDED_CATEGORY, OllamaEditor, validate
 from lupita.http import RequestError
 from lupita.models import Article, Editorial, canonical_url
 from lupita.news_index import write_index
-from lupita.scrapers.nacion import MIN_TEXT_LENGTH, parse_feed, plain_text
+from lupita.scrapers.nacion import parse_feed, plain_text
 from lupita.storage import destination, frontmatter, known_urls, pipeline_lock, render, write_article
 
 
@@ -59,15 +60,13 @@ def generated():
 
 
 class ScraperTests(unittest.TestCase):
-    def test_length_threshold_includes_boundary_and_uses_summary_without_body(self):
+    def test_all_lengths_are_kept_with_body_or_summary(self):
         items = []
         for index, (length, body) in enumerate((
-            (MIN_TEXT_LENGTH - 1, True), (MIN_TEXT_LENGTH, True),
-            (MIN_TEXT_LENGTH + 1, True), (MIN_TEXT_LENGTH, False),
+            (1, True), (20, True), (3000, True), (1, False),
         )):
             text = "x" * length
             content = f"<content:encoded><![CDATA[<p>{text}</p>]]></content:encoded>" if body else ""
-            # La entradilla no debe inflar la longitud de un cuerpo corto.
             items.append(f"""<item><title>Nota {index}</title>
                 <link>https://www.nacion.com/nota/{index}</link>
                 <pubDate>Mon, 28 Sep 2026 03:00:00 +0000</pubDate>
@@ -75,13 +74,12 @@ class ScraperTests(unittest.TestCase):
         raw = ('<rss xmlns:content="http://purl.org/rss/1.0/modules/content/">'
                '<channel>' + ''.join(items) + '</channel></rss>').encode()
         result = parse_feed(raw)
-        self.assertEqual([a.title for a in result], ["Nota 1", "Nota 2", "Nota 3"])
+        self.assertEqual([a.title for a in result], ["Nota 0", "Nota 1", "Nota 2", "Nota 3"])
 
-    def test_all_short_entries_are_skipped_without_invalid_feed_error(self):
+    def test_short_entries_are_kept(self):
         with self.assertLogs("lupita.scrapers.nacion", level="INFO"):
-            self.assertEqual(parse_feed(RSS), [])
+            self.assertEqual(len(parse_feed(RSS)), 1)
 
-    @patch("lupita.scrapers.nacion.MIN_TEXT_LENGTH", 0)
     def test_rss_namespaces_html_dates_authors_and_duplicates(self):
         with self.assertLogs("lupita.scrapers.nacion", level="WARNING"):
             result = parse_feed(RSS)
@@ -108,6 +106,11 @@ class ScraperTests(unittest.TestCase):
 
 
 class EditorTests(unittest.TestCase):
+    def test_short_source_does_not_require_even_shorter_summary(self):
+        item = replace(article(), summary="Sesión suspendida.", body="")
+        result = validate(generated() | {"summary": "La sesión fue suspendida."}, item)
+        self.assertEqual(result.summary, "La sesión fue suspendida.")
+
     def test_allowed_categories_and_explicit_exclusion(self):
         self.assertEqual(set(CATEGORIES), {
             "Ambiente", "Educación", "Ciencia", "Seguridad", "Tecnología",
@@ -131,7 +134,7 @@ class EditorTests(unittest.TestCase):
         self.assertEqual(validate(generated(), article()).category, "Política")
         for update in (
             {"category": "Inventada"}, {"topics": []}, {"topics": ["Tema", "tema"]},
-            {"summary": "muy corto"}, {"title": 123}, {"extra": True},
+            {"summary": ""}, {"title": 123}, {"extra": True},
         ):
             with self.subTest(update=update), self.assertRaises(ValueError):
                 validate(generated() | update, article())
@@ -195,15 +198,15 @@ class StorageTests(unittest.TestCase):
                     self.assertEqual(output.getvalue(), "")
                     self.assertFalse(self.config.content_dir.exists())
 
-    def test_scraper_discards_short_notes_before_calling_editor(self):
-        with self.assertLogs("lupita.scrapers.nacion", level="INFO"):
+    def test_short_notes_reach_ollama_and_are_written(self):
+        with self.assertLogs("lupita.scrapers.nacion", level="WARNING"):
             articles = parse_feed(RSS)
-        class Editor:
-            def generate(self, item):
-                raise AssertionError("No debe invocarse para notas cortas")
-        totals = run(articles, Editor(), self.config, limit=10)
+        response = {"done": True, "message": {"content": json.dumps(generated() | {"summary": "Se presentó una propuesta comunal."})}}
+        with patch("lupita.editor.request", return_value=json.dumps(response).encode()) as request:
+            totals = run(articles, OllamaEditor("http://localhost:11434", "test"), self.config, limit=10)
+        request.assert_called_once()
         self.assertEqual(totals["failed"], 0)
-        self.assertEqual(totals["written"], 0)
+        self.assertEqual(totals["written"], 1)
 
     def test_date_timezone_toml_escape_and_safe_body(self):
         item = article()
@@ -329,7 +332,6 @@ class ConfigTests(unittest.TestCase):
         with patch.dict("os.environ", {}, clear=True), self.assertRaisesRegex(ValueError, "OLLAMA_MODEL"):
             Config.from_env()
 
-    @patch("lupita.scrapers.nacion.MIN_TEXT_LENGTH", 0)
     def test_scrape_command_needs_no_ollama(self):
         with tempfile.TemporaryDirectory() as directory, redirect_stdout(StringIO()) as output:
             path = Path(directory) / "rss.xml"

@@ -2,9 +2,8 @@
 
 ## Estructura
 
-- `src/lupita/scrapers/`: extracción y filtro de longitud por medio. Devuelven
-  `list[Article]`; no llaman a Ollama ni escriben noticias. Cada medio define su
-  propio `MIN_TEXT_LENGTH`. Un feed válido sin notas elegibles devuelve `[]`.
+- `src/lupita/scrapers/`: extracción de noticias. Devuelven `list[Article]`;
+  no llaman a Ollama ni escriben noticias. Un feed vacío devuelve `[]`.
 - `models.py`: contrato `Article`, normalización del texto e identidad por URL.
   Las fechas incluyen zona horaria; se requiere cuerpo o entradilla.
 - `editor.py`: esquema, instrucciones y validación de Ollama. El catálogo de
@@ -20,6 +19,9 @@
   imagen; la taxonomía es `category` en singular y `topics` en plural.
 
 ## Invariantes al modificar
+
+- Nunca omitas noticias por longitud, ni en scrapers, índice o redacción. No
+  introduzcas mínimos, percentiles ni requisitos de compresión relativos a la fuente.
 
 - Conserva atribución (`authors`, `source.name`, `source.url`) y la identidad por
   URL normalizada. Los borradores y archivos manuales también son duplicados.

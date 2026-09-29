@@ -8,12 +8,6 @@ from ..models import Article, canonical_url, clean_text
 
 
 FEED_URL = "https://www.nacion.com/rss/"
-# RSS de https://www.nacion.com/rss/, 2026-09-29 18:18 UTC: 100 notas.
-# Posiciones 50 y 51: 2232 y 2342 caracteres; mediana: 2287.
-# Texto limpio del cuerpo (o entradilla si no hay cuerpo), sin título ni HTML.
-# Umbral fijo propio de este medio; conservó 50 de las 100 notas de la muestra.
-# No se recalcula por ejecución: futuros feeds pueden retener otra proporción.
-MIN_TEXT_LENGTH = 2287
 DC = "{http://purl.org/dc/elements/1.1/}"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}"
 LOG = logging.getLogger(__name__)
@@ -80,15 +74,7 @@ def parse_feed(raw: bytes) -> list[Article]:
             LOG.warning("Entrada RSS %d omitida: %s", position, error)
     if root.findall("./channel/item") and not articles:
         raise ValueError("El RSS contiene entradas, pero ninguna es válida")
-    eligible = []
-    for article in sorted(articles, key=lambda article: article.date, reverse=True):
-        length = len(article.body or article.summary)
-        if length < MIN_TEXT_LENGTH:
-            LOG.info("Noticia omitida por longitud (%s): %d < %d caracteres",
-                     article.source_url, length, MIN_TEXT_LENGTH)
-            continue
-        eligible.append(article)
-    return eligible
+    return sorted(articles, key=lambda article: article.date, reverse=True)
 
 
 def fetch() -> list[Article]:

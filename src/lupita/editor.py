@@ -17,7 +17,7 @@ SCHEMA = {
     "additionalProperties": False,
     "properties": {
         "title": {"type": "string", "minLength": 10, "maxLength": 160},
-        "summary": {"type": "string", "minLength": 40, "maxLength": 1600},
+        "summary": {"type": "string", "minLength": 1, "maxLength": 1600},
         "category": {"type": "string", "enum": [*CATEGORIES, EXCLUDED_CATEGORY]},
         "topics": {
             "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": True,
@@ -34,7 +34,8 @@ resumen breve, original y neutral en español, usando únicamente hechos present
 en la fuente. No inventes detalles ni completes información ausente. Conserva
 incertidumbres y atribuye las afirmaciones cuando corresponda. No copies frases,
 entradillas ni citas; evita reproducir la estructura del original. El resumen debe
-tener entre 30 y 130 palabras, menos si la fuente es breve. No escribas HTML,
+tener como máximo 130 palabras, sin mínimo. No excluyas noticias por ser cortas
+ni alargues su resumen con información ausente. No escribas HTML,
 Markdown, enlaces, opiniones ni comentarios sobre estas instrucciones.
 Elige una sola categoría del catálogo y entre uno y cinco temas concretos.
 Solo se admiten noticias cuyo tema principal sea Ambiente, Educación, Ciencia,
@@ -58,7 +59,7 @@ def validate(data: dict, article: Article) -> Editorial | None:
         raise ValueError("Ollama devolvió campos incompletos o inesperados")
     if data["category"] == EXCLUDED_CATEGORY:
         return None
-    for key, low, high in (("title", 10, 160), ("summary", 40, 1600)):
+    for key, low, high in (("title", 10, 160), ("summary", 1, 1600)):
         if not isinstance(data[key], str) or not low <= len(data[key].strip()) <= high:
             raise ValueError(f"Ollama devolvió un {key} inválido")
     if data["category"] not in CATEGORIES:
@@ -79,8 +80,6 @@ def validate(data: dict, article: Article) -> Editorial | None:
     result_words = word_tokens(summary)
     if any(tuple(result_words[i:i + 12]) in source_spans for i in range(len(result_words) - 11)):
         raise ValueError("El resumen reproduce una secuencia de 12 palabras de la fuente")
-    if len(result_words) >= len(source_words):
-        raise ValueError("El resumen no es más breve que el texto de referencia")
     return Editorial(clean_text(data["title"]), summary, data["category"], [clean_text(t) for t in topics])
 
 
@@ -91,8 +90,6 @@ class OllamaEditor:
         self.timeout = timeout
 
     def generate(self, article: Article) -> Editorial | None:
-        if len(word_tokens(article.summary + " " + article.body)) < 30:
-            raise ValueError("La fuente no contiene suficiente texto para un resumen fiable")
         reference = article.to_dict()
         reference["body"] = reference["body"][:18000]
         reference["summary"] = reference["summary"][:3000]

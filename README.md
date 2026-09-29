@@ -27,12 +27,12 @@ docker compose run --rm --build ingest --limit 10
 docker compose run --rm --build index
 ```
 
-`index` reemplaza el índice con todas las notas que superan el mínimo de longitud
+`index` reemplaza el índice con todas las notas del scraper
 (opcional: `--limit 25`). Incluye fecha, título, autores, entradilla, cuerpo y
 fuente originales; no filtra por categoría ni por noticias ya publicadas.
 El archivo queda en la raíz, excluido de Git. Este modo no requiere configurar Ollama.
 
-Se omiten duplicados, notas cortas y temas fuera del catálogo de
+No se descartan noticias por longitud. Se omiten duplicados y temas fuera del catálogo de
 [src/lupita/editor.py](src/lupita/editor.py). Las exclusiones por tema consumen
 el límite de consultas. Revisa los borradores y cambia `draft = false` para
 publicarlos; `NEWS_DRAFT=false` desactiva los borradores en futuras importaciones.
