@@ -4,9 +4,7 @@
   {{- else }}
     {{- with $.GetTerms "category" }}
       {{- with index . 0 }}
-        <div class="text-muted">
-          <small><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></small>
-        </div>
+        <a href="{{ .RelPermalink }}"># {{ .LinkTitle }}</a>
       {{- end }}
     {{- end }}
   {{- end }}

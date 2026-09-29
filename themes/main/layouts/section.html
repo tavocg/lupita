@@ -1,7 +1,18 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  {{ range .Pages }}
+  {{ with sort .Sections "Path" "desc" }}
+    <nav aria-label="Archivos por fecha">
+      <ul>
+        {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+  {{ $paginator := .Paginate .RegularPagesRecursive.ByDate.Reverse }}
+  {{ range $paginator.Pages }}
     {{ partial "summary.html" . }}
   {{ end }}
+  {{ partial "pagination.html" $paginator }}
 {{ end }}

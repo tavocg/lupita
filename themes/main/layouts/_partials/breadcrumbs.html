@@ -1,0 +1,14 @@
+{{ $ancestors := where .Ancestors.Reverse "IsHome" false }}
+{{ $category := partial "category.html" . }}
+{{ if or $ancestors (strings.TrimSpace $category) }}
+  <nav class="breadcrumbs text-muted" aria-label="Ruta de navegación">
+    <ol>
+      {{ range $ancestors }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+      {{ if strings.TrimSpace $category }}
+        <li class="breadcrumb-category">{{ $category }}</li>
+      {{ end }}
+    </ol>
+  </nav>
+{{ end }}

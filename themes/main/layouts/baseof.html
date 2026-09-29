@@ -8,6 +8,7 @@
     {{ partial "header.html" . }}
   </header>
   <main>
+    {{ partial "breadcrumbs.html" . }}
     {{ block "main" . }}{{ end }}
   </main>
   <footer>
