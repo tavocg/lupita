@@ -29,6 +29,7 @@ def run(articles, editor, config, *, limit: int, dry_run: bool = False) -> dict:
                 continue
             if attempted >= limit:
                 break
+            # El límite cuenta consultas, incluidas las que terminan en exclusión.
             attempted += 1
             try:
                 editorial = editor.generate(article)

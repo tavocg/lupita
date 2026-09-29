@@ -8,9 +8,11 @@ from ..models import Article, canonical_url, clean_text
 
 
 FEED_URL = "https://www.nacion.com/rss/"
-# Mediana de 100 notas del RSS, medida el 2026-09-29: 2287 caracteres.
+# RSS de https://www.nacion.com/rss/, 2026-09-29 18:18 UTC: 100 notas.
+# Posiciones 50 y 51: 2232 y 2342 caracteres; mediana: 2287.
 # Texto limpio del cuerpo (o entradilla si no hay cuerpo), sin título ni HTML.
 # Umbral fijo propio de este medio; conservó 50 de las 100 notas de la muestra.
+# No se recalcula por ejecución: futuros feeds pueden retener otra proporción.
 MIN_TEXT_LENGTH = 2287
 DC = "{http://purl.org/dc/elements/1.1/}"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}"
