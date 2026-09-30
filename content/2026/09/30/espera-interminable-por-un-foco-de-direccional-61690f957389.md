@@ -2,8 +2,8 @@
 date = "2026-09-30T07:30:00-06:00"
 title = "Espera interminable por un foco de direccional"
 authors = ["Lectores de La Nación"]
-category = "Deportes"
-topics = ["Seguridad", "Aseguradoras", "Accidentes de Vehículos"]
+category = "Mercado"
+topics = ["Quálitas"]
 draft = true
 ai_processed = true
 source_id = "61690f957389e187187ddb43ab49d6eac5d51ed488df8beb4a601f50def97623"

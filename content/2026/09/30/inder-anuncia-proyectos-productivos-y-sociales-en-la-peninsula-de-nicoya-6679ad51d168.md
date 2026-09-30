@@ -2,7 +2,7 @@
 date = "2026-09-30T00:44:21-06:00"
 title = "Inder anuncia proyectos productivos y sociales en la Península de Nicoya"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = []
 draft = false
 ai_processed = true

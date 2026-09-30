@@ -2,8 +2,8 @@
 date = "2026-09-30T08:19:37-06:00"
 title = "Ginnés Rodríguez confirmó que se volvió a enamorar: esto dijo la periodista"
 authors = ["Jessica Rojas Ch."]
-category = "Deportes"
-topics = ["Ginnés Rodríguez", "Erwen Masís Castro", "Enamoramiento"]
+category = "Sociedad"
+topics = ["Ginnés Rodríguez"]
 draft = true
 ai_processed = true
 source_id = "43223cfcdaed1718030ecdfeeece1a6ab92f8fe0053903297cef152f91576395"

@@ -2,8 +2,8 @@
 date = "2026-09-30T06:00:00-06:00"
 title = "“El tipo de cambio es una fuente de dolor”: Canatur advierte sobre la asfixia del turismo en Costa Rica"
 authors = ["Randall Corella Vargas"]
-category = "Educación"
-topics = ["Costa Rica", "turismo", "infraestructura turística"]
+category = "Mercado"
+topics = ["Turismo"]
 draft = true
 ai_processed = true
 source_id = "b3dd40cc7ed6fec4937dc9b0b30fd71e89c826c6f2c8ad958449c94d4fa681e3"

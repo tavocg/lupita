@@ -2,8 +2,8 @@
 date = "2026-09-30T08:56:14-06:00"
 title = "Príncipe Enrique denuncia “intrusión” de los paparazzi con sus hijos"
 authors = ["AFP"]
-category = "Deportes"
-topics = ["Príncipe Enrique", "Paparazzi", "Seguridad de niños"]
+category = "Sociedad"
+topics = ["Príncipe Enrique", "Paparazzi"]
 draft = true
 ai_processed = true
 source_id = "2c8081869054fc1775dc81abf6b8ab15a5dc14efb4ed83c270c45700e03788a7"

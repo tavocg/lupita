@@ -2,8 +2,8 @@
 date = "2026-09-30T09:08:05-06:00"
 title = "Araya Vlogs ofreció casa, carro y apoyo a Julián Valverde cuando estaba detenido en Estados Unidos"
 authors = ["Fátima Jiménez"]
-category = "Deportes"
-topics = ["Araya Vlogs", "Julián Valverde", "Detención"]
+category = "Sociedad"
+topics = ["Julián Valverde", "Araya Vlogs"]
 draft = true
 ai_processed = true
 source_id = "f16d976e2ca6076af1fe53c4c966796b41f42bc05dcfd29e3ba03cd5e17f1438"
