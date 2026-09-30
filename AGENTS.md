@@ -20,6 +20,8 @@
   hash de URL, bloqueo y escritura atómica sin sobrescritura.
 - `news_index.py`: instantánea JSON de los registros del scraper, reemplazada
   atómicamente por el comando `index`, sin Ollama ni escritura de artículos.
+  Valida también la entrada local de `ingest --input` antes de consultar Ollama;
+  este modo omite los scrapers y conserva el archivo JSON de entrada.
 - `themes/main/`: plantillas y CSS de Hugo. La portada prioriza noticias con
   imagen; la taxonomía es `category` en singular y `topics` en plural.
 

@@ -10,7 +10,7 @@ from .config import Config, load_env
 from .editor import CATEGORIES, OllamaEditor
 from .http import RequestError
 from .models import canonical_url
-from .news_index import write_index
+from .news_index import read_index, write_index
 from .scrapers import (
     delfino, diarioextra, elfinanciero, elmundo, nacion, ncrnoticias,
     observador, repretel, semanario, teletica,
@@ -69,7 +69,9 @@ def main(argv=None) -> int:
     parser.add_argument("--limit", type=int, help="Máximo de noticias (10 para ingest/scrape; todas para index)")
     parser.add_argument("--output", type=Path, help="Destino de index (por defecto .news-index.json)")
     parser.add_argument("--dry-run", action="store_true", help="Consulta Ollama y muestra el resultado sin escribir")
-    parser.add_argument("--feed-file", type=Path, help="Lee un RSS local en lugar de descargarlo")
+    inputs = parser.add_mutually_exclusive_group()
+    inputs.add_argument("--feed-file", type=Path, help="Lee un RSS local en lugar de descargarlo")
+    inputs.add_argument("--input", type=Path, help="Lee un índice JSON para ingest, sin consultar scrapers")
     parser.add_argument("--source", choices=("all", *SCRAPERS), default="all",
                         help="Medio a consultar (por defecto todos)")
     args = parser.parse_args(argv)
@@ -79,6 +81,10 @@ def main(argv=None) -> int:
         parser.error("--dry-run corresponde a ingest")
     if args.output is not None and args.command != "index":
         parser.error("--output corresponde a index")
+    if args.input and args.command != "ingest":
+        parser.error("--input corresponde a ingest")
+    if args.input and args.source != "all":
+        parser.error("--input no se combina con --source; filtra el archivo JSON")
     if args.feed_file and args.source == "all":
         parser.error("--feed-file requiere --source con un medio específico: " + ", ".join(SCRAPERS))
     limit = args.limit if args.limit is not None or args.command == "index" else 10
@@ -87,7 +93,9 @@ def main(argv=None) -> int:
         load_env()
         config = Config.from_env() if args.command == "ingest" else None
         failed_sources = 0
-        if args.feed_file:
+        if args.input:
+            articles = read_index(args.input)
+        elif args.feed_file:
             articles = SCRAPERS[args.source].parse_feed(args.feed_file.read_bytes())
         else:
             scrapers = SCRAPERS if args.source == "all" else {args.source: SCRAPERS[args.source]}

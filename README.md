@@ -66,6 +66,29 @@ El archivo queda en la raíz, excluido de Git. Este modo no requiere configurar 
 Delfino aporta títulos y, cuando existen, entradillas; su RSS no incluye
 autores ni cuerpo completo.
 
+Para seleccionar noticias manualmente, edita `.news-index.json` y elimina los
+objetos que no quieras procesar, conservando la lista JSON. Puedes guardarla con
+otro nombre. Luego monta ese archivo como entrada de solo lectura:
+
+```sh
+# Consultar Ollama sin guardar artículos
+docker compose run --rm --build \
+  -v "$PWD/.news-index.json:/data/news.json:ro" \
+  ingest --input /data/news.json --dry-run --limit 10
+# Redactar y guardar las noticias seleccionadas
+docker compose run --rm --build \
+  -v "$PWD/.news-index.json:/data/news.json:ro" \
+  ingest --input /data/news.json --limit 50
+```
+
+`--input` solo admite `ingest` y sustituye la consulta de scrapers. No se combina
+con `--feed-file` ni con la selección de un medio. Se valida todo el JSON antes
+de consultar Ollama; cada noticia requiere `date` con zona horaria, `title` y
+`source` con `name` y `url`. `authors`, `summary` y `body` pueden estar vacíos u
+omitirse. Se mantienen la atribución, la detección de duplicados y los filtros
+editoriales. Las noticias se ordenan por fecha y el límite sigue siendo 10 por
+defecto. El archivo de entrada no se modifica.
+
 No se descartan noticias por longitud. Se omiten duplicados y temas fuera del catálogo de
 [src/lupita/editor.py](src/lupita/editor.py). Las exclusiones por tema consumen
 el límite de consultas. Revisa los borradores y cambia `draft = false` para
