@@ -4,9 +4,10 @@ defaultContentLanguage = 'es'
 title = 'Lupita'
 theme = 'main'
 removePathAccents = true
+enableRobotsTXT = true
 
 [params]
-  description = 'Archivo de noticias de Costa Rica.'
+  description = 'Lupita reúne noticias recientes de medios costarricenses en un solo lugar. Explora titulares, resúmenes y temas, y consulta siempre la fuente original.'
   image = 'https://images.pexels.com/photos/23136417/pexels-photo-23136417.jpeg'
   image_credit = 'Foto de Alejandro Orozco en Pexels'
   image_credit_url = 'https://www.pexels.com/photo/23136417/'
