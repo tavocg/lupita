@@ -2,6 +2,49 @@
 <meta name="viewport" content="width=device-width">
 <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{- $description := site.Params.description -}}
+{{- if .IsPage -}}
+  {{- $description = .Description | default .Summary | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- else if not .IsHome -}}
+  {{- $description = .Description | default .Title | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- end -}}
+{{- with $description }}
+<meta name="description" content="{{ . | htmlEscape }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="theme-color" content="#17324d">
+{{- if eq .Layout "search" }}
+<meta name="robots" content="noindex, follow">
+{{- end }}
+<meta property="og:locale" content="{{ site.Language.Locale }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+{{- with $description }}
+<meta property="og:description" content="{{ . | htmlEscape }}">
+{{- end }}
+<meta property="og:type" content="{{ if and .IsPage (ne .Layout "informational") }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with or .Params.image site.Params.image }}
+<meta property="og:image" content="{{ . | absURL }}">
+<meta property="og:image:alt" content="{{ site.Params.image_credit }}">
+<meta name="twitter:card" content="summary_large_image">
+{{- else }}
+<meta name="twitter:card" content="summary">
+{{- end }}
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+{{- with $description }}
+<meta name="twitter:description" content="{{ . | htmlEscape }}">
+{{- end }}
+{{- with or .Params.image site.Params.image }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+<meta name="twitter:image:alt" content="{{ site.Params.image_credit }}">
+{{- end }}
+{{- if and .IsPage (ne .Layout "informational") }}
+<meta property="article:published_time" content="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">
+{{- with .Params.category }}
+<meta property="article:section" content="{{ . }}">
+{{- end }}
+{{- end }}
 {{ partialCached "head/css.html" . }}
 {{ with resources.Get "js/search-shortcut.js" | minify | fingerprint }}
   <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>

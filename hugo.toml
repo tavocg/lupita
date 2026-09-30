@@ -5,6 +5,12 @@ title = 'Lupita'
 theme = 'main'
 removePathAccents = true
 
+[params]
+  description = 'Archivo de noticias de Costa Rica.'
+  image = 'https://images.pexels.com/photos/23136417/pexels-photo-23136417.jpeg'
+  image_credit = 'Foto de Alejandro Orozco en Pexels'
+  image_credit_url = 'https://www.pexels.com/photo/23136417/'
+
 [module.hugoVersion]
   min = '0.158.0'
 
