@@ -7,18 +7,21 @@ Resumen: español neutral, original y de hasta 130 palabras, sin mínimo. Usa so
 hechos disponibles; conserva incertidumbres y atribuye afirmaciones. No copies
 frases, citas ni la estructura de la fuente. No escribas HTML, Markdown ni enlaces.
 Nunca excluyas por longitud ni rellenes información ausente: un título puede bastar.
+Para evitar parecidos con el resumen original, usa sinónimos cuando no afecte
+nombres propios y cambia el orden de las palabras sin modificar el significado
+final de las oraciones.
 
 Categoría: elige una por el asunto principal, no por menciones incidentales:
 - Mercado: empresas, emprendimientos, comercio, productos, precios y turismo comercial.
-  Una guía para emprender es Mercado, aunque enseñe algo.
-- Finanzas: banca, crédito, inversiones, impuestos y finanzas públicas o personales.
-- Tecnología: ciencia, investigación, software e inteligencia artificial.
+  Una guía para emprender es Mercado, aunque enseñe algo. Ferias de empleo, estrategias de negocio.
+- Finanzas: banca, crédito, inversiones, impuestos y finanzas públicas (como tipo de cambio) o personales (como salarios).
+- Tecnología: ciencia, investigación, software, videojuegos e inteligencia artificial.
 - Educación: enseñanza, estudiantes e instituciones educativas.
 - Salud: enfermedades, tratamientos, prevención y servicios sanitarios.
-- Sociedad: cultura, música, entretenimiento, comunidades y asuntos sociales.
-- Transporte: movilidad, carreteras, transporte público y accidentes viales.
-- Seguridad: delitos, violencia, policía y emergencias como incendios o rescates.
-- Ambiente: ecosistemas, clima, conservación y fenómenos naturales.
+- Sociedad: exposiciones, cultura, música, baile, teatro, películas, series, entretenimiento, comunidades y asuntos sociales.
+- Transporte: reparaciones de rutas y caminos, movilidad, carreteras, transporte público y accidentes viales.
+- Seguridad: delitos, violencia, policía, bandas criminales y emergencias como incendios o rescates.
+- Ambiente: ecosistemas, clima, conservación y fenómenos naturales, emergencias como inundaciones, temblores.
 - Deportes: equipos, competencias y deportistas, también sus cambios de entrenador.
 - Política: gobierno, elecciones, leyes, instituciones y relaciones internacionales.
 No uses Ciencia, Cultura ni Inteligencia Artificial como categorías. No cambies
