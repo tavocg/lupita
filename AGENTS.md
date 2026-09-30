@@ -10,8 +10,9 @@
 - `models.py`: contrato `Article`, normalización del texto e identidad por URL.
   Las fechas incluyen zona horaria; se conservan también entradas con solo
   título, fecha y enlace, sin inventar cuerpo ni entradilla.
-- `editor.py`: esquema, instrucciones y validación de Ollama. El catálogo de
-  categorías vive aquí. `Excluir` devuelve `None` y nunca se publica.
+- `editor.py`: esquema y validación de Ollama. El catálogo de categorías vive
+  aquí; las instrucciones se cargan de `editor_instructions.md`, junto al módulo.
+  `Excluir` devuelve `None` y nunca se publica.
 - `__main__.py`: orquestación, límite de consultas y contadores. Los duplicados
   se descartan antes de llamar al modelo. `scrape` no necesita Ollama;
   `--dry-run` consulta el modelo sin escribir archivos ni adquirir el bloqueo.

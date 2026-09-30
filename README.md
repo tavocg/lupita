@@ -27,12 +27,37 @@ docker compose run --rm --build ingest --limit 10
 docker compose run --rm --build index
 ```
 
-Por defecto se consultan La Nación y Delfino.cr, ordenados por fecha. Usa
-`--source nacion` o `--source delfino` para elegir un medio; por ejemplo:
+Por defecto se consultan todos los medios y se ordenan las noticias por fecha.
+Usa `--source` para elegir uno:
+
+| Medio | Valor de `--source` |
+| --- | --- |
+| La Nación | `nacion` |
+| Delfino.cr | `delfino` |
+| Semanario Universidad | `semanario` |
+| Teletica | `teletica` |
+| El Financiero | `elfinanciero` |
+| El Observador | `observador` |
+| Diario Extra | `diarioextra` |
+| NCR Noticias | `ncrnoticias` |
+| El Mundo CR (Costa Rica) | `elmundo` |
+| Repretel | `repretel` |
+
+Por ejemplo:
 
 ```sh
 docker compose run --rm --build index --source delfino
 ```
+
+Teletica combina los feeds de Nacional, Deportes y Emprendedores, sin repetir
+noticias con la misma URL normalizada. Para leer un RSS local de cualquiera de esas secciones, usa
+`--source teletica --feed-file archivo.xml`.
+
+Si un scraper falla, se registra el error y se continúa con los demás. `scrape`
+e `ingest` procesan las noticias disponibles; `index` guarda una instantánea
+parcial de los medios que respondieron. Si todos fallan, se conserva el índice
+anterior. Un feed vacío cuenta como respuesta válida. El comando devuelve código
+1 si hubo errores, incluso cuando pudo procesar otros medios.
 
 `index` reemplaza el índice con todas las notas de los medios seleccionados
 (opcional: `--limit 25`). Incluye fecha, título, autores, entradilla, cuerpo y
@@ -45,6 +70,20 @@ No se descartan noticias por longitud. Se omiten duplicados y temas fuera del ca
 [src/lupita/editor.py](src/lupita/editor.py). Las exclusiones por tema consumen
 el límite de consultas. Revisa los borradores y cambia `draft = false` para
 publicarlos; `NEWS_DRAFT=false` desactiva los borradores en futuras importaciones.
+
+El catálogo incluye Deportes y Mercado. La IA exige un vínculo relevante con
+Costa Rica, como personas, empresas o instituciones costarricenses, hechos en el
+país o efectos directos sobre él. Se incluyen costarricenses en el extranjero;
+publicar en un medio local no basta para acreditar ese vínculo. Política,
+Ambiente y Mercado admiten noticias estrictamente internacionales. Finanzas
+mantiene el requisito de vínculo local. Mercado abarca actividad empresarial,
+comercio, precios y competencia; Finanzas abarca dinero, banca e inversiones.
+Este criterio se aplica durante la redacción con Ollama, no al extraer el RSS
+ni al generar el índice.
+Las instrucciones editoriales se editan en
+[editor_instructions.md](src/lupita/editor_instructions.md), que Python carga
+como mensaje de sistema. El catálogo, el esquema JSON y la validación permanecen
+en `editor.py`.
 
 ## Ver y publicar el sitio
 

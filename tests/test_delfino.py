@@ -1,4 +1,4 @@
-from contextlib import redirect_stdout
+from contextlib import ExitStack, redirect_stdout
 from datetime import timedelta
 from io import StringIO
 import json
@@ -7,8 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from lupita.__main__ import main
-from lupita.http import RequestError
+from lupita.__main__ import SCRAPERS, main
 from lupita.scrapers import delfino
 
 
@@ -71,20 +70,19 @@ class DelfinoTests(unittest.TestCase):
             other.assert_not_called()
             self.assertEqual(json.loads(output.getvalue())[0]["source"]["name"], "Delfino.cr")
 
-    def test_default_index_combines_sources_by_date_and_preserves_on_failure(self):
+    def test_default_index_combines_sources_by_date(self):
         from dataclasses import replace
         item, = delfino.parse_feed(RSS)
         older = replace(item, date=item.date - timedelta(days=1), source_name="La Nación",
                         source_url="https://www.nacion.com/nota")
+        newest = replace(item, date=item.date + timedelta(days=1), source_name="Semanario Universidad",
+                         source_url="https://semanariouniversidad.com/pais/nota")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / ".news-index.json"
-            with patch("lupita.__main__.nacion.fetch", return_value=[older]), \
-                 patch("lupita.__main__.delfino.fetch", return_value=[item]):
+            with ExitStack() as stack:
+                results = {"nacion": [older], "delfino": [item], "semanario": [newest]}
+                for name, scraper in SCRAPERS.items():
+                    stack.enter_context(patch.object(scraper, "fetch", return_value=results.get(name, [])))
                 self.assertEqual(main(["index", "--output", str(path)]), 0)
             expected = path.read_text()
-            self.assertEqual(json.loads(expected), [item.to_dict(), older.to_dict()])
-            with patch("lupita.__main__.nacion.fetch", return_value=[older]), \
-                 patch("lupita.__main__.delfino.fetch", side_effect=RequestError("Sin conexión")), \
-                 self.assertLogs("lupita", level="ERROR"):
-                self.assertEqual(main(["index", "--output", str(path)]), 1)
-            self.assertEqual(path.read_text(), expected)
+            self.assertEqual(json.loads(expected), [newest.to_dict(), item.to_dict(), older.to_dict()])

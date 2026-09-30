@@ -114,13 +114,13 @@ class EditorTests(unittest.TestCase):
     def test_allowed_categories_and_explicit_exclusion(self):
         self.assertEqual(set(CATEGORIES), {
             "Ambiente", "Educación", "Ciencia", "Seguridad", "Tecnología",
-            "Inteligencia Artificial", "Finanzas", "Cultura", "Política",
+            "Inteligencia Artificial", "Finanzas", "Cultura", "Política", "Deportes", "Mercado",
         })
         for category in CATEGORIES:
             with self.subTest(category=category):
                 self.assertEqual(validate(generated() | {"category": category}, article()).category, category)
         self.assertIsNone(validate(generated() | {"category": EXCLUDED_CATEGORY}, article()))
-        for category in ("Deportes", "Sociedad", "Migración", "Internacionales"):
+        for category in ("Sociedad", "Migración", "Internacionales"):
             with self.subTest(category=category), self.assertRaises(ValueError):
                 validate(generated() | {"category": category}, article())
 
@@ -185,7 +185,7 @@ class StorageTests(unittest.TestCase):
 
     def test_excluded_categories_never_create_files_or_previews(self):
         for dry_run in (False, True):
-            for result in (None, Editorial("Deportes", "Resultado deportivo", "Deportes", [])):
+            for result in (None, Editorial("Sociedad", "Actividad social", "Sociedad", [])):
                 with self.subTest(dry_run=dry_run, result=result):
                     class Editor:
                         def generate(self, item):
