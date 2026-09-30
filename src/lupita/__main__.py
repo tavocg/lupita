@@ -13,6 +13,7 @@ from .date_window import DateWindow
 from .editor import CATEGORIES, OllamaEditor
 from .git_workflow import run_remote
 from .http import RequestError
+from .images import search_recent
 from .models import canonical_url
 from .news_index import read_index, write_index
 from .scrapers import (
@@ -75,6 +76,12 @@ def execute(args, config, *, stop=None) -> int:
     limit = args.limit
     try:
         window = DateWindow.parse(args.date_from, args.until)
+        if args.command == "images":
+            totals = search_recent(config.content_dir, config.state_dir,
+                                   os.getenv("PEXELS_API_KEY"), limit=args.image_limit,
+                                   timeout=config.timeout)
+            LOG.info("Imágenes: %s", json.dumps(totals, ensure_ascii=False))
+            return 1 if totals["failed"] else 0
         if args.command == "process":
             editor = OllamaEditor(config.ollama_url, config.model, config.timeout)
             totals = process(editor, config, limit=limit, dry_run=args.dry_run, window=window)
@@ -121,8 +128,11 @@ def execute(args, config, *, stop=None) -> int:
             imported = stage(articles, config, limit=limit, stop=stop)
             # Reintentar también pendientes antiguos, aunque hayan salido de la ventana RSS.
             totals = process(editor, config, limit=limit, stop=stop)
-            LOG.info("Importación: %s; redacción: %s", imported, totals)
-            return int(bool(imported["failed"] or totals["failed"] or failed_sources))
+            images = search_recent(config.content_dir, config.state_dir,
+                                   os.getenv("PEXELS_API_KEY"), limit=args.image_limit,
+                                   timeout=config.timeout)
+            LOG.info("Importación: %s; redacción: %s; imágenes: %s", imported, totals, images)
+            return int(bool(imported["failed"] or totals["failed"] or images["failed"] or failed_sources))
         totals = run(articles, editor, config, limit=limit, dry_run=args.dry_run)
         LOG.info("Resultado: %s", json.dumps(totals, ensure_ascii=False))
         return 1 if totals["failed"] or failed_sources else 0
@@ -131,7 +141,7 @@ def execute(args, config, *, stop=None) -> int:
         return 1
 
 
-COMMANDS = ("ingest", "stage", "process", "scrape", "index", "serve")
+COMMANDS = ("ingest", "stage", "process", "images", "scrape", "index", "serve")
 
 
 def parse_limit(value):
@@ -141,6 +151,13 @@ def parse_limit(value):
     if number < 0:
         raise argparse.ArgumentTypeError("el límite debe ser cero (sin límite) o positivo")
     return number or None
+
+
+def parse_image_limit(value):
+    number = int(value)
+    if number < 1:
+        raise argparse.ArgumentTypeError("el límite de imágenes debe ser mayor que cero")
+    return number
 
 
 def serve(args, config):
@@ -181,6 +198,9 @@ def main(argv=None) -> int:
                         help="Fecha final inclusiva (día completo o instante ISO); por defecto now; all = sin fin")
     parser.add_argument("--interval", type=int, default=os.getenv("NEWS_INTERVAL", "28800"),
                         help="Segundos de espera entre ciclos de serve (28800 = 8 horas)")
+    parser.add_argument("--image-limit", type=parse_image_limit,
+                        default=os.getenv("NEWS_IMAGE_LIMIT", "2"),
+                        help="Máximo de noticias recientes sin imagen a buscar (predeterminado: 2)")
     parser.add_argument("--output", type=Path, help="Destino de index; NEWS_INDEX_PATH o .news-index.json")
     parser.add_argument("--dry-run", action=argparse.BooleanOptionalAction, default=None,
                         help="Consulta Ollama sin escribir; --no-dry-run anula NEWS_DRY_RUN")
@@ -193,6 +213,8 @@ def main(argv=None) -> int:
     inputs.add_argument("--input", type=Path, help="JSON local para stage/ingest; NEWS_INPUT")
     parser.add_argument("--source", choices=("all", *SCRAPERS), default=os.getenv("NEWS_SOURCE", "all"))
     args = parser.parse_args(argv)
+    if args.command == "images" and not os.getenv("PEXELS_API_KEY", "").strip():
+        parser.error("images requiere configurar PEXELS_API_KEY")
     if (args.branch or args.repo) and not args.ssh_key:
         parser.error("--branch y --repo requieren --ssh-key")
     if args.ssh_key and args.command not in {"ingest", "stage", "process"}:
@@ -229,7 +251,7 @@ def main(argv=None) -> int:
         parser.error("--feed-file requiere un medio específico y no se admite en serve")
     try:
         DateWindow.parse(args.date_from, args.until)  # Fallar antes de consultar RSS o IA.
-        config = (Config.from_env(require_model=False) if args.command == "stage" else
+        config = (Config.from_env(require_model=False) if args.command in {"stage", "images"} else
                   Config.from_env() if args.command in {"ingest", "process", "serve"} else None)
     except (ValueError, OSError) as error:
         LOG.error("Configuración inválida: %s", error)

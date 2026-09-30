@@ -116,6 +116,45 @@ def replace_pending(path: Path, expected: bytes, text: str | None) -> None:
             temporary.unlink(missing_ok=True)
 
 
+def add_image_metadata(path: Path, expected: bytes, *, image: str, alt: str, caption: str) -> None:
+    """Añade imagen a un artículo intacto y publicado, sin pisar otros cambios."""
+    current = path.read_bytes()
+    if current != expected:
+        raise ValueError("El artículo cambió durante la búsqueda; no se modifica")
+    data = frontmatter(path)
+    if data.get("draft", False) or data.get("ai_processed") is False or data.get("image"):
+        raise ValueError("El artículo ya no está disponible para recibir una imagen")
+    text = current.decode("utf-8")
+    lines = text.splitlines(keepends=True)
+    if not lines or lines[0].strip() != "+++":
+        raise ValueError("No se puede actualizar un artículo sin front matter TOML")
+    end = next((i for i, line in enumerate(lines[1:], 1) if line.strip() == "+++"), None)
+    if end is None:
+        raise ValueError("Front matter sin cerrar")
+    quote = lambda value: json.dumps(value, ensure_ascii=False)
+    metadata = [f"image = {quote(image)}\n", f"image_alt = {quote(alt)}\n",
+                f"caption = {quote(caption)}\n"]
+    # These are root keys; insert before [source] so TOML does not nest them there.
+    insertion = next((i for i, line in enumerate(lines[1:end], 1)
+                      if line.lstrip().startswith("[")), end)
+    updated = "".join(lines[:insertion] + metadata + lines[insertion:])
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                         suffix=".tmp", delete=False) as handle:
+            temporary = Path(handle.name)
+            handle.write(updated)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.chmod(temporary, path.stat().st_mode & 0o777)
+        if path.read_bytes() != expected:
+            raise ValueError("El artículo cambió durante la búsqueda; no se modifica")
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
 def destination(content_dir: Path, article: Article, editorial: Editorial | None) -> Path:
     date = article.date.astimezone(ZoneInfo("America/Costa_Rica"))
     return content_dir / date.strftime("%Y/%m/%d") / f"{slug(article.title)}-{identity(article.source_url)[:12]}.md"
