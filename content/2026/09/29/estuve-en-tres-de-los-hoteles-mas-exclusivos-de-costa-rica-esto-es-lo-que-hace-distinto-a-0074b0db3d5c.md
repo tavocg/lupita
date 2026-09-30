@@ -2,8 +2,8 @@
 date = "2026-09-29T07:00:00-06:00"
 title = "Estuve en tres de los hoteles más exclusivos de Costa Rica: esto es lo que hace distinto a cada uno"
 authors = ["Brandon Flores"]
-category = "Tecnología"
-topics = ["Turismo", "Costa Rica", "Hoteles de lujo", "Bienestar", "Gastronomía"]
+category = "Mercado"
+topics = ["Turismo"]
 draft = false
 ai_processed = true
 source_id = "0074b0db3d5cbc4d9b74872d24212eae319df1dc502ff85d1ef2812d5f96e179"

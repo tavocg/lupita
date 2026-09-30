@@ -2,8 +2,8 @@
 date = "2023-06-01T10:57:47-06:00"
 title = "Emprendedores: ¿Dudas antes de dar el paso? Te damos la guía definitiva"
 authors = []
-category = "Educación"
-topics = ["emprendedores", "guia", "negocio", "emprendimiento"]
+category = "Mercado"
+topics = ["Emprendimiento", "Negocios"]
 draft = false
 ai_processed = true
 source_id = "454f7ba8d229d6389b928f2956070675991dd9682fbb82df00605d254451b063"

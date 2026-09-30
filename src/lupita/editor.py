@@ -9,8 +9,8 @@ from .models import Article, Editorial, clean_text
 
 
 CATEGORIES = (
-    "Ambiente", "Educación", "Ciencia", "Seguridad", "Tecnología",
-    "Inteligencia Artificial", "Finanzas", "Cultura", "Política", "Deportes", "Mercado",
+    "Ambiente", "Educación", "Seguridad", "Tecnología", "Finanzas",
+    "Política", "Deportes", "Mercado", "Salud", "Sociedad", "Transporte",
 )
 EXCLUDED_CATEGORY = "Excluir"
 SCHEMA = {

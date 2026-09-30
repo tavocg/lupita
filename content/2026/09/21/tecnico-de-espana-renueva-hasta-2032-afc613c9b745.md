@@ -2,8 +2,8 @@
 date = "2026-09-21T07:33:04-06:00"
 title = "Técnico de España renueva hasta 2032"
 authors = []
-category = "Tecnología"
-topics = ["Luis de la Fuente", "Federación Española de Fútbol", "RFEF", "EURO", "Copa Mundial de 2030"]
+category = "Deportes"
+topics = []
 draft = false
 ai_processed = true
 source_id = "afc613c9b745d3594db42262402257df3e496f4d61fb14e7da9cbcedf7957b56"

@@ -2,8 +2,8 @@
 date = "2022-10-05T09:16:00-06:00"
 title = "Emprendedores: guía y consejos para crear un sitio web"
 authors = []
-category = "Educación"
-topics = ["emprendedores", "sitio web", "plataformas en línea", "marketing digital"]
+category = "Mercado"
+topics = ["Emprendimiento", "Negocios"]
 draft = false
 ai_processed = true
 source_id = "5694f91760fe2a0d82fbb37a9e2da51ef6d97de6c18c0789b18e00fe17ded3b9"

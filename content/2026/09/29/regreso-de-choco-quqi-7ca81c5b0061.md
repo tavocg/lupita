@@ -3,7 +3,7 @@ date = "2026-09-29T11:06:22-06:00"
 title = "Regreso de Choco QuQi"
 authors = ["Fátima Jiménez"]
 category = "Sociedad"
-topics = ["Choco QuQi", "Dos Pinos", "Gallito", "Julián Valverde"]
+topics = ["Dos Pinos", "Gallito"]
 draft = false
 source_id = "7ca81c5b00617a4cdf036ecd2d490b1fe408a37fb881dbd8a13dc62d9ea655f5"
 [source]

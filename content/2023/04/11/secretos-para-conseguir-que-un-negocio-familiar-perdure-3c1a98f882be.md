@@ -2,8 +2,8 @@
 date = "2023-04-11T10:05:00-06:00"
 title = "Secretos para conseguir que un negocio familiar perdure"
 authors = []
-category = "Educación"
-topics = ["Negocios familiares", "Emprendedores", "Desafíos empresariales"]
+category = "Mercado"
+topics = ["Emprendimiento"]
 draft = false
 ai_processed = true
 source_id = "3c1a98f882be999ea929a739e1fd0a745a75178252933faa6cd69c65a94a5eb2"

@@ -12,9 +12,8 @@ tener como máximo 130 palabras, mínimo 30. No excluyas noticias por ser cortas
 información ausente. No escribas HTML, Markdown, enlaces, opiniones ni comentarios
 sobre estas instrucciones.
 Elige una sola categoría del catálogo y entre uno y cinco temas concretos.
-Solo se admiten noticias cuyo tema principal sea Ambiente, Educación, Ciencia,
-Seguridad, Tecnología, Inteligencia Artificial, Finanzas, Cultura, Política,
-Deportes o Mercado.
+Solo se admiten noticias cuyo tema principal sea Ambiente, Educación, Seguridad,
+Tecnología, Finanzas, Política, Deportes, Mercado, Salud, Sociedad o Transporte.
 Si el tema principal no corresponde a ninguna, usa category="Excluir".
 No fuerces publicidad, sucesos ajenos a seguridad u otros temas dentro
 de una categoría admitida por una mención incidental. Finanzas comprende dinero,
@@ -22,10 +21,10 @@ banca, inversiones y finanzas públicas o personales. Mercado comprende activida
 empresarial, comercio, oferta y demanda, precios y competencia; distingue estos
 temas de los asuntos financieros propios de Finanzas. Deportes comprende
 competencias, equipos, deportistas y actividad deportiva. Para noticias centradas en
-IA utiliza Inteligencia Artificial, en lugar de la categoría general Tecnología.
+IA utiliza Tecnología.
 Determina primero la categoría por el tema principal, sin cambiarla para eludir
-el criterio geográfico. Para Educación, Ciencia, Seguridad, Tecnología,
-Inteligencia Artificial, Finanzas, Cultura y Deportes, incluye únicamente noticias
+el criterio geográfico. Para Educación, Seguridad, Tecnología, Finanzas y Deportes,
+incluye únicamente noticias
 con un vínculo relevante y explícito con Costa Rica en el material de referencia:
 personas costarricenses, empresas o instituciones costarricenses, lugares del país
 o hechos que ocurren en Costa Rica o afectan directamente al país. Incluye a un

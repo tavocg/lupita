@@ -3,7 +3,7 @@ date = "2026-09-29T10:41:37-06:00"
 title = "Científicos identifican nueva especie de pingüino papúa en islas Kerguelen mediante análisis genómico"
 authors = ["Jailine González Gómez"]
 category = "Tecnología"
-topics = ["Análisis genómico", "Conservación marina"]
+topics = []
 draft = false
 source_id = "afced960857f88624fcf1083d649bafd99441b73f0e7d0a969042fda8fad9d87"
 [source]

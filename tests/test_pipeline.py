@@ -112,8 +112,8 @@ class EditorTests(unittest.TestCase):
 
     def test_allowed_categories_and_explicit_exclusion(self):
         self.assertEqual(set(CATEGORIES), {
-            "Ambiente", "Educación", "Ciencia", "Seguridad", "Tecnología",
-            "Inteligencia Artificial", "Finanzas", "Cultura", "Política", "Deportes", "Mercado",
+            "Ambiente", "Educación", "Seguridad", "Tecnología", "Finanzas",
+            "Política", "Deportes", "Mercado", "Salud", "Sociedad", "Transporte",
         })
         for category in CATEGORIES:
             with self.subTest(category=category):

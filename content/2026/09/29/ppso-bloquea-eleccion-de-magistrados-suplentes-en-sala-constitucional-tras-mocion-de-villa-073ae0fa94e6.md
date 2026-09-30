@@ -3,7 +3,7 @@ date = "2026-09-29T10:34:38-06:00"
 title = "PPSO bloquea elección de magistrados suplentes en Sala Constitucional tras moción de Villalobos"
 authors = ["Aarón Sequeira"]
 category = "Política"
-topics = ["Sala Constitucional", "PPSO", "José Miguel Villalobos", "Elecciones"]
+topics = ["Sala Constitucional", "PPSO", "Elecciones"]
 draft = false
 source_id = "073ae0fa94e6e0fd43f0addb08f553d8adf25d0c4372df41ec3315f7086159bb"
 [source]
