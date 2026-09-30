@@ -15,6 +15,11 @@
 {{- with $description }}
 <meta name="description" content="{{ . | htmlEscape }}">
 {{- end }}
+{{- if .IsHome }}
+  {{- $searchURL := printf "%sbuscar/?q={search_term_string}" site.Home.Permalink }}
+  {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.Home.Permalink "description" site.Params.description "inLanguage" site.Language.Locale "potentialAction" (dict "@type" "SearchAction" "target" (dict "@type" "EntryPoint" "urlTemplate" $searchURL) "query-input" "required name=search_term_string") }}
+<script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+{{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="theme-color" content="#17324d">
 {{- if eq .Layout "search" }}
