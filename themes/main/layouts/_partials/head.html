@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ printf "%s | Noticias de Costa Rica" site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{- $description := site.Params.description -}}
 {{- if .IsPage -}}
   {{- $description = .Description | default .Summary | plainify | htmlUnescape | strings.TrimSpace -}}

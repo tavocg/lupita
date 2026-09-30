@@ -1,0 +1,30 @@
+{{ $news := where site.RegularPages.ByDate.Reverse "Layout" "ne" "informational" }}
+{{ $withImages := slice }}
+{{ $withoutImages := slice }}
+{{ range $news }}
+  {{ if .Params.image }}
+    {{ $withImages = $withImages | append . }}
+  {{ else }}
+    {{ $withoutImages = $withoutImages | append . }}
+  {{ end }}
+{{ end }}
+{{ $ordered := $withImages }}
+{{ range $withoutImages }}
+  {{ $ordered = $ordered | append . }}
+{{ end }}
+{{ $featured := first 5 $ordered }}
+{{ $featuredURLs := slice }}
+{{ range $featured }}{{ $featuredURLs = $featuredURLs | append .RelPermalink }}{{ end }}
+{{ $more := slice }}
+{{ range $news }}
+  {{ if not (in $featuredURLs .RelPermalink) }}{{ $more = $more | append . }}{{ end }}
+{{ end }}
+{{ with $more }}
+  <section class="home-more" aria-labelledby="{{ $.Get "id" }}-title">
+    <h2 id="{{ $.Get "id" }}-title">{{ $.Get "title" }}</h2>
+    {{ with $.Get "description" }}<p>{{ . }}</p>{{ end }}
+    <div class="home-more-grid">
+      {{ range first 6 . }}{{ partial "summary.html" . }}{{ end }}
+    </div>
+  </section>
+{{ end }}

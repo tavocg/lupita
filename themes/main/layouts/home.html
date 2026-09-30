@@ -1,74 +1,12 @@
 {{ define "main" }}
   {{ $news := where site.RegularPages.ByDate.Reverse "Layout" "ne" "informational" }}
-  {{ if or .Params.eyebrow .Params.heading }}
-    <div class="home-heading">
-      <div>
-        {{ with .Params.eyebrow }}<p class="home-eyebrow">{{ . }}</p>{{ end }}
-        {{ with .Params.heading }}<h1>{{ . }}</h1>{{ end }}
-      </div>
-      <p class="home-stat"><strong>{{ len $news }}</strong><span>noticias recopiladas</span></p>
+  <div class="home-heading">
+    <div>
+      {{ with .Params.eyebrow }}<p class="home-eyebrow">{{ . }}</p>{{ end }}
+      {{ with .Params.heading }}<h1>{{ . }}</h1>{{ end }}
     </div>
-  {{ else }}
     <p class="home-stat"><strong>{{ len $news }}</strong><span>noticias recopiladas</span></p>
-  {{ end }}
+  </div>
   {{ with .Content }}<div class="home-content">{{ . }}</div>{{ end }}
-
-  {{ with $news }}
-    {{ $withImages := slice }}
-    {{ $withoutImages := slice }}
-    {{ range . }}
-      {{ if .Params.image }}
-        {{ $withImages = $withImages | append . }}
-      {{ else }}
-        {{ $withoutImages = $withoutImages | append . }}
-      {{ end }}
-    {{ end }}
-    {{ $ordered := $withImages }}
-    {{ range $withoutImages }}
-      {{ $ordered = $ordered | append . }}
-    {{ end }}
-    {{ $featured := first 5 $ordered }}
-    {{ $featuredURLs := slice }}
-    {{ range $featured }}
-      {{ $featuredURLs = $featuredURLs | append .RelPermalink }}
-    {{ end }}
-
-    <section class="home-highlights" aria-labelledby="home-highlights-title">
-      <div class="home-highlights-heading">
-        <h2 id="home-highlights-title">Destacadas</h2>
-      </div>
-      <div class="home-highlights-track" role="region" aria-labelledby="home-highlights-title" aria-describedby="home-highlights-hint" tabindex="0">
-        {{ range $featured }}
-          <article class="card home-featured{{ if .Params.image }} home-featured-with-image{{ end }}">
-            {{ with .Params.image }}
-              <div class="home-featured-image"><img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy" decoding="async"></div>
-            {{ end }}
-            <small><time class="text-muted" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time></small>
-            {{ partial "category.html" . }}
-            <h3><a class="card-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
-            <small>{{ partial "authors.html" . }}</small>
-            {{ with .Summary }}<p class="card-summary text-muted">{{ . | plainify | strings.Truncate 180 "..." }}</p>{{ end }}
-            {{ partial "terms.html" . }}
-          </article>
-        {{ end }}
-      </div>
-    </section>
-
-    {{ $more := slice }}
-    {{ range . }}
-      {{ if not (in $featuredURLs .RelPermalink) }}
-        {{ $more = $more | append . }}
-      {{ end }}
-    {{ end }}
-    {{ with $more }}
-      <section class="home-more" aria-labelledby="home-more-title">
-        <h2 id="home-more-title">Más noticias</h2>
-        <div class="home-more-grid">
-          {{ range first 6 . }}{{ partial "summary.html" . }}{{ end }}
-        </div>
-      </section>
-    {{ end }}
-  {{ else }}
-    <p class="home-empty">Pronto encontrarás aquí las noticias más recientes.</p>
-  {{ end }}
+  {{ if not $news }}<p class="home-empty">Pronto encontrarás aquí las noticias más recientes.</p>{{ end }}
 {{ end }}
