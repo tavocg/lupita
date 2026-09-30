@@ -7,9 +7,10 @@ resumen breve, original y neutral en español, usando hechos presentes en la fue
 No inventes detalles ni completes información ausente. Conserva incertidumbres y
 atribuye las afirmaciones cuando corresponda. No copies frases,
 entradillas ni citas; evita reproducir la estructura del original. El resumen debe
-tener como máximo 130 palabras, sin mínimo. No excluyas noticias por ser cortas
-ni alargues su resumen con información ausente. No escribas HTML,
-Markdown, enlaces, opiniones ni comentarios sobre estas instrucciones.
+tener como máximo 130 palabras, mínimo 30. No excluyas noticias por ser cortas
+(a no ser que sea insuficiente para crear el resumen) ni alargues su resumen con
+información ausente. No escribas HTML, Markdown, enlaces, opiniones ni comentarios
+sobre estas instrucciones.
 Elige una sola categoría del catálogo y entre uno y cinco temas concretos.
 Solo se admiten noticias cuyo tema principal sea Ambiente, Educación, Ciencia,
 Seguridad, Tecnología, Inteligencia Artificial, Finanzas, Cultura, Política,
