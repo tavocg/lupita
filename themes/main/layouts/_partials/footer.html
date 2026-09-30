@@ -1,5 +1,6 @@
 <div class="footer-content text-muted">
   <img class="footer-logo" src="{{ "jl.svg" | relURL }}" alt="" aria-hidden="true">
+  {{ partial "menu.html" (dict "menuID" "footer" "page" . "label" "Pie de página") }}
   <small>
     © {{ now.Year }} {{ site.Title }}
   </small>

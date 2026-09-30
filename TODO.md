@@ -1,1 +1,1 @@
-- [ ] Integrar pagefind
+- [x] Integrar pagefind

@@ -155,14 +155,34 @@ en `editor.py`.
 
 ## Ver y publicar el sitio
 
-Con Hugo **0.166.0**:
+Con Hugo **0.166.0** y Node.js **22+** (incluye npm):
 
 ```sh
 hugo server --buildDrafts
-hugo --minify --gc
+sh scripts/build.sh
 ```
 
-En Cloudflare Pages usa `hugo --minify --gc`, directorio de salida `public`
+En Cloudflare Pages usa `sh scripts/build.sh`, directorio de salida `public`
 y variable `HUGO_VERSION=0.166.0`. Configura el dominio definitivo en
 `baseURL` de `hugo.toml`. La importación se ejecuta por separado: sube los
 Markdown generados al repositorio para incluirlos en el despliegue.
+
+El script ejecuta Hugo y después Pagefind **1.5.2**, descargado mediante `npx`.
+Publica todo el directorio de salida, incluido `pagefind/`. La búsqueda en
+`/buscar/` funciona en el navegador y carga sus recursos solo en esa página.
+Indexa títulos y resúmenes de noticias publicadas; excluye borradores, menús,
+portada y listados de categorías o temas. No utiliza `.news-index.json`.
+
+Para probar la búsqueda local con el índice generado:
+
+```sh
+sh scripts/build.sh /tmp/lupita-preview --baseURL http://localhost:8080/
+python3 -m http.server 8080 --directory /tmp/lupita-preview
+```
+
+Abre `http://localhost:8080/buscar/`. Repite la compilación al cambiar noticias.
+`hugo server` por sí solo no genera el índice de Pagefind.
+
+Referencias: [búsqueda en Hugo](https://gohugo.io/tools/search/),
+[indexación de Pagefind](https://pagefind.app/docs/indexing/) y
+[interfaz de Pagefind](https://pagefind.app/docs/search-ui/).

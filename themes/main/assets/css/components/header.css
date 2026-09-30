@@ -2,9 +2,37 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
 
   nav ul {
     display: flex;
     gap: 1rem;
+  }
+}
+
+.search-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: clamp(10rem, 28vw, 17rem);
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--color-card-hover);
+  color: var(--color-text-muted);
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+
+  kbd {
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.65rem;
+    white-space: nowrap;
   }
 }

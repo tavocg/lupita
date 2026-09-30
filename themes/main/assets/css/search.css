@@ -1,0 +1,31 @@
+#search {
+  --pf-text: var(--color-text);
+  --pf-text-secondary: var(--color-text-muted);
+  --pf-text-muted: var(--color-text-muted);
+  --pf-background: var(--color-background);
+  --pf-border: var(--color-border);
+  --pf-border-focus: var(--color-link);
+  --pf-outline-focus: var(--color-link);
+  --pf-hover: var(--color-card-hover);
+  --pf-mark: var(--color-link);
+  --pf-font: var(--font-sans);
+  --pf-input-height: 48px;
+  --pf-result-title-font-size: 18px;
+  --pf-result-excerpt-font-size: 16px;
+  --pf-results-gap: 1rem;
+}
+
+#search .search-result {
+  list-style: none;
+  min-width: 0;
+}
+
+#search .card mark {
+  color: var(--color-text);
+  background: var(--color-topic-hover);
+}
+
+#search :focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 3px;
+}

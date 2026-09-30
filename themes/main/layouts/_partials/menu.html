@@ -9,10 +9,11 @@ Renders a menu for the given menu ID.
 
 {{- $page := .page }}
 {{- $menuID := .menuID }}
+{{- $label := .label | default "Navegación principal" }}
 
 {{- with index site.Menus $menuID }}
   <small>
-    <nav class="text-muted">
+    <nav class="text-muted" aria-label="{{ $label }}">
       <ul>
         {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
       </ul>
@@ -29,6 +30,9 @@ Renders a menu for the given menu ID.
     {{- else if $page.HasMenuCurrent .Menu .}}
       {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
     {{- end }}
+    {{- if eq .Identifier "search" }}
+      {{- $attrs = merge $attrs (dict "class" "search-trigger" "href" (printf "%s#search" .URL) "aria-label" "Buscar noticias") }}
+    {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
       {{- with T . }}
@@ -42,7 +46,7 @@ Renders a menu for the given menu ID.
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
           {{- end }}
         {{- end -}}
-      >{{ $name }}</a>
+      >{{ if eq .Identifier "search" }}<span>Buscar…</span><kbd hidden aria-hidden="true">Ctrl K</kbd>{{ else }}{{ $name }}{{ end }}</a>
       {{- with .Children }}
         <ul>
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}

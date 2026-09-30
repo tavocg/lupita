@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $news := site.RegularPages.ByDate.Reverse }}
+  {{ $news := where site.RegularPages.ByDate.Reverse "Layout" "ne" "informational" }}
   {{ if or .Params.eyebrow .Params.heading }}
     <div class="home-heading">
       <div>

@@ -15,11 +15,22 @@ removePathAccents = true
   pagerSize = 50
 
 [[menus.main]]
+  identifier = 'search'
+  name = 'Buscar'
+  pageRef = '/buscar'
+  weight = 40
+
+[[menus.footer]]
+  name = 'Acerca de'
+  pageRef = '/about'
+  weight = 10
+
+[[menus.footer]]
   name = 'Categorías'
   pageRef = '/category'
   weight = 20
 
-[[menus.main]]
+[[menus.footer]]
   name = 'Temas'
   pageRef = '/topics'
   weight = 30

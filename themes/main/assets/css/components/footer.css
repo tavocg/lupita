@@ -16,6 +16,13 @@ footer {
   height: auto;
 }
 
+.footer-content nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+}
+
 @media (prefers-color-scheme: dark) {
   .footer-logo {
     filter: brightness(0) invert(1);

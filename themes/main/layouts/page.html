@@ -1,17 +1,22 @@
 {{ define "main" }}
+  {{ if not .Draft }}
+    <span hidden data-pagefind-meta="date">{{ .Date | time.Format ":date_long" }}</span>
+    <span hidden data-pagefind-meta="datetime">{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}</span>
+    {{ with .Params.category }}<span hidden data-pagefind-meta="category">{{ . }}</span>{{ end }}
+  {{ end }}
   {{ if ne .CurrentSection.Path (printf "/%s" (.Date | time.Format "2006/01/02")) }}
     <small><time class="text-muted" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time></small>
   {{ end }}
   <div class="page-title">
     {{ partial "category.html" . }}
-    <h1>{{ .Title }}</h1>
+    <h1{{ if not .Draft }} data-pagefind-body data-pagefind-meta="title"{{ end }}>{{ .Title }}</h1>
     <small>{{ partial "source.html" . }}</small>
   </div>
   <div class="page-authors">
     <small>{{ partial "authors.html" . }}</small>
   </div>
 
-  {{ .Content }}
+  <div{{ if not .Draft }} data-pagefind-body{{ end }}>{{ .Content }}</div>
   {{ with .Params.image }}
     <figure>
       <img src="{{ . }}" alt="{{ $.Params.image_alt | default "" }}" loading="lazy" decoding="async">
