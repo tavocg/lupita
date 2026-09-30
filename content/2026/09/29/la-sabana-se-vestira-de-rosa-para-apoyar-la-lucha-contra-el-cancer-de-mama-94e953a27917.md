@@ -2,7 +2,7 @@
 date = "2026-09-29T21:29:35-06:00"
 title = "La Sabana se vestirá de rosa para apoyar la lucha contra el cáncer de mama"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["La Sabana", "cáncer de mama"]
 draft = false
 ai_processed = true

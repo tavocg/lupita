@@ -2,7 +2,7 @@
 date = "2026-09-27T16:06:48-06:00"
 title = "¡Están vivos! Panamá localiza a tres pescadores ticos desaparecidos hace días"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Panamá", "Costa Rica", "pesca artesanal", "desaparecidos", "Servicio Aeronaval de Panamá"]
 draft = false
 ai_processed = true

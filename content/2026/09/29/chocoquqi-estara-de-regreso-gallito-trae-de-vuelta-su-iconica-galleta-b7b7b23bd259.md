@@ -2,7 +2,7 @@
 date = "2026-09-29T18:10:57-06:00"
 title = "¡ChocoQuQi estará de regreso! Gallito trae de vuelta su icónica galleta"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["ChocoQuQi", "Galleta", "Gallito"]
 draft = false
 ai_processed = true

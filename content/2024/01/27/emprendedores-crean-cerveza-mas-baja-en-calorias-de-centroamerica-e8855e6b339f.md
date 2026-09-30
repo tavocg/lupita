@@ -2,7 +2,7 @@
 date = "2024-01-27T18:10:00-06:00"
 title = "Emprendedores crean cerveza más baja en calorías de Centroamérica"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Eremita Cervecería Ermitaña", "Eremita Low Cal"]
 draft = false
 ai_processed = true

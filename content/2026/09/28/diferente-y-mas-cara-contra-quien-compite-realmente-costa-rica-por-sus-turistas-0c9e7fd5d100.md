@@ -2,7 +2,7 @@
 date = "2026-09-28T06:00:00-06:00"
 title = "Diferente y más cara, ¿contra quién compite realmente Costa Rica por sus turistas?"
 authors = ["Josué Alfaro"]
-category = "Educación"
+category = "Mercado"
 topics = ["Turismo", "Competencia", "Costa Rica", "Economía", "Mercado"]
 draft = false
 ai_processed = true

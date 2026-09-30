@@ -2,7 +2,7 @@
 date = '2026-09-27T05:15:00-06:00'
 title = "Costarricense logró huir del arresto del ICE en aeropuerto: 'Mencionaron mi nombre en la sala de abordaje'"
 author = "Roger Bolaños Vargas"
-category = "Migración"
+category = "Sociedad"
 topics = ["ICE", "Deportación", "Costarricenses en el extranjero"]
 [source]
   name = "La Nación"

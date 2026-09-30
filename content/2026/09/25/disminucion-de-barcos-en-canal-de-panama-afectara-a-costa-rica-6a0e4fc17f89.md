@@ -2,7 +2,7 @@
 date = "2026-09-25T22:26:45-06:00"
 title = "¿Disminución de barcos en canal de Panamá afectará a Costa Rica?"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Disminución de barcos en canal de Panamá", "Impacto en la importación de alimentos", "Reducción del tránsito marítimo", "Costos de transporte", "Efectos del El Niño en el canal"]
 draft = false
 ai_processed = true

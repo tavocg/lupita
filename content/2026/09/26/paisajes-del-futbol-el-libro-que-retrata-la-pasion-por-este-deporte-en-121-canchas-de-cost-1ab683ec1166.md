@@ -2,7 +2,7 @@
 date = "2026-09-26T14:25:55-06:00"
 title = "'Paisajes del fútbol': El libro que retrata la pasión por este deporte en 121 canchas de Costa Rica"
 authors = []
-category = "Ambiente"
+category = "Deportes"
 topics = ["Adrián Reifer", "Paisajes del fútbol", "fútbol", "Costa Rica", "canchas de fútbol"]
 draft = false
 ai_processed = true

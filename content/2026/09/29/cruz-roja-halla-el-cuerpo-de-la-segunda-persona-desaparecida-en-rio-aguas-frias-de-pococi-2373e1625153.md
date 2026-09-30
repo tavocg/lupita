@@ -2,7 +2,7 @@
 date = "2026-09-29T08:54:30-06:00"
 title = "Cruz Roja halla el cuerpo de la segunda persona desaparecida en río Aguas Frías de Pococí"
 authors = ["Marianela Arias Vilchez"]
-category = "Ambiente"
+category = "Seguridad"
 topics = ["Río Aguas Frías", "Pococí", "Cruz Roja Costarricense"]
 draft = false
 ai_processed = true

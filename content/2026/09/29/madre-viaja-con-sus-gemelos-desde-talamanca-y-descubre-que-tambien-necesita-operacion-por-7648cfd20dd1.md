@@ -2,7 +2,7 @@
 date = "2026-09-29T16:37:16-06:00"
 title = "Madre viaja con sus gemelos desde Talamanca y descubre que también necesita operación por estrabismo"
 authors = ["Yucsiany Salazar Serrano"]
-category = "Ambiente"
+category = "Salud"
 topics = ["Estrabismo", "Atención médica", "Cirugía"]
 draft = false
 ai_processed = true

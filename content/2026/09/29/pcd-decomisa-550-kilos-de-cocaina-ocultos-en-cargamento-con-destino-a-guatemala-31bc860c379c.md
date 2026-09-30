@@ -2,7 +2,7 @@
 date = "2026-09-29T09:25:27-06:00"
 title = "PCD decomisa 550 kilos de cocaína ocultos en cargamento con destino a Guatemala"
 authors = []
-category = "Ambiente"
+category = "Seguridad"
 topics = ["Cocaína", "Frontera", "Guatemala"]
 draft = false
 ai_processed = true

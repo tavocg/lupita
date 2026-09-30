@@ -2,7 +2,7 @@
 date = "2023-02-13T09:21:00-06:00"
 title = "¡Antójese de estos productos lácteos artesanales!"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Gloriana Rodríguez", "San Carlos"]
 draft = false
 ai_processed = true

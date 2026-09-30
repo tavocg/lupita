@@ -2,7 +2,7 @@
 date = "2026-09-26T12:57:06-06:00"
 title = "Video: Más de 100 bomberos se necesitaron para poder apagar gran incendio en Curridabat"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Incendio", "Curridabat", "Ciudad del Este"]
 draft = false
 ai_processed = true

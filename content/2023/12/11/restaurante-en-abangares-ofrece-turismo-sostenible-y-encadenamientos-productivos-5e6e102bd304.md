@@ -2,7 +2,7 @@
 date = "2023-12-11T19:20:00-06:00"
 title = "Restaurante en Abangares ofrece turismo sostenible y encadenamientos productivos"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Turismo sostenible", "Encadenamiento productivo", "Costa de Pájaros", "Comida local", "Gastronomía"]
 draft = false
 ai_processed = true

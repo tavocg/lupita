@@ -2,7 +2,7 @@
 date = "2026-09-28T11:37:55-06:00"
 title = "Bienestar, practicidad y variedad: así evolucionan las preferencias alimentarias en Costa Rica"
 authors = ["Andrea Mora Zamora"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["Cargill", "consumidor costarricense", "preferencias alimentarias", "sostenibilidad", "variedad"]
 draft = false
 ai_processed = true

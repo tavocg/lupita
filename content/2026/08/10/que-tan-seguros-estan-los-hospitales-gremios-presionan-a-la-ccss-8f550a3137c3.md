@@ -2,7 +2,7 @@
 date = "2026-08-10T16:11:30-06:00"
 title = "¿Qué tan seguros están los hospitales? Gremios presionan a la CCSS"
 authors = ["Redacción"]
-category = "Ambiente"
+category = "Salud"
 topics = ["Hospitales", "Seguridad", "CCSS"]
 draft = false
 ai_processed = true

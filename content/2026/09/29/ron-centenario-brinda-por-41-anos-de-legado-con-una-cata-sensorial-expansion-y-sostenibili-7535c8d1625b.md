@@ -2,7 +2,7 @@
 date = "2026-09-29T10:16:23-06:00"
 title = "Ron Centenario brinda por 41 años de legado con una cata sensorial, expansión y sostenibilidad"
 authors = ["Alejandro Monge"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["Sostenibilidad", "Energía solar", "Carbono Neutralidad Plus"]
 draft = false
 ai_processed = true

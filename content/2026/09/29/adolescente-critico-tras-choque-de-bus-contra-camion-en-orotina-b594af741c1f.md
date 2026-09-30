@@ -2,7 +2,7 @@
 date = "2026-09-29T07:31:46-06:00"
 title = "Adolescente crítico tras choque de bus contra camión en Orotina"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Accidente", "Vialidad", "Salud", "Orotina"]
 draft = false
 ai_processed = true

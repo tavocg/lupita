@@ -2,7 +2,7 @@
 date = "2026-09-29T10:19:27-06:00"
 title = "Gallito relanza la icónica galleta ChocoQuQi; conozca la fecha en la que saldrá a la venta"
 authors = ["Brandon Flores"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["ChocoQuQi", "Dos Pinos", "Galleta", "Relanzamiento", "Mercado"]
 draft = false
 ai_processed = true

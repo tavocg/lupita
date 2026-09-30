@@ -2,7 +2,7 @@
 date = "2025-10-13T15:38:18-06:00"
 title = "¿Qué medidas tomaron las autoridades sanitarias tras primer caso de fiebre amarilla?"
 authors = ["Practicante Digital"]
-category = "Ambiente"
+category = "Salud"
 topics = ["Fiebre amarilla", "Medidas de control", "Riesgo de brote"]
 draft = false
 ai_processed = true

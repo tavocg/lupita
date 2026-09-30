@@ -2,7 +2,7 @@
 date = "2023-02-01T22:12:12-06:00"
 title = "Micropymes deben buscar apoyo con aliados comerciales, aseguran expertos"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Microempresas", "Crecimiento", "Aliados comerciales"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-29T16:11:41-06:00"
 title = "Hijo de Christopher Reeve confirmó que tuvo cáncer testicular"
 authors = ["Jessica Rojas Ch."]
-category = "Cultura"
+category = "Sociedad"
 topics = ["Cáncer", "Testículos", "Diagnóstico temprano", "Orquiectomía", "Will Reeve"]
 draft = false
 ai_processed = true

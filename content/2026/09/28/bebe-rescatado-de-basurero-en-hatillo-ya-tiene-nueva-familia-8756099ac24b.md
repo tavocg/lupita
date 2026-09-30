@@ -2,7 +2,7 @@
 date = "2026-09-28T13:09:16-06:00"
 title = "Bebé rescatado de basurero en Hatillo ya tiene nueva familia"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Adopciones", "Bebés abandonados", "Hatillo"]
 draft = false
 ai_processed = true

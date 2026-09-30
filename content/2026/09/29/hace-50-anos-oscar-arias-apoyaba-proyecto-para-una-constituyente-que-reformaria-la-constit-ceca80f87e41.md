@@ -2,7 +2,7 @@
 date = "2026-09-29T07:30:00-06:00"
 title = "Hace 50 años: Oscar Arias apoyaba proyecto para una constituyente que reformaría la constitución"
 authors = ["Marianela Arias Vilchez"]
-category = "Educación"
+category = "Política"
 topics = ["Arias", "Constitución", "Reforma"]
 draft = false
 ai_processed = true

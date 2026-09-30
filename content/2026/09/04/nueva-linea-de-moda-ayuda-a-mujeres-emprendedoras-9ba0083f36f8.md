@@ -2,7 +2,7 @@
 date = "2026-09-04T19:36:00-06:00"
 title = "Nueva línea de moda ayuda a mujeres emprendedoras"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Tucalzado.com", "TC Fashion", "Emprendedoras", "Moda", "Generación de ingresos"]
 draft = false
 ai_processed = true

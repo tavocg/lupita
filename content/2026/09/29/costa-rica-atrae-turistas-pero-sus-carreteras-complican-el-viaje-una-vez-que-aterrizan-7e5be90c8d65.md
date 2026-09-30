@@ -2,7 +2,7 @@
 date = "2026-09-29T08:00:00-06:00"
 title = "Costa Rica atrae turistas, pero sus carreteras complican el viaje una vez que aterrizan"
 authors = ["Tatiana Soto Morales"]
-category = "Ambiente"
+category = "Transporte"
 topics = ["Turismo", "Infraestructura vial", "Inteligencia artificial", "Seguridad", "Criminalidad"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-25T20:37:04-06:00"
 title = "Solución para reducir listas de espera: médicos privados y llevar pacientes al extranjero"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Reducción de listas de espera", "Atención de pacientes en el extranjero", "Sector privado en la atención sanitaria"]
 draft = false
 ai_processed = true

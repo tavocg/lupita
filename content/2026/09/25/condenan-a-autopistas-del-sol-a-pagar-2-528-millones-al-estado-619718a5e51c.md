@@ -2,7 +2,7 @@
 date = "2026-09-25T10:21:29-06:00"
 title = "Condenan a Autopistas del Sol a pagar ₡2.528 millones al Estado"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Autopistas del Sol", "Consejo Nacional de Vialidad", "Reconstrucción de la Ruta 27"]
 draft = false
 ai_processed = true

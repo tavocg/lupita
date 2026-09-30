@@ -2,7 +2,7 @@
 date = "2026-09-29T19:16:46-06:00"
 title = "INAMU ha destinado más de ₡1.029 millones a emprendimientos de mujeres en el Pacífico Central desde 2023"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["INAMU", "FOMUJERES", "programa de emprendimientos de mujeres", "Pacífico Central"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-25T15:54:37-06:00"
 title = "Esparza inaugura pista de atletismo"
 authors = []
-category = "Ambiente"
+category = "Deportes"
 topics = ["Esparza", "Puntarenas", "Ciudad Deportiva", "Pista de atletismo", "Inversión"]
 draft = false
 ai_processed = true

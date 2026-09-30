@@ -2,7 +2,7 @@
 date = "2023-05-31T23:33:17-06:00"
 title = "Conozca el emprendimiento gastronómico saludable e inclusivo"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Delicias y Más", "Marianela Villegas", "emprendimiento gastronómico", "salud", "inclusión"]
 draft = false
 ai_processed = true

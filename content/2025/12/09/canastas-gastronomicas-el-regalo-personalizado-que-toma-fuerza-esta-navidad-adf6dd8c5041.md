@@ -2,7 +2,7 @@
 date = "2025-12-09T21:40:00-06:00"
 title = "Canastas gastronómicas: el regalo personalizado que toma fuerza esta Navidad"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Turrones", "Vinos", "Aceites de oliva", "Chocolates", "Canastas gastronómicas"]
 draft = false
 ai_processed = true

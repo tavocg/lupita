@@ -2,7 +2,7 @@
 date = "2023-01-27T10:05:00-06:00"
 title = "Estas fotógrafas presencian el milagro de la vida"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Nacimiento", "Fotografña", "Padres"]
 draft = false
 ai_processed = true

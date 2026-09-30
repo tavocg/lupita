@@ -2,7 +2,7 @@
 date = "2025-06-06T22:04:00-06:00"
 title = "Costa Rica se suma a la red internacional de mercados del mezcal"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Mezcal", "Alipús", "Los Danzantes", "Magueyes", "Destilación artesanal"]
 draft = false
 ai_processed = true

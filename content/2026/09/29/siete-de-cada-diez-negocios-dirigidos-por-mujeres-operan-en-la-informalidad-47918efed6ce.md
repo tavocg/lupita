@@ -2,7 +2,7 @@
 date = "2026-09-29T09:20:14-06:00"
 title = "Siete de cada diez negocios dirigidos por mujeres operan en la informalidad"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Informalidad", "Negocios", "Género", "Desigualdad", "Emprendimiento"]
 draft = false
 ai_processed = true

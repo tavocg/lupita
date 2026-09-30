@@ -2,7 +2,7 @@
 date = "2026-09-29T12:01:42-06:00"
 title = "Juez de Nueva York limita uso de IA en caso de Macho Coca"
 authors = ["Natalia Vargas"]
-category = "Inteligencia Artificial"
+category = "Tecnología"
 topics = ["Macho Coca"]
 image = "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg"
 caption = "Fuente: [Pexels](https://www.pexels.com/photo/8386440)"

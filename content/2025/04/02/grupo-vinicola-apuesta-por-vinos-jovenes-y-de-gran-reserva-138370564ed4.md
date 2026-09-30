@@ -2,7 +2,7 @@
 date = "2025-04-02T21:01:00-06:00"
 title = "Grupo vinícola apuesta por vinos jóvenes y de gran reserva"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Vinos", "Costa Rica", "España", "Ribera del Duero", "Protos"]
 draft = false
 ai_processed = true

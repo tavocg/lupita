@@ -2,7 +2,7 @@
 date = "2023-09-07T19:42:00-06:00"
 title = "Hijo inspiró a madre para crear comida para bebés"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Costa Rica", "comida para bebés", "organismo", "aditivos", "azúcar"]
 draft = false
 ai_processed = true

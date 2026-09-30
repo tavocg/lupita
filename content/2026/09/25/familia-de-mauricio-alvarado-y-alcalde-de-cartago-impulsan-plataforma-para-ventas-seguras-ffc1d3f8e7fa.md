@@ -2,7 +2,7 @@
 date = "2026-09-25T12:05:57-06:00"
 title = "Familia de Mauricio Alvarado y alcalde de Cartago impulsan plataforma para ventas seguras"
 authors = []
-category = "Ambiente"
+category = "Seguridad"
 topics = ["Asesinato", "Ventas seguras", "Plataforma"]
 draft = false
 ai_processed = true

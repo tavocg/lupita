@@ -2,7 +2,7 @@
 date = "2026-09-29T11:05:00-06:00"
 title = "Familias denuncian dificultades para conseguir parches contra el Alzheimer en CCSS"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Alzheimer", "CCSS", "Rivastigmina"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-26T12:24:00-06:00"
 title = "¡Desde adentro! Video muestra cómo bomberos atacaron gran incendio en Curridabat"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Curridabat", "incendio", "Ciudad del Este"]
 draft = false
 ai_processed = true

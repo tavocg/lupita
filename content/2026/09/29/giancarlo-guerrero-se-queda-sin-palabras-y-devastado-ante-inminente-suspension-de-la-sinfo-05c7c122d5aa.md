@@ -2,7 +2,7 @@
 date = "2026-09-29T13:53:46-06:00"
 title = "Giancarlo Guerrero se queda ‘sin palabras’ y devastado ante inminente suspensión de la Sinfónica de Nashville"
 authors = ["Jorge Arturo Mora"]
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Nashville Symphony", "Giancarlo Guerrero", "finanzas"]
 draft = false
 ai_processed = true

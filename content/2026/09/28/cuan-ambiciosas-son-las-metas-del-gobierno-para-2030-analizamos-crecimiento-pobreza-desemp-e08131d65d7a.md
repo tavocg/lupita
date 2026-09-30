@@ -2,7 +2,7 @@
 date = "2026-09-28T07:00:00-06:00"
 title = "¿Cuán ambiciosas son las metas del Gobierno para 2030?: analizamos crecimiento, pobreza, desempleo, seguridad y educación"
 authors = ["Josué Alfaro"]
-category = "Educación"
+category = "Política"
 topics = ["Economía", "Desempleo", "Seguridad", "Educación", "Crecimiento económico"]
 draft = false
 ai_processed = true

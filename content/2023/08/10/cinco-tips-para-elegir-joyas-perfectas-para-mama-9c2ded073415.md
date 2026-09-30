@@ -2,7 +2,7 @@
 date = "2023-08-10T19:43:00-06:00"
 title = "Cinco tips para elegir joyas perfectas para mamá"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Joyería", "Día de la Madre", "Regalos", "Tendencias", "Calidad"]
 draft = false
 ai_processed = true

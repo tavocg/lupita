@@ -2,7 +2,7 @@
 date = "2026-07-20T13:03:18-06:00"
 title = "Dos viviendas fueron reducidas a cenizas y una era tomada por habitantes de calle"
 authors = ["Mario Silva"]
-category = "Ambiente"
+category = "Salud"
 topics = ["Incendios", "Viviendas", "Habitantes de la calle"]
 draft = false
 ai_processed = true

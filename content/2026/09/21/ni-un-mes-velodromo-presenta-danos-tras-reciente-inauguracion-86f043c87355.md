@@ -2,7 +2,7 @@
 date = "2026-09-21T12:06:52-06:00"
 title = "¡Ni un mes! Velódromo presenta daños tras reciente inauguración"
 authors = []
-category = "Ambiente"
+category = "Deportes"
 topics = ["Velódromo Nacional", "daños", "concreto", "problemas de adherencia", "inversión del Gobierno"]
 draft = false
 ai_processed = true

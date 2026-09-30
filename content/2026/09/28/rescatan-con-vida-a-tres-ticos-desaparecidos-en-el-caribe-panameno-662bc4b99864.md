@@ -2,7 +2,7 @@
 date = "2026-09-28T11:47:32-06:00"
 title = "Rescatan con vida a tres ticos desaparecidos en el Caribe panameño"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Desaparecidos", "Rescate", "Caribe panameño"]
 draft = false
 ai_processed = true

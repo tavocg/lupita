@@ -2,7 +2,7 @@
 date = "2026-09-26T10:01:01-06:00"
 title = "Video: Incendio de grandes proporciones consume centro comercial de Curridabat"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Incendio", "Centro comercial", "Curridabat"]
 draft = false
 ai_processed = true

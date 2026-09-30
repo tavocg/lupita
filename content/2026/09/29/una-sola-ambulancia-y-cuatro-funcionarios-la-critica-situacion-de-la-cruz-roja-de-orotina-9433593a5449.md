@@ -2,7 +2,7 @@
 date = "2026-09-29T18:13:14-06:00"
 title = "Una sola ambulancia y cuatro funcionarios: la crítica situación de la Cruz Roja de Orotina"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Cruz Roja", "Orotina", "Emergencias", "Recursos", "Cierre"]
 draft = false
 ai_processed = true

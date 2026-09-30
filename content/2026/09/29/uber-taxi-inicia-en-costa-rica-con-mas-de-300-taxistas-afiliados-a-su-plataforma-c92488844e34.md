@@ -2,7 +2,7 @@
 date = "2026-09-29T14:38:08-06:00"
 title = "Uber Taxi inicia en Costa Rica con más de 300 taxistas afiliados a su plataforma"
 authors = ["Brandon Flores"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["Uber Taxi", "Transporte", "Taxis rojos"]
 draft = false
 ai_processed = true

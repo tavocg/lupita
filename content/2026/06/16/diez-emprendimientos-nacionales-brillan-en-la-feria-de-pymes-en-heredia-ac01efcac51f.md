@@ -2,7 +2,7 @@
 date = "2026-06-16T22:17:00-06:00"
 title = "Diez emprendimientos nacionales brillan en la Feria de PYMES en Heredia"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["PYMES", "Feria", "Emprendimientos", "Heredia", "Costa Rica"]
 draft = false
 ai_processed = true

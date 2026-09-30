@@ -2,7 +2,7 @@
 date = "2026-09-26T20:28:00-06:00"
 title = "Testigo de incendio en Curridabat: \"Los padres agarraban a los niños, fue demasiado feo\""
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Incendio", "Ciudad del Este", "Curridabat"]
 draft = false
 ai_processed = true

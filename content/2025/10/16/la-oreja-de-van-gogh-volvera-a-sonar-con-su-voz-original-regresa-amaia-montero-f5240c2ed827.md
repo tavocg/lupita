@@ -2,7 +2,7 @@
 date = "2025-10-16T12:11:14-06:00"
 title = "La Oreja de Van Gogh volverá a sonar con su voz original: regresa Amaia Montero"
 authors = ["Practicante Digital"]
-category = "Cultura"
+category = "Sociedad"
 topics = ["Amaia Montero", "La Oreja de Van Gogh"]
 draft = false
 ai_processed = true

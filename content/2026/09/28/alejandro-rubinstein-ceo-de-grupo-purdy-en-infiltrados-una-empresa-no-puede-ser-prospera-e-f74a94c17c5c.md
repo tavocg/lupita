@@ -2,7 +2,7 @@
 date = "2026-09-28T17:00:43-06:00"
 title = "Alejandro Rubinstein, CEO de Grupo Purdy, en “Infiltrados”: “Una empresa no puede ser próspera en una sociedad que no es próspera”"
 authors = ["Redacción EF"]
-category = "Cultura"
+category = "Sociedad"
 topics = ["Alejandro Rubinstein", "Grupo Purdy", "Movilidad", "Sostenibilidad", "Inclusión"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2022-12-14T09:19:00-06:00"
 title = "¿En busca de regalos navideños? Anote estas mascotas de cerámica en su lista"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Arila Cerámica", "Ariela Cortés"]
 draft = false
 ai_processed = true

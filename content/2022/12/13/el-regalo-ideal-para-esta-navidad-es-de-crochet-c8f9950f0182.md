@@ -2,7 +2,7 @@
 date = "2022-12-13T10:42:00-06:00"
 title = "¡El regalo ideal para esta Navidad es de crochet!"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Crudo y aguja", "Bibiana Piza"]
 draft = false
 ai_processed = true

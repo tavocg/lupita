@@ -2,7 +2,7 @@
 date = "2025-05-29T19:36:00-06:00"
 title = "Emprendedores ticos apuestan a propuesta Nikkei que fusiona técnica, sabor y sostenibilidad"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Niiu", "Eckardt Vanselow", "Nicole Illig", "Roberto Montoya", "Iván Aguilar"]
 draft = false
 ai_processed = true

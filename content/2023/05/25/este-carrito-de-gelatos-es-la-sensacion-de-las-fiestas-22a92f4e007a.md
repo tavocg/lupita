@@ -2,7 +2,7 @@
 date = "2023-05-25T10:25:05-06:00"
 title = "Este carrito de gelatos es la sensación de las fiestas"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Gelato", "Reeses", "Rosa", "Junior", "Marcela Chavarría"]
 draft = false
 ai_processed = true

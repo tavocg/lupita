@@ -2,7 +2,7 @@
 date = "2026-09-25T16:05:00-06:00"
 title = "El secreto detrás del sabor del queso Turrialba"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Turrialba", "queso", "lácteos", "ganado", "pasto"]
 draft = false
 ai_processed = true

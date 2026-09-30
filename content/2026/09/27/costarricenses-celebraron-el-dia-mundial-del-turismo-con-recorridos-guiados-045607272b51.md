@@ -2,7 +2,7 @@
 date = "2026-09-27T15:16:49-06:00"
 title = "Costarricenses celebraron el Día Mundial del Turismo con recorridos guiados"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Turismo", "Costa Rica", "Día Mundial del Turismo", "Pura Vida"]
 draft = false
 ai_processed = true

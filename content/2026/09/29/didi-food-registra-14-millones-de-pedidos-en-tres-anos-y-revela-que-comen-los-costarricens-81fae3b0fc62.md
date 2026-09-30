@@ -2,7 +2,7 @@
 date = "2026-09-29T19:00:00-06:00"
 title = "Didi Food registra 14 millones de pedidos en tres años y revela qué comen los costarricenses"
 authors = ["Sergio Arce"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["Comida", "Pedidos", "Costa Rica", "Didi Food"]
 draft = false
 ai_processed = true

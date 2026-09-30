@@ -2,7 +2,7 @@
 date = "2025-10-03T21:38:00-06:00"
 title = "Restaurante de Monteverde entre los más singulares del mundo, según Tripadvisor"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Monteverde", "Tripadvisor", "Restaurantes Únicos"]
 draft = false
 ai_processed = true

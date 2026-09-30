@@ -2,7 +2,7 @@
 date = "2026-09-25T14:30:00-06:00"
 title = "Clínica Vive Sin Dolor ofrece un abordaje integral para pacientes con dolor crónico"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Dolor crónico", "Hernias", "Desgaste de articulaciones", "Nervio ciático"]
 draft = false
 ai_processed = true

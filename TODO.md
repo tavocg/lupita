@@ -1,0 +1,5 @@
+- [ ] Quitar categorías Ciencia (pasa a tecnología), Inteligencia Artificial (pasa a tecnología), Cultura (pasa a Sociedad). Tanto en el código como en el contenido.
+- [ ] Agregar las categorías Salud, Sociedad, Transporte.
+- [ ] Reclasificar noticias, hay algunas que tienen categorías raras, por ejemplo la noticia "Emprendedores: ¿Dudas antes de dar el paso? Te damos la guía definitiva" se encuentra en la categoría de educación cuando debería ser "Mercado". Puedes ver el diff actual de este repositorio para hacerte una idea de las correcciones.
+- [ ] Mejorar topics, reducir cantidad de topics, por ejemplo, en lugar de "ONU" y "Secretaría General De La ONU", sólamente "ONU".
+- [ ] Integrar pagefind

@@ -2,7 +2,7 @@
 date = "2026-09-29T11:50:41-06:00"
 title = "El dato robado es apenas una parte del riesgo"
 authors = ["Luis Carlos Guevara"]
-category = "Ambiente"
+category = "Tecnología"
 topics = ["Ciberseguridad", "Riesgo cibernético", "Gestión del riesgo", "Incidentes tecnológicos", "Protección de datos"]
 draft = false
 ai_processed = true

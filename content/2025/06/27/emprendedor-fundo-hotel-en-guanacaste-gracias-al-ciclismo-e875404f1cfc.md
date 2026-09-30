@@ -2,7 +2,7 @@
 date = "2025-06-27T22:28:00-06:00"
 title = "Emprendedor fundó hotel en Guanacaste gracias al ciclismo"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Guanacaste", "sostenibilidad", "hotel", "ciclismo", "emprendedor"]
 draft = false
 ai_processed = true

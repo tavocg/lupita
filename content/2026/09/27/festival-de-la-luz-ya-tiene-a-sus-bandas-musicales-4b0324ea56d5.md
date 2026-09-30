@@ -2,7 +2,7 @@
 date = "2026-09-27T18:20:00-06:00"
 title = "Festival de la Luz ya tiene a sus bandas musicales"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Festival de la Luz", "Banda de San José", "Banda Municipal de Alajuela"]
 draft = false
 ai_processed = true

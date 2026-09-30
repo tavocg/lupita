@@ -2,7 +2,7 @@
 date = "2022-10-22T11:10:45-06:00"
 title = "Una de las primeras sodas familiares en Atenas celebra 45 años"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Soda Tío Mano", "Atenas", "Gastronomía"]
 draft = false
 ai_processed = true

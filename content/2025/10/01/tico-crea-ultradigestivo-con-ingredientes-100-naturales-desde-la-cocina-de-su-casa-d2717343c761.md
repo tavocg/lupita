@@ -2,7 +2,7 @@
 date = "2025-10-01T18:50:00-06:00"
 title = "Tico crea ultradigestivo con ingredientes 100% naturales desde la cocina de su casa"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["FireMonkey", "Sergio Lizano", "mono cariblanco", "jengibre", "cúrcuma"]
 draft = false
 ai_processed = true

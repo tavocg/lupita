@@ -2,7 +2,7 @@
 date = "2023-07-03T09:36:55-06:00"
 title = "David Urda: El joven español que eligió a Costa Rica para triunfar como emprendedor"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["David Urda", "Salonit", "Samsara", "Depilación con hilo", "Estética"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2024-08-30T09:22:53-06:00"
 title = "Así fue como Mildred “cocinó” su gran sueño"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Comidas caribeñas", "Emprendedora", "Gran Área Metropolitana"]
 draft = false
 ai_processed = true

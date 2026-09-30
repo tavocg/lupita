@@ -2,7 +2,7 @@
 date = "2023-07-18T15:19:14-06:00"
 title = "Productos ‘plant-based’ registran un crecimiento imparable en la industria gastronómica"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["plant-based", "Costa Rica", "industria gastronómica", "tendencia veganos"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-29T09:08:05-06:00"
 title = "Anthropic advierte que la IA conlleva ‘riesgos existenciales para la humanidad’"
 authors = ["AFP"]
-category = "Inteligencia Artificial"
+category = "Tecnología"
 topics = ["Anthropic", "riesgos existenciales", "humanidad"]
 draft = false
 ai_processed = true

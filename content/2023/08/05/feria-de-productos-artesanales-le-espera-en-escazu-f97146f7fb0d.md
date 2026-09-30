@@ -2,7 +2,7 @@
 date = "2023-08-05T00:19:35-06:00"
 title = "Feria de productos artesanales le espera en Escazú"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Artesanías", "Feria", "Día de la Madre"]
 draft = false
 ai_processed = true

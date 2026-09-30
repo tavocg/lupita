@@ -2,7 +2,7 @@
 date = "2023-03-15T09:58:32-06:00"
 title = "Estos chefs están a solo un clic de distancia"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Gastronomía", "Emprendimiento", "Plataforma"]
 draft = false
 ai_processed = true

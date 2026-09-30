@@ -2,7 +2,7 @@
 date = "2025-09-20T21:59:00-06:00"
 title = "Feria reunirá a emprendedoras en La Fortuna de San Carlos"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Feria", "Mujer", "ECO-Emprendedora", "La Fortuna de San Carlos"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-27T15:48:08-06:00"
 title = "Choque entre dos motocicletas deja un muerto y tres heridos en San Carlos"
 authors = []
-category = "Ambiente"
+category = "Transporte"
 topics = ["Accidente", "Muerte", "Heridos"]
 draft = false
 ai_processed = true

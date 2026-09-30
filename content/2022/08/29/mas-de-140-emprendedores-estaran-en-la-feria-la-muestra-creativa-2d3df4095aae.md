@@ -2,7 +2,7 @@
 date = "2022-08-29T09:51:00-06:00"
 title = "Más de 140 emprendedores estarán en la feria \"La muestra creativa\""
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Muestra creativa", "Emprendedores", "Escazú"]
 draft = false
 ai_processed = true

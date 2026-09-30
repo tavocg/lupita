@@ -2,7 +2,7 @@
 date = "2023-01-26T09:07:00-06:00"
 title = "Llamativos tintes naturales dan vida a colección 100% tica"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Mónica Gamboa", "Colección 100% tica"]
 draft = false
 ai_processed = true

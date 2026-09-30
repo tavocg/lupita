@@ -2,7 +2,7 @@
 date = "2026-09-29T20:21:25-06:00"
 title = "Especialistas internacionales capacitarán a médicos de Costa Rica en cirugía para tratar rara cardiopatía congénita"
 authors = []
-category = "Educación"
+category = "Salud"
 topics = ["Cardiopatía", "Capacitación", "Médicos", "Costa Rica"]
 draft = false
 ai_processed = true

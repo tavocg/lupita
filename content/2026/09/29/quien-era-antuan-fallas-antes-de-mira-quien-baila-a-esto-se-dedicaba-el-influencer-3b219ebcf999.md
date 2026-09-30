@@ -2,7 +2,7 @@
 date = "2026-09-29T14:08:34-06:00"
 title = "¿Quién era Antuan Fallas antes de ‘Mira quién baila’? A esto se dedicaba el influencer"
 authors = ["Jessica Rojas Ch., Fiorella Montoya"]
-category = "Cultura"
+category = "Sociedad"
 topics = ["Antuan Fallas", "Mira quién baila", "Creador de contenido", "Programa de televisión", "Competencia"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2023-02-26T14:13:22-06:00"
 title = "Plataforma tica busca llevar experiencias gastronómicas únicas hasta su casa"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Gastronomía", "Cocina", "Experiencias culinarias", "Plataformas de contratación de chefs", "Servicio de chef privado a domicilio"]
 draft = false
 ai_processed = true

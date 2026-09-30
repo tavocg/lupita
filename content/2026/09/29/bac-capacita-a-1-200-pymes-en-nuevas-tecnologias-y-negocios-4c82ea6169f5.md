@@ -2,7 +2,7 @@
 date = "2026-09-29T10:00:00-06:00"
 title = "BAC capacita a 1.200 pymes en nuevas tecnologías y negocios"
 authors = []
-category = "Educación"
+category = "Mercado"
 topics = ["BAC", "pymes", "nuevas tecnologías", "negocios"]
 draft = false
 ai_processed = true

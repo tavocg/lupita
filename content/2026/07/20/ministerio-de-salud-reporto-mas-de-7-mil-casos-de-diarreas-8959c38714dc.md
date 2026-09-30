@@ -2,7 +2,7 @@
 date = "2026-07-20T13:06:43-06:00"
 title = "Ministerio de Salud reportó más de 7 mil casos de diarreas"
 authors = ["Mario Silva"]
-category = "Ambiente"
+category = "Salud"
 topics = ["Diarreas", "Ministerio de Salud", "Costa Rica"]
 draft = false
 ai_processed = true

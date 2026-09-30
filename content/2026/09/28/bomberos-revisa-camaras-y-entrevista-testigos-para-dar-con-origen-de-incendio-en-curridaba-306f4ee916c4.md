@@ -2,7 +2,7 @@
 date = "2026-09-28T15:04:20-06:00"
 title = "Bomberos revisa cámaras y entrevista testigos para dar con origen de incendio en Curridabat"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Incendio", "Curridabat"]
 draft = false
 ai_processed = true

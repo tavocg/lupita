@@ -2,7 +2,7 @@
 date = "2026-09-29T07:30:00-06:00"
 title = "Adultos mayores: sálvense como puedan"
 authors = ["Lectores de La Nación"]
-category = "Educación"
+category = "Sociedad"
 topics = ["lectura", "pensión", "salud", "educación"]
 draft = false
 ai_processed = true

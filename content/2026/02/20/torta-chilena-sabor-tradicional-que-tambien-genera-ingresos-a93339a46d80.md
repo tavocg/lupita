@@ -2,7 +2,7 @@
 date = "2026-02-20T09:46:44-06:00"
 title = "Torta chilena: sabor tradicional que también genera ingresos"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Torta chilena", "Receta tradicional", "Oportunidad de negocio", "Ingresos", "Sabor"]
 draft = false
 ai_processed = true

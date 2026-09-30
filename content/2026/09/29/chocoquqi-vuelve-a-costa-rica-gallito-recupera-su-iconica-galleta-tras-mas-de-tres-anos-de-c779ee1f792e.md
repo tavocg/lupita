@@ -2,7 +2,7 @@
 date = "2026-09-29T17:50:00-06:00"
 title = "ChocoQuQi vuelve a Costa Rica: Gallito recupera su icónica galleta tras más de tres años de pruebas"
 authors = ["Sergio Arce"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["Gallito", "ChocoQuQi", "Cooperativa Dos Pinos"]
 draft = false
 ai_processed = true

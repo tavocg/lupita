@@ -2,7 +2,7 @@
 date = "2026-09-29T07:06:03-06:00"
 title = "154 personas denuncian a pareja por aparentes estafas con clases de manejo"
 authors = []
-category = "Ambiente"
+category = "Seguridad"
 topics = ["Estafas", "Policía Judicial", "Santo Domingo"]
 draft = false
 ai_processed = true

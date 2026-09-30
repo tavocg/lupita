@@ -2,7 +2,7 @@
 date = "2023-05-10T10:23:42-06:00"
 title = "'ION', la revista que se convierte en estandarte de la inclusividad"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["ION", "inclusividad"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-25T18:20:00-06:00"
 title = "Dos personas heridas tras choque de carro contra el tren en Pavas"
 authors = []
-category = "Ambiente"
+category = "Transporte"
 topics = ["Pavas", "tren", "choque de carro"]
 draft = false
 ai_processed = true

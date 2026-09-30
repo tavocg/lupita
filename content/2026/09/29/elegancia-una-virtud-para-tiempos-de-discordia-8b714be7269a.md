@@ -2,7 +2,7 @@
 date = "2026-09-29T06:15:00-06:00"
 title = "Elegancia: una virtud para tiempos de discordia"
 authors = ["Helena María Fonseca Ospina"]
-category = "Cultura"
+category = "Sociedad"
 topics = ["Elegancia", "Virtudes cívicas", "Madurez", "Concordia", "Respeto"]
 draft = false
 ai_processed = true

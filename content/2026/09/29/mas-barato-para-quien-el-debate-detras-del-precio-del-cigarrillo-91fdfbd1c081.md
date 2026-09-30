@@ -2,7 +2,7 @@
 date = "2026-09-29T07:00:00-06:00"
 title = "¿Más barato para quién? El debate detrás del precio del cigarrillo"
 authors = ["Yermari Flores Valle"]
-category = "Ambiente"
+category = "Salud"
 topics = ["Tabaco", "Prevención", "Salud pública"]
 draft = false
 ai_processed = true

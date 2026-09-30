@@ -2,7 +2,7 @@
 date = "2026-09-29T05:51:25-06:00"
 title = "Un paro cardíaco puede ocurrir en cualquier lugar: ¿sabe cómo actuar?"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Cardioprotección", "Reanimación cardiopulmonar", "Desfibriladores", "Salud pública"]
 draft = false
 ai_processed = true

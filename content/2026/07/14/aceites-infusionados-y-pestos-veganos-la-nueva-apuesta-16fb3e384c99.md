@@ -2,7 +2,7 @@
 date = "2026-07-14T22:33:00-06:00"
 title = "Aceites infusionados y pestos veganos: la nueva apuesta"
 authors = []
-category = "Cultura"
+category = "Mercado"
 topics = ["Filippo Berio", "Aceites infusionados", "Pestos veganos"]
 draft = false
 ai_processed = true

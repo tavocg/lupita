@@ -2,7 +2,7 @@
 date = "2026-09-25T06:16:46-06:00"
 title = "CCSS busca aumentar su producción de medicamentos con nuevo brazo robótico"
 authors = []
-category = "Ambiente"
+category = "Tecnología"
 topics = ["CCSS", "brazo robótico", "producción de medicamentos"]
 draft = false
 ai_processed = true

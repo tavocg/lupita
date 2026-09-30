@@ -2,7 +2,7 @@
 date = "2025-05-05T19:15:00-06:00"
 title = "Emprendedores apuestan por sabores peruanos y mediterráneos"
 authors = []
-category = "Ambiente"
+category = "Mercado"
 topics = ["Pescatore", "Escazú", "Pinares", "Curridabat"]
 draft = false
 ai_processed = true

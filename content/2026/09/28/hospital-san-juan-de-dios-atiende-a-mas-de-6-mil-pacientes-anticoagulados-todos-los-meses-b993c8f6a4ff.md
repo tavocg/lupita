@@ -2,7 +2,7 @@
 date = "2026-09-28T10:37:13-06:00"
 title = "Hospital San Juan de Dios atiende a más de 6 mil pacientes anticoagulados todos los meses"
 authors = []
-category = "Ambiente"
+category = "Salud"
 topics = ["Anticoagulantes", "Hospital San Juan de Dios", "Seguimiento médico", "Señales de alerta"]
 draft = false
 ai_processed = true

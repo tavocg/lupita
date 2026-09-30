@@ -2,7 +2,7 @@
 date = "2025-08-04T19:47:00-06:00"
 title = "Una estrella Michelin en suelo costarricense"
 authors = []
-category = "Cultura"
+category = "Sociedad"
 topics = ["Mariella Rodríguez", "MAE", "Restaurante Michelin"]
 draft = false
 ai_processed = true

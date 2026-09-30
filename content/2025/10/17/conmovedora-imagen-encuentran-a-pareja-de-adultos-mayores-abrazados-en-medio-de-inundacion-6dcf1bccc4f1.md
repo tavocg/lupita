@@ -2,7 +2,7 @@
 date = "2025-10-17T10:08:52-06:00"
 title = "¡Conmovedora imagen! Encuentran a pareja de adultos mayores abrazados en medio de inundaciones"
 authors = ["Practicante Digital"]
-category = "Ambiente"
+category = "Sociedad"
 topics = ["inundaciones", "rescate", "aparato"]
 draft = false
 ai_processed = true

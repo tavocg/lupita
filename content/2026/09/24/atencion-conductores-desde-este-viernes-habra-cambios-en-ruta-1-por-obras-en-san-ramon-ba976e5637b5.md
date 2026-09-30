@@ -2,7 +2,7 @@
 date = "2026-09-24T18:24:20-06:00"
 title = "¡Atención, conductores! Desde este viernes habrá cambios en Ruta 1 por obras en San Ramón"
 authors = []
-category = "Ambiente"
+category = "Transporte"
 topics = ["Obras", "Túnel", "La Unión"]
 draft = false
 ai_processed = true

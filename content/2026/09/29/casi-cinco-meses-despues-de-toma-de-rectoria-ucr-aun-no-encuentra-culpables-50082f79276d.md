@@ -2,7 +2,7 @@
 date = "2026-09-29T16:21:11-06:00"
 title = "Casi cinco meses después de toma de Rectoría, UCR aún no encuentra culpables"
 authors = []
-category = "Ambiente"
+category = "Política"
 topics = ["Manifestación", "Daños", "UCR"]
 draft = false
 ai_processed = true

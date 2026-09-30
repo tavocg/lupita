@@ -2,7 +2,7 @@
 date = "2026-09-29T08:28:54-06:00"
 title = "Caso Doble Vía: Sospechosas de estafar con cursos para obtener licencias cobraban entre ¢185.000 y ¢220.000"
 authors = ["Christian Montero"]
-category = "Ambiente"
+category = "Seguridad"
 topics = ["Estafas", "Cursos de conducir", "OIJ"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-29T14:21:04-06:00"
 title = "Mauricio Hoffmann y Majo Ulate derriten las redes sociales con este mensaje"
 authors = ["Fátima Jiménez"]
-category = "Cultura"
+category = "Sociedad"
 topics = ["Majo Ulate", "Mauricio Hoffmann"]
 draft = false
 ai_processed = true

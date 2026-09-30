@@ -2,7 +2,7 @@
 date = "2026-09-26T19:45:00-06:00"
 title = "Torretón del padre Sergio supera su meta y recauda ₡1.048 millones"
 authors = []
-category = "Ambiente"
+category = "Sociedad"
 topics = ["Torretón", "padre Sergio", "recaudación de fondos", "construcción de torre", "Cristo Rey"]
 draft = false
 ai_processed = true
