@@ -6,12 +6,14 @@ from .rss import parse_rss
 
 
 FEED_URL = "https://www.diarioextra.com/rss"
+EXCLUDED_CATEGORIES = frozenset()
 LOG = logging.getLogger(__name__)
 
 
 def parse_feed(raw: bytes) -> list[Article]:
     return parse_rss(raw, source_name="Diario Extra",
-                     hosts={"diarioextra.com", "www.diarioextra.com"}, logger=LOG)
+                     hosts={"diarioextra.com", "www.diarioextra.com"}, logger=LOG,
+                     excluded_categories=EXCLUDED_CATEGORIES)
 
 
 def fetch() -> list[Article]:

@@ -3,6 +3,7 @@
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 import logging
+import unicodedata
 from xml.etree import ElementTree as ET
 from urllib.parse import urlsplit
 
@@ -11,6 +12,12 @@ from ..models import Article, canonical_url, clean_text
 
 DC = "{http://purl.org/dc/elements/1.1/}"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}"
+
+
+def _category_key(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value)
+    unaccented = "".join(char for char in normalized if not unicodedata.combining(char))
+    return " ".join(unaccented.casefold().split())
 
 
 class TextParser(HTMLParser):
@@ -42,12 +49,17 @@ def plain_text(value: str) -> str:
     return clean_text("".join(parser.parts))
 
 
-def parse_rss(raw: bytes, *, source_name: str, hosts: set[str], logger: logging.Logger) -> list[Article]:
+def parse_rss(
+    raw: bytes, *, source_name: str, hosts: set[str], logger: logging.Logger,
+    excluded_categories: frozenset[str] = frozenset(),
+) -> list[Article]:
     root = ET.fromstring(raw)
     if root.tag != "rss" or root.find("channel") is None:
         raise ValueError(f"{source_name} no devolvió un feed RSS válido")
     articles = []
     seen = set()
+    unfiltered_items = 0
+    excluded = {_category_key(category) for category in excluded_categories}
     for position, item in enumerate(root.findall("./channel/item"), 1):
         try:
             url = canonical_url(item.findtext("link", ""))
@@ -55,6 +67,15 @@ def parse_rss(raw: bytes, *, source_name: str, hosts: set[str], logger: logging.
                 continue
             if urlsplit(url).hostname not in hosts:
                 raise ValueError(f"El enlace no pertenece a {source_name}")
+            categories = [
+                (category.text or "").strip()
+                for category in item
+                if category.tag.rsplit("}", 1)[-1].casefold() == "category"
+            ]
+            if any(_category_key(category) in excluded for category in categories):
+                logger.info("Noticia filtrada por categoría RSS (%s)", url)
+                continue
+            unfiltered_items += 1
             authors = list(dict.fromkeys(
                 plain_text(author.text or "")
                 for author in item.findall(f"{DC}creator") + item.findall("author")
@@ -72,7 +93,6 @@ def parse_rss(raw: bytes, *, source_name: str, hosts: set[str], logger: logging.
             seen.add(url)
         except (ValueError, TypeError, OverflowError) as error:
             logger.warning("Entrada RSS %d omitida: %s", position, error)
-    if root.findall("./channel/item") and not articles:
+    if unfiltered_items and not articles:
         raise ValueError("El RSS contiene entradas, pero ninguna es válida")
     return sorted(articles, key=lambda article: article.date, reverse=True)
-

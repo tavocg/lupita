@@ -10,12 +10,14 @@ FEED_URLS = (
     "https://www.teletica.com/rss/feed/deportes",
     "https://www.teletica.com/rss/feed/estilo-de-vida/emprendedores",
 )
+EXCLUDED_CATEGORIES = frozenset()
 LOG = logging.getLogger(__name__)
 
 
 def parse_feed(raw: bytes) -> list[Article]:
     return parse_rss(raw, source_name="Teletica",
-                     hosts={"teletica.com", "www.teletica.com"}, logger=LOG)
+                     hosts={"teletica.com", "www.teletica.com"}, logger=LOG,
+                     excluded_categories=EXCLUDED_CATEGORIES)
 
 
 def fetch() -> list[Article]:
