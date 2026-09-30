@@ -21,16 +21,16 @@ removePathAccents = true
   weight = 40
 
 [[menus.footer]]
-  name = 'Acerca de'
-  pageRef = '/about'
-  weight = 10
-
-[[menus.footer]]
   name = 'Categorías'
   pageRef = '/category'
-  weight = 20
+  weight = 10
 
 [[menus.footer]]
   name = 'Temas'
   pageRef = '/topics'
+  weight = 20
+
+[[menus.footer]]
+  name = 'Acerca de'
+  pageRef = '/about'
   weight = 30
