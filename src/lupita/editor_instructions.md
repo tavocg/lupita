@@ -34,13 +34,38 @@ extranjero también cuenta. El origen costarricense del medio no basta. No inven
 vínculos ni reclasifiques para eludir esta regla (un partido extranjero sigue
 siendo Deportes). Usa category="Excluir" si no cumple tema o vínculo geográfico.
 
-Topics: de cero a tres, solo centrales, breves y reutilizables. Usa [] cuando no
-haya un tema útil; no rellenes ni repitas la categoría. Prefiere denominaciones
-estables y temas que agrupen cobertura, sin variantes, trámites ni etiquetas del
-evento puntual. No afirmes conocer cuántas veces aparece un tema en el sitio.
-- ONU engloba Consejo de Seguridad y Secretaría General de la ONU.
-- Concacaf para su Liga de Naciones; UEFA para la competición europea.
-- Selección de Costa Rica, sin variantes como La Sele o Selección Nacional.
-- Emprendimiento en vez de jaleas o consejos para emprendedores.
-Evita productos aislados, nombres incidentales, hashtags y conceptos vagos como
-aparato, organismo o calidad. No agregues temas sin respaldo en la referencia.
+Topics: devuelve de cero a tres etiquetas. Tres es un máximo, NO una meta.
+El objetivo es agrupar noticias y facilitar búsquedas, no resumir el titular.
+Aplica estos pasos antes de responder:
+1. Elige solo protagonistas o asuntos centrales que alguien buscaría por nombre.
+2. Usa el nombre breve, habitual y estable. No agregues cargos, acciones, fechas,
+   detalles del incidente ni frases del titular. Corrige errores ortográficos.
+3. Combina sinónimos y temas solapados en UNA etiqueta. Si una etiqueta ya cubre
+   otra, elimina la redundante. No repitas la categoría ni añadas etiquetas de relleno.
+4. Prefiere el nombre de una persona protagonista a su profesión: Bryan Ruiz o
+   Fernando Batista, nunca "Entrenadores de fútbol". No etiquetes personas incidentales.
+5. Usa siempre las formas canónicas de estos ejemplos. Conserva nombres propios
+   y siglas; en conceptos comunes usa mayúscula solo al inicio. Si no queda un
+   tema útil y respaldado por la referencia, devuelve [].
+
+Ejemplos de normalización (solo si corresponden al asunto de la noticia):
+- "Enfermería Hospital Calderón Guardia" → "Hospital Calderón Guardia".
+- "Cuerpo de Bomberos" → "Bomberos"; "Derrame de material corrosivo" → "Emergencias".
+- "Entrenadorr Selección de Fútbol", "Selección Nacional", "La Sele" y
+  "Selección Nacional de Costa Rica" → "Selección de Costa Rica" cuando se trate
+  de Costa Rica. No agregues "Fútbol" si ya usas "Selección de Costa Rica".
+- "Sistema de Salarios", "Revisión Integral" en una noticia sobre la nómina de
+  la CCSS → ["CCSS", "Salarios"]. Su categoría es Finanzas, no Seguridad ni Salud:
+  clasifica el asunto principal, aunque aparezcan auditorías o una institución sanitaria.
+- "Prevención cardiovascular", "Factores de riesgo cardíaco" y "Enfermedades
+  cardíacas" → una sola etiqueta: "Salud cardiovascular".
+- "Control de Drogas" y "Operativo antidrogas" → "Drogas".
+- "Cargador de Celular" y "Cuidado de dispositivos electrónicos" en una noticia
+  sobre teléfonos → "Celulares"; no añadas también "Electrónicos".
+- "Economía de Costa Rica", "Dólar" y "Tipo de cambio" en una noticia sobre la
+  cotización del dólar → "Tipo de cambio".
+- Consejo de Seguridad y Secretaría General de la ONU → "ONU".
+- Liga de Naciones de Concacaf → "Concacaf"; competición de UEFA → "UEFA".
+- Jaleas o consejos para emprendedores → "Emprendimiento".
+No inventes respaldo en la referencia ni afirmes conocer la frecuencia de un tema
+publicado. Evita hashtags, productos aislados y conceptos vagos como calidad.

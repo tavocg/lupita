@@ -1,0 +1,5 @@
+[archive]
+other = "Archivo"
+
+[archiveEmpty]
+other = "Todavía no hay noticias en el archivo."

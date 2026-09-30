@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ $news := where .Site.RegularPages "Params.source.url" "ne" nil }}
+  {{ with $news }}
+    <ul>
+      {{ range .GroupByDate "2006" "desc" }}
+        {{ with $.Site.GetPage (printf "/%s" .Key) }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>{{ i18n "archiveEmpty" }}</p>
+  {{ end }}
+{{ end }}

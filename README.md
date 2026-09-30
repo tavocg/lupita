@@ -99,6 +99,58 @@ Configura `NEWS_DRAFT=false` para publicar después de la IA. Para cambiar `.env
 recrea el worker con `docker compose up -d --force-recreate worker`. El servicio
 crea Markdown; la compilación y el despliegue de Hugo se ejecutan por separado.
 
+## Ramas de revisión desde un servidor
+
+`ingest`, `stage` y `process` aceptan `--ssh-key /ruta/llave` o la variable
+`NEWS_SSH_KEY`, además de `--branch nombre` y `--repo git@github.com:tavocg/lupita`.
+La llave puede ser una ruta o el contenido de una llave privada OpenSSH; si se
+pasa el contenido, se guarda temporalmente con permisos privados y se elimina al
+terminar. Al indicar la llave, el programa clona el repositorio, ejecuta el
+pipeline allí, crea un commit de los cambios de contenido y sube la rama para
+revisión humana. `--repo` usa el `origin` local por defecto; si no existe, usa el
+repositorio oficial. Se necesitan Git y OpenSSH (incluidos en la imagen Docker),
+la llave privada cuya pública correspondiente tenga acceso de escritura al
+repositorio y el servidor registrado en `known_hosts` del usuario ejecutor. Para
+CI que entrega la llave como secreto:
+
+```sh
+export NEWS_SSH_KEY="$SSH_PRIVATE_KEY"
+PYTHONPATH=src python3 -m lupita stage --branch ai-editor-stage
+```
+
+La llave y los archivos de entrada no se copian al repositorio.
+
+```sh
+OLLAMA_MODEL=qwen3:4b PYTHONPATH=src python3 -m lupita ingest \
+  --ssh-key /ruta/llave --branch ai-editor-qwen3-4b
+# Sin --branch, qwen3:4b usa ai-editor-qwen3-4b.
+# stage sin modelo usa ai-editor-stage.
+```
+
+Cada ejecución empieza desde el `main` remoto actual y reemplaza la rama de
+revisión, incluidos cambios anteriores sin integrar. Nunca escribe ni sube a
+`main`, ni modifica el checkout de trabajo. El push usa `--force-with-lease` con
+el commit remoto observado al inicio: si otra persona actualiza la rama durante
+la ejecución, falla y conserva el clon con los cambios para recuperación.
+Si no hay cambios, no crea un commit vacío y deja la rama al nivel de `main`.
+Los fallos parciales conservan los borradores y suben los avances, devolviendo
+código 1; si el pipeline falla sin cambios, no modifica la rama remota.
+
+`STATE_DIR/git/` conserva las referencias RSS privadas por repositorio y rama,
+fuera de los commits. Para separar `stage` y `process`, integra primero la rama
+con los borradores en `main` y ejecuta `process` con el mismo `STATE_DIR`, `--repo`
+y `--branch` usados en `stage`. Las referencias se conservan incluso después de
+procesarlas para poder repetir una revisión todavía no integrada. No se adoptan
+los borradores de una rama anterior al reconstruir desde `main`. Para ejecutar
+ambas etapas sin integración intermedia, usa `ingest`.
+
+`CONTENT_DIR` debe ser un subdirectorio del repositorio (por defecto `content`);
+`STATE_DIR` debe persistir entre ejecuciones. `--branch` y `--repo` requieren
+`--ssh-key` o `NEWS_SSH_KEY`; este modo no se combina con `serve` ni con `--dry-run`.
+En Docker usa un usuario presente en `/etc/passwd` (OpenSSH lo requiere; un UID
+arbitrario de Compose puede no tener entrada). Monta su llave y `known_hosts`
+como solo lectura, además del volumen persistente de estado.
+
 ## Datos y redacción
 
 Los duplicados se detectan por URL normalizada, incluidos borradores y archivos
@@ -119,6 +171,13 @@ validaciones permanecen en [editor.py](src/lupita/editor.py). Los temas deben se
 reutilizables; se admite `topics=[]` y nunca se excluye una noticia por longitud.
 
 ## Sitio y comprobaciones
+
+El menú del pie usa la referencia de contenido `/archive` y muestra `/archivo/`
+en español; enlaza los años con noticias publicadas.
+Los listados anuales usan la paginación del sitio. El archivo usa páginas del
+idioma actual y enlaces de Hugo; su contenido tiene `translationKey = 'archive'`
+y sus etiquetas están en `themes/main/i18n/`. Al añadir un idioma, traduce la
+página y su `pageRef` en el menú de ese idioma.
 
 Hugo **0.166.0** y Node.js **22+** para Pagefind **1.5.2**:
 

@@ -11,6 +11,7 @@ from xml.etree.ElementTree import ParseError
 from .config import Config, load_env
 from .date_window import DateWindow
 from .editor import CATEGORIES, OllamaEditor
+from .git_workflow import run_remote
 from .http import RequestError
 from .models import canonical_url
 from .news_index import read_index, write_index
@@ -183,11 +184,19 @@ def main(argv=None) -> int:
     parser.add_argument("--output", type=Path, help="Destino de index; NEWS_INDEX_PATH o .news-index.json")
     parser.add_argument("--dry-run", action=argparse.BooleanOptionalAction, default=None,
                         help="Consulta Ollama sin escribir; --no-dry-run anula NEWS_DRY_RUN")
+    parser.add_argument("--ssh-key", type=Path, default=os.getenv("NEWS_SSH_KEY"),
+                        help="Ruta o contenido OpenSSH de llave privada; también NEWS_SSH_KEY")
+    parser.add_argument("--branch", help="Rama de revisión; ai-editor-<modelo> por defecto, nunca main")
+    parser.add_argument("--repo", help="Repositorio a clonar; origin o repositorio oficial por defecto")
     inputs = parser.add_mutually_exclusive_group()
     inputs.add_argument("--feed-file", type=Path, help="RSS local; NEWS_FEED_FILE")
     inputs.add_argument("--input", type=Path, help="JSON local para stage/ingest; NEWS_INPUT")
     parser.add_argument("--source", choices=("all", *SCRAPERS), default=os.getenv("NEWS_SOURCE", "all"))
     args = parser.parse_args(argv)
+    if (args.branch or args.repo) and not args.ssh_key:
+        parser.error("--branch y --repo requieren --ssh-key")
+    if args.ssh_key and args.command not in {"ingest", "stage", "process"}:
+        parser.error("--ssh-key corresponde a ingest, stage o process")
     if args.command not in COMMANDS or args.source not in ("all", *SCRAPERS):
         parser.error("NEWS_COMMAND o NEWS_SOURCE no válido")
     if args.input is None and args.feed_file is None:
@@ -200,6 +209,8 @@ def main(argv=None) -> int:
         if value not in {"true", "false"}:
             parser.error("NEWS_DRY_RUN debe ser true o false")
         args.dry_run = value == "true"
+    if args.ssh_key and args.dry_run:
+        parser.error("--ssh-key no se combina con --dry-run, que no escribe archivos")
     if args.interval < 1:
         parser.error("--interval / NEWS_INTERVAL debe ser mayor que cero")
     if args.command not in {"ingest", "process"} and args.dry_run:
@@ -223,6 +234,8 @@ def main(argv=None) -> int:
     except (ValueError, OSError) as error:
         LOG.error("Configuración inválida: %s", error)
         return 1
+    if args.ssh_key:
+        return run_remote(args, config, execute)
     return serve(args, config) if args.command == "serve" else execute(args, config)
 
 

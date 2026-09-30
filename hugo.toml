@@ -1,5 +1,6 @@
 baseURL = 'https://example.org/'
 locale = 'es-cr'
+defaultContentLanguage = 'es'
 title = 'Lupita'
 theme = 'main'
 removePathAccents = true
@@ -34,3 +35,9 @@ removePathAccents = true
   name = 'Acerca de'
   pageRef = '/about'
   weight = 30
+
+[[menus.footer]]
+  identifier = 'archive'
+  name = 'Archivo'
+  pageRef = '/archive'
+  weight = 25

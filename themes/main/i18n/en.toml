@@ -1,0 +1,5 @@
+[archive]
+other = "Archive"
+
+[archiveEmpty]
+other = "There are no articles in the archive yet."
