@@ -53,7 +53,6 @@ def article(url="https://www.nacion.com/noticia/ID/story/"):
 
 def generated():
     return {
-        "title": "Vecindario propone mejoras en los servicios",
         "summary": "Un grupo comunal planteó cambios para atender carencias locales. La municipalidad evaluará los recursos disponibles antes de aprobar las obras.",
         "category": "Política", "topics": ["Servicios públicos", "Municipalidades"],
     }
@@ -134,7 +133,7 @@ class EditorTests(unittest.TestCase):
         self.assertEqual(validate(generated(), article()).category, "Política")
         for update in (
             {"category": "Inventada"}, {"topics": []}, {"topics": ["Tema", "tema"]},
-            {"summary": ""}, {"title": 123}, {"extra": True},
+            {"summary": ""}, {"title": "Campo que el modelo no debe devolver"}, {"extra": True},
         ):
             with self.subTest(update=update), self.assertRaises(ValueError):
                 validate(generated() | update, article())
@@ -169,7 +168,7 @@ class EditorTests(unittest.TestCase):
             server.shutdown()
             server.server_close()
             thread.join()
-        self.assertEqual(result.title, generated()["title"])
+        self.assertEqual(result.title, article().title)
         self.assertEqual(captured[0][0], "/api/chat")
         self.assertFalse(captured[0][1]["stream"])
         self.assertEqual(captured[0][1]["format"]["type"], "object")
@@ -210,7 +209,7 @@ class StorageTests(unittest.TestCase):
 
     def test_date_timezone_toml_escape_and_safe_body(self):
         item = article()
-        editorial = Editorial('Título "con comillas" y tildes', '[texto](https://evil.test) <script>mal</script>', "Sociedad", ["Costa Rica"])
+        editorial = Editorial(article().title, '[texto](https://evil.test) <script>mal</script>', "Sociedad", ["Costa Rica"])
         path = destination(self.config.content_dir, item, editorial)
         write_article(path, render(item, editorial, draft=True))
         self.assertIn("2026/09/27/", str(path))

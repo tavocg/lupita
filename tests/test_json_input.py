@@ -62,7 +62,7 @@ class JsonInputTests(unittest.TestCase):
                     stack.enter_context(patch.object(scraper, "fetch", side_effect=AssertionError("No consultar RSS")))
                 stack.enter_context(patch("lupita.__main__.Config.from_env", return_value=self.config))
                 response = {"done": True, "message": {"content": json.dumps({
-                    "title": "Nueva decisión municipal", "summary": "Se aprobó la propuesta.",
+                    "summary": "Se aprobó la propuesta.",
                     "category": "Política", "topics": ["Municipalidades"],
                 })}}
                 request = stack.enter_context(patch("lupita.editor.request", return_value=json.dumps(response).encode()))

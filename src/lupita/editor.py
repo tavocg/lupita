@@ -17,7 +17,6 @@ SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "properties": {
-        "title": {"type": "string", "minLength": 10, "maxLength": 160},
         "summary": {"type": "string", "minLength": 1, "maxLength": 1600},
         "category": {"type": "string", "enum": [*CATEGORIES, EXCLUDED_CATEGORY]},
         "topics": {
@@ -25,7 +24,7 @@ SCHEMA = {
             "items": {"type": "string", "minLength": 2, "maxLength": 60},
         },
     },
-    "required": ["title", "summary", "category", "topics"],
+    "required": ["summary", "category", "topics"],
 }
 SYSTEM = Path(__file__).with_name("editor_instructions.md").read_text(encoding="utf-8")
 
@@ -39,9 +38,8 @@ def validate(data: dict, article: Article) -> Editorial | None:
         raise ValueError("Ollama devolvió campos incompletos o inesperados")
     if data["category"] == EXCLUDED_CATEGORY:
         return None
-    for key, low, high in (("title", 10, 160), ("summary", 1, 1600)):
-        if not isinstance(data[key], str) or not low <= len(data[key].strip()) <= high:
-            raise ValueError(f"Ollama devolvió un {key} inválido")
+    if not isinstance(data["summary"], str) or not 1 <= len(data["summary"].strip()) <= 1600:
+        raise ValueError("Ollama devolvió un resumen inválido")
     if data["category"] not in CATEGORIES:
         raise ValueError("Ollama devolvió una categoría fuera del catálogo")
     topics = data["topics"]
@@ -60,7 +58,7 @@ def validate(data: dict, article: Article) -> Editorial | None:
     result_words = word_tokens(summary)
     if any(tuple(result_words[i:i + 12]) in source_spans for i in range(len(result_words) - 11)):
         raise ValueError("El resumen reproduce una secuencia de 12 palabras de la fuente")
-    return Editorial(clean_text(data["title"]), summary, data["category"], [clean_text(t) for t in topics])
+    return Editorial(article.title, summary, data["category"], [clean_text(t) for t in topics])
 
 
 class OllamaEditor:
