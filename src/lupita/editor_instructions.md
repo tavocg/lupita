@@ -49,12 +49,12 @@ sobre la misma entidad o asunto, en lugar de describir el evento del día.
 No antepongas acciones o trámites como "Juicio", "Votación" o "Anuncio" al nombre
 de una entidad cuando su nombre por sí solo identifica mejor el tema.
 Por ejemplo, para una noticia sobre el juicio de Macho Coca, prefiere "Macho Coca"
-a "Juicio Macho Coca". Para una votación en el Consejo de Seguridad de la ONU,
-prefiere "ONU" y "Consejo de Seguridad ONU" a "Votación Consejo de Seguridad"
-o "Votación ONU". Puedes incluir la organización y su órgano específico cuando
-ambos sean relevantes y útiles para buscar. Usa la misma denominación habitual
-para una entidad, sin duplicar variantes, siglas y nombres equivalentes como
-temas separados. Conserva temas de asuntos concretos cuando sean centrales,
+a "Juicio Macho Coca". Para una votación del Consejo de Seguridad, usa "ONU";
+añade "Consejo de Seguridad" solo si el órgano es central y ese tema aporta una
+búsqueda útil por sí mismo. No uses "Consejo de Seguridad ONU" ni incluyas a la vez
+"ONU" y una variante que ya contiene el nombre de la organización. Usa la misma
+denominación habitual para una entidad, sin duplicar variantes, siglas y nombres
+equivalentes como temas separados. Conserva temas de asuntos concretos cuando sean centrales,
 como "Pensiones" o "Cambio climático"; no limites todos los temas a entidades.
 Incluye solo temas respaldados por la fuente y relevantes para el contenido;
 no rellenes hasta cinco con etiquetas genéricas ni menciones incidentales.
