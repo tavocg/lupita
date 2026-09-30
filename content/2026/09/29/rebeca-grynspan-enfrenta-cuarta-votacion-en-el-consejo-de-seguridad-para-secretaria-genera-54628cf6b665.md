@@ -5,7 +5,7 @@ authors = ["Fernando Chaves Espinach, AFP"]
 category = "Política"
 topics = ["ONU"]
 image = "https://images.pexels.com/photos/15405989/pexels-photo-15405989.jpeg"
-caption = "Fuente: [Pexels](https://www.pexels.com/photo/15405989)"
+caption = "Foto de Niklas Jeromin en [Pexels](https://www.pexels.com/photo/15405989)"
 draft = false
 source_id = "54628cf6b66539522ed5f25577fcfd1c4a244c84ebf132e165699c35d9cd5724"
 [source]

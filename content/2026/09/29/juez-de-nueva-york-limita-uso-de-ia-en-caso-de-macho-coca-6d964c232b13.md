@@ -5,7 +5,7 @@ authors = ["Natalia Vargas"]
 category = "Tecnología"
 topics = []
 image = "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg"
-caption = "Fuente: [Pexels](https://www.pexels.com/photo/8386440)"
+caption = "Foto de Tara Winstead en [Pexels](https://www.pexels.com/photo/8386440)"
 draft = false
 source_id = "6d964c232b1321989ec2d728063b0dea2be9371bad64f073d514b76d87be7f5d"
 [source]
