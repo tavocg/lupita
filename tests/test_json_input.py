@@ -68,7 +68,7 @@ class JsonInputTests(unittest.TestCase):
                 request = stack.enter_context(patch("lupita.editor.request", return_value=json.dumps(response).encode()))
                 output = stack.enter_context(redirect_stdout(StringIO()))
                 args = ["--input", str(self.path), "--limit", "1"] + (["--dry-run"] if dry_run else [])
-                self.assertEqual(main(args), 0)
+                self.assertEqual(main([*args, "--from", "all", "--until", "all"]), 0)
                 request.assert_called_once()
                 payload = request.call_args.kwargs["payload"]
                 reference = json.loads(payload["messages"][1]["content"])
@@ -82,7 +82,7 @@ class JsonInputTests(unittest.TestCase):
                     self.assertEqual(len(list(self.config.content_dir.rglob("*.md"))), 1)
                     request.reset_mock()
                     # Ambas apariciones de la noticia publicada se omiten antes del límite.
-                    self.assertEqual(main(args), 0)
+                    self.assertEqual(main([*args, "--from", "all", "--until", "all"]), 0)
                     request.assert_called_once()
                     reference = json.loads(request.call_args.kwargs["payload"]["messages"][1]["content"])
                     self.assertEqual(reference["source"], article(28).to_dict()["source"])
@@ -92,16 +92,16 @@ class JsonInputTests(unittest.TestCase):
             self.path.write_text(text)
             with patch("lupita.__main__.Config.from_env", return_value=self.config), \
                  patch("lupita.__main__.OllamaEditor") as editor, self.assertLogs("lupita", level="ERROR"):
-                self.assertEqual(main(["--input", str(self.path)]), 1)
+                self.assertEqual(main(["--input", str(self.path), "--from", "all", "--until", "all"]), 1)
             editor.assert_not_called()
             self.assertFalse(self.config.content_dir.exists())
 
     def test_empty_input_and_incompatible_options(self):
         self.path.write_text("[]")
         with patch("lupita.__main__.Config.from_env", return_value=self.config), patch("lupita.editor.request") as request:
-            self.assertEqual(main(["--input", str(self.path), "--dry-run"]), 0)
+            self.assertEqual(main(["--input", str(self.path), "--dry-run", "--from", "all", "--until", "all"]), 0)
         request.assert_not_called()
         for args in (["scrape"], ["index"], ["--source", "nacion"], ["--feed-file", "feed.xml"]):
             with self.subTest(args=args), redirect_stderr(StringIO()), self.assertRaises(SystemExit) as error:
-                main([*args, "--input", str(self.path)])
+                main([*args, "--input", str(self.path), "--from", "all", "--until", "all"])
             self.assertEqual(error.exception.code, 2)

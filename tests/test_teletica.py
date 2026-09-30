@@ -70,13 +70,13 @@ class TeleticaTests(unittest.TestCase):
     def test_selected_source_and_local_feed(self):
         with patch("lupita.scrapers.teletica.request", side_effect=[RSS, EMPTY, EMPTY]), \
              redirect_stdout(StringIO()) as output:
-            self.assertEqual(main(["scrape", "--source", "teletica"]), 0)
+            self.assertEqual(main(["scrape", "--source", "teletica", "--from", "all", "--until", "all"]), 0)
         self.assertEqual(json.loads(output.getvalue())[0]["source"]["name"], "Teletica")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "feed.xml"
             path.write_bytes(RSS)
             with patch("lupita.scrapers.teletica.request") as request, redirect_stdout(StringIO()) as output:
-                self.assertEqual(main(["scrape", "--source", "teletica", "--feed-file", str(path)]), 0)
+                self.assertEqual(main(["scrape", "--source", "teletica", "--feed-file", str(path), "--from", "all", "--until", "all"]), 0)
             request.assert_not_called()
             self.assertEqual(len(json.loads(output.getvalue())), 1)
 
@@ -88,5 +88,5 @@ class TeleticaTests(unittest.TestCase):
                 responses = [RSS] * position + [RequestError("Sin conexión")]
                 with patch("lupita.scrapers.teletica.request", side_effect=responses), \
                      self.assertLogs("lupita", level="ERROR"):
-                    self.assertEqual(main(["index", "--source", "teletica", "--output", str(path)]), 1)
+                    self.assertEqual(main(["index", "--source", "teletica", "--output", str(path), "--from", "all", "--until", "all"]), 1)
                 self.assertEqual(path.read_text(), '[{"previous": true}]')

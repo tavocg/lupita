@@ -40,7 +40,7 @@ class ScraperFailureTests(unittest.TestCase):
                      patch("lupita.__main__.Config.from_env", return_value=config), \
                      patch("lupita.__main__.OllamaEditor", return_value=editor), \
                      self.assertLogs("lupita", level="WARNING") as logs, redirect_stdout(StringIO()) as output:
-                    self.assertEqual(main(args), 1)
+                    self.assertEqual(main([*args, "--from", "all", "--until", "all"]), 1)
                 self.assertTrue(any("broken" in line for line in logs.output))
                 for source in sources.values():
                     source.fetch.assert_called_once_with()
@@ -63,7 +63,7 @@ class ScraperFailureTests(unittest.TestCase):
             }
             with patch("lupita.__main__.SCRAPERS", sources), \
                  patch("lupita.__main__.OllamaEditor") as editor, self.assertLogs("lupita", level="ERROR"):
-                self.assertEqual(main(["index", "--output", str(path)]), 1)
+                self.assertEqual(main(["index", "--output", str(path), "--from", "all", "--until", "all"]), 1)
             for source in sources.values():
                 source.fetch.assert_called_once_with()
             editor.assert_not_called()
@@ -78,5 +78,5 @@ class ScraperFailureTests(unittest.TestCase):
                 if failed:
                     sources = {"broken": SimpleNamespace(fetch=Mock(side_effect=RequestError("Red"))), **sources}
                 with patch("lupita.__main__.SCRAPERS", sources), self.assertLogs("lupita"):
-                    self.assertEqual(main(["index", "--output", str(path)]), int(failed))
+                    self.assertEqual(main(["index", "--output", str(path), "--from", "all", "--until", "all"]), int(failed))
                 self.assertEqual(json.loads(path.read_text()), [])

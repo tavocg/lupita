@@ -1,6 +1,7 @@
 """Genera y valida un resumen editorial mediante la API local de Ollama."""
 
 import json
+import os
 from pathlib import Path
 import re
 
@@ -20,7 +21,7 @@ SCHEMA = {
         "summary": {"type": "string", "minLength": 1, "maxLength": 1600},
         "category": {"type": "string", "enum": [*CATEGORIES, EXCLUDED_CATEGORY]},
         "topics": {
-            "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": True,
+            "type": "array", "minItems": 0, "maxItems": 3, "uniqueItems": True,
             "items": {"type": "string", "minLength": 2, "maxLength": 60},
         },
     },
@@ -43,7 +44,7 @@ def validate(data: dict, article: Article) -> Editorial | None:
     if data["category"] not in CATEGORIES:
         raise ValueError("Ollama devolvió una categoría fuera del catálogo")
     topics = data["topics"]
-    if not isinstance(topics, list) or not 1 <= len(topics) <= 5 or any(
+    if not isinstance(topics, list) or len(topics) > 3 or any(
         not isinstance(topic, str) or not 2 <= len(topic.strip()) <= 60 for topic in topics
     ):
         raise ValueError("Ollama devolvió temas inválidos")
@@ -66,6 +67,10 @@ class OllamaEditor:
         self.url = base_url.rstrip("/") + "/api/chat"
         self.model = model
         self.timeout = timeout
+        instructions = os.getenv("EDITOR_INSTRUCTIONS_FILE", "").strip()
+        self.instructions = Path(instructions).read_text(encoding="utf-8") if instructions else SYSTEM
+        if not self.instructions.strip():
+            raise ValueError("Las instrucciones editoriales están vacías")
 
     def generate(self, article: Article) -> Editorial | None:
         reference = article.to_dict()
@@ -77,7 +82,7 @@ class OllamaEditor:
             "format": SCHEMA,
             "options": {"temperature": 0.2},
             "messages": [
-                {"role": "system", "content": SYSTEM + "\nEsquema: " + json.dumps(SCHEMA, ensure_ascii=False)},
+                {"role": "system", "content": self.instructions + "\nEsquema: " + json.dumps(SCHEMA, ensure_ascii=False)},
                 {"role": "user", "content": json.dumps(reference, ensure_ascii=False)},
             ],
         }

@@ -66,7 +66,7 @@ class DelfinoTests(unittest.TestCase):
             path = Path(directory) / "feed.xml"
             path.write_bytes(RSS)
             with redirect_stdout(StringIO()) as output, patch("lupita.__main__.nacion.fetch") as other:
-                self.assertEqual(main(["scrape", "--source", "delfino", "--feed-file", str(path)]), 0)
+                self.assertEqual(main(["scrape", "--source", "delfino", "--feed-file", str(path), "--from", "all", "--until", "all"]), 0)
             other.assert_not_called()
             self.assertEqual(json.loads(output.getvalue())[0]["source"]["name"], "Delfino.cr")
 
@@ -83,6 +83,6 @@ class DelfinoTests(unittest.TestCase):
                 results = {"nacion": [older], "delfino": [item], "semanario": [newest]}
                 for name, scraper in SCRAPERS.items():
                     stack.enter_context(patch.object(scraper, "fetch", return_value=results.get(name, [])))
-                self.assertEqual(main(["index", "--output", str(path)]), 0)
+                self.assertEqual(main(["index", "--output", str(path), "--from", "all", "--until", "all"]), 0)
             expected = path.read_text()
             self.assertEqual(json.loads(expected), [newest.to_dict(), item.to_dict(), older.to_dict()])

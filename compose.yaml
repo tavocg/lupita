@@ -1,7 +1,7 @@
 services:
-  ingest:
+  ingest: &pipeline
     build: .
-    # El Ollama del host queda accesible en localhost en Linux.
+    # Ollama del host en Linux; habilitar host networking en Docker Desktop.
     network_mode: host
     user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
     env_file: .env
@@ -9,14 +9,21 @@ services:
       CONTENT_DIR: /app/content
       STATE_DIR: /app/.pipeline
     volumes:
-      - ./content:/app/content
-      - ./.pipeline:/app/.pipeline
+      - ${CONTENT_VOLUME:-./content}:/app/content
+      - ${STATE_VOLUME:-./.pipeline}:/app/.pipeline
+  worker:
+    <<: *pipeline
+    command: ["serve"]
+    restart: unless-stopped
+    stop_grace_period: ${SERVICE_STOP_GRACE_PERIOD:-5m}
+    profiles: ["worker"]
   index:
     build: .
     network_mode: host
     user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    env_file: .env
     working_dir: /data
     entrypoint: ["python", "-m", "lupita", "index"]
     volumes:
-      # Montar el directorio permite reemplazar el índice de forma atómica.
+      # El directorio permite reemplazar el índice atómicamente.
       - .:/data

@@ -16,12 +16,14 @@ from .storage import (
 LOG = logging.getLogger("lupita")
 
 
-def stage(articles, config, *, limit=None):
+def stage(articles, config, *, limit=None, stop=None):
     totals = {"staged": 0, "duplicates": 0, "failed": 0}
     with pipeline_lock(config.state_dir):
         seen = known_urls(config.content_dir)
         attempted = set()
         for article in articles:
+            if stop is not None and stop.is_set():
+                break
             url = canonical_url(article.source_url)
             if url in seen or url in attempted:
                 totals["duplicates"] += 1
@@ -45,7 +47,7 @@ def stage(articles, config, *, limit=None):
     return totals
 
 
-def process(editor, config, *, limit=10, dry_run=False, urls=None):
+def process(editor, config, *, limit=None, dry_run=False, urls=None, window=None, stop=None):
     totals = {"written": 0, "previewed": 0, "duplicates": 0, "excluded": 0, "failed": 0}
     with nullcontext() if dry_run else pipeline_lock(config.state_dir):
         pending = []
@@ -72,13 +74,14 @@ def process(editor, config, *, limit=10, dry_run=False, urls=None):
         seen = existing
         attempted = 0
         for path, url in pending:
+            if stop is not None and stop.is_set():
+                break
             if url in seen:
                 totals["duplicates"] += 1
                 continue
             if limit is not None and attempted >= limit:
                 break
             seen.add(url)
-            attempted += 1
             try:
                 before = path.read_bytes()
                 reference = config.state_dir / "references" / f"{identity(url)}.json"
@@ -86,6 +89,9 @@ def process(editor, config, *, limit=10, dry_run=False, urls=None):
                 if len(articles) != 1 or canonical_url(articles[0].source_url) != url:
                     raise ValueError("La referencia local no corresponde al borrador")
                 article = articles[0]
+                if window is not None and not window.contains(article.date):
+                    continue
+                attempted += 1
                 if before.decode("utf-8") != render_pending(article):
                     raise ValueError("El borrador fue editado manualmente; se conserva sin procesar")
                 editorial = editor.generate(article)

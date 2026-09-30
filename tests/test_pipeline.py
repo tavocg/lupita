@@ -119,7 +119,7 @@ class EditorTests(unittest.TestCase):
             with self.subTest(category=category):
                 self.assertEqual(validate(generated() | {"category": category}, article()).category, category)
         self.assertIsNone(validate(generated() | {"category": EXCLUDED_CATEGORY}, article()))
-        for category in ("Sociedad", "Migración", "Internacionales"):
+        for category in ("Cultura", "Ciencia", "Inteligencia Artificial", "Migración", "Internacionales"):
             with self.subTest(category=category), self.assertRaises(ValueError):
                 validate(generated() | {"category": category}, article())
 
@@ -132,7 +132,7 @@ class EditorTests(unittest.TestCase):
     def test_valid_response_and_invalid_variants(self):
         self.assertEqual(validate(generated(), article()).category, "Política")
         for update in (
-            {"category": "Inventada"}, {"topics": []}, {"topics": ["Tema", "tema"]},
+            {"category": "Inventada"}, {"topics": ["Uno", "Dos", "Tres", "Cuatro"]}, {"topics": ["Tema", "tema"]},
             {"summary": ""}, {"title": "Campo que el modelo no debe devolver"}, {"extra": True},
         ):
             with self.subTest(update=update), self.assertRaises(ValueError):
@@ -184,7 +184,7 @@ class StorageTests(unittest.TestCase):
 
     def test_excluded_categories_never_create_files_or_previews(self):
         for dry_run in (False, True):
-            for result in (None, Editorial("Sociedad", "Actividad social", "Sociedad", [])):
+            for result in (None, Editorial("Fuera del catálogo", "Actividad social", "Inventada", [])):
                 with self.subTest(dry_run=dry_run, result=result):
                     class Editor:
                         def generate(self, item):
@@ -303,9 +303,9 @@ class NewsIndexTests(unittest.TestCase):
                  patch("lupita.__main__.load_env"), \
                  patch("lupita.__main__.Config.from_env", side_effect=AssertionError("No configurar Ollama")), \
                  patch("lupita.__main__.OllamaEditor", side_effect=AssertionError("No llamar a Ollama")):
-                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path)]), 0)
+                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path), "--from", "all", "--until", "all"]), 0)
                 self.assertEqual(len(json.loads(path.read_text())), 15)
-                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path), "--limit", "2"]), 0)
+                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path), "--limit", "2", "--from", "all", "--until", "all"]), 0)
                 self.assertEqual(json.loads(path.read_text()), [a.to_dict() for a in items[:2]])
 
     def test_feed_failure_does_not_replace_index(self):
@@ -314,7 +314,7 @@ class NewsIndexTests(unittest.TestCase):
             path.write_text("[]\n")
             with patch("lupita.__main__.nacion.fetch", side_effect=RequestError("Sin conexión")), \
                  self.assertLogs("lupita", level="ERROR"):
-                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path)]), 1)
+                self.assertEqual(main(["index", "--source", "nacion", "--output", str(path), "--from", "all", "--until", "all"]), 1)
             self.assertEqual(path.read_text(), "[]\n")
 
 
@@ -337,7 +337,7 @@ class ConfigTests(unittest.TestCase):
             path = Path(directory) / "rss.xml"
             path.write_bytes(RSS)
             with self.assertLogs("lupita.scrapers.nacion", level="WARNING"):
-                code = main(["scrape", "--source", "nacion", "--feed-file", str(path), "--limit", "1"])
+                code = main(["scrape", "--source", "nacion", "--feed-file", str(path), "--limit", "1", "--from", "all", "--until", "all"])
             self.assertEqual(code, 0)
             self.assertEqual(len(json.loads(output.getvalue())), 1)
 

@@ -33,7 +33,7 @@ class WorkflowTests(unittest.TestCase):
         write_index(source, [self.item, replace(self.item, source_url=self.item.source_url + '?utm_source=rss')])
         with patch('lupita.__main__.Config.from_env', return_value=self.config) as config, \
              patch('lupita.__main__.OllamaEditor') as editor:
-            self.assertEqual(main(['stage', '--input', str(source)]), 0)
+            self.assertEqual(main(['stage', '--input', str(source), "--from", "all", "--until", "all"]), 0)
             config.assert_called_once_with(require_model=False)
             editor.assert_not_called()
         metadata = frontmatter(self.path)
@@ -116,7 +116,7 @@ class WorkflowTests(unittest.TestCase):
         with patch('lupita.__main__.Config.from_env', return_value=self.config), \
              patch('lupita.__main__.OllamaEditor', return_value=self.editor), \
              patch('lupita.__main__.SCRAPERS', {'bad': Mock(fetch=Mock(side_effect=AssertionError('RSS')))}):
-            self.assertEqual(main(['process']), 0)
+            self.assertEqual(main(['process', "--from", "all", "--until", "all"]), 0)
 
     def test_failed_replacement_preserves_pending_and_reference(self):
         stage([self.item], self.config)

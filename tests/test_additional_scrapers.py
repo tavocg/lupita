@@ -108,13 +108,13 @@ class AdditionalScrapersTests(unittest.TestCase):
                         stack.enter_context(patch.object(scraper, "fetch", side_effect=AssertionError("Medio no seleccionado")))
                 raw = fixture(host)
                 with patch.object(SCRAPERS[key], "request", return_value=raw) as request, redirect_stdout(StringIO()) as output:
-                    self.assertEqual(main(["scrape", "--source", key]), 0)
+                    self.assertEqual(main(["scrape", "--source", key, "--from", "all", "--until", "all"]), 0)
                 request.assert_called_once_with(url)
                 self.assertEqual(json.loads(output.getvalue())[0]["source"]["name"], name)
                 path = Path(directory) / "feed.xml"
                 path.write_bytes(raw)
                 with patch.object(SCRAPERS[key], "request") as request, redirect_stdout(StringIO()) as output:
-                    self.assertEqual(main(["scrape", "--source", key, "--feed-file", str(path)]), 0)
+                    self.assertEqual(main(["scrape", "--source", key, "--feed-file", str(path), "--from", "all", "--until", "all"]), 0)
                 request.assert_not_called()
                 self.assertEqual(len(json.loads(output.getvalue())), 1)
 
@@ -128,7 +128,7 @@ class AdditionalScrapersTests(unittest.TestCase):
                 expected.extend(item.to_dict() for item in items)
                 mocks.append(stack.enter_context(patch.object(scraper, "fetch", return_value=items)))
             path = Path(directory) / "index.json"
-            self.assertEqual(main(["index", "--output", str(path)]), 0)
+            self.assertEqual(main(["index", "--output", str(path), "--from", "all", "--until", "all"]), 0)
             self.assertEqual(json.loads(path.read_text()), expected)
             for mock in mocks:
                 mock.assert_called_once_with()
@@ -139,5 +139,5 @@ class AdditionalScrapersTests(unittest.TestCase):
                 path = Path(directory) / "index.json"
                 path.write_text('[{"previous": true}]')
                 with patch.object(SCRAPERS[key], "request", side_effect=RequestError("HTTP 403")), self.assertLogs("lupita", level="ERROR"):
-                    self.assertEqual(main(["index", "--source", key, "--output", str(path)]), 1)
+                    self.assertEqual(main(["index", "--source", key, "--output", str(path), "--from", "all", "--until", "all"]), 1)
                 self.assertEqual(path.read_text(), '[{"previous": true}]')

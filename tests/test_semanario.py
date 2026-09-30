@@ -52,7 +52,7 @@ class SemanarioTests(unittest.TestCase):
              patch("lupita.__main__.nacion.fetch") as nacion, \
              patch("lupita.__main__.delfino.fetch") as delfino, \
              redirect_stdout(StringIO()) as output:
-            self.assertEqual(main(["scrape", "--source", "semanario"]), 0)
+            self.assertEqual(main(["scrape", "--source", "semanario", "--from", "all", "--until", "all"]), 0)
         request.assert_called_once_with("https://semanariouniversidad.com/rss")
         nacion.assert_not_called()
         delfino.assert_not_called()
@@ -63,6 +63,6 @@ class SemanarioTests(unittest.TestCase):
             path = Path(directory) / "feed.xml"
             path.write_bytes(RSS)
             with patch("lupita.scrapers.semanario.request") as request, redirect_stdout(StringIO()) as output:
-                self.assertEqual(main(["scrape", "--source", "semanario", "--feed-file", str(path)]), 0)
+                self.assertEqual(main(["scrape", "--source", "semanario", "--feed-file", str(path), "--from", "all", "--until", "all"]), 0)
             request.assert_not_called()
             self.assertEqual(len(json.loads(output.getvalue())), 1)

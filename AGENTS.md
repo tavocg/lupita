@@ -16,6 +16,10 @@
 - `__main__.py`: orquestación, límite de consultas y contadores. Los duplicados
   se descartan antes de llamar al modelo. `scrape` no necesita Ollama;
   `--dry-run` consulta el modelo sin escribir archivos ni adquirir el bloqueo.
+- `date_window.py`: rango de publicación en `America/Costa_Rica`. Por defecto,
+  desde ayer a medianoche hasta ahora, sin límite de noticias. CLI prevalece
+  sobre entorno y `.env`. `serve` renueva el rango en cada ciclo y reintenta todos
+  los pendientes, incluso antiguos; nunca vuelve a redactar archivos completados.
 - `storage.py`: front matter TOML, fechas en `America/Costa_Rica`, nombres con
   hash de URL, bloqueo y creación atómica sin sobrescritura. Solo se permite
   actualizar o eliminar un borrador pendiente creado por el pipeline que no
