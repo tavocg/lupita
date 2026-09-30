@@ -4,7 +4,7 @@ title = "Orlando Galo queda fuera de la Selección de Costa Rica: esto pasó"
 authors = ["Fanny Tayver Marín"]
 category = "Deportes"
 topics = ["Orlando Galo", "Selección de Costa Rica"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "26b212fc597e2f4f961b2762db9131220f1c63f3c0ba00265e785b0effba09f9"
 [source]

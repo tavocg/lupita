@@ -4,7 +4,7 @@ title = "La banca del futuro cabe en el celular, pero debe caber también la seg
 authors = ["Viviana Machado Barquero"]
 category = "Finanzas"
 topics = ["Banca", "Seguridad cibernética", "Educación financiera"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "9d1949578c89e916f882b57b6a7264268ae6df26eaac4941831a3b601b21e2b8"
 [source]

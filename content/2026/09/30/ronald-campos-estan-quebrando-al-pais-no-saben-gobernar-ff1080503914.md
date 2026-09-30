@@ -4,7 +4,7 @@ title = "Ronald Campos: Están quebrando al país, no saben gobernar"
 authors = ["Xavier Condega"]
 category = "Política"
 topics = ["Ronald Campos", "Administración Chaves Robles", "Economía jaguar"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "ff108050391472b018800c5aa83bcb0a642863af8d6ae91977021139691867e8"
 [source]

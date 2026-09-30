@@ -4,7 +4,7 @@ title = "Ginnés Rodríguez confirmó que se volvió a enamorar: esto dijo la pe
 authors = ["Jessica Rojas Ch."]
 category = "Sociedad"
 topics = ["Ginnés Rodríguez"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "43223cfcdaed1718030ecdfeeece1a6ab92f8fe0053903297cef152f91576395"
 [source]

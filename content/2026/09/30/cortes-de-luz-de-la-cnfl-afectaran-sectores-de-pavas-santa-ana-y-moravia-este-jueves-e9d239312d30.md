@@ -4,7 +4,7 @@ title = "Cortes de luz de la CNFL afectarán sectores de Pavas, Santa Ana y Mora
 authors = ["Jailine González Gómez"]
 category = "Mercado"
 topics = ["CNFL", "Cortes de luz"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "e9d239312d304d05bb7c1bb2bac57f05a13c686887064729257ad37f04afba53"
 [source]

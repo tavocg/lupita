@@ -4,7 +4,7 @@ title = "Espera interminable por un foco de direccional"
 authors = ["Lectores de La Nación"]
 category = "Mercado"
 topics = ["Quálitas"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "61690f957389e187187ddb43ab49d6eac5d51ed488df8beb4a601f50def97623"
 [source]

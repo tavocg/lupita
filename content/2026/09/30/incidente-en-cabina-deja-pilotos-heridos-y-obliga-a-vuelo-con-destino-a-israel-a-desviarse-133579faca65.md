@@ -4,7 +4,7 @@ title = "Incidente en cabina deja pilotos heridos y obliga a vuelo con destino a
 authors = ["AFP"]
 category = "Seguridad"
 topics = ["Incidente aéreo"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "133579faca65227cb76e611021acda1d71c8334dc68e4f7c237fba1156f789a3"
 [source]

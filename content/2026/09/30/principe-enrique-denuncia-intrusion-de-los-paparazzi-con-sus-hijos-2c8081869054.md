@@ -4,7 +4,7 @@ title = "Príncipe Enrique denuncia “intrusión” de los paparazzi con sus hi
 authors = ["AFP"]
 category = "Sociedad"
 topics = ["Príncipe Enrique", "Paparazzi"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "2c8081869054fc1775dc81abf6b8ab15a5dc14efb4ed83c270c45700e03788a7"
 [source]

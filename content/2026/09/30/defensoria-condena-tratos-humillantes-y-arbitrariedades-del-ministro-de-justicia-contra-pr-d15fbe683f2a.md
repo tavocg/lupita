@@ -4,7 +4,7 @@ title = "Defensoría condena tratos humillantes y arbitrariedades del ministro d
 authors = ["Edmundo"]
 category = "Seguridad"
 topics = ["Defensoría de los Habitantes", "Ministro de Justicia", "Privados de libertad"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "d15fbe683f2a04c67ff806ec5d6a1abfe7552b120cd5f179ac9d39611bac3ac2"
 [source]

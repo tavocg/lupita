@@ -4,7 +4,7 @@ title = "Así era invertir en Costa Rica hace 50 años: libretas selladas a mano
 authors = ["Jorge Arturo Mora"]
 category = "Mercado"
 topics = ["Mercado de Valores", "Inversiones", "Historia de Costa Rica"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "91282ce04eeb2dce32a53b0a1814666db26674a256fb01e3e7cb33c4d3569648"
 [source]

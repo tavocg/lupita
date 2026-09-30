@@ -4,7 +4,7 @@ title = "Cómo El Vaticano echa mano a la diplomacia religiosa para incidir en l
 authors = ["AFP"]
 category = "Tecnología"
 topics = ["Vaticano", "Inteligencia artificial"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "eaef308511be988039367d38941d63abed0970b71acf089ae4ee76df82cad2f6"
 [source]

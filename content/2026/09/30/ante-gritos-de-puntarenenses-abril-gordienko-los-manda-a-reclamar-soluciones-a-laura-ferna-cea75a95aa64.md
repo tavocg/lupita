@@ -4,7 +4,7 @@ title = "Ante gritos de puntarenenses, Abril Gordienko los manda a reclamar solu
 authors = ["Yamileth Angulo"]
 category = "Política"
 topics = ["Audiencia pública", "Puntarenas", "Laura Fernández"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "cea75a95aa6474cebbdf8a36b7ac482e55e6b3078fa72b56c76d7e0bfed53573"
 [source]

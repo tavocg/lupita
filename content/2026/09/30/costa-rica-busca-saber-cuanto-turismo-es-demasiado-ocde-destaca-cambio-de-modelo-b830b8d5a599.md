@@ -4,7 +4,7 @@ title = "Costa Rica busca saber cuánto turismo es demasiado: OCDE destaca cambi
 authors = ["Juan Pablo Arias"]
 category = "Mercado"
 topics = ["Turismo"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "b830b8d5a59946470025926bc43b218360fcec1dca350fcb97e6f93c6e62046c"
 [source]

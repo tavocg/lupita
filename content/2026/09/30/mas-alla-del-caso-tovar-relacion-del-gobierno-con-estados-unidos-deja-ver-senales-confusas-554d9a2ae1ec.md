@@ -4,7 +4,7 @@ title = "Más allá del “caso Tovar”: relación del Gobierno con Estados Uni
 authors = ["Álvaro Murillo"]
 category = "Política"
 topics = ["Relación Costa Rica-Estados Unidos", "Destitución canciller Manuel Tovar", "Política exterior Costa Rica"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "554d9a2ae1ec7b99bbb62ea48ec5db781ca067690baa36a795334c4bde992779"
 [source]

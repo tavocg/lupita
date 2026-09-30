@@ -4,7 +4,7 @@ title = "Editorial: Trump y Xi: mucha pompa, pocos acuerdos y tranquilizadoras s
 authors = ["La Nación"]
 category = "Política"
 topics = ["Estados Unidos", "China"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "1a6bb693211fb6a4762f244ef2344ee87314e04ec84ca199e123c73ad0923644"
 [source]

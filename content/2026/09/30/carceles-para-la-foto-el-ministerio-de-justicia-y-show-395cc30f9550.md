@@ -4,7 +4,7 @@ title = "Cárceles para la foto: ¿El Ministerio de Justicia y Show?"
 authors = []
 category = "Sociedad"
 topics = ["Ministerio de Justicia", "Presidencia de la República", "Fotografía oficial"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "395cc30f9550a2bd8c846f30d9f6a5b1ce0edf99495b70814d3fac9027494ce1"
 [source]

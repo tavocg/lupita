@@ -4,7 +4,7 @@ title = "María Paula Salas ficha con el Montpellier de la primera división fra
 authors = []
 category = "Deportes"
 topics = ["María Paula Salas", "Montpellier"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "7578483101fe72b6aee366d1dabce4e72d8199e447ef1716e459b2f63b6da8cf"
 [source]

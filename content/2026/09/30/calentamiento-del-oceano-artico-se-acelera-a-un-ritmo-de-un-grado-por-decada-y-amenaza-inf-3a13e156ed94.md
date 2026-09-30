@@ -4,7 +4,7 @@ title = "Calentamiento del océano Ártico se acelera a un ritmo de un grado por
 authors = ["AFP"]
 category = "Ambiente"
 topics = ["Ártico", "Cambio climático"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "3a13e156ed94c830b7e6908e0eb39717b098c96731c20fd5df885b44e69aedb4"
 [source]

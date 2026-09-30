@@ -4,7 +4,7 @@ title = "“Todos los pasajeros gritaban”: avión rumbo a Israel es desviado t
 authors = ["BBC News | Mundo"]
 category = "Seguridad"
 topics = ["Incidente aéreo"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "4111b14d49a0a21bc10722a635035be5789b86d42ae0e1d5ae4868cf78765ece"
 [source]

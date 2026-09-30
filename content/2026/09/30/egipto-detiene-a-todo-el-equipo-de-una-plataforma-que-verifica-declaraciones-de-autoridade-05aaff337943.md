@@ -4,7 +4,7 @@ title = "Egipto detiene a todo el equipo de una plataforma que verifica declarac
 authors = ["AFP"]
 category = "Seguridad"
 topics = ["Egipto", "Detenciones", "Libertad de prensa"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "05aaff3379433250d64c5e317e2270901d53d9285e7e949243b7b51548b4b9e5"
 [source]

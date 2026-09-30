@@ -4,7 +4,7 @@ title = "Yankees y Padres arrollan en el inicio de los playoffs de la MLB"
 authors = []
 category = "Deportes"
 topics = ["Yankees", "Padres de San Diego"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "0c8f51746dbd39363fe171ceae14f9b2f86ff06d007bb3c170b1e338d361c328"
 [source]

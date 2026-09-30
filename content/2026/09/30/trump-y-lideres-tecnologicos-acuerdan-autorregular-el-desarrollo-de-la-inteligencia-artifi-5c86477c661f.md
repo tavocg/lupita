@@ -4,7 +4,7 @@ title = "Trump y líderes tecnológicos acuerdan autorregular el desarrollo de l
 authors = []
 category = "Tecnología"
 topics = ["Trump", "Inteligencia artificial"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "5c86477c661f835a62e3bd096a17a617aeab729a4e2e1cfb8a0b073a74f67932"
 [source]

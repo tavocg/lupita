@@ -2,7 +2,7 @@
 date = "2026-09-30T06:57:34-06:00"
 title = "OpenAI, Google y otros gigantes de la IA pactan nuevas reglas de seguridad: esto es lo que cambiará"
 authors = ["AFP"]
-draft = true
+draft = false
 ai_processed = false
 source_id = "82b8bea340c03d5cae78a00413f70df6a47e846310a97200a33e0c75bd922c25"
 [source]

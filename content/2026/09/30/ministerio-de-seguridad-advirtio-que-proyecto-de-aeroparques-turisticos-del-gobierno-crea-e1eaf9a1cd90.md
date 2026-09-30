@@ -4,7 +4,7 @@ title = "Ministerio de Seguridad advirtió que proyecto de “aeroparques turís
 authors = ["Fabiola Pomareda García"]
 category = "Seguridad"
 topics = ["Seguridad Nacional", "Aeroparques Turísticos", "Narcotráfico"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "e1eaf9a1cd90d99be76e5f7fd2fd9842f018d6fc7bfe86b226c89b9a5b9a1869"
 [source]

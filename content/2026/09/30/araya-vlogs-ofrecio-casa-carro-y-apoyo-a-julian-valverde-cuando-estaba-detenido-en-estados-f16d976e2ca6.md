@@ -4,7 +4,7 @@ title = "Araya Vlogs ofreció casa, carro y apoyo a Julián Valverde cuando esta
 authors = ["Fátima Jiménez"]
 category = "Sociedad"
 topics = ["Julián Valverde", "Araya Vlogs"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "f16d976e2ca6076af1fe53c4c966796b41f42bc05dcfd29e3ba03cd5e17f1438"
 [source]

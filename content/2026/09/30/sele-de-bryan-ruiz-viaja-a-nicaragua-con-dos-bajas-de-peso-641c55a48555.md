@@ -4,7 +4,7 @@ title = "Sele de Bryan Ruiz viaja a Nicaragua con dos bajas de peso"
 authors = []
 category = "Deportes"
 topics = ["Selección de Costa Rica", "Concacaf", "Bryan Ruiz"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "641c55a48555f1e92f70d3ebd1d55aecfba434ae7842a9adbc7afd4f9314838b"
 [source]

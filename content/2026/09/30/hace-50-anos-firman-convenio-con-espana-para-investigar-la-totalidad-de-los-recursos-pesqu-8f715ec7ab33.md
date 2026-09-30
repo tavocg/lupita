@@ -4,7 +4,7 @@ title = "Hace 50 años: Firman convenio con España para investigar la totalidad
 authors = ["Marianela Arias Vilchez"]
 category = "Política"
 topics = ["España"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "8f715ec7ab33ed8df2dcad0207a25c492ad05d8060b818e8f6bc8d6e3878b791"
 [source]

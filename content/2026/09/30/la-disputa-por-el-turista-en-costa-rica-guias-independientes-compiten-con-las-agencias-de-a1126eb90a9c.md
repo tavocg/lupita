@@ -4,7 +4,7 @@ title = "La disputa por el turista en Costa Rica: guías independientes compiten
 authors = ["Marcia Solano Miller"]
 category = "Mercado"
 topics = ["Turismo"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "a1126eb90a9c1a5eafb995bb07d1d5dd8e2d7c3cc0840b03971c24f5e451ed6a"
 [source]

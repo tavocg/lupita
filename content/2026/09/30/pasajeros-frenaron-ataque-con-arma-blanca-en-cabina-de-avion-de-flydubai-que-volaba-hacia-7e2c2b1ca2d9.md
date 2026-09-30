@@ -4,7 +4,7 @@ title = "Pasajeros frenaron ataque con arma blanca en cabina de avión de Flydub
 authors = ["Marianela Arias Vilchez, AFP"]
 category = "Seguridad"
 topics = ["Flydubai", "Incidente aéreo"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "7e2c2b1ca2d9b2fb960239d3c1a42c2a1d1d87ea53115dc7c312b51a3e7b7b55"
 [source]

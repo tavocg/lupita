@@ -4,7 +4,7 @@ title = "Luis Daniel Oses ficha con el Colono Bikestation kölbi"
 authors = []
 category = "Deportes"
 topics = ["Luis Daniel Oses"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "ff76404270154a18357b956b40d23c5e28edd910bd734f9f09e113ad244c12cf"
 [source]

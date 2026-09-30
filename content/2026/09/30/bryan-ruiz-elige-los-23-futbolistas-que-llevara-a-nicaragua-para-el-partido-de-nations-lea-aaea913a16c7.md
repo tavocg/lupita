@@ -4,7 +4,7 @@ title = "Bryan Ruiz elige los 23 futbolistas que llevará a Nicaragua para el pa
 authors = ["Fanny Tayver Marín"]
 category = "Deportes"
 topics = ["Selección de Costa Rica", "Concacaf", "Bryan Ruiz"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "aaea913a16c7084df9b7a9822e62d3258553d44561725530e081ff8028ec9764"
 [source]

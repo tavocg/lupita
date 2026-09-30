@@ -4,7 +4,7 @@ title = "Gloria y Trevi: las dos personalidades de la mexicana que se reencuentr
 authors = ["Jessica Rojas Ch."]
 category = "Mercado"
 topics = ["Gloria Trevi"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "44c0333997d2f6367ad9e8ce6696eda2a1ecb459a2e90b6f45ec51588d7291b0"
 [source]

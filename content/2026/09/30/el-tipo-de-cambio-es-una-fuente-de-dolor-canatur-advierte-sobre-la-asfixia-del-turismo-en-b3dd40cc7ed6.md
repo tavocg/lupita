@@ -4,7 +4,7 @@ title = "“El tipo de cambio es una fuente de dolor”: Canatur advierte sobre 
 authors = ["Randall Corella Vargas"]
 category = "Mercado"
 topics = ["Turismo"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "b3dd40cc7ed6fec4937dc9b0b30fd71e89c826c6f2c8ad958449c94d4fa681e3"
 [source]

@@ -4,7 +4,7 @@ title = "Doble homicidio en Batán: Mujer y hombre mueren baleados dentro de viv
 authors = ["Marianela Arias Vilchez"]
 category = "Seguridad"
 topics = ["Homicidios", "Batán"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "fdee85239cb12bb2b1d63c9a5d3b9ca11284dc0e3192db4da8224368ea3e29cb"
 [source]

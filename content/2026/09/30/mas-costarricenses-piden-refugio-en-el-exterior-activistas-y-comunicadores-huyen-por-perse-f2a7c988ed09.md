@@ -4,7 +4,7 @@ title = "Más costarricenses piden refugio en el exterior; activistas y comunica
 authors = ["Daniela Muñoz Solano"]
 category = "Política"
 topics = ["Persecución política", "Costarricenses en exilio", "Violencia en Costa Rica"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "f2a7c988ed09f4329a919e012d2afb20bffcf5fa7608682f3f0db1ab6557f55d"
 [source]

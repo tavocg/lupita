@@ -4,7 +4,7 @@ title = "¿Quiénes quedaron fuera? Estos son los jugadores que no irán con la 
 authors = ["Fanny Tayver Marín"]
 category = "Deportes"
 topics = ["Selección de Costa Rica"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "d876e5ca5fc2594db8792fc6d708ff3066c79542a53865aae1730d3583870de4"
 [source]

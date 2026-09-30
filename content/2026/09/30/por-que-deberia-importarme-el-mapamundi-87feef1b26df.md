@@ -4,7 +4,7 @@ title = "¿Por qué debería importarme el mapamundi?"
 authors = ["Sebastián López Delgado"]
 category = "Educación"
 topics = ["Proyecciones cartográficas"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "87feef1b26dff2addc1b65cd6b0a5874d7fab221580862e4bd92375fb145b095"
 [source]

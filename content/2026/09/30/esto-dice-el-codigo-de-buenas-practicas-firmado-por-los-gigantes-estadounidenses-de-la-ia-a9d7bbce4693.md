@@ -4,7 +4,7 @@ title = "Esto dice el código de buenas prácticas firmado por los gigantes esta
 authors = ["AFP"]
 category = "Tecnología"
 topics = ["Inteligencia Artificial", "Ciberseguridad", "Bioseguridad"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "a9d7bbce4693ed5ac09c05ed3daf62a5f6bc6a7d503c258239d58d1435fb7dcf"
 [source]

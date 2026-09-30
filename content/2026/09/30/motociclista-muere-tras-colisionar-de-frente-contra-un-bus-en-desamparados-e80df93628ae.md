@@ -4,7 +4,7 @@ title = "Motociclista muere tras colisionar de frente contra un bus en Desampara
 authors = []
 category = "Seguridad"
 topics = ["Choque frontal", "Desamparados", "Moto"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "e80df93628ae87445a5f691d132499c441425a169c6b2e7d76bca97b6761edc9"
 [source]

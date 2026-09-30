@@ -4,7 +4,7 @@ title = "300 taxistas rojos ya ofrecen servicio en plataforma Uber"
 authors = []
 category = "Mercado"
 topics = ["Uber", "Taxi", "Aresep"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "be2d9cb76186ecb0da442b256d9a7c94bdcf29f1a5d1d94dc5ec95b139dfb868"
 [source]

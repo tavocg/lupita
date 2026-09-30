@@ -4,7 +4,7 @@ title = "Fenómeno de El Niño provoca déficit de agua de hasta 70% en Guanacas
 authors = []
 category = "Ambiente"
 topics = ["El Niño", "Guanacaste", "Aguas"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "e91f297f446ea1bf1fa7d7d305d73d14485debb84eebd2e3c16dea4424cc19f9"
 [source]

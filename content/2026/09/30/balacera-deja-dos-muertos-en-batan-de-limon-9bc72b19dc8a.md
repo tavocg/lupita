@@ -4,7 +4,7 @@ title = "Balacera deja dos muertos en Batán de Limón"
 authors = []
 category = "Seguridad"
 topics = ["Homicidios", "Batán de Limón"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "9bc72b19dc8a489fe7c846c95ccaa3b739cd3d54b8328352a9e417e08012bf92"
 [source]
