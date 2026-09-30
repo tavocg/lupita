@@ -5,6 +5,7 @@ authors = []
 category = "Política"
 topics = ["Mercado eléctrico", "Asamblea Legislativa"]
 image = "https://images.pexels.com/photos/39402244/pexels-photo-39402244.jpeg"
+image_alt = "Bandera de Costa Rica frente a un edificio institucional."
 caption = "Foto de Naths Vargas Arias en [Pexels](https://www.pexels.com/photo/39402244)"
 draft = false
 ai_processed = true

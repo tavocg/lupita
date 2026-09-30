@@ -41,7 +41,7 @@
         {{ range $featured }}
           <article class="card home-featured{{ if .Params.image }} home-featured-with-image{{ end }}">
             {{ with .Params.image }}
-              <div class="home-featured-image"><img src="{{ . }}" alt="" loading="lazy" decoding="async"></div>
+              <div class="home-featured-image"><img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy" decoding="async"></div>
             {{ end }}
             <small><time class="text-muted" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time></small>
             {{ partial "category.html" . }}

@@ -5,6 +5,7 @@ authors = []
 category = "Ambiente"
 topics = ["Cambio climático"]
 image = "https://images.pexels.com/photos/5317293/pexels-photo-5317293.jpeg"
+image_alt = "Un pequeño bote navega frente a un gran iceberg."
 caption = "Foto de Christian Pfeifer en [Pexels](https://www.pexels.com/photo/5317293)"
 draft = false
 ai_processed = true

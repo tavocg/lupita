@@ -19,7 +19,7 @@
   <div{{ if not .Draft }} data-pagefind-body{{ end }}>{{ .Content }}</div>
   {{ with .Params.image }}
     <figure>
-      <img src="{{ . }}" alt="{{ $.Params.image_alt | default "" }}" loading="lazy" decoding="async">
+      <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy" decoding="async">
       {{ with $.Params.caption }}
         <figcaption>{{ . | markdownify }}</figcaption>
       {{ end }}
