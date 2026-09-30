@@ -28,6 +28,8 @@ en Docker deben existir dentro del contenedor.
 | `NEWS_INTERVAL` | `--interval`: espera entre ciclos, en segundos | `28800` (8 h) |
 | `NEWS_DRY_RUN` | `--dry-run` / `--no-dry-run`, en ingest/process | `false` |
 | `NEWS_DRAFT` | Conservar borradores tras la IA; `false` publica | `true` |
+| `PEXELS_API_KEY` | Clave API para buscar fotos ilustrativas | Vacía: búsqueda desactivada |
+| `NEWS_IMAGE_LIMIT` | Máximo de noticias sin imagen por ciclo | `2` |
 | `NEWS_INPUT` / `NEWS_FEED_FILE` | `--input` JSON / `--feed-file` RSS, excluyentes | Vacíos |
 | `NEWS_INDEX_PATH` | `--output` para index | `.news-index.json` |
 | `CONTENT_DIR` / `STATE_DIR` | Directorios para Python local | `content` / `.pipeline` |
@@ -57,6 +59,7 @@ seguidos del comando y sus opciones:
 | `process` | Redacta pendientes del rango, sin consultar RSS |
 | `ingest` | Combina stage y process para las noticias seleccionadas |
 | `serve` | Importa periódicamente y procesa/reintenta todos los pendientes |
+| `images` | Busca y asigna fotos Pexels a las últimas noticias publicadas sin imagen |
 
 ```sh
 # Índice de un rango concreto, sin límite
@@ -64,6 +67,9 @@ docker compose run --rm --build index --from 2026-09-28 --until 2026-09-30
 # Crear borradores recientes; procesarlos y publicar según NEWS_DRAFT
 docker compose run --rm --build ingest stage
 docker compose run --rm ingest process
+# Buscar fotos para las dos noticias publicadas más recientes que aún no tengan
+# imagen (requiere PEXELS_API_KEY en .env).
+docker compose run --rm --build images
 # Consultar IA sin escribir ni adquirir bloqueo
 docker compose run --rm ingest process --from all --dry-run --limit 5
 # Importar un índice local, sin scrapers y conservando el archivo de entrada
@@ -87,7 +93,8 @@ docker compose stop worker
 ```
 
 El worker ejecuta `serve`: comienza inmediatamente, importa el rango configurado,
-redacta pendientes y espera `NEWS_INTERVAL` segundos desde el final del ciclo.
+redacta pendientes, busca fotos para hasta `NEWS_IMAGE_LIMIT` noticias recientes
+sin imagen y espera `NEWS_INTERVAL` segundos desde el final del ciclo.
 No solapa ciclos. Procesa también pendientes antiguos para reintentar fallos aunque
 hayan salido del rango RSS; conserva archivos ya procesados y ediciones manuales.
 Un fallo de red o IA se registra y se vuelve a intentar en el siguiente ciclo.
@@ -98,6 +105,17 @@ ajusta la gracia de Docker por encima de `OLLAMA_TIMEOUT`.
 Configura `NEWS_DRAFT=false` para publicar después de la IA. Para cambiar `.env`,
 recrea el worker con `docker compose up -d --force-recreate worker`. El servicio
 crea Markdown; la compilación y el despliegue de Hugo se ejecutan por separado.
+Configura `PEXELS_API_KEY` en `.env` para habilitar imágenes y reconstruye el
+worker con `docker compose up -d --build --force-recreate worker`.
+
+La búsqueda usa los temas y, si no existen, el título de la noticia. Agrega
+`image_search = false` o `image_requirements = "..."` al front matter de una
+noticia para excluirla cuando tenga condiciones editoriales o de derechos
+especiales. Las fotos se muestran como ilustrativas; el pie usa la descripción
+de Pexels y enlaza la foto, la persona fotógrafa y Pexels. Pexels permite el uso
+de sus fotos bajo su licencia, pero no permite presentar personas identificables
+de forma ofensiva ni sugerir su respaldo. [Licencia de Pexels](https://www.pexels.com/legal-pages/license),
+[guía de la API](https://www.pexels.com/api/documentation/).
 
 ## Ramas de revisión desde un servidor
 
@@ -155,7 +173,8 @@ como solo lectura, además del volumen persistente de estado.
 
 Los duplicados se detectan por URL normalizada, incluidos borradores y archivos
 manuales. Se conservan título, autores y fuente. El contenido RSS es no confiable;
-no se publica el cuerpo original ni se descargan fotografías automáticamente.
+no se publica el cuerpo original. Las fotos de Pexels se buscan automáticamente
+solo cuando `PEXELS_API_KEY` está configurada y el worker ejecuta cada ciclo.
 `.pipeline/references/` permite reintentar: consérvalo junto con `content/`.
 `.news-index.json` contiene referencias completas, es privado y está excluido de Git.
 

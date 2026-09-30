@@ -17,6 +17,10 @@ services:
     restart: unless-stopped
     stop_grace_period: ${SERVICE_STOP_GRACE_PERIOD:-5m}
     profiles: ["worker"]
+  images:
+    <<: *pipeline
+    command: ["images"]
+    profiles: ["tools"]
   index:
     build: .
     network_mode: host
