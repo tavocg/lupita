@@ -1,0 +1,210 @@
+Revisión de categorías y temas — content/2026/09/30
+
+Base de revisión: src/lupita/editor_instructions.md. Se anotan fallos claros de
+clasificación y oportunidades de reducir temas conservando utilidad para agrupar
+y buscar. No se propone completar las tres etiquetas si bastan menos.
+
+ERRORES CLAROS
+
+- el-tipo-de-cambio-es-una-fuente-de-dolor-canatur-advierte-sobre-la-asfixia-del-turismo-en-b3dd40cc7ed6.md
+  category="Educación" es incorrecta: la nota trata del efecto del tipo de
+  cambio en el turismo y de la actividad turística, sin tratar de enseñanza.
+  Corresponde Mercado por el asunto turístico y empresarial; Finanzas sería
+  defendible si el enfoque principal fuera el tipo de cambio. topics="Costa
+  Rica" es contexto implícito del sitio y además aparece en el titular; quitarlo.
+  "infraestructura turística" es más estrecho que el asunto y puede quedar
+  cubierto por "Turismo". Usar forma canónica con mayúscula inicial. Propuesta:
+  category="Mercado", topics=["Turismo"] (opcionalmente conservar un tema
+  financiero solo si se considera central).
+
+- espera-interminable-por-un-foco-de-direccional-61690f957389.md
+  category="Deportes" no corresponde. Es una carta de lectores sobre el servicio
+  de una aseguradora y la demora en reparar un vehículo; Mercado es más apropiada
+  por empresa/servicio. Los temas "Seguridad" y "Accidentes de Vehículos" no
+  son el centro de la nota, y "Accidentes de Vehículos" no sigue el vocabulario
+  breve de los temas. Propuesta: category="Mercado", topics=["Quálitas"] o [] si
+  la aseguradora no se considera un tema de búsqueda suficientemente central.
+
+- principe-enrique-denuncia-intrusion-de-los-paparazzi-con-sus-hijos-2c8081869054.md
+  category="Deportes" es incorrecta: la nota trata de privacidad de menores y
+  paparazzi, por lo que Sociedad es la categoría más cercana. "Seguridad de
+  niños" es una formulación genérica y secundaria frente al tema central de
+  privacidad; usar "Príncipe Enrique" y, si aporta valor, "Paparazzi".
+  Propuesta: category="Sociedad", topics=["Príncipe Enrique", "Paparazzi"].
+
+- cortes-de-luz-de-la-cnfl-afectaran-sectores-de-pavas-santa-ana-y-moravia-este-jueves-e9d239312d30.md
+  category="Transporte" no corresponde: son interrupciones programadas del
+  servicio eléctrico. Propuesta: category="Sociedad" (servicios públicos) o
+  "Mercado" si se prioriza a la empresa proveedora; revisar catálogo editorial
+  para el criterio consistente. "Cortes de luz" y "Servicio eléctrico" se
+  solapan: basta "Cortes de luz"; CNFL puede mantenerse por ser protagonista.
+
+- maria-paula-salas-ficha-con-el-montpellier-de-la-primera-division-francesa-7578483101fe.md
+  "Primera División Francesa" es una competición demasiado amplia/incidental
+  ante el fichaje y duplica información de "Montpellier". Propuesta: topics
+ =["María Paula Salas", "Montpellier"].
+
+- ginnes-rodriguez-confirmo-que-se-volvio-a-enamorar-esto-dijo-la-periodista-43223cfcdaed.md
+  category="Deportes" no corresponde: es una noticia de entretenimiento y vida
+  personal; usar Sociedad. "Enamoramiento" es un concepto genérico y no ayuda a
+  localizar el artículo. Propuesta: category="Sociedad", topics=["Ginnés
+  Rodríguez"] (añadir Erwen Masís Castro solo si se considera protagonista
+  central, no como relleno).
+
+- araya-vlogs-ofrecio-casa-carro-y-apoyo-a-julian-valverde-cuando-estaba-detenido-en-estados-f16d976e2ca6.md
+  category="Deportes" no corresponde a una noticia sobre influencers y apoyo a
+  una persona detenida; Sociedad es más apropiada. "Detención" es un detalle del
+  relato, no un protagonista buscable. Propuesta: category="Sociedad", topics
+ =["Julián Valverde", "Araya Vlogs"].
+
+- el-cambio-climatico-no-entiende-de-fronteras-e797c9743cba.md
+  "Sociedad" repite la categoría o describe de forma demasiado amplia la
+  consecuencia. El tema central queda identificado por "Cambio climático".
+  Propuesta: topics=["Cambio climático"].
+
+- luis-daniel-oses-ficha-con-el-colono-bikestation-kolbi-ff7640427015.md
+  "Colono Bikestation Kölbi" y "Vuelta a Guatemala" son detalles demasiado
+  específicos para una nota cuyo asunto es el fichaje de un ciclista. Quitar el
+  equipo y la competición; conservar el protagonista. "Ciclismo" puede servir
+  como tema general si se busca agrupar noticias del deporte, pero no es
+  obligatorio junto a su nombre. Propuesta: topics=["Luis Daniel Oses"] o
+  ["Luis Daniel Oses", "Ciclismo"]. No usar "Kölbi" por separado: es un
+  patrocinador incidental, no el asunto central.
+
+- orlando-galo-queda-fuera-de-la-seleccion-de-costa-rica-esto-paso-26b212fc597e.md
+  Bryan Ruiz es incidental en esta nota sobre la lesión y baja de Orlando Galo;
+  la Selección ya contextualiza el asunto. Propuesta: topics=["Orlando Galo",
+  "Selección de Costa Rica"].
+
+- quienes-quedaron-fuera-estos-son-los-jugadores-que-no-iran-con-la-seleccion-de-costa-rica-d876e5ca5fc2.md
+  "Fútbol" y "Convocatoria de fútbol" se solapan entre sí y con "Selección de
+  Costa Rica". La lista de descartes ya es el contenido del titular, no un tema
+  de agrupación útil. Propuesta: topics=["Selección de Costa Rica"].
+
+- una-enmienda-impostergable-a-la-carta-de-las-naciones-unidas-3d485269a43c.md
+  "Naciones Unidas" y "Sistema de Naciones Unidas" son etiquetas solapadas para
+  la misma organización. Aplicar el ejemplo de las instrucciones: usar una sola
+  etiqueta canónica, "ONU". Propuesta: topics=["ONU"].
+
+REDUNDANCIAS Y RECORTES RECOMENDADOS
+
+- incidente-en-cabina-deja-pilotos-heridos-y-obliga-a-vuelo-con-destino-a-israel-a-desviarse-133579faca65.md
+- todos-los-pasajeros-gritaban-avion-rumbo-a-israel-es-desviado-tras-presunta-pelea-entre-pi-4111b14d49a0.md
+  Son dos coberturas del mismo incidente de Flydubai. "Pilotos" e "Incidente
+  aéreo" duplican el núcleo; "Israel" es destino/contexto, no tema de la
+  agresión. Si se conserva un tema general, usar "Incidente aéreo"; no agregar
+  etiquetas solo para ocupar cupos.
+
+- pasajeros-frenaron-ataque-con-arma-blanca-en-cabina-de-avion-de-flydubai-que-volaba-hacia-7e2c2b1ca2d9.md
+  "Ataque aéreo" describe mal una agresión dentro de un avión y "Pilotos" es
+  otro aspecto del mismo incidente. "Aerolínea FlyDubai" se puede normalizar a
+  "Flydubai" si la aerolínea es un tema central. Propuesta: topics=["Flydubai"]
+  o ["Incidente aéreo"] según el criterio aplicado a las dos notas relacionadas.
+
+- luis-daniel-oses-ficha-con-el-colono-bikestation-kolbi-ff7640427015.md
+  Ejemplo explícito de exceso de especificidad: quitar "Colono Bikestation
+  Kölbi" y "Vuelta a Guatemala". "Luis Daniel Oses" es suficiente; "Ciclismo"
+  es una segunda etiqueta opcional de agrupación.
+
+- la-disputa-por-el-turista-en-costa-rica-guias-independientes-compiten-con-las-agencias-de-a1126eb90a9c.md
+  "Agencias de Viajes" y "Organizadores Independientes" distinguen actores
+  descritos como competidores, pero el usuario buscaría el tema común. "Turismo"
+  ya basta como etiqueta general en este sitio. Propuesta: topics=["Turismo"]
+  (conservar un actor solo si es realmente protagonista).
+
+- costa-rica-busca-saber-cuanto-turismo-es-demasiado-ocde-destaca-cambio-de-modelo-b830b8d5a599.md
+  "Gestión turística" está cubierta por "Turismo". "Impacto ambiental" puede
+  ser útil solo si se decide indexar por ese aspecto central; de otro modo,
+  reducir a topics=["Turismo"].
+
+- gloria-y-trevi-las-dos-personalidades-de-la-mexicana-que-se-reencuentran-con-costa-rica-44c0333997d2.md
+  "Costa Rica" es ubicación implícita en la cobertura de este sitio y aparece
+  en el titular. Quitarla; "Conciertos" es genérico y secundario frente a la
+  artista. Propuesta: topics=["Gloria Trevi"].
+
+- hace-50-anos-firman-convenio-con-espana-para-investigar-la-totalidad-de-los-recursos-pesqu-8f715ec7ab33.md
+  "Costa Rica" es contexto local redundante y "Investigación pesquera" es una
+  descripción del convenio, más específica que el tema agrupador. Conservar
+  "España" solo si la relación bilateral es central; de lo contrario, topics=[].
+
+- editorial-trump-y-xi-mucha-pompa-pocos-acuerdos-y-tranquilizadoras-senales-de-estabilidad-1a6bb693211f.md
+  "Relaciones diplomáticas" es una descripción amplia de una reunión que ya
+  queda identificada por sus protagonistas. Propuesta: topics=["Estados
+  Unidos", "China"] (o nombres de líderes si el cuerpo los establece como
+  protagonistas buscables).
+
+- trump-y-lideres-tecnologicos-acuerdan-autorregular-el-desarrollo-de-la-inteligencia-artifi-5c86477c661f.md
+  "Lideres Tecnológicos" es una clase genérica de actores y duplica el tema de
+  IA; corregir también la tilde si se conserva. El nombre "Trump" y el tema
+  central pueden bastar: topics=["Trump", "Inteligencia artificial"].
+
+- como-el-vaticano-echa-mano-a-la-diplomacia-religiosa-para-incidir-en-la-etica-de-los-gigan-eaef308511be.md
+  "Regulación de la Tecnología" es más amplio que el asunto y se solapa con
+  "Inteligencia Artificial". Propuesta: topics=["Vaticano", "Inteligencia
+  artificial"].
+
+- calentamiento-del-oceano-artico-se-acelera-a-un-ritmo-de-un-grado-por-decada-y-amenaza-inf-3a13e156ed94.md
+  "Calentamiento global", "Océanos polares" y "Derretimiento de hielo marino"
+  describen facetas relacionadas del mismo fenómeno. Reducir a los asuntos
+  buscables centrales, por ejemplo ["Ártico", "Cambio climático"], o solo
+  ["Ártico"] si se quiere una taxonomía mínima.
+
+- doble-homicidio-en-batan-mujer-y-hombre-mueren-baleados-dentro-de-vivienda-fdee85239cb1.md
+  "Homicidios" y "Violencia" se solapan: los homicidios ya son violencia. Usar
+  una forma canónica singular y estable, por ejemplo "Homicidios"; "Batán"
+  puede conservarse por ser localización específica útil para buscar.
+
+- balacera-deja-dos-muertos-en-batan-de-limon-9bc72b19dc8a.md
+  "Balacera" y "Homicidio" describen el mismo suceso. Priorizar "Homicidios"
+  (o "Balaceras" si esa es la forma canónica que se adopta para sucesos con
+  armas); conservar Batán de Limón solo si la ubicación es un índice útil.
+
+- orlando-galo-queda-fuera-de-la-seleccion-de-costa-rica-esto-paso-26b212fc597e.md
+- bryan-ruiz-elige-los-23-futbolistas-que-llevara-a-nicaragua-para-el-partido-de-nations-lea-aaea913a16c7.md
+- sele-de-bryan-ruiz-viaja-a-nicaragua-con-dos-bajas-de-peso-641c55a48555.md
+  Mantener forma canónica "Selección de Costa Rica" en las tres. En noticias
+  sobre la convocatoria, "Bryan Ruiz" puede mantenerse porque es protagonista;
+  no hace falta agregar además "Fútbol" ni "Convocatoria de fútbol". En la nota
+  centrada en la lesión de Galo, quitar Bryan Ruiz por incidental.
+
+- yankees-y-padres-arrollan-en-el-inicio-de-los-playoffs-de-la-mlb-0c8f51746dbd.md
+  El tema incluye "Medias Rojas de Boston", aunque la nota también menciona
+  otros rivales solo como resultados de partidos. No etiquetar todos los equipos
+  incidentales: conservar Yankees y Padres, los protagonistas del titular.
+
+- concejo-municipal-de-alvarado-rechaza-ingreso-de-costa-rica-al-acuerdo-transpacifico-alega-5c71ac3458cb.md
+  Evitar "Costa Rica" como etiqueta de contexto local. Priorizar "Acuerdo
+  Transpacífico" si es el asunto buscable; no añadir temas genéricos por cada
+  consecuencia mencionada.
+
+OBSERVACIONES DE CATEGORÍA QUE REQUIEREN CONTEXTO
+
+- artículo sobre la banca digital (la-banca-del-futuro-cabe-en-el-celular...):
+  "Educación financiera" no es tema central del resumen; Banca y Seguridad
+  cibernética parecen suficientes. La categoría Finanzas sí coincide con el
+  asunto principal.
+- mapa/mapamundi (por-que-deberia-importarme-el-mapamundi...): Educación puede
+  ser correcta si el original es una pieza explicativa; el resumen no permite
+  confirmarlo. No etiquetar "Precisión geográfica" como resultado o detalle:
+  reducir a "Proyecciones cartográficas" o "Mapamundi".
+- cárceles para la foto (carceles-para-la-foto...): Sociedad puede ser correcta
+  si es columna cultural/editorial; si el asunto es gestión penitenciaria o
+  gobierno, Política sería más precisa. Los temas de institución y fotografía
+  parecen etiquetas descriptivas del titular, no temas buscables; revisar la
+  referencia antes de corregir.
+- Inder anuncia proyectos productivos y sociales: category="Ambiente" no se
+  desprende del resumen. Mercado (proyectos productivos) o Sociedad (programas
+  sociales) requieren consultar la referencia y elegir el asunto principal.
+- espera interminable por un foco de direccional: el resumen mezcla una queja
+  sobre reparación de vehículo con una afirmación aparentemente ajena sobre
+  estudiantes. Revisar la referencia; no crear un tema para esa mezcla.
+
+CRITERIO PARA FUTURAS ETIQUETAS
+
+En un sitio costarricense, no usar "Costa Rica" de forma automática: agregarla
+solo cuando el país sea un protagonista o asunto que ayude a distinguir una
+noticia internacional. Preferir etiquetas temáticas amplias y estables (por
+ejemplo, "Turismo", "Ciclismo", "Selección de Costa Rica") a equipos, fechas,
+incidentes, nombres de secciones o frases que solo repiten el titular. Usar una
+sola etiqueta cuando dos expresiones cubran el mismo concepto. El límite de tres
+es máximo y se aceptan listas vacías.
