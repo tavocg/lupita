@@ -2,7 +2,7 @@
 date = "2026-09-29T12:11:13-06:00"
 title = "Uber taxi ya está disponible en Costa Rica; así puede pedir los viajes"
 authors = ["Patricia Recio"]
-category = "Ambiente"
+category = "Mercado"
 topics = ["Uber"]
 draft = false
 ai_processed = true
