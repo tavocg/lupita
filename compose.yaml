@@ -8,10 +8,12 @@ services:
     environment:
       CONTENT_DIR: /app/content
       STATE_DIR: /app/.pipeline
+      NEWS_SSH_KEY: ${NEWS_SSH_KEY_FILE:+/run/secrets/lupita_ssh_key}
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     volumes:
       - ${CONTENT_VOLUME:-./content}:/app/content
       - ${STATE_VOLUME:-./.pipeline}:/app/.pipeline
+      - ${NEWS_SSH_KEY_FILE:-/dev/null}:/run/secrets/lupita_ssh_key:ro
   worker:
     <<: *pipeline
     command: ["serve"]

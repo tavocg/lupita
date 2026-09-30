@@ -143,11 +143,14 @@ local o, si no existe, `git@github.com:tavocg/lupita`; con token, se convierte a
 HTTPS. `--repo` con token debe ser un remoto de `github.com`.
 
 También sigue disponible `--ssh-key` o `NEWS_SSH_KEY` para autenticación SSH
-cuando se necesite. No configures ambas credenciales a la vez. La llave privada,
-el token y los archivos de entrada nunca se agregan al repositorio. Compose toma
-`GITHUB_TOKEN` del entorno o de `.env`; recuerda que el token debe mantenerse
-como secreto. Los tokens finos pueden limitarse a repositorios y permisos
-concretos. [Permisos de GitHub para tokens finos](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens).
+cuando se necesite. En Docker configura `NEWS_SSH_KEY_FILE` con la ruta absoluta
+del host a la llave; Compose la monta como solo lectura en `/run/secrets/lupita_ssh_key`
+y configura `NEWS_SSH_KEY` con esa ruta dentro del contenedor. No configures ambas
+credenciales a la vez. La llave privada, el token y los archivos de entrada nunca
+se agregan al repositorio. Compose toma `GITHUB_TOKEN` del entorno o de `.env`;
+recuerda que el token debe mantenerse como secreto. Los tokens finos pueden
+limitarse a repositorios y permisos concretos. [Permisos de GitHub para tokens
+finos](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens).
 
 Cada ejecución empieza desde el `main` remoto actual y reemplaza la rama de
 revisión, incluidos cambios anteriores sin integrar. Nunca escribe ni sube a
