@@ -70,6 +70,7 @@ def render(article: Article, editorial: Editorial, *, draft: bool) -> str:
         "+++", f"date = {quote(date)}", f"title = {quote(editorial.title)}",
         f"authors = {quote(article.authors)}", f"category = {quote(editorial.category)}",
         f"topics = {quote(editorial.topics)}", f"draft = {str(draft).lower()}",
+        "ai_processed = true",
         f"source_id = {quote(identity(article.source_url))}",
         "[source]", f"  name = {quote(article.source_name)}",
         f"  url = {quote(canonical_url(article.source_url))}", "+++",
@@ -80,9 +81,44 @@ def render(article: Article, editorial: Editorial, *, draft: bool) -> str:
     return "\n".join(metadata) + "\n\n" + summary + "\n"
 
 
-def destination(content_dir: Path, article: Article, editorial: Editorial) -> Path:
+def render_pending(article: Article) -> str:
+    quote = lambda value: json.dumps(value, ensure_ascii=False)
+    date = article.date.astimezone(ZoneInfo("America/Costa_Rica")).isoformat()
+    return "\n".join([
+        "+++", f"date = {quote(date)}", f"title = {quote(article.title)}",
+        f"authors = {quote(article.authors)}", "draft = true", "ai_processed = false",
+        f"source_id = {quote(identity(article.source_url))}",
+        "[source]", f"  name = {quote(article.source_name)}",
+        f"  url = {quote(canonical_url(article.source_url))}", "+++", "",
+    ])
+
+
+def replace_pending(path: Path, expected: bytes, text: str | None) -> None:
+    """Actualiza o elimina solo el borrador pendiente leído, bajo pipeline_lock."""
+    temporary = None
+    try:
+        if text is not None:
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                             suffix=".tmp", delete=False) as handle:
+                temporary = Path(handle.name)
+                handle.write(text)
+                handle.flush()
+                os.fsync(handle.fileno())
+            os.chmod(temporary, path.stat().st_mode & 0o777)
+        if path.read_bytes() != expected or frontmatter(path).get("ai_processed") is not False:
+            raise ValueError("El borrador cambió durante la redacción; no se modifica")
+        if text is None:
+            path.unlink()
+        else:
+            os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def destination(content_dir: Path, article: Article, editorial: Editorial | None) -> Path:
     date = article.date.astimezone(ZoneInfo("America/Costa_Rica"))
-    return content_dir / date.strftime("%Y/%m/%d") / f"{slug(editorial.title)}-{identity(article.source_url)[:12]}.md"
+    return content_dir / date.strftime("%Y/%m/%d") / f"{slug(article.title)}-{identity(article.source_url)[:12]}.md"
 
 
 def write_article(path: Path, text: str) -> None:

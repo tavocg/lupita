@@ -35,13 +35,13 @@ class Config:
     draft: bool
 
     @classmethod
-    def from_env(cls):
+    def from_env(cls, *, require_model=True):
         url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
         parts = urlsplit(url)
         if parts.scheme not in {"http", "https"} or not parts.hostname or parts.query or parts.fragment:
             raise ValueError("OLLAMA_BASE_URL debe ser una URL HTTP(S) base")
         model = os.getenv("OLLAMA_MODEL", "").strip()
-        if not model:
+        if require_model and not model:
             raise ValueError("Configura OLLAMA_MODEL con el nombre de un modelo instalado en tu Ollama")
         timeout = int(os.getenv("OLLAMA_TIMEOUT", "180"))
         if timeout < 1:

@@ -1,5 +1,4 @@
 import argparse
-from contextlib import nullcontext
 import json
 import logging
 from pathlib import Path
@@ -15,7 +14,8 @@ from .scrapers import (
     delfino, diarioextra, elfinanciero, elmundo, nacion, ncrnoticias,
     observador, repretel, semanario, teletica,
 )
-from .storage import destination, known_urls, pipeline_lock, render, write_article
+from .storage import destination, known_urls, render
+from .workflow import process, stage
 
 
 LOG = logging.getLogger("lupita")
@@ -27,71 +27,81 @@ SCRAPERS = {
 
 
 def run(articles, editor, config, *, limit: int, dry_run: bool = False) -> dict:
+    if not dry_run:
+        articles = list(articles)
+        imported = stage(articles, config, limit=limit)
+        totals = process(editor, config, limit=limit,
+                         urls={canonical_url(article.source_url) for article in articles})
+        totals["duplicates"] += imported["duplicates"]
+        totals["failed"] += imported["failed"]
+        return totals
     totals = {"written": 0, "previewed": 0, "duplicates": 0, "excluded": 0, "failed": 0}
-    with nullcontext() if dry_run else pipeline_lock(config.state_dir):
-        seen = known_urls(config.content_dir)
-        attempted = 0
-        for article in articles:
-            url = canonical_url(article.source_url)
-            if url in seen:
-                totals["duplicates"] += 1
-                continue
-            if attempted >= limit:
-                break
-            # El límite cuenta consultas, incluidas las que terminan en exclusión.
-            attempted += 1
-            try:
-                editorial = editor.generate(article)
-                if editorial is None or editorial.category not in CATEGORIES:
-                    totals["excluded"] += 1
-                    LOG.info("Noticia omitida por tema fuera del catálogo (%s)", url)
-                    seen.add(url)
-                    continue
-                path = destination(config.content_dir, article, editorial)
-                markdown = render(article, editorial, draft=config.draft)
-                if dry_run:
-                    print(json.dumps({"path": str(path), "markdown": markdown}, ensure_ascii=False))
-                    totals["previewed"] += 1
-                else:
-                    write_article(path, markdown)
-                    totals["written"] += 1
-                    LOG.info("Creada: %s", path)
+    seen = known_urls(config.content_dir)
+    attempted = 0
+    for article in articles:
+        url = canonical_url(article.source_url)
+        if url in seen:
+            totals["duplicates"] += 1
+            continue
+        if attempted >= limit:
+            break
+        # El límite cuenta consultas, incluidas las que terminan en exclusión.
+        attempted += 1
+        try:
+            editorial = editor.generate(article)
+            if editorial is None or editorial.category not in CATEGORIES:
+                totals["excluded"] += 1
+                LOG.info("Noticia omitida por tema fuera del catálogo (%s)", url)
                 seen.add(url)
-            except (RequestError, ValueError, OSError) as error:
-                totals["failed"] += 1
-                LOG.error("Noticia omitida (%s): %s", url, error)
+                continue
+            path = destination(config.content_dir, article, editorial)
+            markdown = render(article, editorial, draft=config.draft)
+            print(json.dumps({"path": str(path), "markdown": markdown}, ensure_ascii=False))
+            totals["previewed"] += 1
+            seen.add(url)
+        except (RequestError, ValueError, OSError) as error:
+            totals["failed"] += 1
+            LOG.error("Noticia omitida (%s): %s", url, error)
     return totals
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(description="RSS → Ollama → noticias Hugo")
-    parser.add_argument("command", nargs="?", choices=("ingest", "scrape", "index"), default="ingest")
-    parser.add_argument("--limit", type=int, help="Máximo de noticias (10 para ingest/scrape; todas para index)")
+    parser = argparse.ArgumentParser(description="RSS → borradores Hugo → redacción con Ollama")
+    parser.add_argument("command", nargs="?", choices=("ingest", "stage", "process", "scrape", "index"), default="ingest")
+    parser.add_argument("--limit", type=int, help="Máximo de noticias (todas para stage/index; 10 para el resto)")
     parser.add_argument("--output", type=Path, help="Destino de index (por defecto .news-index.json)")
     parser.add_argument("--dry-run", action="store_true", help="Consulta Ollama y muestra el resultado sin escribir")
     inputs = parser.add_mutually_exclusive_group()
     inputs.add_argument("--feed-file", type=Path, help="Lee un RSS local en lugar de descargarlo")
-    inputs.add_argument("--input", type=Path, help="Lee un índice JSON para ingest, sin consultar scrapers")
+    inputs.add_argument("--input", type=Path, help="Lee un índice JSON para stage/ingest, sin consultar scrapers")
     parser.add_argument("--source", choices=("all", *SCRAPERS), default="all",
                         help="Medio a consultar (por defecto todos)")
     args = parser.parse_args(argv)
     if args.limit is not None and args.limit < 1:
         parser.error("--limit debe ser mayor que cero")
-    if args.command != "ingest" and args.dry_run:
-        parser.error("--dry-run corresponde a ingest")
+    if args.command not in {"ingest", "process"} and args.dry_run:
+        parser.error("--dry-run corresponde a ingest o process")
     if args.output is not None and args.command != "index":
         parser.error("--output corresponde a index")
-    if args.input and args.command != "ingest":
-        parser.error("--input corresponde a ingest")
+    if args.input and args.command not in {"ingest", "stage"}:
+        parser.error("--input corresponde a ingest o stage")
+    if args.command == "process" and (args.feed_file or args.source != "all"):
+        parser.error("process lee borradores pendientes, no consulta RSS")
     if args.input and args.source != "all":
         parser.error("--input no se combina con --source; filtra el archivo JSON")
     if args.feed_file and args.source == "all":
         parser.error("--feed-file requiere --source con un medio específico: " + ", ".join(SCRAPERS))
-    limit = args.limit if args.limit is not None or args.command == "index" else 10
+    limit = args.limit if args.limit is not None or args.command in {"index", "stage"} else 10
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     try:
         load_env()
-        config = Config.from_env() if args.command == "ingest" else None
+        config = (Config.from_env(require_model=False) if args.command == "stage" else
+                  Config.from_env() if args.command in {"ingest", "process"} else None)
+        if args.command == "process":
+            editor = OllamaEditor(config.ollama_url, config.model, config.timeout)
+            totals = process(editor, config, limit=limit, dry_run=args.dry_run)
+            LOG.info("Resultado: %s", json.dumps(totals, ensure_ascii=False))
+            return 1 if totals["failed"] else 0
         failed_sources = 0
         if args.input:
             articles = read_index(args.input)
@@ -121,6 +131,10 @@ def main(argv=None) -> int:
         if args.command == "scrape":
             print(json.dumps([article.to_dict() for article in articles[:limit]], ensure_ascii=False, indent=2))
             return 1 if failed_sources else 0
+        if args.command == "stage":
+            totals = stage(articles, config, limit=limit)
+            LOG.info("Resultado: %s", json.dumps(totals, ensure_ascii=False))
+            return 1 if totals["failed"] or failed_sources else 0
         editor = OllamaEditor(config.ollama_url, config.model, config.timeout)
         totals = run(articles, editor, config, limit=limit, dry_run=args.dry_run)
         LOG.info("Resultado: %s", json.dumps(totals, ensure_ascii=False))

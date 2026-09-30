@@ -1,11 +1,12 @@
 # Lupita
 
-Noticias costarricenses con Hugo. Importa RSS, redacta con Ollama y guarda las
-noticias en `content/YYYY/MM/DD/`.
+Noticias costarricenses con Hugo. Importa RSS como borradores en
+`content/YYYY/MM/DD/` y procesa los pendientes con Ollama en una etapa posterior.
 
 ## Importar noticias
 
-Necesitas Docker Compose y Ollama en ejecución con un modelo instalado.
+Necesitas Docker Compose. Solo la etapa de redacción requiere Ollama en ejecución
+con un modelo instalado.
 Ejecuta desde la raíz del repositorio:
 
 ```sh
@@ -17,6 +18,46 @@ Configura en `.env` `OLLAMA_BASE_URL`, `OLLAMA_MODEL` y los valores de
 `LOCAL_UID` / `LOCAL_GID` obtenidos con `id -u` / `id -g`.
 Compose usa la red del host; en Docker Desktop habilita
 [host networking](https://docs.docker.com/engine/network/drivers/host/).
+
+```sh
+# Crear hasta 500 borradores, sin IA
+docker compose run --rm --build ingest stage --limit 500
+# Procesar hasta 50 pendientes, sin volver a consultar los scrapers
+docker compose run --rm --build ingest process --limit 50
+# Previsualizar el procesamiento de un pendiente, sin modificarlo
+docker compose run --rm --build ingest process --dry-run --limit 1
+```
+
+`stage` importa todas las noticias disponibles por defecto. Guarda título, fecha,
+autores, fuente, `draft = true` y `ai_processed = false`; el cuerpo del Markdown
+queda vacío. Puedes subir estos borradores al repositorio inmediatamente. Hugo
+los muestra con `--buildDrafts`; la compilación normal omite los borradores.
+La URL normalizada evita repetir noticias, incluso si ya existen como borrador,
+artículo procesado o archivo manual.
+
+La referencia completa del RSS se guarda en `.pipeline/references/`, excluida de
+Git. Conserva ese directorio para procesar los borradores después, o transfiérelo
+de forma privada si vas a ejecutar la IA en otro equipo. El cuerpo original no
+se incluye en los Markdown ni se publica. El montaje de `.pipeline` en Compose
+permite que ambas etapas compartan las referencias entre contenedores.
+
+`process` consulta únicamente borradores con `ai_processed = false`. Si la IA
+los excluye, elimina su Markdown. Si redacta y clasifica correctamente, actualiza
+el mismo archivo con el resumen, categoría, temas y `ai_processed = true`.
+Conserva el título original. La publicación se controla con `NEWS_DRAFT`
+(por defecto `true`): usa `NEWS_DRAFT=false` para publicar los procesados.
+Un fallo deja el borrador pendiente y se continúa con los demás. Repetir
+`process` reintenta pendientes y omite los completados. Por defecto consulta
+10 noticias; las exclusiones y fallos también consumen el límite.
+
+Los archivos antiguos sin marcador y los documentos manuales no se procesan.
+Si se editó manualmente un borrador pendiente, se informa del conflicto y se
+conserva; también se comprueba que no cambió durante la generación. No hay caché
+persistente de exclusiones: al eliminar un Markdown, una importación posterior
+puede volver a crearlo si la fuente lo sigue ofreciendo.
+
+`ingest` continúa disponible como atajo que primero crea los borradores del lote
+y después los procesa. Para separar las etapas usa `stage` y `process`:
 
 ```sh
 # Vista previa sin guardar noticias
@@ -79,9 +120,13 @@ docker compose run --rm --build \
 docker compose run --rm --build \
   -v "$PWD/.news-index.json:/data/news.json:ro" \
   ingest --input /data/news.json --limit 50
+# Guardar el índice seleccionado como borradores, sin IA
+docker compose run --rm --build \
+  -v "$PWD/.news-index.json:/data/news.json:ro" \
+  ingest stage --input /data/news.json
 ```
 
-`--input` solo admite `ingest` y sustituye la consulta de scrapers. No se combina
+`--input` admite `stage` e `ingest` y sustituye la consulta de scrapers. No se combina
 con `--feed-file` ni con la selección de un medio. Se valida todo el JSON antes
 de consultar Ollama; cada noticia requiere `date` con zona horaria, `title` y
 `source` con `name` y `url`. `authors`, `summary` y `body` pueden estar vacíos u

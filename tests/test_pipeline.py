@@ -195,7 +195,7 @@ class StorageTests(unittest.TestCase):
                     self.assertEqual(totals["failed"], 0)
                     self.assertEqual(totals["written"] + totals["previewed"], 0)
                     self.assertEqual(output.getvalue(), "")
-                    self.assertFalse(self.config.content_dir.exists())
+                    self.assertEqual(list(self.config.content_dir.rglob("*.md")), [])
 
     def test_short_notes_reach_ollama_and_are_written(self):
         with self.assertLogs("lupita.scrapers.nacion", level="WARNING"):
@@ -264,7 +264,8 @@ class StorageTests(unittest.TestCase):
         self.assertEqual(result["written"], 1)
         self.assertEqual(result["failed"], 1)
         self.assertEqual(run([article()], Editor(), self.config, limit=1)["duplicates"], 1)
-        self.assertNotIn("https://www.nacion.com/failure", known_urls(self.config.content_dir))
+        # Un error de IA deja el borrador pendiente, que también cuenta como duplicado.
+        self.assertIn("https://www.nacion.com/failure", known_urls(self.config.content_dir))
 
     def test_broken_existing_toml_stops_scan(self):
         self.config.content_dir.mkdir()
