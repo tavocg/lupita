@@ -12,7 +12,7 @@
 {{ range $withoutImages }}
   {{ $ordered = $ordered | append . }}
 {{ end }}
-{{ $featured := first 5 $ordered }}
+{{ $featured := first 10 $ordered }}
 {{ $featuredURLs := slice }}
 {{ range $featured }}{{ $featuredURLs = $featuredURLs | append .RelPermalink }}{{ end }}
 {{ $more := slice }}
@@ -24,7 +24,7 @@
     <h2 id="{{ $.Get "id" }}-title">{{ $.Get "title" }}</h2>
     {{ with $.Get "description" }}<p>{{ . }}</p>{{ end }}
     <div class="home-more-grid">
-      {{ range first 6 . }}{{ partial "summary.html" . }}{{ end }}
+      {{ range first 10 . }}{{ partial "summary.html" . }}{{ end }}
     </div>
   </section>
 {{ end }}

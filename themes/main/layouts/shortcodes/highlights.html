@@ -12,7 +12,7 @@
 {{ range $withoutImages }}
   {{ $ordered = $ordered | append . }}
 {{ end }}
-{{ $featured := first 5 $ordered }}
+{{ $featured := first 10 $ordered }}
 <section class="home-highlights" aria-labelledby="{{ .Get "id" }}-title">
   <div class="home-highlights-heading">
     <div>
