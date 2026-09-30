@@ -8,6 +8,7 @@ services:
     environment:
       CONTENT_DIR: /app/content
       STATE_DIR: /app/.pipeline
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     volumes:
       - ${CONTENT_VOLUME:-./content}:/app/content
       - ${STATE_VOLUME:-./.pipeline}:/app/.pipeline

@@ -119,31 +119,35 @@ de forma ofensiva ni sugerir su respaldo. [Licencia de Pexels](https://www.pexel
 
 ## Ramas de revisión desde un servidor
 
-`ingest`, `stage` y `process` aceptan `--ssh-key /ruta/llave` o la variable
-`NEWS_SSH_KEY`, además de `--branch nombre` y `--repo git@github.com:tavocg/lupita`.
-La llave puede ser una ruta o el contenido de una llave privada OpenSSH; si se
-pasa el contenido, se guarda temporalmente con permisos privados y se elimina al
-terminar. Al indicar la llave, el programa clona el repositorio, ejecuta el
-pipeline allí, crea un commit de los cambios de contenido y sube la rama para
-revisión humana. `--repo` usa el `origin` local por defecto; si no existe, usa el
-repositorio oficial. Se necesitan Git y OpenSSH (incluidos en la imagen Docker),
-la llave privada cuya pública correspondiente tenga acceso de escritura al
-repositorio y el servidor registrado en `known_hosts` del usuario ejecutor. Para
-CI que entrega la llave como secreto:
+`ingest`, `stage`, `process` y `serve` pueden clonar el repositorio, ejecutar el
+pipeline y subir los cambios a una rama para revisión humana. Para GitHub, se
+recomienda un **fine-grained personal access token** mediante `GITHUB_TOKEN`;
+el código lo envía a Git por HTTPS sin incluirlo en la URL remota ni
+escribirlo en el checkout. Configúralo con acceso únicamente a este repositorio,
+permiso `Contents: Read and write` y una expiración corta. GitHub incluye el
+permiso `Metadata: Read` requerido para acceder al repositorio. [Documentación de
+GitHub sobre tokens finos](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ```sh
-export NEWS_SSH_KEY="$SSH_PRIVATE_KEY"
-PYTHONPATH=src python3 -m lupita stage --branch ai-editor-stage
+export GITHUB_TOKEN="github_pat_..."
+# El worker autentica y sube una rama al final de cada ciclo.
+docker compose up -d --build worker
+# Alternativa: un único ciclo
+GITHUB_TOKEN="$GITHUB_TOKEN" PYTHONPATH=src python3 -m lupita stage \
+  --branch ai-editor-stage
 ```
 
-La llave y los archivos de entrada no se copian al repositorio.
+`--branch` y `--repo` son opcionales. Si falta la rama, se usa `ai-editor-<modelo>`;
+`stage` sin modelo usa `ai-editor-stage`. El remoto predeterminado es el `origin`
+local o, si no existe, `git@github.com:tavocg/lupita`; con token, se convierte a
+HTTPS. `--repo` con token debe ser un remoto de `github.com`.
 
-```sh
-OLLAMA_MODEL=qwen3:4b PYTHONPATH=src python3 -m lupita ingest \
-  --ssh-key /ruta/llave --branch ai-editor-qwen3-4b
-# Sin --branch, qwen3:4b usa ai-editor-qwen3-4b.
-# stage sin modelo usa ai-editor-stage.
-```
+También sigue disponible `--ssh-key` o `NEWS_SSH_KEY` para autenticación SSH
+cuando se necesite. No configures ambas credenciales a la vez. La llave privada,
+el token y los archivos de entrada nunca se agregan al repositorio. Compose toma
+`GITHUB_TOKEN` del entorno o de `.env`; recuerda que el token debe mantenerse
+como secreto. Los tokens finos pueden limitarse a repositorios y permisos
+concretos. [Permisos de GitHub para tokens finos](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens).
 
 Cada ejecución empieza desde el `main` remoto actual y reemplaza la rama de
 revisión, incluidos cambios anteriores sin integrar. Nunca escribe ni sube a
@@ -164,10 +168,9 @@ ambas etapas sin integración intermedia, usa `ingest`.
 
 `CONTENT_DIR` debe ser un subdirectorio del repositorio (por defecto `content`);
 `STATE_DIR` debe persistir entre ejecuciones. `--branch` y `--repo` requieren
-`--ssh-key` o `NEWS_SSH_KEY`; este modo no se combina con `serve` ni con `--dry-run`.
-En Docker usa un usuario presente en `/etc/passwd` (OpenSSH lo requiere; un UID
-arbitrario de Compose puede no tener entrada). Monta su llave y `known_hosts`
-como solo lectura, además del volumen persistente de estado.
+`--ssh-key`/`NEWS_SSH_KEY` o `GITHUB_TOKEN`; la autenticación remota no
+se combina con `--dry-run`. En modo SSH, Docker requiere un usuario presente en
+`/etc/passwd` y una entrada para el servidor en `known_hosts`.
 
 ## Datos y redacción
 

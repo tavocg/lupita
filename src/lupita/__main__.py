@@ -167,8 +167,12 @@ def serve(args, config):
     for sig in (signal.SIGTERM, signal.SIGINT):
         previous[sig] = signal.signal(sig, lambda *_: stop.set())
     try:
+        cycle = (
+            lambda: run_remote(args, config,
+                               lambda current_args, current_config: execute(current_args, current_config, stop=stop))
+        ) if (args.ssh_key or args.github_token) else None
         while not stop.is_set():
-            result = execute(args, config, stop=stop)
+            result = cycle() if cycle else execute(args, config, stop=stop)
             if result:
                 LOG.warning("Ciclo con errores; se reintentará en el próximo ciclo")
             if stop.is_set():
@@ -204,7 +208,7 @@ def main(argv=None) -> int:
     parser.add_argument("--output", type=Path, help="Destino de index; NEWS_INDEX_PATH o .news-index.json")
     parser.add_argument("--dry-run", action=argparse.BooleanOptionalAction, default=None,
                         help="Consulta Ollama sin escribir; --no-dry-run anula NEWS_DRY_RUN")
-    parser.add_argument("--ssh-key", type=Path, default=os.getenv("NEWS_SSH_KEY"),
+    parser.add_argument("--ssh-key", type=Path, default=os.getenv("NEWS_SSH_KEY") or None,
                         help="Ruta o contenido OpenSSH de llave privada; también NEWS_SSH_KEY")
     parser.add_argument("--branch", help="Rama de revisión; ai-editor-<modelo> por defecto, nunca main")
     parser.add_argument("--repo", help="Repositorio a clonar; origin o repositorio oficial por defecto")
@@ -213,12 +217,15 @@ def main(argv=None) -> int:
     inputs.add_argument("--input", type=Path, help="JSON local para stage/ingest; NEWS_INPUT")
     parser.add_argument("--source", choices=("all", *SCRAPERS), default=os.getenv("NEWS_SOURCE", "all"))
     args = parser.parse_args(argv)
+    args.github_token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
+    if args.ssh_key and args.github_token:
+        parser.error("elige autenticación con --ssh-key/NEWS_SSH_KEY o con GITHUB_TOKEN")
     if args.command == "images" and not os.getenv("PEXELS_API_KEY", "").strip():
         parser.error("images requiere configurar PEXELS_API_KEY")
-    if (args.branch or args.repo) and not args.ssh_key:
-        parser.error("--branch y --repo requieren --ssh-key")
-    if args.ssh_key and args.command not in {"ingest", "stage", "process"}:
-        parser.error("--ssh-key corresponde a ingest, stage o process")
+    if (args.branch or args.repo) and not (args.ssh_key or args.github_token):
+        parser.error("--branch y --repo requieren --ssh-key/NEWS_SSH_KEY o GITHUB_TOKEN")
+    if (args.ssh_key or args.github_token) and args.command not in {"ingest", "stage", "process", "serve"}:
+        parser.error("la autenticación Git corresponde a ingest, stage, process o serve")
     if args.command not in COMMANDS or args.source not in ("all", *SCRAPERS):
         parser.error("NEWS_COMMAND o NEWS_SOURCE no válido")
     if args.input is None and args.feed_file is None:
@@ -231,8 +238,8 @@ def main(argv=None) -> int:
         if value not in {"true", "false"}:
             parser.error("NEWS_DRY_RUN debe ser true o false")
         args.dry_run = value == "true"
-    if args.ssh_key and args.dry_run:
-        parser.error("--ssh-key no se combina con --dry-run, que no escribe archivos")
+    if (args.ssh_key or args.github_token) and args.dry_run:
+        parser.error("la autenticación Git no se combina con --dry-run")
     if args.interval < 1:
         parser.error("--interval / NEWS_INTERVAL debe ser mayor que cero")
     if args.command not in {"ingest", "process"} and args.dry_run:
@@ -256,9 +263,11 @@ def main(argv=None) -> int:
     except (ValueError, OSError) as error:
         LOG.error("Configuración inválida: %s", error)
         return 1
-    if args.ssh_key:
+    if args.command == "serve":
+        return serve(args, config)
+    if args.ssh_key or args.github_token:
         return run_remote(args, config, execute)
-    return serve(args, config) if args.command == "serve" else execute(args, config)
+    return execute(args, config)
 
 
 if __name__ == "__main__":
