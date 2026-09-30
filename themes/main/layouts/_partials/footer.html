@@ -1,6 +1,15 @@
 <div class="footer-content text-muted">
   {{ partial "menu.html" (dict "menuID" "footer" "page" . "label" "Pie de página") }}
   <img class="footer-logo" src="{{ "jl.svg" | relURL }}" alt="" aria-hidden="true">
+  <nav class="footer-social" aria-label="Redes sociales">
+    <a href="https://www.facebook.com/juventudesmerecemosganar/" aria-label="Facebook de Juventud Liberacionista">
+      <img class="footer-facebook-icon" src="{{ "fb.svg" | relURL }}" alt="" aria-hidden="true">
+    </a>
+    <a href="https://www.instagram.com/juventudliberacionista/" aria-label="Instagram de Juventud Liberacionista">
+      <img src="{{ "insta.svg" | relURL }}" alt="" aria-hidden="true">
+    </a>
+  </nav>
+  <small><a href="https://github.com/tavocg/lupita">Código en GitHub</a></small>
   <small>
     © {{ now.Year }} {{ site.Title }}
   </small>

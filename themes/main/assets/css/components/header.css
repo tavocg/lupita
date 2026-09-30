@@ -11,6 +11,12 @@ header {
   }
 }
 
+.site-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
 .search-trigger {
   display: flex;
   align-items: center;
