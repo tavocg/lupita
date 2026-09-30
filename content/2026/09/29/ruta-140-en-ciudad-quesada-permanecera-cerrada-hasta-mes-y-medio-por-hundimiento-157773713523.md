@@ -1,0 +1,11 @@
++++
+date = "2026-09-29T19:22:50-06:00"
+title = "Ruta 140 en Ciudad Quesada permanecerá cerrada hasta mes y medio por hundimiento"
+authors = ["Silvia Ureña Corrales"]
+draft = true
+ai_processed = false
+source_id = "15777371352316219229bbacb7e0c81ad232a0dcb393fe582df37857c79907ee"
+[source]
+  name = "La Nación"
+  url = "https://www.nacion.com/el-pais/ruta-140-en-ciudad-quesada-permanecera-cerrada/S5MTPQERM5CPDOOQZFJL7K62XE/story"
++++
