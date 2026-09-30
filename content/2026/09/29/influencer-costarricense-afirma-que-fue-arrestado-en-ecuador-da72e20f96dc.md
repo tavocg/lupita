@@ -2,7 +2,7 @@
 date = "2026-09-29T11:44:59-06:00"
 title = "Influencer costarricense afirma que fue arrestado en Ecuador"
 authors = ["Fátima Jiménez"]
-draft = true
+draft = false
 ai_processed = false
 source_id = "da72e20f96dc4b4680316a2b2d192017eb1946c71e1a835eced388edf9f79750"
 [source]

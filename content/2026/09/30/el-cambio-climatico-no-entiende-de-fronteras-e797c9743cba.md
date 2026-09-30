@@ -4,7 +4,7 @@ title = "El cambio climático no entiende de fronteras"
 authors = []
 category = "Ambiente"
 topics = ["Cambio Climático", "Sociedad"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "e797c9743cba37a7744131593d144839a0ad219f6c6955549845b70e567008ea"
 [source]

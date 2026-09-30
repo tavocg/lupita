@@ -4,7 +4,7 @@ title = "Puntarenas concentrará este miércoles honras de Estado, sesión legis
 authors = []
 category = "Sociedad"
 topics = ["Juan Rafael Mora Porras", "José María Escamilla", "José Joaquín Mora Porras"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "beffafff9c41928b51b335c5bd4fed71779f594a1ca0ec286ade4519c7fc326d"
 [source]

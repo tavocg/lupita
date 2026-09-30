@@ -4,7 +4,7 @@ title = "¿Cómo impacta la acumulación de reservas al Banco Central? Entidad c
 authors = ["Luis Enrique Brenes"]
 category = "Finanzas"
 topics = ["Banco Central de Costa Rica", "Reservas monetarias", "Ingresos por intereses"]
-draft = true
+draft = false
 ai_processed = true
 source_id = "e8787a47d46539dfdcfca412a1282d11132e6741250e0aa1cdeeaf830ad04232"
 [source]
