@@ -4,6 +4,7 @@ services:
     # Ollama del host en Linux; habilitar host networking en Docker Desktop.
     network_mode: host
     user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    working_dir: /data
     env_file: .env
     environment:
       CONTENT_DIR: /app/content
@@ -11,6 +12,8 @@ services:
       NEWS_SSH_KEY: ${NEWS_SSH_KEY_FILE:+/run/secrets/lupita_ssh_key}
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     volumes:
+      # Permite leer el índice local; las escrituras siguen en content y state.
+      - .:/data:ro
       - ${CONTENT_VOLUME:-./content}:/app/content
       - ${STATE_VOLUME:-./.pipeline}:/app/.pipeline
       - ${NEWS_SSH_KEY_FILE:-/dev/null}:/run/secrets/lupita_ssh_key:ro

@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
-from lupita.__main__ import SCRAPERS, main
+from lupita.__main__ import SCRAPERS, main, run
 from lupita.config import Config
 from lupita.editor import validate
 from lupita.models import canonical_url
@@ -97,6 +97,18 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(process(self.editor, self.config)['failed'], 1)
         self.assertEqual(self.path.read_bytes(), before)
 
+    def test_missing_reference_is_rebuilt_from_local_news_index(self):
+        from lupita.news_index import write_index
+        stage([self.item], self.config)
+        reference = self.config.state_dir / 'references' / f'{identity(self.item.source_url)}.json'
+        reference.unlink()
+        index = self.root / 'news-index.json'
+        write_index(index, [self.item])
+        with patch.dict('os.environ', {'NEWS_INDEX_PATH': str(index)}):
+            result = process(self.editor, self.config)
+        self.assertEqual(result['written'], 1)
+        self.assertFalse(reference.exists())
+
     def test_manual_edits_and_edits_during_generation_are_protected(self):
         stage([self.item], self.config)
         original = self.path.read_bytes()
@@ -110,6 +122,72 @@ class WorkflowTests(unittest.TestCase):
         self.editor.generate.side_effect = generate
         self.assertEqual(process(self.editor, self.config)['failed'], 1)
         self.assertTrue(self.path.read_bytes().endswith(b'Edicion concurrente\n'))
+
+    def test_occupied_destination_with_changed_url_is_preserved(self):
+        stage([self.item], self.config)
+        original = self.path.read_text().replace(
+            canonical_url(self.item.source_url), 'https://example.test/edited-url')
+        self.path.write_text(original)
+        reference = self.config.state_dir / 'references' / f'{identity(self.item.source_url)}.json'
+        reference.unlink()
+        result = stage([self.item], self.config)
+        self.assertEqual((result['duplicates'], result['failed']), (1, 0))
+        self.assertEqual(self.path.read_text(), original)
+        self.assertFalse(reference.exists())
+        self.assertEqual(run([self.item], self.editor, self.config, dry_run=True)['duplicates'], 1)
+        self.editor.generate.assert_not_called()
+
+    def test_stage_recovers_reference_without_replacing_pending(self):
+        stage([self.item], self.config)
+        before = self.path.read_bytes()
+        reference = self.config.state_dir / 'references' / f'{identity(self.item.source_url)}.json'
+        reference.unlink()
+        result = stage([self.item], self.config)
+        self.assertEqual((result['duplicates'], result['recovered'], result['failed']), (1, 1, 0))
+        self.assertEqual(self.path.read_bytes(), before)
+        self.assertEqual(process(self.editor, self.config)['written'], 1)
+
+    def test_stage_does_not_adopt_edited_pending(self):
+        stage([self.item], self.config)
+        reference = self.config.state_dir / 'references' / f'{identity(self.item.source_url)}.json'
+        reference.unlink()
+        before = self.path.read_bytes() + b'Edicion manual\n'
+        self.path.write_bytes(before)
+        self.assertEqual(stage([self.item], self.config)['recovered'], 0)
+        self.assertFalse(reference.exists())
+        self.assertEqual(self.path.read_bytes(), before)
+
+    def test_index_recovery_in_dry_run_does_not_write_or_lock(self):
+        from lupita.news_index import write_index
+        stage([self.item], self.config)
+        reference = self.config.state_dir / 'references' / f'{identity(self.item.source_url)}.json'
+        reference.unlink()
+        before = self.path.read_bytes()
+        index = self.root / 'news-index.json'
+        write_index(index, [self.item])
+        with patch.dict('os.environ', {'NEWS_INDEX_PATH': str(index)}), \
+             patch('lupita.workflow.write_index') as write, \
+             patch('lupita.workflow.pipeline_lock') as lock, redirect_stdout(StringIO()):
+            self.assertEqual(process(self.editor, self.config, dry_run=True)['previewed'], 1)
+        write.assert_not_called()
+        lock.assert_not_called()
+        self.assertFalse(reference.exists())
+        self.assertEqual(self.path.read_bytes(), before)
+
+    def test_index_recovery_does_not_adopt_edited_pending(self):
+        from lupita.news_index import write_index
+        stage([self.item], self.config)
+        reference = self.config.state_dir / 'references' / f'{identity(self.item.source_url)}.json'
+        reference.unlink()
+        before = self.path.read_bytes() + b'Edicion manual\n'
+        self.path.write_bytes(before)
+        index = self.root / 'news-index.json'
+        write_index(index, [self.item])
+        with patch.dict('os.environ', {'NEWS_INDEX_PATH': str(index)}):
+            self.assertEqual(process(self.editor, self.config)['failed'], 1)
+        self.editor.generate.assert_not_called()
+        self.assertFalse(reference.exists())
+        self.assertEqual(self.path.read_bytes(), before)
 
     def test_process_does_not_fetch_scrapers(self):
         stage([self.item], self.config)

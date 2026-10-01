@@ -96,6 +96,33 @@ y fuente; el cuerpo original no se publica. `.pipeline/` guarda referencias
 para reintentar y `.news-index.json` contiene datos RSS locales: mantenlos
 privados y excluidos de Git.
 
+No borres `.pipeline/` mientras haya borradores con `ai_processed = false`:
+sus referencias contienen el texto RSS requerido para redactarlos. Si falta una
+referencia, `process` intenta reconstruirla desde `.news-index.json` (o desde la
+ruta indicada por `NEWS_INDEX_PATH`) cuando encuentra exactamente la misma URL
+y el archivo coincide exactamente con el borrador original. `stage` también
+recupera referencias ausentes al recibir de nuevo una noticia cuyo borrador
+sigue intacto. Los archivos editados manualmente se conservan sin procesar.
+`--dry-run` usa las referencias recuperables en memoria, sin escribirlas.
+Si Ollama devuelve contenido que no pasa la validación editorial, recibe el
+motivo y dispone de dos reintentos para corregirlo. Si vuelve a fallar, se
+conservan el borrador y su referencia para otra ejecución.
+
+Docker monta el proyecto en `/data` para lectura del índice; `.pipeline` y
+`content` mantienen sus montajes persistentes con escritura. Las rutas relativas
+de `NEWS_INDEX_PATH` y `--input` se resuelven desde `/data`. Para crear o renovar
+el índice con escritura en el host, usa `docker compose run --rm --build index`.
+Para recuperar
+referencias desde un índice existente y reintentar todos los pendientes:
+
+```sh
+docker compose run --rm --build ingest stage --input .news-index.json --from all --until all
+docker compose run --rm ingest process --from all --until all
+```
+
+Si un destino Markdown ya existe aunque su URL haya cambiado, se conserva y
+se registra como duplicado. No se sobrescribe ni se vuelve a crear.
+
 Hugo compila el sitio; se requieren Hugo 0.166.0 y Node.js 22 o posterior.
 Para una vista previa:
 

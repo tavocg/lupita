@@ -46,7 +46,7 @@ def run(articles, editor, config, *, limit: int | None = None, dry_run: bool = F
     attempted = 0
     for article in articles:
         url = canonical_url(article.source_url)
-        if url in seen:
+        if url in seen or os.path.lexists(destination(config.content_dir, article, None)):
             totals["duplicates"] += 1
             continue
         if limit is not None and attempted >= limit:

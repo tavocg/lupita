@@ -4,6 +4,8 @@ from contextlib import nullcontext
 from dataclasses import replace
 import json
 import logging
+import os
+from pathlib import Path
 
 from .editor import CATEGORIES
 from .models import canonical_url
@@ -17,9 +19,14 @@ LOG = logging.getLogger("lupita")
 
 
 def stage(articles, config, *, limit=None, stop=None):
-    totals = {"staged": 0, "duplicates": 0, "failed": 0}
+    totals = {"staged": 0, "duplicates": 0, "recovered": 0, "failed": 0}
     with pipeline_lock(config.state_dir):
         seen = known_urls(config.content_dir)
+        pending = {}
+        for path in config.content_dir.rglob("*.md"):
+            data = frontmatter(path)
+            if data.get("ai_processed") is False and data.get("source", {}).get("url"):
+                pending.setdefault(canonical_url(data["source"]["url"]), []).append(path)
         attempted = set()
         for article in articles:
             if stop is not None and stop.is_set():
@@ -27,6 +34,24 @@ def stage(articles, config, *, limit=None, stop=None):
             url = canonical_url(article.source_url)
             if url in seen or url in attempted:
                 totals["duplicates"] += 1
+                reference = config.state_dir / "references" / f"{identity(url)}.json"
+                try:
+                    if not reference.exists() and any(
+                        path.read_bytes() == render_pending(article).encode("utf-8")
+                        for path in pending.get(url, [])
+                    ):
+                        write_index(reference, [article])
+                        totals["recovered"] += 1
+                        LOG.info("Referencia recuperada: %s", reference)
+                except (ValueError, OSError) as error:
+                    totals["failed"] += 1
+                    LOG.error("No se pudo recuperar la referencia de %s: %s", url, error)
+                continue
+            path = destination(config.content_dir, article, None)
+            if os.path.lexists(path):
+                totals["duplicates"] += 1
+                seen.add(url)
+                LOG.warning("Destino ya ocupado; se conserva sin sobrescribir: %s (%s)", path, url)
                 continue
             if limit is not None and len(attempted) >= limit:
                 break
@@ -36,8 +61,16 @@ def stage(articles, config, *, limit=None, stop=None):
                 # un borrador sin referencia; una referencia huérfana es reintentable.
                 reference = config.state_dir / "references" / f"{identity(url)}.json"
                 write_index(reference, [article])
-                path = destination(config.content_dir, article, None)
-                write_article(path, render_pending(article))
+                try:
+                    write_article(path, render_pending(article))
+                except FileExistsError:
+                    # Otro escritor puede crear el destino después de comprobarlo.
+                    if not os.path.lexists(path):
+                        raise
+                    seen.add(url)
+                    totals["duplicates"] += 1
+                    LOG.warning("Destino ya ocupado; se conserva sin sobrescribir: %s (%s)", path, url)
+                    continue
                 seen.add(url)
                 totals["staged"] += 1
                 LOG.info("Borrador creado: %s", path)
@@ -73,6 +106,7 @@ def process(editor, config, *, limit=None, dry_run=False, urls=None, window=None
         pending.sort(key=lambda entry: str(entry[0]), reverse=True)
         seen = existing
         attempted = 0
+        candidates = None
         for path, url in pending:
             if stop is not None and stop.is_set():
                 break
@@ -85,7 +119,30 @@ def process(editor, config, *, limit=None, dry_run=False, urls=None, window=None
             try:
                 before = path.read_bytes()
                 reference = config.state_dir / "references" / f"{identity(url)}.json"
-                articles = read_index(reference)
+                if not reference.exists():
+                    # Recuperar referencias borradas desde el índice RSS local,
+                    # solo cuando sus metadatos coinciden exactamente con el borrador.
+                    index_path = Path(os.getenv("NEWS_INDEX_PATH", ".news-index.json"))
+                    articles = []
+                    if index_path.exists():
+                        if candidates is None:
+                            candidates = read_index(index_path)
+                        matches = [article for article in candidates
+                                   if canonical_url(article.source_url) == url]
+                        if len(matches) == 1:
+                            if render_pending(matches[0]).encode("utf-8") != before:
+                                raise ValueError("El borrador fue editado manualmente; se conserva sin procesar")
+                            articles = matches
+                            if not dry_run:
+                                write_index(reference, articles)
+                    if not articles:
+                        raise ValueError(
+                            f"Falta la referencia {reference}; restaura .pipeline/references "
+                            f"o recupera la noticia con stage desde su RSS o un índice local. "
+                            f"Índice de recuperación: {index_path}"
+                        )
+                else:
+                    articles = read_index(reference)
                 if len(articles) != 1 or canonical_url(articles[0].source_url) != url:
                     raise ValueError("La referencia local no corresponde al borrador")
                 article = articles[0]

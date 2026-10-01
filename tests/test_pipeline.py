@@ -142,6 +142,30 @@ class EditorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "12 palabras"):
             validate(generated() | {"summary": article().body[:190]}, article())
 
+    def test_editor_corrects_rejected_copy_with_validation_feedback(self):
+        responses = [generated() | {"summary": article().body[:190]}, generated()]
+        captured = []
+
+        def respond(url, *, payload, timeout):
+            captured.append(json.loads(json.dumps(payload)))
+            return json.dumps({"done": True, "message": {"content": json.dumps(responses.pop(0))}}).encode()
+
+        with patch("lupita.editor.request", side_effect=respond):
+            result = OllamaEditor("http://localhost:11434", "test").generate(article())
+        self.assertEqual(result.summary, generated()["summary"])
+        self.assertEqual(len(captured), 2)
+        self.assertEqual(len(captured[0]["messages"]), 2)
+        self.assertIn("12 palabras", captured[1]["messages"][-1]["content"])
+        self.assertEqual(captured[0]["messages"][1], captured[1]["messages"][1])
+
+    def test_editor_stops_after_three_invalid_responses(self):
+        response = json.dumps({"done": True, "message": {"content": json.dumps(
+            generated() | {"summary": article().body[:190]})}}).encode()
+        with patch("lupita.editor.request", return_value=response) as request:
+            with self.assertRaisesRegex(ValueError, "12 palabras"):
+                OllamaEditor("http://localhost:11434", "test").generate(article())
+        self.assertEqual(request.call_count, 3)
+
     def test_real_http_contract_against_fake_ollama(self):
         captured = []
 
