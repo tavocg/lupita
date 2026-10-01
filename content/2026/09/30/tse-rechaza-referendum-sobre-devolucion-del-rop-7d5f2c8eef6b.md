@@ -4,7 +4,7 @@
 date = "2026-09-30T10:12:13-06:00"
 title = "TSE rechaza referéndum sobre devolución del ROP"
 category = "Política"
-topics = ["Referéndum", "Régimen Obligatorio de Pensiones Complementarias"]
+topics = ["Referéndum", "ROP"]
 authors = ["Marianela Arias Vilchez"]
 draft = false
 ai_processed = true

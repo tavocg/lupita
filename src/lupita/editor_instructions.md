@@ -36,11 +36,18 @@ Desempates:
 - El nombre de un ministerio no determina la categoría: clasifica el asunto.
 
 TEMAS (topics)
-Devuelve de cero a tres temas; uno o dos suelen bastar. Incluye solo nombres o
+Devuelve de cero a tres temas; cada topic debe tener una, dos o como máximo tres
+palabras. Uno o dos suelen bastar. Incluye solo nombres o
 asuntos centrales que ayuden a encontrar o agrupar la noticia.
 
 - Usa nombres breves y estables; conserva nombres propios y siglas. En conceptos
   comunes, usa mayúscula solo al inicio.
+- Prefiere la sigla reconocible a nombres institucionales largos: «IMN», «ROP»,
+  «TLC Transpacífico» y «ONU». No incluyas el nombre expandido entre paréntesis.
+- Usa «Diputados» para noticias cuyo asunto central sean las personas diputadas,
+  sus decisiones, declaraciones o actividad legislativa. Puede acompañar otro
+  tema central (por ejemplo, «Asamblea Legislativa» o el asunto de un proyecto).
+  No lo agregues si solo hay una mención incidental a legisladores.
 - No agregues «Costa Rica» por ser el país del sitio o el lugar de una noticia
   local.
 - No repitas la categoría, el titular, cargos, acciones, fechas, resultados ni
@@ -57,6 +64,9 @@ Ejemplos:
 - «Sele», «Selección Nacional» y «Selección Nacional de Costa Rica» →
   «Selección de Costa Rica»; no agregues también «Fútbol».
 - Consejo de Seguridad y Secretaría General de Naciones Unidas → «ONU».
+- Para un tratado, usa «TLC Transpacífico» en vez del nombre legal completo.
+- No uses fechas de eventos como topics («Homenaje 30 de setiembre»); etiqueta
+  el asunto estable, como «Diputados» o «Asamblea Legislativa».
 - Para una nota del dólar, usa «Tipo de cambio», no «Dólar» ni «Economía de
   Costa Rica».
 - «Cuerpo de Bomberos» → «Bomberos». Usa «Emergencias» si derrames, incendios

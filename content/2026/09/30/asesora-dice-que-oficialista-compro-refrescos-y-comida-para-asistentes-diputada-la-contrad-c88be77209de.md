@@ -4,7 +4,7 @@
 date = "2026-09-30T10:32:04-06:00"
 title = "Asesora dice que oficialista compró refrescos y comida para asistentes; diputada la contradice"
 category = "Política"
-topics = ["Asamblea Legislativa", "PPSO"]
+topics = ["Diputados", "PPSO"]
 authors = []
 draft = false
 ai_processed = true

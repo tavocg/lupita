@@ -2,8 +2,8 @@
 date = "2026-09-30T16:48:33-06:00"
 title = "Buses y comida: videos muestran logística de movilización de personas hacia acto de Laura Fernández en Puntarenas"
 authors = ["Aarón Sequeira"]
-category = "Mercado"
-topics = ["Comida", "Buses", "Consejo de Gobierno"]
+category = "Política"
+topics = ["Laura Fernández", "Consejo de Gobierno", "Movilización política"]
 draft = false
 ai_processed = true
 source_id = "40b6aa8e702f2def9c2e0531b3e8135fecf5f141d4206a5a72d9380c79cac9d9"
