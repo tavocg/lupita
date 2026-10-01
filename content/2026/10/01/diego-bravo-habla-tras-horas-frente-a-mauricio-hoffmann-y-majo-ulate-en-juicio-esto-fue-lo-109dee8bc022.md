@@ -2,7 +2,7 @@
 date = "2026-10-01T09:34:12-06:00"
 title = "Diego Bravo habla tras horas frente a Mauricio Hoffmann y Majo Ulate en juicio: esto fue lo que dijo"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Juicio", "Mauricio Hoffmann", "Majo Ulate"]
 draft = false
 ai_processed = true
