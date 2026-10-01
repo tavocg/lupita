@@ -15,4 +15,4 @@ Cada noticia incluye un enlace **Ver original** para consultar la publicación c
 
 ## Explora las noticias
 
-Puedes recorrer las [categorías]({{< relref "/category" >}}), explorar los [temas]({{< relref "/topics" >}}) o utilizar el [buscador]({{< relref "/buscar" >}}) para encontrar noticias.
+Puedes recorrer las [categorías]({{< relref "/category" >}}), explorar los [temas]({{< relref "/topics" >}}) o utilizar el [buscador]({{< relref "/" >}}#search) para encontrar noticias.
