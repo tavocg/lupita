@@ -8,7 +8,7 @@ draft = false
 ai_processed = true
 [source]
   name = "La Nación"
-  url = "https://www.nacion.com/puro-deporte/deportes-de-motor-tendran-actividad-en-garabito/"
+  url = "https://www.nacion.com/puro-deporte/deportes-de-motor-tendran-actividad-en-garabito/XTFQC3Z5IBDOBN52M3EBWHSBFU/story"
 +++
 
 Garabito tendrá actividad de deportes de motor durante el fin de semana.

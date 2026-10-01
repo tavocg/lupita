@@ -2,10 +2,14 @@
 date = "2026-09-29T12:50:01-06:00"
 title = "Oposición irá a Sala IV por desacato de resolución sobre magistrados suplentes"
 authors = []
+category = "Política"
+topics = ["Sala Constitucional", "Desacato", "Oposición"]
 draft = false
-ai_processed = false
+ai_processed = true
 source_id = "4d32f034363e43b06c6ccdfb3c6c4a7b87b69327db41c5fa0317fdf5bdd7e5ba"
 [source]
   name = "Teletica"
   url = "https://www.teletica.com/politica/oposicion-ira-a-sala-iv-por-desacato-de-resolucion-sobre-magistrados-suplentes_418231"
 +++
+
+Los diputados opositores presentarán una gestión de desacato contra el oficialismo por retrasar la elección de magistrados suplentes en la Sala Constitucional\. La oposición califica el actuar del oficialismo como una ruptura del orden democrático\.

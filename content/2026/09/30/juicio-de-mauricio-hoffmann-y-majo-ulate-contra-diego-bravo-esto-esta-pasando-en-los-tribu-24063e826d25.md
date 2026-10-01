@@ -1,15 +1,15 @@
 +++
-
-
 date = "2026-09-30T08:43:49-06:00"
 title = "Juicio de Mauricio Hoffmann y Majo Ulate contra Diego Bravo: esto está pasando en los tribunales"
 authors = ["Fiorella Montoya"]
+category = "Sociedad"
+topics = ["Juicio", "Mauricio Hoffmann", "Majo Ulate"]
 draft = false
-ai_processed = false
+ai_processed = true
 source_id = "24063e826d25cc3bdbcd28abcee12780729f444151fcaf76638eef751a6f76c3"
-category = "Seguridad"
-topics = ["Mauricio Hoffmann", "Majo Ulate", "Diego Bravo"]
 [source]
   name = "La Nación"
   url = "https://www.nacion.com/viva/juicio-de-mauricio-hoffmann-y-majo-ulate-contra/TX6AWT5O3BE2FIGEHE4GF54K7U/story"
-+++  
++++
+
+Mauricio Hoffmann y Majo Ulate se enfrentan a Diego Bravo en un juicio por acusaciones de difamación e injurias\. La audiencia se reanudó tras un temblor, y continúa con los testimonios de las partes\.
