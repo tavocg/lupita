@@ -1,5 +1,6 @@
 :root {
   color-scheme: light;
+  scrollbar-color: var(--color-link) var(--color-background);
   --color-background: #f5f8f5;
   --color-card-hover: #edf3ee;
   --color-border: #d4ddd6;

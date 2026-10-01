@@ -87,7 +87,6 @@ body.home main {
   scroll-snap-type: x proximity;
   scroll-padding-inline: 0.25rem;
   padding: 0.25rem 0.25rem 1rem;
-  scrollbar-color: var(--color-link) var(--color-background);
 
   &:focus-visible {
     outline: 2px solid var(--color-link);

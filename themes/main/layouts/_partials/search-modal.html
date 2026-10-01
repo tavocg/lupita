@@ -1,0 +1,28 @@
+<dialog id="search-dialog" aria-label="Buscar noticias">
+  <section class="search-panel" aria-label="Búsqueda">
+    <div class="search-bar">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <div id="search" data-bundle-path="{{ "pagefind/" | relURL }}">
+        <pagefind-config bundle-path="{{ "pagefind/" | relURL }}" base-url="{{ site.Home.RelPermalink }}"></pagefind-config>
+        <pagefind-input placeholder="Buscar noticias"></pagefind-input>
+      </div>
+      <button class="search-clear" type="button" aria-label="Borrar búsqueda">Borrar</button>
+    </div>
+    <pagefind-summary id="search-summary" class="search-summary"></pagefind-summary>
+    <p id="search-status" role="status" hidden></p>
+    <pagefind-results hide-sub-results>
+      <script type="text/pagefind-template">
+        {{/* Keep Pagefind's template expressions literal for the browser. */}}
+        {{ `<li class="search-result">
+          <article class="card search-result-card">
+            <small><time class="text-muted" datetime="{{ meta.datetime }}">{{ meta.date }}</time></small>
+            {{#if meta.category}}<span class="category">{{ meta.category }}</span>{{/if}}
+            <h2><a class="card-link" href="{{ url | safeUrl }}">{{ meta.title }}</a></h2>
+            {{#if excerpt}}<p class="card-summary text-muted">{{+ excerpt +}}</p>{{/if}}
+          </article>
+        </li>` | safeHTML }}
+      </script>
+    </pagefind-results>
+  </section>
+</dialog>
+<noscript><p class="search-noscript">Activa JavaScript para buscar noticias.</p></noscript>

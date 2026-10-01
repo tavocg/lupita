@@ -16,15 +16,12 @@
 <meta name="description" content="{{ . | htmlEscape }}">
 {{- end }}
 {{- if .IsHome }}
-  {{- $searchURL := printf "%sbuscar/?q={search_term_string}" site.Home.Permalink }}
+  {{- $searchURL := printf "%s?q={search_term_string}" site.Home.Permalink }}
   {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.Home.Permalink "description" site.Params.description "inLanguage" site.Language.Locale "potentialAction" (dict "@type" "SearchAction" "target" (dict "@type" "EntryPoint" "urlTemplate" $searchURL) "query-input" "required name=search_term_string") }}
 <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
 {{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="theme-color" content="#17324d">
-{{- if eq .Layout "search" }}
-<meta name="robots" content="noindex, follow">
-{{- end }}
 <meta property="og:locale" content="{{ site.Language.Locale }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
@@ -55,17 +52,12 @@
 {{- end }}
 {{- end }}
 {{ partialCached "head/css.html" . }}
-{{ with resources.Get "js/search-shortcut.js" | minify | fingerprint }}
-  <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+<link rel="stylesheet" href="{{ "pagefind/pagefind-component-ui.css" | relURL }}">
+{{ with resources.Get "css/search.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
 {{ end }}
-{{ if eq .Layout "search" }}
-  <link rel="stylesheet" href="{{ "pagefind/pagefind-component-ui.css" | relURL }}">
-  {{ with resources.Get "css/search.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
-  {{ end }}
-  {{ with resources.Get "js/search.js" | minify | fingerprint }}
-    <script type="module" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
-  {{ end }}
+{{ with resources.Get "js/search.js" | minify | fingerprint }}
+  <script type="module" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
 {{ end }}
 {{ if and .IsPage (ne .Layout "informational") }}
   {{ partial "article-schema.html" . }}

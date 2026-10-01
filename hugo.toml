@@ -25,7 +25,7 @@ enableRobotsTXT = true
 [[menus.main]]
   identifier = 'search'
   name = 'Buscar'
-  pageRef = '/buscar'
+  pageRef = '/'
   weight = 40
 
 [[menus.footer]]
