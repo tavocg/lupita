@@ -1,9 +1,8 @@
 const dialog = document.querySelector("#search-dialog");
 const search = document.querySelector("#search");
 const status = document.querySelector("#search-status");
-const summary = document.querySelector("#search-summary");
 const input = () => search.querySelector("input");
-const clearButton = dialog.querySelector(".search-clear");
+const closeButton = dialog.querySelector(".search-close");
 
 function setQuery(query) {
   const url = new URL(location.href);
@@ -47,16 +46,7 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 
-clearButton.addEventListener("click", () => {
-  const field = input();
-  if (field) {
-    field.value = "";
-    field.dispatchEvent(new Event("input", { bubbles: true }));
-    field.focus();
-  }
-  setQuery("");
-  summary.textContent = "";
-});
+closeButton.addEventListener("click", () => dialog.close());
 
 search.addEventListener("input", () => setQuery(input()?.value.trim() ?? ""));
 const params = new URLSearchParams(location.search);

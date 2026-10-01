@@ -54,12 +54,6 @@
   border-bottom: 1px solid #343434;
 }
 
-.search-icon {
-  color: #aaa;
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
 #search {
   flex: 1;
   min-width: 0;
@@ -67,10 +61,14 @@
 
 #search pagefind-input {
   display: block;
+  min-width: 0;
+}
+
+#search pagefind-input button.pf-input-clear {
+  display: none !important;
 }
 
 #search pagefind-input input {
-  width: 100%;
   border: 0;
   outline: 0;
   background: transparent;
@@ -79,18 +77,26 @@
   font-size: 1rem;
 }
 
-.search-clear {
-  padding: 0.35rem 0;
+.search-close {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  place-items: center;
+  padding: 0.25rem;
   border: 0;
   background: transparent;
   color: #aaa;
   cursor: pointer;
-  font: inherit;
-  font-size: 0.8rem;
 }
 
-.search-clear:hover {
+.search-close:hover {
   color: white;
+}
+
+.search-close svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .search-summary,
