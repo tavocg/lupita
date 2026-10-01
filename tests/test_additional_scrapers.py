@@ -25,12 +25,6 @@ SOURCES = [
         "observador.cr"
     ],
     [
-        "diarioextra",
-        "Diario Extra",
-        "https://www.diarioextra.com/rss",
-        "diarioextra.com"
-    ],
-    [
         "ncrnoticias",
         "NCR Noticias",
         "https://ncrnoticias.com/rss",

@@ -17,7 +17,7 @@ from .images import search_recent
 from .models import canonical_url
 from .news_index import read_index, write_index
 from .scrapers import (
-    delfino, diarioextra, elfinanciero, elmundo, nacion, ncrnoticias,
+    delfino, elfinanciero, elmundo, nacion, ncrnoticias,
     observador, repretel, semanario, teletica,
 )
 from .storage import destination, known_urls, render
@@ -27,7 +27,7 @@ from .workflow import process, stage
 LOG = logging.getLogger("lupita")
 SCRAPERS = {
     "nacion": nacion, "delfino": delfino, "semanario": semanario, "teletica": teletica,
-    "elfinanciero": elfinanciero, "observador": observador, "diarioextra": diarioextra,
+    "elfinanciero": elfinanciero, "observador": observador,
     "ncrnoticias": ncrnoticias, "elmundo": elmundo, "repretel": repretel,
 }
 
