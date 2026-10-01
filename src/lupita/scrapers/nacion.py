@@ -11,8 +11,19 @@ LOG = logging.getLogger(__name__)
 
 
 def parse_feed(raw: bytes) -> list[Article]:
-    return parse_rss(raw, source_name="La Nación", hosts={"www.nacion.com"},
-                     logger=LOG, excluded_categories=EXCLUDED_CATEGORIES)
+    articles = parse_rss(
+        raw,
+        source_name="La Nación",
+        hosts={"www.nacion.com"},
+        logger=LOG,
+        excluded_categories=EXCLUDED_CATEGORIES,
+    )
+
+    return [
+        article
+        for article in articles
+        if "/el-mundo/" not in article.source_url
+    ]
 
 
 def fetch() -> list[Article]:
