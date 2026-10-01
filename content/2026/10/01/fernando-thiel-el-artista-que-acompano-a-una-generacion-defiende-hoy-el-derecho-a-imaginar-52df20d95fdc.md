@@ -2,7 +2,7 @@
 date = "2026-10-01T09:15:00-06:00"
 title = "Fernando Thiel, el artista que acompañó a una generación, defiende hoy el derecho a imaginar"
 authors = ["Fátima Jiménez"]
-category = "Tecnología"
+category = "Sociedad"
 topics = ["arte", "teatro", "cultural"]
 draft = false
 ai_processed = true

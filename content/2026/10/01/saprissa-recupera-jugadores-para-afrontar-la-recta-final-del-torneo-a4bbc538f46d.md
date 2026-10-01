@@ -2,7 +2,7 @@
 date = "2026-10-01T08:44:28-06:00"
 title = "Saprissa recupera jugadores para afrontar la recta final del torneo"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Liderato", "Segunda vuelta"]
 draft = false
 ai_processed = true

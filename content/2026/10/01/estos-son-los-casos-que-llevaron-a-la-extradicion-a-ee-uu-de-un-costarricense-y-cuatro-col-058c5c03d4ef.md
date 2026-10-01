@@ -2,7 +2,7 @@
 date = "2026-10-01T09:17:50-06:00"
 title = "Estos son los casos que llevaron a la extradición a EE.UU. de un costarricense y cuatro colombianos"
 authors = ["Erick Carvajal"]
-category = "Mercado"
+category = "Seguridad"
 topics = ["Drogas", "Extradición", "Tráfico de drogas"]
 draft = false
 ai_processed = true

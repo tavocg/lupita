@@ -2,7 +2,7 @@
 date = "2026-10-01T08:50:00-06:00"
 title = "Marcia Saborío y María Torres estrenan “Cartas a Mita” y ponen la identidad costarricense sobre las tablas"
 authors = ["Sergio Arce"]
-category = "Tecnología"
+category = "Sociedad"
 topics = ["Cultura", "Identidad", "Cine"]
 draft = false
 ai_processed = true
