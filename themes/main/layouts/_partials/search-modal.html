@@ -6,7 +6,11 @@
         <pagefind-config bundle-path="{{ "pagefind/" | relURL }}" base-url="{{ site.Home.RelPermalink }}"></pagefind-config>
         <pagefind-input placeholder="Buscar noticias"></pagefind-input>
       </div>
-      <button class="search-clear" type="button" aria-label="Borrar búsqueda">Borrar</button>
+      <button class="search-close" type="button" aria-label="Cerrar búsqueda">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
     <pagefind-summary id="search-summary" class="search-summary"></pagefind-summary>
     <p id="search-status" role="status" hidden></p>
