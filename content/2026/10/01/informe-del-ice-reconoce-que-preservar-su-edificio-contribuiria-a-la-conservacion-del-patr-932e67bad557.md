@@ -2,8 +2,8 @@
 date = "2026-10-01T05:00:07-06:00"
 title = "Informe del ICE reconoce que preservar su edificio contribuiría a la “conservación del patrimonio arquitectónico”"
 authors = ["Adrián Z. Rivero"]
-category = "Ambiente"
-topics = ["ICE", "Edificio Jorge Manuel Dengo Obregón", "Demolición"]
+category = "Política"
+topics = ["ICE"]
 draft = false
 ai_processed = true
 source_id = "932e67bad5575eca93c35293c65788d75f89520e95719b3451bd2aa7436583e5"
