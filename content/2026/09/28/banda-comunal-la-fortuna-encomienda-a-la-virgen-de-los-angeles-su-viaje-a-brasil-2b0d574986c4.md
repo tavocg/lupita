@@ -2,8 +2,8 @@
 date = "2026-09-28T13:15:00-06:00"
 title = "Banda Comunal La Fortuna encomienda a la Virgen de los Ángeles su viaje a Brasil"
 authors = []
-category = "Tecnología"
-topics = ["Banda Comunal La Fortuna", "Festival Internacional Imagination Marching Concepts", "São Paulo"]
+category = "Sociedad"
+topics = []
 draft = false
 ai_processed = true
 source_id = "2b0d574986c484cb006384fe79945f812cfc0e9c355ecd3bb95d6febb998e452"

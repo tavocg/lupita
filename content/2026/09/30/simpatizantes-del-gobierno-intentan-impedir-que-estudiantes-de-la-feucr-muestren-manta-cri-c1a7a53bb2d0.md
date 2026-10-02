@@ -4,7 +4,7 @@
 date = "2026-09-30T11:48:04-06:00"
 title = "Simpatizantes del Gobierno intentan impedir que estudiantes de la FEUCR muestren manta crítica durante Consejo de Gobierno en Puntarenas"
 category = "Política"
-topics = ["FEUCR", "Gobierno de Costa Rica"]
+topics = ["FEUCR"]
 authors = ["Aarón Sequeira, Cristian Mora"]
 draft = false
 ai_processed = true

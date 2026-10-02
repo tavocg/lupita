@@ -4,7 +4,7 @@
 date = "2026-09-30T14:55:15-06:00"
 title = "Fernández admite posibilidad de dar un puesto en España a hijo del dirigente del PPSO"
 category = "Política"
-topics = ["Gobierno de Costa Rica", "PPSO"]
+topics = ["PPSO"]
 authors = ["Álvaro Murillo"]
 draft = false
 ai_processed = true

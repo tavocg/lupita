@@ -3,7 +3,7 @@ date = "2026-09-30T09:32:34-06:00"
 title = "Así se vivió el vuelo con destino a Israel en el que los pilotos protagonizaron sangrienta pelea"
 authors = ["AFP"]
 category = "Seguridad"
-topics = ["Vuelo Flydubai a Tel Aviv"]
+topics = ["Israel"]
 draft = false
 ai_processed = true
 [source]

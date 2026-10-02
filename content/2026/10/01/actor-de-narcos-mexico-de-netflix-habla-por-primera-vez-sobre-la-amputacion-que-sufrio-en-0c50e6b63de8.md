@@ -2,8 +2,8 @@
 date = "2026-10-01T22:03:21-06:00"
 title = "Actor de ‘Narcos México’ de Netflix habla por primera vez sobre la amputación que sufrió en su cuerpo"
 authors = ["Jessica Rojas Ch."]
-category = "Salud"
-topics = ["Infección bacteriana", "Amputación", "Narcos México"]
+category = "Sociedad"
+topics = []
 draft = false
 ai_processed = true
 source_id = "0c50e6b63de8d9517a9f8fff79800d34a7a07465d225591c2732a0a5aa21270c"

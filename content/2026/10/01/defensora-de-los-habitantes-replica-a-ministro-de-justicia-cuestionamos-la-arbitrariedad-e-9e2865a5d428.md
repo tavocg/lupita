@@ -2,8 +2,8 @@
 date = "2026-10-01T13:11:03-06:00"
 title = "Defensora de los Habitantes replica a Ministro de Justicia: “cuestionamos la arbitrariedad en el ejercicio del poder público”"
 authors = ["Vinicio Chacón Soto"]
-category = "Seguridad"
-topics = ["Defensoría de los Habitantes", "Ministro de Justicia", "Policía"]
+category = "Política"
+topics = ["Ministerio de Justicia"]
 draft = false
 ai_processed = true
 source_id = "9e2865a5d428e6c9d9364da81526e98eaa7a3f5b74730640f2607f414f5b95ab"

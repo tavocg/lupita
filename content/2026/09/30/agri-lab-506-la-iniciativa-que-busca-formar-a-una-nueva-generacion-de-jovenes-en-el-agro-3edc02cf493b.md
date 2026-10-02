@@ -4,7 +4,7 @@
 date = "2026-09-30T12:00:00-06:00"
 title = "AGRI Lab 506: La iniciativa que busca formar a una nueva generación de jóvenes en el agro"
 category = "Mercado"
-topics = ["Agroindustria"]
+topics = ["Agro"]
 authors = ["Jimena Rodríguez Zamora"]
 draft = false
 ai_processed = true

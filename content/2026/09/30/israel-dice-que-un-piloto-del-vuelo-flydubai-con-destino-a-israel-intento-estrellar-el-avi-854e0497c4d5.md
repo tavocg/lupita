@@ -3,7 +3,7 @@ date = "2026-09-30T13:13:00-06:00"
 title = "Israel dice que un piloto del vuelo flydubai con destino a Israel ‘intentó estrellar el avión’"
 authors = ["AFP"]
 category = "Seguridad"
-topics = ["Vuelo Flydubai a Tel Aviv"]
+topics = ["Israel"]
 draft = false
 ai_processed = true
 [source]

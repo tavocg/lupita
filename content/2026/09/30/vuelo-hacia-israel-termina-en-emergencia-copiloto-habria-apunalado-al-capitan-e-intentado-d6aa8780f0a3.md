@@ -3,7 +3,7 @@ date = "2026-09-30T11:18:40-06:00"
 title = "Vuelo hacia Israel termina en emergencia: copiloto habría apuñalado al capitán e intentado hacer caer el avión"
 authors = ["Redacción"]
 category = "Seguridad"
-topics = ["Vuelo Flydubai a Tel Aviv"]
+topics = ["Israel"]
 draft = false
 ai_processed = true
 [source]
