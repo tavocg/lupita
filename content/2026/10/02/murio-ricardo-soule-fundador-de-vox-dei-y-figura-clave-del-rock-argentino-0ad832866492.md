@@ -2,7 +2,7 @@
 date = "2026-10-02T21:36:17-06:00"
 title = "Murió Ricardo Soulé, fundador de Vox Dei y figura clave del rock argentino"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true
