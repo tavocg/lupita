@@ -11,5 +11,3 @@ source_id = "e697b41c2f1be2babb1ba3092e34813f4bee9935926ed35b2a8305918646f601"
   name = "El Mundo CR"
   url = "https://elmundo.cr/costa-rica/china-supera-a-estados-unidos-en-america-latina-pero-costa-rica-rompe-la-tendencia"
 +++
-
-China obtuvo mayor好评度在拉美，而美国则被拉美国家视为第二选择。拉丁民意调查2026显示这一趋势。
