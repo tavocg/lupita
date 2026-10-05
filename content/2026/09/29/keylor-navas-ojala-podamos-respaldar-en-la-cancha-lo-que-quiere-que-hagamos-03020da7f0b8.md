@@ -2,7 +2,7 @@
 date = "2026-09-29T08:29:55-06:00"
 title = "Keylor Navas: “Ojalá podamos respaldar en la cancha lo que quiere que hagamos”"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Keylor Navas", "Bryan Ruiz", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

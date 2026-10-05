@@ -2,7 +2,7 @@
 date = "2026-10-01T10:47:21-06:00"
 title = "Así reaccionó Christian Bolaños ante escenas cercanas de su esposa con bailarín en ‘Mira quién baila’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Christian Bolaños", "Mira quién baila", "César Abarca"]
 draft = false
 ai_processed = true

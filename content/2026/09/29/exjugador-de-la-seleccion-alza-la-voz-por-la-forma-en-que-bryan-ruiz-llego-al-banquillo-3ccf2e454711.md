@@ -2,7 +2,7 @@
 date = "2026-09-29T12:10:09-06:00"
 title = "Exjugador de la Selección alza la voz por la forma en que Bryan Ruiz llegó al banquillo"
 authors = ["Milton Montenegro"]
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

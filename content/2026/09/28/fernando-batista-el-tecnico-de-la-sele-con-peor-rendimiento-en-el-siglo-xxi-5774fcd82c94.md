@@ -2,7 +2,7 @@
 date = "2026-09-28T15:38:30-06:00"
 title = "Fernando Batista, el técnico de La Sele con peor rendimiento en el Siglo XXI"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Fernando Batista", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

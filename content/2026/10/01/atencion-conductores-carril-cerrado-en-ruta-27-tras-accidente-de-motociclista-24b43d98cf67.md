@@ -2,8 +2,8 @@
 date = "2026-10-01T06:40:36-06:00"
 title = "Atención Conductores: Carril cerrado en ruta 27 tras accidente de motociclista"
 authors = ["Marianela Arias Vilchez"]
-category = "Seguridad"
-topics = ["Carril cerrado", "Choque", "Mata Redonda"]
+category = "Transporte"
+topics = ["Accidentes"]
 draft = false
 ai_processed = true
 source_id = "24b43d98cf67f268eae50c937aaddaa725dfaa218457ad0eff26a8a2ce5706a9"

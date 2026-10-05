@@ -2,7 +2,7 @@
 date = "2025-10-11T20:03:50-06:00"
 title = "¡Búsqueda intensa! Hombre continúa desaparecido en playa Matapalo"
 authors = ["Practicante Digital"]
-category = "Deportes"
+category = "Seguridad"
 topics = ["Desaparición"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-27T17:33:50-06:00"
 title = "Violenta pelea en La California: joven queda inconsciente y le roban celular"
 authors = []
-category = "Deportes"
+category = "Seguridad"
 topics = []
 draft = false
 ai_processed = true

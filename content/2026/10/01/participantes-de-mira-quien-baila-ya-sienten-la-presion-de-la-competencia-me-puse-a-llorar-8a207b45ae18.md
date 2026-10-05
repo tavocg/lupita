@@ -2,7 +2,7 @@
 date = "2026-10-01T16:07:00-06:00"
 title = "Participantes de ‘Mira quién baila’ ya sienten la presión de la competencia: ‘Me puse a llorar’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Tango", "Bailarines"]
 draft = false
 ai_processed = true

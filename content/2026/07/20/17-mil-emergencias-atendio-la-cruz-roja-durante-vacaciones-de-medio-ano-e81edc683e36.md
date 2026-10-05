@@ -2,7 +2,7 @@
 date = "2026-07-20T13:01:04-06:00"
 title = "17 mil emergencias atendió la Cruz Roja durante vacaciones de medio año"
 authors = ["Mario Silva"]
-category = "Salud"
+category = "Seguridad"
 topics = ["Salud", "Cruz Roja"]
 draft = false
 ai_processed = true

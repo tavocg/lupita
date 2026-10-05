@@ -2,7 +2,7 @@
 date = "2026-10-01T11:37:15-06:00"
 title = "Lussania Víquez explica su lejanía de las redes y da una esperada noticia"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Lussania Víquez", "Salud"]
 draft = false
 ai_processed = true

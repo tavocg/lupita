@@ -2,8 +2,8 @@
 date = "2026-09-23T11:46:00-06:00"
 title = "¿Qué habló Fernando Batista con Juan Pablo Vargas?"
 authors = []
-category = "Política"
-topics = ["Juan Pablo Vargas", "Fernando Batista", "Concacaf", "Selección de Costa Rica"]
+category = "Deportes"
+topics = ["Juan Pablo Vargas", "Fernando Batista", "Selección de Costa Rica"]
 draft = false
 ai_processed = true
 source_id = "bfd10a32c75a6f7707b283dcc2bafe07f2d2f311f99fface65ee0ef0c76ffdf8"

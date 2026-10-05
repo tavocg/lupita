@@ -2,8 +2,8 @@
 date = "2026-10-04T15:46:37-06:00"
 title = "Auditoría del MOPT detecta fallas en control de expedientes de expropiaciones"
 authors = ["Patricia Recio"]
-category = "Finanzas"
-topics = ["Auditoría", "Expropiaciones", "DABI"]
+category = "Transporte"
+topics = ["MOPT"]
 draft = false
 ai_processed = true
 source_id = "88f844613aaee80cf7ee27c45af6979d710f1f86addff03704fad83475c54141"

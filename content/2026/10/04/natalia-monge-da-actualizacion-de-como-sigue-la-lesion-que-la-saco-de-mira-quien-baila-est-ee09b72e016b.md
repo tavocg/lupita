@@ -2,8 +2,8 @@
 date = "2026-10-04T13:59:57-06:00"
 title = "Natalia Monge da actualización de cómo sigue la lesión que la sacó de ‘Mira quién baila’: esto dijo"
 authors = ["Jessica Rojas Ch."]
-category = "Salud"
-topics = ["Natalia Monge", "Lesión", "Fractura"]
+category = "Sociedad"
+topics = ["Natalia Monge", "Mira quién baila"]
 draft = false
 ai_processed = true
 source_id = "ee09b72e016b864bc8d5480c1eaeb78346a008297c81529f3d0a2e64db403fab"

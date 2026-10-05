@@ -2,7 +2,7 @@
 date = "2026-09-23T14:53:22-06:00"
 title = "Cristiano Ronaldo prefiere no pensar en un retiro de la selección portuguesa"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Portugal"]
 draft = false
 ai_processed = true

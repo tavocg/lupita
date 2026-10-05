@@ -2,7 +2,7 @@
 date = "2026-09-27T10:26:07-06:00"
 title = "\"Peter la anguila\" es asesinado tras riña en Upala"
 authors = []
-category = "Mercado"
+category = "Seguridad"
 topics = ["Osa"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-09-29T11:14:33-06:00"
 title = "26 periodistas responden la gran pregunta sobre Bryan Ruiz y la Selección de Costa Rica"
 authors = ["Milton Montenegro, Felipe Castillo Carazo"]
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica", "Concacaf"]
 draft = false
 ai_processed = true

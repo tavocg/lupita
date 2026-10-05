@@ -2,7 +2,7 @@
 date = "2022-02-13T09:00:00-06:00"
 title = "¡No deje tirada su lista de metas para este 2022!"
 authors = []
-category = "Deportes"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true

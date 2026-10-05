@@ -2,8 +2,8 @@
 date = "2026-02-20T09:46:44-06:00"
 title = "Torta chilena: sabor tradicional que también genera ingresos"
 authors = []
-category = "Sociedad"
-topics = ["Alimentos", "Gastronomía", "Emprendimiento", "Ingresos"]
+category = "Mercado"
+topics = ["Gastronomía", "Emprendimiento"]
 draft = false
 ai_processed = true
 source_id = "a93339a46d801f89dee070817331057dfc53dc04efbed9e949a983f4f0cd77f9"

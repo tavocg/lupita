@@ -4,7 +4,7 @@
 date = "2026-09-30T10:03:09-06:00"
 title = "Defensoría condena video del ministro de Justicia y Paz por presunto trato humillante a privados de libertad"
 category = "Política"
-topics = ["Defensoría de los Habitantes"]
+topics = ["Defensoría"]
 authors = ["Marianela Arias Vilchez"]
 draft = false
 ai_processed = true

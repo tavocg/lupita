@@ -2,7 +2,7 @@
 date = "2026-09-29T14:26:03-06:00"
 title = "Juan Pablo Vargas rompe el silencio al volver a la Selección de Costa Rica: ‘Fue un chisme’"
 authors = ["Fanny Tayver Marín"]
-category = "Política"
+category = "Deportes"
 topics = ["Juan Pablo Vargas", "Bryan Ruiz", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

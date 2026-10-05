@@ -2,7 +2,7 @@
 date = "2026-09-28T13:40:16-06:00"
 title = "Osael Maroto asegura que Bryan Ruiz tiene posibilidades de quedarse en La Sele"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

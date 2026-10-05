@@ -4,7 +4,7 @@
 date = "2026-09-30T10:13:04-06:00"
 title = "Defensoría y Justicia chocan por video de ministro Aguilar en cárcel de Puntarenas"
 category = "Política"
-topics = ["Defensoría de los Habitantes"]
+topics = ["Defensoría"]
 authors = []
 draft = false
 ai_processed = true

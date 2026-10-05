@@ -2,7 +2,7 @@
 date = "2026-09-22T08:54:34-06:00"
 title = "Paté evita comentarios, pero muestra su descontento con la Selección Nacional"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Selección de Costa Rica"]
 draft = false
 ai_processed = true

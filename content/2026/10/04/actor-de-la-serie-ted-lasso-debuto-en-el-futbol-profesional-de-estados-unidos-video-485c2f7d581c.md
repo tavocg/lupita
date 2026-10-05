@@ -2,8 +2,8 @@
 date = "2026-10-04T13:55:21-06:00"
 title = "Actor de la serie Ted Lasso debutó en el fútbol profesional de Estados Unidos (video)"
 authors = ["Alejandro Cerdas"]
-category = "Deportes"
-topics = ["Cristo Fernández", "Ted Lasso", "El Paso Locomotive FC"]
+category = "Sociedad"
+topics = ["Internacionales"]
 draft = false
 ai_processed = true
 source_id = "485c2f7d581c8b5105a6cbbbc7ab3b273343650993026ca4f7e3baf2a89ae8d7"

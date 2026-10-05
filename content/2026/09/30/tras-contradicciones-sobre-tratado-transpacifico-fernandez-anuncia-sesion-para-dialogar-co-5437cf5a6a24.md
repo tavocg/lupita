@@ -4,7 +4,7 @@
 date = "2026-09-30T13:52:51-06:00"
 title = "Tras contradicciones sobre tratado transpacífico, Fernández anuncia sesión para dialogar con sectores"
 category = "Política"
-topics = ["CPTPP"]
+topics = ["TLC Transpacífico"]
 authors = ["Álvaro Murillo"]
 draft = false
 ai_processed = true

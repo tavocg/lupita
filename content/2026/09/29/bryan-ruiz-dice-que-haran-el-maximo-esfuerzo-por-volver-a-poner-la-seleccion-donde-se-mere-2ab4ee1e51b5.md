@@ -2,7 +2,7 @@
 date = "2026-09-29T17:46:34-06:00"
 title = "Bryan Ruiz dice que harán el máximo esfuerzo “por volver a poner la Selección donde se merece”"
 authors = ["Hermes Solano"]
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica", "Concacaf"]
 draft = false
 ai_processed = true

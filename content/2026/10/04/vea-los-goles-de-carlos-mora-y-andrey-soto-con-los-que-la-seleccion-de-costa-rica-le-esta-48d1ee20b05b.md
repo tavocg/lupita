@@ -12,4 +12,4 @@ source_id = "48d1ee20b05b2b66c12000ba79362e621d6a355ca8d96054ee98cadaa4d0bd4b"
   url = "https://www.nacion.com/puro-deporte/vea-los-goles-de-carlos-mora-y-andrey-soto-con-los/RAI4UFBTXZB2TFGZGFY3R23WEE/story"
 +++
 
-La Selección de Costa Rica venció 2\-0 a Haití en la Liga de Naciones\. Carlos Mora y Andrey Soto anotaron los goles para la Tricolor\. La Selección de Costa Rica se mantiene en la tercera posición con 6 puntos\.
+Carlos Mora y Andrey Soto anotaron los goles con los que la Selección de Costa Rica tomó ventaja de 2\-0 ante Haití en la Liga de Naciones\.

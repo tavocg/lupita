@@ -2,7 +2,7 @@
 date = "2026-09-28T12:00:00-06:00"
 title = "Bryan Ruiz será técnico interino de La Sele tras salida de Fernando Batista"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica", "Fernando Batista"]
 draft = false
 ai_processed = true

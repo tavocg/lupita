@@ -2,7 +2,7 @@
 date = "2026-10-01T10:30:00-06:00"
 title = "Estas son las 100 mejores series de televisión, según ‘The New York Times’: ¿Está de acuerdo con la lista?"
 authors = ["Fátima Jiménez"]
-category = "Deportes"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true

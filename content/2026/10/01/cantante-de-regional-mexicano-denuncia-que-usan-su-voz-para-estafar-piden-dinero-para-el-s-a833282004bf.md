@@ -2,8 +2,8 @@
 date = "2026-10-01T18:40:58-06:00"
 title = "Cantante de regional mexicano denuncia que usan su voz para estafar: ‘Piden dinero para el sepelio de mi madre’"
 authors = ["Jessica Rojas Ch."]
-category = "Mercado"
-topics = ["Estafas", "Inteligencia Artificial"]
+category = "Seguridad"
+topics = ["Estafas", "Inteligencia artificial"]
 draft = false
 ai_processed = true
 source_id = "a833282004bf6c5bafa14f7998b1d1ad5647d7323bcf48d0d17217f242d9b9a1"

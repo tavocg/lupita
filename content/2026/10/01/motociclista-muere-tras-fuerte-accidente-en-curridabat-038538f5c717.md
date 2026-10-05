@@ -2,8 +2,8 @@
 date = "2026-10-01T11:47:38-06:00"
 title = "Motociclista muere tras fuerte accidente en Curridabat"
 authors = []
-category = "Seguridad"
-topics = ["Motociclista", "Congestión Vial", "Accidente de Tránsito"]
+category = "Transporte"
+topics = ["Accidentes"]
 draft = false
 ai_processed = true
 source_id = "038538f5c71712f9b00563882b40e67346ea8e0c9064eb3d7bcecc73273859dd"

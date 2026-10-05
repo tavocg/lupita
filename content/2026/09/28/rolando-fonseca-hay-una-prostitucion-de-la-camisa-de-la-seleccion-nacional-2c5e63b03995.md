@@ -2,7 +2,7 @@
 date = "2026-09-28T08:07:00-06:00"
 title = "Rolando Fonseca: “Hay una prostitución de la camisa de la Selección Nacional”"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Selección de Costa Rica"]
 draft = false
 ai_processed = true

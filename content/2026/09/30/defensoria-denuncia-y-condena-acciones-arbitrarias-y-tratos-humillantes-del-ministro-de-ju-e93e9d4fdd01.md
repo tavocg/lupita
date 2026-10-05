@@ -4,7 +4,7 @@
 date = "2026-09-30T12:38:01-06:00"
 title = "Defensoría denuncia y condena “acciones arbitrarias y tratos humillantes del ministro de Justicia hacia personas privadas de libertad”"
 category = "Política"
-topics = ["Defensoría de los Habitantes"]
+topics = ["Defensoría"]
 authors = ["Vinicio Chacón Soto"]
 draft = false
 ai_processed = true

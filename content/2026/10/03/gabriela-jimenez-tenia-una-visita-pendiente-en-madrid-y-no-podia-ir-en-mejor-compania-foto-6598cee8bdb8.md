@@ -2,7 +2,7 @@
 date = "2026-10-03T19:13:22-06:00"
 title = "Gabriela Jiménez tenía una visita pendiente en Madrid y no podía ir en mejor compañía (fotos)"
 authors = ["Fanny Tayver Marín"]
-category = "Deportes"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true

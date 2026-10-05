@@ -2,8 +2,8 @@
 date = "2026-10-04T17:07:00-06:00"
 title = "Habilitan segunda función de “Entre curas y plancha”"
 authors = []
-category = "Deportes"
-topics = []
+category = "Sociedad"
+topics = ["Música"]
 draft = false
 ai_processed = true
 source_id = "26a46121e64dd225461ed8040dd5f593c56f04db937ba22a7beb9ad9fa7b8970"

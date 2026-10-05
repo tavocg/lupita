@@ -2,8 +2,8 @@
 date = "2026-10-04T16:00:00-06:00"
 title = "¿Qué pasará con el terreno del antiguo CNP tras la demolición de su edificio?"
 authors = []
-category = "Mercado"
-topics = ["Demolición", "Banco de Costa Rica", "MOPT"]
+category = "Política"
+topics = ["BCR", "MOPT"]
 draft = false
 ai_processed = true
 source_id = "1cf253d0e42f4d0134e471587be7eaf2b7b7216c875d3b452334c77282e73627"

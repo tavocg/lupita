@@ -2,7 +2,7 @@
 date = "2026-09-29T15:44:00-06:00"
 title = "El primer mensaje de Bryan Ruiz como técnico de la Selección de Costa Rica (video)"
 authors = ["Fanny Tayver Marín"]
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica", "FCRF"]
 draft = false
 ai_processed = true

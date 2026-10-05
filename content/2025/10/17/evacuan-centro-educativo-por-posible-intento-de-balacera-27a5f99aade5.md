@@ -2,7 +2,7 @@
 date = "2025-10-17T10:38:38-06:00"
 title = "Evacuan centro educativo por posible intento de balacera"
 authors = ["Practicante Digital"]
-category = "Educación"
+category = "Seguridad"
 topics = ["Educación"]
 draft = false
 ai_processed = true

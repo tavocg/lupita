@@ -2,8 +2,8 @@
 date = "2026-10-04T16:40:00-06:00"
 title = "Presentadora de TV diagnosticada con ELA revela que compró su nicho"
 authors = ["Fátima Jiménez"]
-category = "Mercado"
-topics = ["Basílica de Guadalupe", "Nicho funerario", "Presentadora de TV"]
+category = "Sociedad"
+topics = ["Yolanda Andrade"]
 draft = false
 ai_processed = true
 source_id = "56a6a2055f43001241e5263b04f6e4417f0fe6c0672f56f7b72d6b20deac1042"

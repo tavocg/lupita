@@ -2,8 +2,8 @@
 date = "2026-09-28T20:41:28-06:00"
 title = "Video: Bomberos rescatan a perrita que cayó a pozo en Grecia"
 authors = []
-category = "Ambiente"
-topics = ["Rescate", "Grecia"]
+category = "Seguridad"
+topics = ["Emergencias", "Grecia"]
 draft = false
 ai_processed = true
 source_id = "557a42649e7ab95f1db773b4d33b7e7fc859747cc03708922a0a742a4723326c"

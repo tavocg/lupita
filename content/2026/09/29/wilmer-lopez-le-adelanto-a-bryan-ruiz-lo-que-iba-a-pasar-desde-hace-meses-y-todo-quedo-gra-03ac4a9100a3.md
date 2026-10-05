@@ -2,7 +2,7 @@
 date = "2026-09-29T11:00:13-06:00"
 title = "Wílmer López le adelantó a Bryan Ruiz lo que iba a pasar desde hace meses y todo quedó grabado (video)"
 authors = ["Fanny Tayver Marín"]
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

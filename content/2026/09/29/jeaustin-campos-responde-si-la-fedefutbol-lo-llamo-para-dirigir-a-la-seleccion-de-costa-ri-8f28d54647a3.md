@@ -2,8 +2,8 @@
 date = "2026-09-29T15:02:42-06:00"
 title = "Jeaustin Campos responde si la Fedefútbol lo llamó para dirigir a la Selección de Costa Rica"
 authors = ["Fanny Tayver Marín"]
-category = "Política"
-topics = ["Jeaustin Campos", "Fedefútbol", "Selección de Costa Rica"]
+category = "Deportes"
+topics = ["Jeaustin Campos", "FCRF", "Selección de Costa Rica"]
 draft = false
 ai_processed = true
 source_id = "8f28d54647a3909e7136e65c0ec2896ff502b3689e4168497200c36615855425"

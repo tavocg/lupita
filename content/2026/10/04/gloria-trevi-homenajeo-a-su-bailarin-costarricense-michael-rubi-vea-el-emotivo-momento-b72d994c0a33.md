@@ -2,7 +2,7 @@
 date = "2026-10-04T10:14:16-06:00"
 title = "Gloria Trevi homenajeó a su bailarín costarricense Michael Rubí: vea el emotivo momento"
 authors = ["Fátima Jiménez"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Gloria Trevi"]
 draft = false
 ai_processed = true

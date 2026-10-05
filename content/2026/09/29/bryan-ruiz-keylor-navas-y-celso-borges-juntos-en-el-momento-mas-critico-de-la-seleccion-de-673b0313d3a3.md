@@ -2,7 +2,7 @@
 date = "2026-09-29T18:12:32-06:00"
 title = "Bryan Ruiz, Keylor Navas y Celso Borges juntos en el momento más crítico de la Selección de Costa Rica"
 authors = ["Fanny Tayver Marín"]
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Keylor Navas"]
 draft = false
 ai_processed = true

@@ -3,7 +3,7 @@ date = "2026-09-30T13:50:00-06:00"
 title = "Ministro de Justicia: Para mí no es la defensora de los Habitantes, es la defensora de los delincuentes"
 authors = ["Xavier Condega"]
 category = "Política"
-topics = ["Ministerio de Justicia", "Defensoría de los Habitantes"]
+topics = ["Ministerio de Justicia", "Defensoría"]
 draft = false
 ai_processed = true
 [source]

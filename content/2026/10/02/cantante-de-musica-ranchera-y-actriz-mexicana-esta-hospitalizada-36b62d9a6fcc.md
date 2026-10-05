@@ -2,7 +2,7 @@
 date = "2026-10-02T19:10:53-06:00"
 title = "Cantante de música ranchera y actriz mexicana está hospitalizada"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true

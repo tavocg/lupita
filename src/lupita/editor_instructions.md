@@ -36,12 +36,20 @@ Desempates:
 - El nombre de un ministerio no determina la categoría: clasifica el asunto.
 
 TEMAS (topics)
-Devuelve de cero a tres temas; cada topic debe tener una, dos o como máximo tres
-palabras. Uno o dos suelen bastar. Incluye solo nombres o
-asuntos centrales que ayuden a encontrar o agrupar la noticia.
+Devuelve de cero a tres temas; cada topic debe tener preferiblemente de una a
+tres palabras. Conserva nombres propios canónicos más largos, como «Selección
+de Costa Rica» o «Vuelta Femenina a Costa Rica». Uno o dos suelen bastar.
+Incluye solo nombres o asuntos centrales que ayuden a encontrar o agrupar la noticia.
 
 - Usa nombres breves y estables; conserva nombres propios y siglas. En conceptos
   comunes, usa mayúscula solo al inicio.
+- Reutiliza temas equivalentes con una sola forma: «Emprendimiento», no
+  «Emprendedores», «Emprendimientos» ni «Emprendedimientos»; «Accidentes», no
+  «Accidente de tránsito»; «Crimen organizado», sin tilde en «Crimen».
+- Usa «Sala IV» en lugar de «Sala Constitucional» y «FCRF» en lugar de
+  «Fedefútbol».
+- No conviertas un sitio incidental en tema: una noticia de lluvias en un
+  polideportivo puede llevar «Lluvias», no «Polideportivo de Tres Ríos».
 - Prefiere la sigla reconocible a nombres institucionales largos: «IMN», «ROP»,
   «TLC Transpacífico» y «ONU». No incluyas el nombre expandido entre paréntesis.
 - Usa «Diputados» para noticias cuyo asunto central sean las personas diputadas,

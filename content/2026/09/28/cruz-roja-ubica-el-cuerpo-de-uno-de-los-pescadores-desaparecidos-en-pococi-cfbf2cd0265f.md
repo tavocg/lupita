@@ -2,7 +2,7 @@
 date = "2026-09-28T10:09:37-06:00"
 title = "Cruz Roja ubica el cuerpo de uno de los pescadores desaparecidos en Pococí"
 authors = []
-category = "Ambiente"
+category = "Seguridad"
 topics = ["Cruz Roja", "Río Aguas Frías", "Pococí"]
 draft = false
 ai_processed = true

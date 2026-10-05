@@ -2,8 +2,8 @@
 date = "2026-10-04T16:22:35-06:00"
 title = "Esposa de Pablo Arboine expone en redes sociales fuertes denuncias contra el futbolista de Saprissa"
 authors = ["Milton Montenegro"]
-category = "Mercado"
-topics = ["Pablo Arboine", "Saprissa", "Embarazo"]
+category = "Sociedad"
+topics = ["Pablo Arboine"]
 draft = false
 ai_processed = true
 source_id = "300b9a428af3a5493b7bc6e4224ba17b142c4bc066d39c8d89582b47785a3ce6"

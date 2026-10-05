@@ -2,7 +2,7 @@
 date = "2026-09-29T08:55:34-06:00"
 title = "Cruz Roja localiza sin vida a segundo pescador desaparecido en Pococí"
 authors = []
-category = "Salud"
+category = "Seguridad"
 topics = ["Pococí", "Cruz Roja", "Accidentes"]
 draft = false
 ai_processed = true

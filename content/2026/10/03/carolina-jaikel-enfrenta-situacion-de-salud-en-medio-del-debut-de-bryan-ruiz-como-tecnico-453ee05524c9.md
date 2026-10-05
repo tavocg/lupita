@@ -2,8 +2,8 @@
 date = "2026-10-03T13:10:46-06:00"
 title = "Carolina Jaikel enfrenta situación de salud en medio del debut de Bryan Ruiz como técnico de la ‘Sele’"
 authors = ["Jessica Rojas Ch."]
-category = "Deportes"
-topics = ["Bryan Ruiz", "Selección Nacional de fútbol"]
+category = "Sociedad"
+topics = ["Carolina Jaikel"]
 draft = false
 ai_processed = true
 source_id = "453ee05524c93919dd69668c116dfc788dac68c9367f167a36418dbb57bebdf2"

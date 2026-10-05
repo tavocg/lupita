@@ -2,8 +2,8 @@
 date = "2026-10-04T20:10:00-06:00"
 title = "Realizan vuelo ambulancia para trasladar a dos niños graves: uno tiene varillas incrustadas"
 authors = []
-category = "Seguridad"
-topics = ["Cuerpo de Bomberos", "Hospital Nacional de Niños", "Caja Costarricense de Seguro Social (CCSS)"]
+category = "Salud"
+topics = ["Hospital Nacional de Niños"]
 draft = false
 ai_processed = true
 source_id = "6467d6653e84a23bee509a2ff07e68ac01a1e4f113eec6abd22e2f3811795623"

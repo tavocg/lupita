@@ -2,7 +2,7 @@
 date = "2026-10-03T08:31:07-06:00"
 title = "Escritor costarricense Daniel Fernández es seleccionado para participar en la Miami Book Fair: ‘Hay grandes expectativas’"
 authors = ["Jorge Arturo Mora"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Literatura"]
 draft = false
 ai_processed = true

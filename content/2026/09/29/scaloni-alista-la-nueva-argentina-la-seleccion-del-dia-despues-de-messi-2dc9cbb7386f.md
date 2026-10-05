@@ -2,8 +2,8 @@
 date = "2026-09-29T12:04:18-06:00"
 title = "Scaloni alista la nueva Argentina, la selección del día después de Messi"
 authors = []
-category = "Política"
-topics = ["Messi", "Argentina"]
+category = "Deportes"
+topics = ["Lionel Messi", "Argentina"]
 draft = false
 ai_processed = true
 source_id = "2dc9cbb7386f9a22085856de2fb2da4f0c4b66e21d0f4e1161b90b991d0a132f"

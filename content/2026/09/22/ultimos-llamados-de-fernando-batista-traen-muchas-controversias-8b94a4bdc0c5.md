@@ -2,8 +2,8 @@
 date = "2026-09-22T10:41:34-06:00"
 title = "Últimos llamados de Fernando Batista traen muchas controversias"
 authors = []
-category = "Política"
-topics = ["Batista", "Navas", "Vargas"]
+category = "Deportes"
+topics = ["Fernando Batista", "Keylor Navas", "Vargas"]
 draft = false
 ai_processed = true
 source_id = "8b94a4bdc0c5b7795f6dbe7daf2ea67d0aeb318ada46927b938d67616918b030"

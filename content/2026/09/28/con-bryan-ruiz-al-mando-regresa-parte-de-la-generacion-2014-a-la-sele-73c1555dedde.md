@@ -2,7 +2,7 @@
 date = "2026-09-28T15:55:42-06:00"
 title = "Con Bryan Ruiz al mando regresa parte de la generación 2014 a La Sele"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Bryan Ruiz", "Keylor Navas", "Selección de Costa Rica"]
 draft = false
 ai_processed = true

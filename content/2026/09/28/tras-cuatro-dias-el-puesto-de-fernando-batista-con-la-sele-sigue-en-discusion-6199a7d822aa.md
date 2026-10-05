@@ -2,7 +2,7 @@
 date = "2026-09-28T08:21:56-06:00"
 title = "Tras cuatro días, el puesto de Fernando Batista con La Sele sigue en discusión"
 authors = []
-category = "Política"
+category = "Deportes"
 topics = ["Fernando Batista", "Selección de Costa Rica", "FCRF"]
 draft = false
 ai_processed = true
