@@ -2,8 +2,8 @@
 date = "2026-10-05T06:12:05-06:00"
 title = "Curso de manejo en LESCO: Estas son las fechas, horarios y requisitos para matricular"
 authors = []
-category = "Mercado"
-topics = ["Licencia de conducir", "Formación de conductores", "Educación Vial"]
+category = "Educación"
+topics = ["LESCO", "Licencia de conducir"]
 draft = false
 ai_processed = true
 source_id = "f2a32b40a3471457385dc1b3bc574cfba777d8547d065dbc544fbab3119d8955"

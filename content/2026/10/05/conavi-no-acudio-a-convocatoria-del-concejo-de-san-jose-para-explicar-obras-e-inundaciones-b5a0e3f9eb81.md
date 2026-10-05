@@ -2,8 +2,8 @@
 date = "2026-10-05T03:45:00-06:00"
 title = "Conavi no acudió a convocatoria del Concejo de San José para explicar obras e inundaciones en Hatillo"
 authors = ["Silvia Ureña Corrales"]
-category = "Mercado"
-topics = ["Conavi", "Concejo Municipal", "San José"]
+category = "Transporte"
+topics = ["Conavi", "Inundaciones"]
 draft = false
 ai_processed = true
 source_id = "b5a0e3f9eb818e9c862128092d3d0b0447cfc05708f6a12c8e987390b7589bfa"

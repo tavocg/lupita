@@ -2,8 +2,8 @@
 date = "2026-10-05T06:10:41-06:00"
 title = "Especialista reclama medidas firmes contra motociclistas tras caos vial en General Cañas"
 authors = []
-category = "Seguridad"
-topics = ["Motociclistas", "Obstrucción del tránsito", "General Cañas"]
+category = "Transporte"
+topics = ["Motociclistas", "General Cañas"]
 draft = false
 ai_processed = true
 source_id = "6dd81b0a3914c4e2a8aca47dab3228f71409a49ff27b4992f85cc2888f0ec000"
