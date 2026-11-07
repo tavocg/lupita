@@ -2,7 +2,7 @@
 date = "2026-10-11T18:04:28-06:00"
 title = "A este ritmo bailarán Nancy Dobles, Christian Bolaños y otros famosos en ‘Mira quién baila’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Christian Bolaños", "Nancy Dobles"]
 draft = false
 ai_processed = true

@@ -2,8 +2,8 @@
 date = "2026-10-13T23:09:34-06:00"
 title = "Influencer le tiró con todo a juez de ‘Mira quién baila’ y él no se quedó callado: ‘Respete, no sea desubicado’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
-topics = ["Mira quién baila", "Denis", "Isaac Rovira"]
+category = "Sociedad"
+topics = ["Mira quién baila", "Isaac Rovira"]
 draft = false
 ai_processed = true
 source_id = "df336f5eca826b06601b1f979add157ad0e803ca61a6b01a56c6bd95546467ca"

@@ -2,7 +2,7 @@
 date = "2026-10-11T21:32:05-06:00"
 title = "Rose Davis abandona ‘Mira quién baila’ y Majo Ulate queda entre los nuevos nominados de la semana"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Eliminación", "Nominados"]
 draft = false
 ai_processed = true

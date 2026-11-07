@@ -2,8 +2,8 @@
 date = "2026-10-10T04:30:00-06:00"
 title = "14 carros y motocicletas: así habría administrado alias Sobrino su flotilla mediante Snapchat"
 authors = ["Natalia Vargas"]
-category = "Mercado"
-topics = ["Sobrino", "Flotilla vehicular", "Testaferros"]
+category = "Seguridad"
+topics = ["Edwin Vargas García", "Flotilla vehicular", "Testaferros"]
 draft = false
 ai_processed = true
 source_id = "7c4858900aadc32d6a49aca0ff72728c87f6c7feb84e8e868c20dc7eb0d668ec"

@@ -2,7 +2,7 @@
 date = "2026-10-13T22:00:16-06:00"
 title = "Fiscalía pedirá prisión preventiva para Don Stockwell"
 authors = ["Vanessa Loaiza N., Christian Montero"]
-category = "Finanzas"
+category = "Seguridad"
 topics = ["Don Stockwell", "Sobrino", "Lavado de activos"]
 draft = false
 ai_processed = true

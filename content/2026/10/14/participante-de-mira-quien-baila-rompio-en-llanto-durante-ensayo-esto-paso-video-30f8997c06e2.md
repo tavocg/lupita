@@ -2,7 +2,7 @@
 date = "2026-10-14T09:20:55-06:00"
 title = "Participante de ‘Mira quién baila’ rompió en llanto durante ensayo: esto pasó (video)"
 authors = ["Jessica Rojas Ch."]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Alex Alvarado", "Mira quién baila", "Tatiana Sánchez"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-06T11:23:51-06:00"
 title = "‘Oye cómo va… Bolaños’: así se prepara el exfutbolista para ‘Mira quién baila’ (video)"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Christian Bolaños", "Jazmín Salas", "Mira quién baila"]
 draft = false
 ai_processed = true

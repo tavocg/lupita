@@ -2,7 +2,7 @@
 date = "2026-11-02T16:58:15-06:00"
 title = "Lesión de Papi Pazz afectará sus próximas rutinas en ‘Mira quién baila’: esto pasará"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Papi Pazz", "Mira quién baila", "Lesión"]
 draft = false
 ai_processed = true

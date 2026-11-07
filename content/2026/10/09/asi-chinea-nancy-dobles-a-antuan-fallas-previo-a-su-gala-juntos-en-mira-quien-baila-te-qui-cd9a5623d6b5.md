@@ -2,7 +2,7 @@
 date = "2026-10-09T17:42:54-06:00"
 title = "Así ‘chinea’ Nancy Dobles a Antuan Fallas previo a su gala juntos en ‘Mira quién baila’: ‘Te quiero mucho’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Nancy Dobles", "Antuan Fallas", "Mira quién baila"]
 draft = false
 ai_processed = true

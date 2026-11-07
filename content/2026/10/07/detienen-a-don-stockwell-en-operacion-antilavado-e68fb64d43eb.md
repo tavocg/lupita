@@ -2,8 +2,8 @@
 date = "2026-10-07T04:34:00-06:00"
 title = "Detienen a Don Stockwell en operación antilavado"
 authors = []
-category = "Política"
-topics = ["Don Stockwell", "Operación Antilavado", "Vargas"]
+category = "Seguridad"
+topics = ["Don Stockwell", "Operación Antilavado"]
 draft = false
 ai_processed = true
 source_id = "e68fb64d43ebb9fb465f68c5a108c408dc6aba06ff8165c84884f858a05afb51"

@@ -2,7 +2,7 @@
 date = "2026-11-02T16:05:03-06:00"
 title = "Conocido influencer se suma a reflexión tras muerte de Komanche"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Corney", "Komanche", "Acoso digital"]
 draft = false
 ai_processed = true

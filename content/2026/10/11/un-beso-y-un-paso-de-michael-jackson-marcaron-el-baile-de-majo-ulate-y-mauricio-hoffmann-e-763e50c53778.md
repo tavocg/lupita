@@ -2,7 +2,7 @@
 date = "2026-10-11T21:13:39-06:00"
 title = "Un beso y un paso de Michael Jackson marcaron el baile de Majo Ulate y Mauricio Hoffmann en ‘Mira quién baila’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Majo Ulate", "Mauricio Hoffmann", "Mira quién baila"]
 draft = false
 ai_processed = true

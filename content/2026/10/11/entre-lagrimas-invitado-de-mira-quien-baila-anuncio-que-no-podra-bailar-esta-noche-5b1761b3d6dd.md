@@ -2,7 +2,7 @@
 date = "2026-10-11T20:03:02-06:00"
 title = "Entre lágrimas, invitado de ‘Mira quién baila’ anunció que no podrá bailar esta noche"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Randall Casanova", "Mira quién baila", "Lesión"]
 draft = false
 ai_processed = true

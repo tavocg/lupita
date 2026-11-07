@@ -2,7 +2,7 @@
 date = "2026-10-11T18:38:02-06:00"
 title = "Papi Pazz vivió inesperado momento antes de gala de ‘Mira quién baila’: ‘En otro momento reaccionaba diferente’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Papi Pazz", "Mira quién baila", "Gala de Mira quién baila"]
 draft = false
 ai_processed = true

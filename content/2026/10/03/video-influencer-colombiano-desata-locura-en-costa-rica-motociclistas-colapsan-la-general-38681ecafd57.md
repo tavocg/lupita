@@ -2,7 +2,7 @@
 date = "2026-10-03T10:53:00-06:00"
 title = "Video: Influencer colombiano desata locura en Costa Rica: motociclistas colapsan la General Cañas"
 authors = []
-category = "Mercado"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true

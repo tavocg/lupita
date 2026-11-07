@@ -2,7 +2,7 @@
 date = "2026-11-02T12:11:26-06:00"
 title = "Tapón se resistía a bailar como Mario Bros en ‘Mira quién baila’, pero la apuesta le valió ganar la gala"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Mario Bros", "Bailarinas"]
 draft = false
 ai_processed = true

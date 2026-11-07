@@ -2,7 +2,7 @@
 date = "2026-10-10T09:57:28-06:00"
 title = "Keylor Navas y Andrea Salas entraron en escena antes de la gala de ‘Mira quién baila’: ¿A quién apoyarán?"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Keylor Navas", "Mira quién baila", "Andrea Salas"]
 draft = false
 ai_processed = true

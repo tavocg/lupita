@@ -2,7 +2,7 @@
 date = "2026-10-11T19:50:35-06:00"
 title = "Tapón se lució a ritmo de Bad Bunny en ‘Mira quién baila’: Vea su coreografía junto a Jecsinior Jara como invitado"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Bad Bunny", "Tapón"]
 draft = false
 ai_processed = true

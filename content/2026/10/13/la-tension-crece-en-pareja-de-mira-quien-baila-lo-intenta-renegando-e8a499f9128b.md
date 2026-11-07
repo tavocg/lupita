@@ -2,7 +2,7 @@
 date = "2026-10-13T17:55:51-06:00"
 title = "La tensión crece en pareja de ‘Mira quién baila’: ‘Lo intenta renegando’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Papi Pazz", "Ariana Herrera"]
 draft = false
 ai_processed = true

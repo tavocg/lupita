@@ -2,7 +2,7 @@
 date = "2026-10-13T18:21:14-06:00"
 title = "Fiscalía pedirá prisión preventiva contra Don Stockwell, según abogado de productor"
 authors = []
-category = "Política"
+category = "Seguridad"
 topics = ["Don Stockwell", "Hugo Barboza", "FAEDO"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-11T20:18:17-06:00"
 title = "‘Explosión pura’: Ana Lucía Vega recibió elogios tras su presentación en ‘Mira quién baila’"
 authors = ["Fiorella Montoya"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Ana Lucía Vega", "Mira quién baila", "Reguetón"]
 draft = false
 ai_processed = true

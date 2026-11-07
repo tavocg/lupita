@@ -2,7 +2,7 @@
 date = "2026-11-06T15:17:48-06:00"
 title = "Cantante que dará concierto en Costa Rica sufrió fuerte golpe en pleno espectáculo (video)"
 authors = ["Fiorella Montoya, El Universal"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mon Laferte", "Concierto", "Incidente en concierto"]
 draft = false
 ai_processed = true

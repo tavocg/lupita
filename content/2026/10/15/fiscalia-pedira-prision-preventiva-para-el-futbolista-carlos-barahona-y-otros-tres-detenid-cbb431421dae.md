@@ -2,7 +2,7 @@
 date = "2026-10-15T10:37:10-06:00"
 title = "Fiscalía pedirá prisión preventiva para el futbolista Carlos Barahona y otros tres detenidos por préstamos “gota a gota”"
 authors = ["Erick Carvajal"]
-category = "Mercado"
+category = "Seguridad"
 topics = ["Préstamos 'gota a gota'", "Extorsión cobratoria", "Intimidación"]
 draft = false
 ai_processed = true

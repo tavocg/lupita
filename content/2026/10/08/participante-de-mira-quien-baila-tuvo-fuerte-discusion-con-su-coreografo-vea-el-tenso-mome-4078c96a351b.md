@@ -2,7 +2,7 @@
 date = "2026-10-08T10:35:30-06:00"
 title = "Participante de ‘Mira quién baila’ tuvo fuerte discusión con su coreógrafo: vea el tenso momento"
 authors = ["Fátima Jiménez"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila", "Rose Davis", "Miguel Coronado"]
 draft = false
 ai_processed = true

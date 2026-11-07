@@ -2,7 +2,7 @@
 date = "2026-10-12T16:46:33-06:00"
 title = "Ya es un ritual: Ver a Antuan Fallas en ‘Mira quién baila’ y luego gozar con la reacción de Julián Valverde"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Antuan Fallas", "Julián Valverde", "Mira quién baila"]
 draft = false
 ai_processed = true

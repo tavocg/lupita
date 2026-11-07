@@ -2,7 +2,7 @@
 date = "2026-11-02T17:48:10-06:00"
 title = "Popular influencer será la estrella invitada en la próxima gala de ‘Mira quién baila’"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Denis Aguilar", "Mira quién baila", "Lucía Jiménez"]
 draft = false
 ai_processed = true

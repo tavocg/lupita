@@ -2,7 +2,7 @@
 date = "2026-10-09T10:03:26-06:00"
 title = "¿Debió Don Stockwell informar a la Fiscalía sobre conciertos financiados por alias “Sobrino” tras su detención?"
 authors = ["Erick Carvajal"]
-category = "Mercado"
+category = "Seguridad"
 topics = ["Don Stockwell", "Conciertos", "Sobrino"]
 draft = false
 ai_processed = true

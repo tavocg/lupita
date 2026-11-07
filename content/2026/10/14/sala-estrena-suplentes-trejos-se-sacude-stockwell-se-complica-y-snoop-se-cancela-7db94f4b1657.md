@@ -2,8 +2,8 @@
 date = "2026-10-14T06:08:36-06:00"
 title = "Sala estrena suplentes, Trejos se sacude, Stockwell se complica y... Snoop se cancela"
 authors = []
-category = "Deportes"
-topics = ["Sala", "Suplentes", "Trejos"]
+category = "Sociedad"
+topics = []
 draft = false
 ai_processed = true
 source_id = "7db94f4b165752a0d684f9a25da871861ee978517ee49272bb396b3fe45d49e4"

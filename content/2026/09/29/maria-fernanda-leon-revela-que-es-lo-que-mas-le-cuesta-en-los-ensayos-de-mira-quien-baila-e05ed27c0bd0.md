@@ -2,7 +2,7 @@
 date = "2026-09-29T16:21:59-06:00"
 title = "María Fernanda León revela qué es lo que más le cuesta en los ensayos de ‘Mira quién baila’"
 authors = ["Fátima Jiménez"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Mira quién baila"]
 draft = false
 ai_processed = true

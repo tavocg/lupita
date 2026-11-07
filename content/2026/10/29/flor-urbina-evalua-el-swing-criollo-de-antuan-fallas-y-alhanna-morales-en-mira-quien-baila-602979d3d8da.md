@@ -2,7 +2,7 @@
 date = "2026-10-29T22:37:43-06:00"
 title = "Flor Urbina evalúa el swing criollo de Antuan Fallas y Alhanna Morales en ‘Mira quién baila’"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
+category = "Sociedad"
 topics = ["Flor Urbina", "Antuan Fallas", "Alhanna Morales"]
 draft = false
 ai_processed = true
