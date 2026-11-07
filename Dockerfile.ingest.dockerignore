@@ -1,0 +1,6 @@
+**
+!Dockerfile.ingest
+!src/
+!src/**
+**/__pycache__/
+**/*.pyc

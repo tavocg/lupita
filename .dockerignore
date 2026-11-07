@@ -1,6 +1,13 @@
 **
 !Dockerfile
-!src/
-!src/**
+!hugo.toml
+!content/
+!content/**
+!themes/
+!themes/**
+!scripts/
+!scripts/build.sh
+!deploy/
+!deploy/nginx.conf
 **/__pycache__/
 **/*.pyc

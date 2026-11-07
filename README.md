@@ -139,6 +139,47 @@ sh scripts/build.sh
 El despliegue estático puede servirse desde `public/`. Las fotos de Pexels son
 ilustrativas y muestran su atribución en el pie.
 
+## Despliegue con Docker y Dokploy
+
+El `Dockerfile` compila con Hugo 0.166.0, minifica HTML/CSS/JS y genera el
+buscador Pagefind. La imagen final sirve únicamente el resultado con Nginx
+en el puerto 80. Negocia gzip mediante `Accept-Encoding`; si el cliente no lo
+acepta, entrega el contenido sin comprimir. Los borradores no se publican.
+
+```sh
+docker build -t lupita-site:local .
+docker run -d --name lupita-site-preview -p 127.0.0.1:6080:80 lupita-site:local
+```
+
+Abre http://localhost:6080. La URL canónica sigue siendo `https://lupitacr.com/`.
+Para otro dominio, compila con
+`docker build --build-arg HUGO_BASEURL=https://tu-dominio/ -t lupita-site:local .`.
+Para detener y retirar la vista previa: `docker rm -f lupita-site-preview`.
+
+En Dokploy crea una **Application**, conecta el repositorio y la rama de
+publicación y configura:
+
+| Campo | Valor |
+| --- | --- |
+| Build Type | Dockerfile |
+| Dockerfile Path | `Dockerfile` |
+| Docker Context Path | `.` |
+| Docker Build Stage | Vacío (etapa final) |
+| Run Command | Vacío (Nginx predeterminado) |
+| Dominio: puerto del contenedor | `80` |
+
+Configura DNS y HTTPS desde Dokploy. Si cambia el dominio, define
+`HUGO_BASEURL` en **Build Time Arguments** y vuelve a desplegar. No requiere
+variables de Ollama, secretos ni volúmenes. Cada cambio de contenido requiere
+reconstruir la imagen; puedes habilitar despliegues automáticos de la rama
+de publicación.
+
+El importador usa `Dockerfile.ingest`; `compose.yaml` ya lo selecciona para
+todos sus servicios. Para construirlo directamente:
+`docker build -f Dockerfile.ingest -t lupita-ingest:local .`.
+Su archivo `Dockerfile.ingest.dockerignore` conserva el contexto limitado a
+Python; el `.dockerignore` general permite únicamente las entradas del sitio.
+
 Edita las [instrucciones editoriales](src/lupita/editor_instructions.md) para
 cambiar la redacción y clasificación. El catálogo y la validación están en
 [editor.py](src/lupita/editor.py).

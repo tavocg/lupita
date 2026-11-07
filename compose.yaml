@@ -1,6 +1,8 @@
 services:
   ingest: &pipeline
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.ingest
     # Ollama del host en Linux; habilitar host networking en Docker Desktop.
     network_mode: host
     user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
@@ -28,7 +30,9 @@ services:
     command: ["images"]
     profiles: ["tools"]
   index:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.ingest
     network_mode: host
     user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
     env_file: .env
