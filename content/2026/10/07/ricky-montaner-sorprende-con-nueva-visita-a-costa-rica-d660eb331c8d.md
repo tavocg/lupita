@@ -2,8 +2,8 @@
 date = "2026-10-07T21:25:09-06:00"
 title = "Ricky Montaner sorprende con nueva visita a Costa Rica"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Deportes"
-topics = ["Ricky Montaner", "Mau y Ricky", "Costa Rica"]
+category = "Sociedad"
+topics = ["Ricky Montaner", "Mau y Ricky"]
 draft = false
 ai_processed = true
 source_id = "d660eb331c8db40c66aae7f45827334c0fc1d76b5ebeca79fd0543dc5596cf67"

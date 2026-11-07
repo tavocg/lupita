@@ -2,7 +2,7 @@
 date = "2026-10-13T18:31:16-06:00"
 title = "¿Herediano va a separar jugadores en medio de su crisis? Esto dice Jafet Soto (video)"
 authors = ["Felipe Castillo Carazo"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Herediano", "Crisis deportiva", "Jugadores"]
 draft = false
 ai_processed = true

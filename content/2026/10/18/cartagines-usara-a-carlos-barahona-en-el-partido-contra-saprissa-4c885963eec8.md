@@ -2,7 +2,7 @@
 date = "2026-10-18T10:28:17-06:00"
 title = "¿Cartaginés usará a Carlos Barahona en el partido contra Saprissa?"
 authors = ["Milton Montenegro"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Cartaginés", "Saprissa", "Carlos Barahona"]
 draft = false
 ai_processed = true

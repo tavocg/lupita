@@ -2,7 +2,7 @@
 date = "2026-10-08T12:17:18-06:00"
 title = "Yendrick Ruiz resalta los frutos del parón FIFA en un Herediano en crisis: ‘Nos vino espectacular’"
 authors = ["Felipe Castillo Carazo"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Herediano", "San Carlos", "Primera División"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-15T07:54:08-06:00"
 title = "Nueva era de Óscar Ramírez comenzó con dos empates"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Óscar Ramírez", "Puntarenas FC"]
 draft = false
 ai_processed = true

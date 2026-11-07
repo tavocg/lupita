@@ -2,7 +2,7 @@
 date = "2026-10-09T11:24:50-06:00"
 title = "Si usted va al partido Escorpiones vs. Saprissa podría salir con un millón de colones en la bolsa"
 authors = ["Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Escorpiones", "Saprissa", "Partido de fútbol"]
 draft = false
 ai_processed = true

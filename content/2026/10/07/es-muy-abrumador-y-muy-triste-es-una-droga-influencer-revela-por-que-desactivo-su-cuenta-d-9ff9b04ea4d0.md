@@ -2,7 +2,7 @@
 date = "2026-10-07T21:58:59-06:00"
 title = "‘Es muy abrumador y muy triste, es una droga’: influencer revela por qué desactivó su cuenta de TikTok"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["TikTok", "Influencers", "Redes Sociales"]
 draft = false
 ai_processed = true

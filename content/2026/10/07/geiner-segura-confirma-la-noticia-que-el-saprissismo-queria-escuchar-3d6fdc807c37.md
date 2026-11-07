@@ -2,8 +2,8 @@
 date = "2026-10-07T17:26:45-06:00"
 title = "Geiner Segura confirma la noticia que el saprissismo quería escuchar"
 authors = ["Esteban Valverde"]
-category = "Mercado"
-topics = ["Saprissa", "Plantel", "Fútbol"]
+category = "Deportes"
+topics = ["Saprissa", "Fútbol"]
 draft = false
 ai_processed = true
 source_id = "3d6fdc807c37520e0bf854409cb309343b62127b2ffe2b55f2cc9043975e2e64"

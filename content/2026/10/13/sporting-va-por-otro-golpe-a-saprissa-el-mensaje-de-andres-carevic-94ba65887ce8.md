@@ -2,7 +2,7 @@
 date = "2026-10-13T14:26:17-06:00"
 title = "Sporting va por otro golpe a Saprissa: el mensaje de Andrés Carevic"
 authors = ["Milton Montenegro"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Sporting", "Cartaginés"]
 draft = false
 ai_processed = true

@@ -2,8 +2,8 @@
 date = "2026-10-11T18:50:27-06:00"
 title = "Escorpiones festeja por primera vez en el Apertura a costillas del líder Saprissa"
 authors = []
-category = "Mercado"
-topics = ["Apertura 2026", "Escorpiones de Costa Rica", "Saprissa"]
+category = "Deportes"
+topics = ["Escorpiones de Costa Rica", "Saprissa"]
 draft = false
 ai_processed = true
 source_id = "c01f3ac0e176c64eb8f2b6093031c54c55976718f752c554a648057965942e25"

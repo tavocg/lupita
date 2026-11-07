@@ -2,7 +2,7 @@
 date = "2026-10-11T21:20:04-06:00"
 title = "Jugadores de Alajuelense harán rifa para ayudar a refugio de perros en Cartago: vea de qué se trata"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Asociación Auxilio Animal Cartago", "refugio de perros"]
 draft = false
 ai_processed = true

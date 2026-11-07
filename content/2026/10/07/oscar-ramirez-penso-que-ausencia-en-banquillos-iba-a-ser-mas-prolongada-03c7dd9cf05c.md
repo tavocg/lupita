@@ -2,7 +2,7 @@
 date = "2026-10-07T08:26:42-06:00"
 title = "Óscar Ramírez pensó que ausencia en banquillos iba a ser más prolongada"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Óscar Ramírez", "Puntarenas"]
 draft = false
 ai_processed = true

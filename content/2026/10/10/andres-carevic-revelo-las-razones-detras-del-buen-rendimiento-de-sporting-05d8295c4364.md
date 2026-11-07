@@ -2,7 +2,7 @@
 date = "2026-10-10T18:50:20-06:00"
 title = "Andrés Carevic reveló las razones detrás del buen rendimiento de Sporting"
 authors = ["Alejandro Cerdas"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Andrés Carevic", "Sporting FC", "Cartaginés"]
 draft = false
 ai_processed = true

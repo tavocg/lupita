@@ -2,7 +2,7 @@
 date = "2026-10-10T19:10:54-06:00"
 title = "Mourinho vuelve a las andadas: esto hizo con la conferencia de prensa tras el partido del Real Madrid"
 authors = ["AFP"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Real Madrid", "Villarreal", "LaLiga"]
 draft = false
 ai_processed = true

@@ -2,8 +2,8 @@
 date = "2026-10-07T17:45:55-06:00"
 title = "Yendrick Ruiz apela a la unión en Herediano: ‘La afición no nos va abandonar en estos momentos’"
 authors = ["Felipe Castillo Carazo"]
-category = "Mercado"
-topics = ["Herediano", "Primera División", "Apertura 2026"]
+category = "Deportes"
+topics = ["Herediano", "Primera División"]
 draft = false
 ai_processed = true
 source_id = "4f5e7316019a30f0c678ddef15868c21e2fdcd13cf029e820848dfbfba1d017b"

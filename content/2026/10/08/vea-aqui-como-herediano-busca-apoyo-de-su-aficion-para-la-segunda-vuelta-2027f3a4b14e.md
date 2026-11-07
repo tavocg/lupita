@@ -2,7 +2,7 @@
 date = "2026-10-08T10:19:33-06:00"
 title = "Vea aquí cómo Herediano busca apoyo de su afición para la segunda vuelta"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Herediano", "Segunda vuelta", "Apoyo afición"]
 draft = false
 ai_processed = true

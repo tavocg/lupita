@@ -2,7 +2,7 @@
 date = "2026-10-07T23:46:40-06:00"
 title = "Percusionista español Alejandro Coello ofrecerá conciertos y clase magistral gratuita en Costa Rica"
 authors = []
-category = "Deportes"
+category = "Sociedad"
 topics = ["Alejandro Coello", "Conciertos", "UNA"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-11T09:38:58-06:00"
 title = "Cae otro técnico: Paulo Wanchope queda fuera de Herediano"
 authors = ["Fanny Tayver Marín, Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Herediano", "Tecnico", "Paulo Wanchope"]
 draft = false
 ai_processed = true

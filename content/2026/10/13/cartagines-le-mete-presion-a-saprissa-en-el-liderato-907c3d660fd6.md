@@ -2,7 +2,7 @@
 date = "2026-10-13T19:56:06-06:00"
 title = "Cartaginés le mete presión a Saprissa en el liderato"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Cartaginés", "Saprissa", "Puntarenas"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-09T09:16:47-06:00"
 title = "Malcon Pilone revela dos noticias sobre su regreso con Alajuelense y sus planes en Costa Rica"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Malcon Pilone", "Alajuelense", "Naturalización"]
 draft = false
 ai_processed = true

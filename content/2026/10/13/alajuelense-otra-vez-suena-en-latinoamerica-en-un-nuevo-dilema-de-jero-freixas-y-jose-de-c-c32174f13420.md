@@ -2,7 +2,7 @@
 date = "2026-10-13T19:34:39-06:00"
 title = "Alajuelense otra vez suena en Latinoamérica en un nuevo dilema de Jero Freixas y Jose de Cabo"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Bautismo", "Creadores de contenido"]
 draft = false
 ai_processed = true

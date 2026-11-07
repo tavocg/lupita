@@ -2,7 +2,7 @@
 date = "2026-10-15T10:29:43-06:00"
 title = "Premios todos los días: la estrategia de Majo Ulate para seguir en ‘Mira quién baila’"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Majo Ulate", "Mira quién baila", "Teletica"]
 draft = false
 ai_processed = true

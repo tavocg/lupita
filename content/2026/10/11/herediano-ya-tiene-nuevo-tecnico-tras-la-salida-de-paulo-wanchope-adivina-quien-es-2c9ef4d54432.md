@@ -2,7 +2,7 @@
 date = "2026-10-11T11:23:38-06:00"
 title = "Herediano ya tiene nuevo técnico tras la salida de Paulo Wanchope: ¿adivina quién es?"
 authors = ["Fanny Tayver Marín, Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Herediano", "Jafet Soto", "Paulo César Wanchope"]
 draft = false
 ai_processed = true

@@ -2,8 +2,8 @@
 date = "2026-10-10T16:15:10-06:00"
 title = "Vea las primeras decisiones de Óscar ‘Macho’ Ramírez en su regreso a Alajuelense"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Óscar Ramírez", "Liga Deportiva Alajuelense", "Alajuelense"]
+category = "Deportes"
+topics = ["Óscar Ramírez", "Alajuelense"]
 draft = false
 ai_processed = true
 source_id = "7cfe4dbe8012a498a3f454f9874de235932a3ef3f685fc67773c6189f96e4e06"

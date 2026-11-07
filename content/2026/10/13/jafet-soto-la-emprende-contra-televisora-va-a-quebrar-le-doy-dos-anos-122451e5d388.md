@@ -2,7 +2,7 @@
 date = "2026-10-13T14:16:37-06:00"
 title = "Jafet Soto la emprende contra televisora: ‘Va a quebrar, le doy dos años’"
 authors = ["Felipe Castillo Carazo"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Jafet Soto", "Herediano", "Fox"]
 draft = false
 ai_processed = true

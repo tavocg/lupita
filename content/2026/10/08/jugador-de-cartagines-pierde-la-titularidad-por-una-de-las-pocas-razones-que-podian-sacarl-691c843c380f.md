@@ -2,7 +2,7 @@
 date = "2026-10-08T13:38:04-06:00"
 title = "Jugador de Cartaginés pierde la titularidad por una de las pocas razones que podían sacarlo del puesto"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Cartaginés", "Kevin Briceño", "Amarini Villatoro"]
 draft = false
 ai_processed = true

@@ -2,8 +2,8 @@
 date = "2026-10-11T19:33:37-06:00"
 title = "El lamento de Alajuelense después del extraño partido lleno de agua en Puntarenas"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Liga Deportiva Alajuelense", "Puntarenas FC", "Regreso Óscar Ramírez"]
+category = "Deportes"
+topics = ["Alajuelense", "Puntarenas FC", "Regreso Óscar Ramírez"]
 draft = false
 ai_processed = true
 source_id = "bd995ce7b8d67578343cebab5ebac78015bccd3340f92cd9b89e5ac85fc21ef6"

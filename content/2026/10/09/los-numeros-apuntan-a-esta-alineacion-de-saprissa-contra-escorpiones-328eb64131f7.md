@@ -2,8 +2,8 @@
 date = "2026-10-09T17:42:53-06:00"
 title = "Los números apuntan a esta alineación de Saprissa contra Escorpiones"
 authors = ["Milton Montenegro"]
-category = "Mercado"
-topics = ["Saprissa", "Escorpiones", "Apertura 2026"]
+category = "Deportes"
+topics = ["Saprissa", "Escorpiones"]
 draft = false
 ai_processed = true
 source_id = "328eb64131f7995678f8a08743b97951103115fc6e889be162754eeea908817f"

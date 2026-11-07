@@ -2,7 +2,7 @@
 date = "2026-10-18T12:57:21-06:00"
 title = "Cartaginés domina a Saprissa y pone al rojo vivo la lucha por la cima"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Cartaginés", "Saprissa", "Olimpia"]
 draft = false
 ai_processed = true

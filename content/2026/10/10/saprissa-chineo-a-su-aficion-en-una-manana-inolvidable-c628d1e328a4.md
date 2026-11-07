@@ -2,8 +2,8 @@
 date = "2026-10-10T17:09:34-06:00"
 title = "Saprissa chineó a su afición en una mañana inolvidable"
 authors = ["Esteban Valverde"]
-category = "Mercado"
-topics = ["Saprissa", "Apertura 2026", "Escorpiones de Belén"]
+category = "Deportes"
+topics = ["Saprissa", "Escorpiones de Belén"]
 draft = false
 ai_processed = true
 source_id = "c628d1e328a48b7495f8bfccb10c6893fa7399ce7b7f78ad005254f129055948"

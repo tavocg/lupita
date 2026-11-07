@@ -2,7 +2,7 @@
 date = "2026-10-07T17:07:02-06:00"
 title = "Fiscalía investigaba a extraditable por narcotráfico y criptoactivos desde enero"
 authors = ["Edmundo"]
-category = "Finanzas"
+category = "Seguridad"
 topics = ["Criptoactivos", "Narcotráfico", "Fiscalía"]
 draft = false
 ai_processed = true

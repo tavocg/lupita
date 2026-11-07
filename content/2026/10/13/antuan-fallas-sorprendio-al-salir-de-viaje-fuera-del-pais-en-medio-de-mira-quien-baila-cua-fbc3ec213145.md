@@ -2,7 +2,7 @@
 date = "2026-10-13T14:55:25-06:00"
 title = "Antuan Fallas sorprendió al salir de viaje fuera del país en medio de ‘Mira quién baila’: ¿Cuál es su destino?"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Antuan Fallas", "Mira quién baila", "Florida"]
 draft = false
 ai_processed = true

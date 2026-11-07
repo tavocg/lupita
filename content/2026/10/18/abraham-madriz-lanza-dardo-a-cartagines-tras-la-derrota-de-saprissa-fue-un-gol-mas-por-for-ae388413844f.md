@@ -2,7 +2,7 @@
 date = "2026-10-18T13:31:33-06:00"
 title = "Abraham Madriz lanza dardo a Cartaginés tras la derrota de Saprissa: ‘Fue un gol más por fortuna’"
 authors = ["Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Cartaginés", "Fútbol"]
 draft = false
 ai_processed = true

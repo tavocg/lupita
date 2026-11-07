@@ -2,7 +2,7 @@
 date = "2026-10-07T15:59:57-06:00"
 title = "‘El Chinamo’ alista su regreso con modificaciones en su elenco y el retorno de una de sus secciones favoritas"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["El Chinamo", "Teletica", "Producción de televisión"]
 draft = false
 ai_processed = true

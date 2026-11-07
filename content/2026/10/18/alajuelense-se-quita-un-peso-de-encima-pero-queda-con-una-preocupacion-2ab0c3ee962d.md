@@ -2,8 +2,8 @@
 date = "2026-10-18T11:06:15-06:00"
 title = "Alajuelense se quita un peso de encima, pero queda con una preocupación"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Alajuelense", "Motagua", "Copa Centroamericana de Concacaf"]
+category = "Deportes"
+topics = ["Alajuelense", "Motagua", "Copa Centroamericana"]
 draft = false
 ai_processed = true
 source_id = "2ab0c3ee962d7317802652f997d21a87e1bf59010bbfc141109c0d8c897f4403"

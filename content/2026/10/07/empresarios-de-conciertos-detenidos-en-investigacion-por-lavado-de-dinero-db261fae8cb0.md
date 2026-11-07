@@ -2,8 +2,8 @@
 date = "2026-10-07T08:24:21-06:00"
 title = "Empresarios de conciertos detenidos en investigación por lavado de dinero"
 authors = ["Redacción EF"]
-category = "Finanzas"
-topics = ["Casos Éxodo", "Edwin Vargas García", "Lavado de dinero"]
+category = "Seguridad"
+topics = ["Caso Éxodo", "Edwin Vargas García", "Lavado de dinero"]
 draft = false
 ai_processed = true
 source_id = "db261fae8cb0a6dc5fe7df2e779fa3e36eca392af06b321c5a101b1d1d8c4fab"

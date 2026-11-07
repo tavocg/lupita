@@ -2,7 +2,7 @@
 date = "2026-10-07T17:08:56-06:00"
 title = "Primeros 75 buses eléctricos operarían en rutas de la GAM el próximo año"
 authors = ["Patricia Recio"]
-category = "Mercado"
+category = "Transporte"
 topics = ["Buses eléctricos", "MOPT", "GAM"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-11T16:10:44-06:00"
 title = "Saprissa sorprende con su alineación: dos seleccionados comenzarán en el banquillo"
 authors = ["Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Escorpiones", "Liderato"]
 draft = false
 ai_processed = true

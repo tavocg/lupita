@@ -2,8 +2,8 @@
 date = "2026-10-10T22:55:20-06:00"
 title = "Elías Aguilar se desahoga en los micrófonos como pocas veces ante la crisis de Herediano"
 authors = ["Fanny Tayver Marín, Felipe Castillo Carazo"]
-category = "Mercado"
-topics = ["Herediano", "Clasificación", "Derrota"]
+category = "Deportes"
+topics = ["Herediano", "Clasificación"]
 draft = false
 ai_processed = true
 source_id = "0f6e93c86c8244ba008c2ae25fa0069e518fa6c3dd355c9348dcb83fcb3831d7"

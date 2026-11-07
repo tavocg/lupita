@@ -2,7 +2,7 @@
 date = "2026-10-13T19:33:50-06:00"
 title = "Influencer terminó en hospital por intoxicación en Costa Rica: ‘Me encontraba extremadamente mal’"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Nerea Peña", "Intoxicación alimentaria", "Mercado Central"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-17T21:51:22-06:00"
 title = "Alajuelense vuelve a la victoria y de momento está en zona de clasificación"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Inter San Carlos", "Liga de Costa Rica"]
 draft = false
 ai_processed = true

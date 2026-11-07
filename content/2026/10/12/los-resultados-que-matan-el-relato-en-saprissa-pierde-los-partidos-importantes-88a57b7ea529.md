@@ -2,7 +2,7 @@
 date = "2026-10-12T18:04:00-06:00"
 title = "Los resultados que matan el relato en Saprissa: pierde los partidos importantes"
 authors = ["Milton Montenegro"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Liga de Ascenso", "Liderato"]
 draft = false
 ai_processed = true

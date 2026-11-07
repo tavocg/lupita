@@ -2,7 +2,7 @@
 date = "2026-10-07T19:53:33-06:00"
 title = "Ruta de buses de barrio México, San Cayetano, Seminario y Escalante dejará de operar: esta es la fecha del cierre"
 authors = ["Silvia Ureña Corrales"]
-category = "Mercado"
+category = "Transporte"
 topics = ["Rutas de autobús", "Costo del combustible", "Reducción de pasajeros"]
 draft = false
 ai_processed = true

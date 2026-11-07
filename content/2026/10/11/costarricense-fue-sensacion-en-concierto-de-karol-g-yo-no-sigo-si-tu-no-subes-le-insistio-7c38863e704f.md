@@ -2,8 +2,8 @@
 date = "2026-10-11T11:06:08-06:00"
 title = "Costarricense fue sensación en concierto de Karol G: ‘Yo no sigo si tú no subes’, le insistió la cantante"
 authors = ["Jailine González Gómez"]
-category = "Deportes"
-topics = ["Karol G", "Costa Rica", "Concierto"]
+category = "Sociedad"
+topics = ["Karol G", "Concierto"]
 draft = false
 ai_processed = true
 source_id = "7c38863e704f6ce2401aff15448bf82f64e705310867b3c5648f0ca4a565d4c3"

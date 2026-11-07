@@ -2,7 +2,7 @@
 date = "2026-10-07T15:22:34-06:00"
 title = "Un ídolo de Alajuelense afronta un problema de salud: piden ayuda para comprar sus medicamentos"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Luis Diego Arnáez", "Alajuelense", "Medicamentos"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-10T16:53:00-06:00"
 title = "‘Un tema tan tóxico de mi vida’: influencer costarricense mostró el cambio físico que tanto esperaba"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Celeste Rodríguez", "Influencer", "Procedimiento estético dental"]
 draft = false
 ai_processed = true

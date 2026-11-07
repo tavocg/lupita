@@ -2,7 +2,7 @@
 date = "2026-10-11T07:15:00-06:00"
 title = "Paulo Wanchope ante nueva derrota de Herediano: ‘No puedo dar ninguna explicación’"
 authors = ["Fanny Tayver Marín, Felipe Castillo Carazo"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Herediano", "San Carlos", "Fútbol"]
 draft = false
 ai_processed = true

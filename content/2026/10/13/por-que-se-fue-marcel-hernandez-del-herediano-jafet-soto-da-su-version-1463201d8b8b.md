@@ -2,7 +2,7 @@
 date = "2026-10-13T16:46:39-06:00"
 title = "¿Por qué se fue Marcel Hernández del Herediano? Jafet Soto da su versión"
 authors = ["Felipe Castillo Carazo"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Marcel Hernández", "Herediano", "Inter Santa Tecla"]
 draft = false
 ai_processed = true

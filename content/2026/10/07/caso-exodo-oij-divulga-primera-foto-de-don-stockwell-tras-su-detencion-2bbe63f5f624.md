@@ -2,8 +2,8 @@
 date = "2026-10-07T10:32:10-06:00"
 title = "Caso \"Éxodo\": OIJ divulga primera foto de Don Stockwell tras su detención"
 authors = []
-category = "Mercado"
-topics = ["Don Stockwell", "Lavado de dinero", "Operación Éxodo"]
+category = "Seguridad"
+topics = ["Don Stockwell", "Lavado de dinero", "Caso Éxodo"]
 draft = false
 ai_processed = true
 source_id = "2bbe63f5f624e8d421dba47c16d5542e5076151b8d0c13cc40cff8d0f8bcdac1"

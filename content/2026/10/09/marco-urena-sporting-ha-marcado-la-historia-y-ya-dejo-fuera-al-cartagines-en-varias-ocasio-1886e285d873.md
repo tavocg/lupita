@@ -2,7 +2,7 @@
 date = "2026-10-09T10:41:40-06:00"
 title = "Marco Ureña: ‘Sporting ha marcado la historia y ya dejó fuera al Cartaginés en varias ocasiones’"
 authors = ["Felipe Castillo Carazo"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Sporting FC", "Cartaginés", "Rivalidad"]
 draft = false
 ai_processed = true

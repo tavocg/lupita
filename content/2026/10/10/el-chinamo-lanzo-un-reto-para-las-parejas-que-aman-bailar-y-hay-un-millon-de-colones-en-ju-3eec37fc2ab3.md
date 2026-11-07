@@ -2,7 +2,7 @@
 date = "2026-10-10T15:48:21-06:00"
 title = "‘El Chinamo’ lanzó un reto para las parejas que aman bailar y hay un millón de colones en juego: así puede participar"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["El Chinamo", "Premios", "Parejas de baile"]
 draft = false
 ai_processed = true

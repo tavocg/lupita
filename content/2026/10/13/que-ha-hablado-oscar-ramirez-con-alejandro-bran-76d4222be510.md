@@ -2,7 +2,7 @@
 date = "2026-10-13T12:35:49-06:00"
 title = "¿Qué ha hablado Óscar Ramírez con Alejandro Bran?"
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Alejandro Bran", "Óscar Ramírez"]
 draft = false
 ai_processed = true

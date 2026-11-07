@@ -2,8 +2,8 @@
 date = "2026-10-10T20:27:09-06:00"
 title = "Este es el gran problema que se evitó en el partido entre Puntarenas y Alajuelense"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Puntarenas FC", "Liga Deportiva Alajuelense", "Unafut"]
+category = "Deportes"
+topics = ["Puntarenas FC", "Alajuelense", "Unafut"]
 draft = false
 ai_processed = true
 source_id = "76aae65f02d52532cd06618e02e620d5f56f4f5b8465ebab4b65e2c51fe4220d"

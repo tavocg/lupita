@@ -2,7 +2,7 @@
 date = "2026-10-16T12:13:34-06:00"
 title = "Yosimar Arias sobre declaraciones de Marco Vásquez: \"Condiciona a los árbitros\""
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Inter San Carlos", "Alajuelense", "Marco Vásquez"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-13T21:24:43-06:00"
 title = "Amarini Villatoro deja clara su prioridad con Cartaginés: ‘Aunque a muchos no les guste’"
 authors = ["Milton Montenegro"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Cartaginés", "Liderato", "Segundas Vueltas"]
 draft = false
 ai_processed = true

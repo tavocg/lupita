@@ -2,7 +2,7 @@
 date = "2026-10-08T16:08:06-06:00"
 title = "Saprissa lanza una promoción para volverse ‘Morado de Corazón’"
 authors = ["Milton Montenegro"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Promoción", "Sillas anuales"]
 draft = false
 ai_processed = true

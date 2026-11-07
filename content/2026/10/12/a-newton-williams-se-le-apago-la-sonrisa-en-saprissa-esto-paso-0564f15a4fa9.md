@@ -2,7 +2,7 @@
 date = "2026-10-12T11:39:44-06:00"
 title = "A Newton Williams se le apagó la sonrisa en Saprissa: esto pasó"
 authors = ["Milton Montenegro, Alejandro Cerdas"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Newton Williams", "Escorpiones"]
 draft = false
 ai_processed = true

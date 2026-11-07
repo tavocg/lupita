@@ -2,7 +2,7 @@
 date = "2026-10-15T11:01:03-06:00"
 title = "Marco Vásquez sobre el arbitraje: \"Estamos siendo afectados y no se vale\""
 authors = []
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "VAR", "Arbitraje"]
 draft = false
 ai_processed = true

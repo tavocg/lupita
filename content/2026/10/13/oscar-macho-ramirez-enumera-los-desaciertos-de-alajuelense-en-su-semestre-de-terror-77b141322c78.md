@@ -2,7 +2,7 @@
 date = "2026-10-13T13:07:09-06:00"
 title = "Óscar ‘Macho’ Ramírez enumera los desaciertos de Alajuelense en su semestre de terror"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Alajuelense", "Herediano", "Clasificación"]
 draft = false
 ai_processed = true

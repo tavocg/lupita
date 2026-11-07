@@ -2,8 +2,8 @@
 date = "2026-10-17T19:15:58-06:00"
 title = "Así es como Óscar Ramírez buscará ganarle la partida a Douglas Sequeira"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Alajuelense", "Inter San Carlos", "Copa Centroamericana de Concacaf"]
+category = "Deportes"
+topics = ["Alajuelense", "Inter San Carlos", "Copa Centroamericana"]
 draft = false
 ai_processed = true
 source_id = "d6460f97b3e51a7d8751408535f8727e880f98d2a68e02b4baa09132fb771538"

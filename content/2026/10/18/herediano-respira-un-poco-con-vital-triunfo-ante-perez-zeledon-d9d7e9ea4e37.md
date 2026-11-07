@@ -2,8 +2,8 @@
 date = "2026-10-18T17:47:00-06:00"
 title = "Herediano respira un poco con vital triunfo ante Pérez Zeledón"
 authors = []
-category = "Mercado"
-topics = ["Herediano", "Pérez Zeledón", "Torneo de Apertura 2026"]
+category = "Deportes"
+topics = ["Herediano", "Pérez Zeledón"]
 draft = false
 ai_processed = true
 source_id = "d9d7e9ea4e37038313038d54f6459892b806cf8cf47d2cf5a19fec6581337728"

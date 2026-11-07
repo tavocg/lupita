@@ -2,7 +2,7 @@
 date = "2026-10-12T11:57:54-06:00"
 title = "Influencer será la próxima invitada especial de ‘Mira quién baila’: ¿De quién se trata?"
 authors = ["Valeria Yuliana Arce Orozco"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Influencer", "Mira quién baila", "Yenier Jiménez"]
 draft = false
 ai_processed = true

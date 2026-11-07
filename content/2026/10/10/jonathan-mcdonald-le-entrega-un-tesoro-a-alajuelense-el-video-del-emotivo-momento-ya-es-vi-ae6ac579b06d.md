@@ -2,7 +2,7 @@
 date = "2026-10-10T15:17:26-06:00"
 title = "Jonathan McDonald le entrega un tesoro a Alajuelense: el video del emotivo momento ya es viral"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Jonathan McDonald", "Alajuelense", "Casaca"]
 draft = false
 ai_processed = true

@@ -2,7 +2,7 @@
 date = "2026-10-14T08:32:48-06:00"
 title = "Lussania Víquez reveló algunas verdades detrás de ‘Mira quién baila’: esto fue lo que dijo"
 authors = ["Jessica Rojas Ch."]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Mira quién baila", "Programa de televisión", "Producción de televisión"]
 draft = false
 ai_processed = true

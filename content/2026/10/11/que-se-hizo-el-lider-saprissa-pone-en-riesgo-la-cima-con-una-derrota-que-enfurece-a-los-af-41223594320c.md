@@ -2,7 +2,7 @@
 date = "2026-10-11T18:55:13-06:00"
 title = "¿Qué se hizo el líder? Saprissa pone en riesgo la cima con una derrota que enfurece a los aficionados"
 authors = ["Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Saprissa", "Escorpiones", "Liderato"]
 draft = false
 ai_processed = true

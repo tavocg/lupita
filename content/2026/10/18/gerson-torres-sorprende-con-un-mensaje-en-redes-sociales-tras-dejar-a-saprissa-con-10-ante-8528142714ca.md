@@ -2,7 +2,7 @@
 date = "2026-10-18T14:21:46-06:00"
 title = "Gerson Torres sorprende con un mensaje en redes sociales tras dejar a Saprissa con 10 ante Cartaginés"
 authors = ["Milton Montenegro, Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Gerson Torres", "Saprissa", "Cartaginés"]
 draft = false
 ai_processed = true

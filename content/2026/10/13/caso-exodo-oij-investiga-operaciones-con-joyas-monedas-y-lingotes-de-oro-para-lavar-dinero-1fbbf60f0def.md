@@ -2,7 +2,7 @@
 date = "2026-10-13T19:14:35-06:00"
 title = "Caso Éxodo: OIJ investiga operaciones con joyas, monedas y lingotes de oro para lavar dinero"
 authors = ["Erick Carvajal"]
-category = "Finanzas"
+category = "Seguridad"
 topics = ["Caso Éxodo", "OIJ", "legitimación de capitales"]
 draft = false
 ai_processed = true

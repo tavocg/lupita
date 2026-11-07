@@ -2,8 +2,8 @@
 date = "2026-10-08T10:54:24-06:00"
 title = "Óscar ‘Macho’ Ramírez explica por qué jugar en Puntarenas le exige algo diferente a Alajuelense"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Óscar Ramírez", "Puntarenas FC", "Liga Deportiva Alajuelense"]
+category = "Deportes"
+topics = ["Óscar Ramírez", "Puntarenas FC", "Alajuelense"]
 draft = false
 ai_processed = true
 source_id = "f5eeb79fe9890688c90ca621a8cc2a7a57b8f020dab3ab819071a41b690dfbd2"

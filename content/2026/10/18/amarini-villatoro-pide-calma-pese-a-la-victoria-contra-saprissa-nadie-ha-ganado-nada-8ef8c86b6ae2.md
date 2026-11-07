@@ -2,7 +2,7 @@
 date = "2026-10-18T15:25:47-06:00"
 title = "Amarini Villatoro pide calma pese a la victoria contra Saprissa: ‘Nadie ha ganado nada’"
 authors = ["Esteban Valverde"]
-category = "Mercado"
+category = "Deportes"
 topics = ["Cartaginés", "Olimpia de Honduras", "Saprissa"]
 draft = false
 ai_processed = true

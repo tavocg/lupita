@@ -2,8 +2,8 @@
 date = "2026-10-12T18:01:42-06:00"
 title = "Alajuelense sabe que no puede fallar más"
 authors = ["Fanny Tayver Marín"]
-category = "Mercado"
-topics = ["Liga Deportiva Alajuelense", "Herediano", "Copa Centroamericana"]
+category = "Deportes"
+topics = ["Alajuelense", "Herediano", "Copa Centroamericana"]
 draft = false
 ai_processed = true
 source_id = "20f94921da6566da668d506a10a5db70eb8ace9fa5861bd73f48d607e22fdc5b"

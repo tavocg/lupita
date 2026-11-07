@@ -2,7 +2,7 @@
 date = "2026-10-07T16:07:52-06:00"
 title = "Muere Piero, voz de ‘Mi viejo’ y ‘Llegando, llegaste’"
 authors = ["Fiorella Montoya, La Nación / Argentina / GDA"]
-category = "Deportes"
+category = "Sociedad"
 topics = []
 draft = false
 ai_processed = true

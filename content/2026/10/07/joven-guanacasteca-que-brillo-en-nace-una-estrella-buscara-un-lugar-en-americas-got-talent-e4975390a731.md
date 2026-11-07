@@ -2,7 +2,7 @@
 date = "2026-10-07T13:32:19-06:00"
 title = "Joven guanacasteca que brilló en ‘Nace una estrella’ buscará un lugar en ‘America’s Got Talent’"
 authors = ["Fiorella Montoya"]
-category = "Mercado"
+category = "Sociedad"
 topics = ["Vivianne Juárez", "America's Got Talent", "Nace una estrella"]
 draft = false
 ai_processed = true
