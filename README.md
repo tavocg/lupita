@@ -1,7 +1,7 @@
 # Lupita
 
 Agregador costarricense de noticias con RSS, Ollama y Hugo. Requiere Python
-3.11 o posterior; Docker Compose es opcional.
+3.11 o posterior, Docker Compose es opcional.
 
 ## Configuración
 
