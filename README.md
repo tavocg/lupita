@@ -61,8 +61,8 @@ PYTHONPATH=src python3 -m lupita stage --input .news-index.json
 ```
 
 Fuentes disponibles: `nacion`, `delfino`, `semanario`, `teletica`,
-`elfinanciero`, `observador`, `ncrnoticias`, `elmundo` y
-`repretel`. `--feed-file` requiere una fuente concreta; `--input` se usa con
+`elfinanciero`, `observador`, `ncrnoticias`, `elmundo`, `repretel` y
+`surcos`. `--feed-file` requiere una fuente concreta; `--input` se usa con
 `stage` o `ingest`.
 
 ## Servicio periódico

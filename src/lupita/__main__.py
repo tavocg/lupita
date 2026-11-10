@@ -18,7 +18,7 @@ from .models import canonical_url
 from .news_index import read_index, write_index
 from .scrapers import (
     delfino, elfinanciero, elmundo, nacion, ncrnoticias,
-    observador, repretel, semanario, teletica,
+    observador, repretel, semanario, surcos, teletica,
 )
 from .storage import destination, known_urls, render
 from .workflow import process, stage
@@ -29,6 +29,7 @@ SCRAPERS = {
     "nacion": nacion, "delfino": delfino, "semanario": semanario, "teletica": teletica,
     "elfinanciero": elfinanciero, "observador": observador,
     "ncrnoticias": ncrnoticias, "elmundo": elmundo, "repretel": repretel,
+    "surcos": surcos,
 }
 
 
