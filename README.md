@@ -130,11 +130,20 @@ Para una vista previa:
 hugo server --buildDrafts
 ```
 
-Para compilar el sitio y su índice de búsqueda:
+Para compilar el sitio, la portada social y su índice de búsqueda, instala
+también `rsvg-convert` y las fuentes DejaVu (en Debian/Ubuntu:
+`sudo apt-get install librsvg2-bin fonts-dejavu-core`), y ejecuta:
 
 ```sh
 sh scripts/build.sh
 ```
+
+El script convierte `themes/main/static/social-card.svg` en
+`social-card.png` de 1200 × 630 píxeles dentro del directorio de salida.
+Hugo lo referencia en las etiquetas Open Graph y Twitter para las tarjetas de
+WhatsApp y otras redes; las noticias con imagen propia usan esa imagen.
+Edita el SVG para cambiar la portada. `hugo server` por sí solo no genera el PNG;
+ejecuta el script de compilación para comprobar la tarjeta social.
 
 El despliegue estático puede servirse desde `public/`. Las fotos de Pexels son
 ilustrativas y muestran su atribución en el pie.
@@ -142,8 +151,9 @@ ilustrativas y muestran su atribución en el pie.
 ## Despliegue con Docker y Dokploy
 
 El `Dockerfile` compila con Hugo 0.166.0, minifica HTML/CSS/JS y genera el
-buscador Pagefind. La imagen final sirve únicamente el resultado con Nginx
-en el puerto 80. Negocia gzip mediante `Accept-Encoding`; si el cliente no lo
+buscador Pagefind y la portada PNG desde el SVG, con las fuentes y el conversor
+incluidos en la etapa de compilación. La imagen final sirve únicamente el
+resultado con Nginx en el puerto 80. Negocia gzip mediante `Accept-Encoding`; si el cliente no lo
 acepta, entrega el contenido sin comprimir. Los borradores no se publican.
 
 ```sh

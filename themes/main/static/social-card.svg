@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Lupita</title>
+  <desc id="description">Noticias de Costa Rica en un solo lugar.</desc>
+  <!-- Colores del tema: assets/css/components/vars.css. -->
+  <rect width="1200" height="630" fill="#f5f8f5"/>
+  <rect x="24" y="24" width="1152" height="582" rx="24" fill="none" stroke="#d4ddd6" stroke-width="2"/>
+  <path d="M80 92H1120" stroke="#d4ddd6" stroke-width="2"/>
+  <g font-family="DejaVu Sans, Arial, sans-serif">
+    <text x="80" y="70" fill="#237a43" font-size="18" font-weight="700" letter-spacing="3">NOTICIAS DE COSTA RICA</text>
+    <text x="1120" y="70" fill="#637068" font-size="18" text-anchor="end">lupitacr.com</text>
+    <text x="80" y="425" fill="#1c3024" font-size="32">La actualidad, en un solo lugar.</text>
+    <text x="80" y="477" fill="#637068" font-size="23">Explora titulares, resúmenes y temas.</text>
+    <text x="80" y="514" fill="#637068" font-size="23">Consulta siempre la fuente original.</text>
+  </g>
+  <text x="73" y="351" fill="#237a43" font-family="DejaVu Serif, Georgia, serif" font-size="142" font-weight="700" letter-spacing="-6">Lupita</text>
+  <!-- La lupa del favicon sobre una hoja de noticias. -->
+  <rect x="831" y="207" width="236" height="280" rx="16" fill="#eaf2ec" transform="rotate(8 949 347)"/>
+  <rect x="809" y="187" width="236" height="280" rx="16" fill="#f5f8f5" stroke="#d4ddd6" stroke-width="3"/>
+  <g fill="none" stroke="#d4ddd6" stroke-width="8" stroke-linecap="round">
+    <path d="M843 233H934M843 260H913M843 397H1009M843 424H961"/>
+  </g>
+  <g transform="translate(835 217) scale(8)" fill="none" stroke="#237a43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607"/>
+  </g>
+  <path d="M80 555H1120" stroke="#d4ddd6" stroke-width="2"/>
+  <path d="M80 555H224" stroke="#237a43" stroke-width="4"/>
+</svg>
